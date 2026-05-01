@@ -22,6 +22,27 @@
   --shadow-card: 0 4px 24px rgba(1, 7, 56, 0.07);
   --shadow-card-hover: 0 12px 48px rgba(1, 7, 56, 0.13);
   --shadow-glow: 0 0 40px rgba(21, 161, 223, 0.18);
+
+  /* Animations */
+  --animate-scroll-left: scroll-left 30s linear infinite;
+  --animate-scroll-testimonials: scroll-left 40s linear infinite;
+  --animate-float: float 4s ease-in-out infinite;
+  --animate-glow-pulse: glow-pulse 3s ease-in-out infinite;
+}
+
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.5; }
 }
 
 @layer base {
@@ -100,5 +121,25 @@
       padding-top: 10rem;
       padding-bottom: 10rem;
     }
+  }
+
+  .animate-scroll-left {
+    animation: scroll-left 30s linear infinite;
+  }
+
+  .animate-scroll-testimonials {
+    animation: scroll-left 40s linear infinite;
+  }
+
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .animate-glow-pulse {
+    animation: glow-pulse 3s ease-in-out infinite;
+  }
+
+  .pause-animation {
+    animation-play-state: paused;
   }
 }

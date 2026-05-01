@@ -47,7 +47,7 @@ export default function Navbar() {
         )}
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5, ease: [0.25, 0.4, 0.25, 1] }}
+        transition={{ duration: 0.5, ease: [0.25, 0.4, 0.25, 1] as const }}
       >
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           {/* Logo */}
@@ -144,7 +144,7 @@ export default function Navbar() {
               initial={{ y: -20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -20, opacity: 0 }}
-              transition={{ duration: 0.25, ease: [0.25, 0.4, 0.25, 1] }}
+              transition={{ duration: 0.25, ease: [0.25, 0.4, 0.25, 1] as const }}
             >
               <div className="flex flex-col gap-1 mb-6">
                 {navLinks.map((link, i) => (

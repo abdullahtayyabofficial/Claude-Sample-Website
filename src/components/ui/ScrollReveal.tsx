@@ -11,6 +11,8 @@ interface ScrollRevealProps {
   once?: boolean
 }
 
+const EASE = [0.25, 0.4, 0.25, 1] as const
+
 const directionOffset = {
   up: { y: 28, x: 0 },
   down: { y: -28, x: 0 },
@@ -40,7 +42,7 @@ export default function ScrollReveal({
       transition={{
         duration: 0.6,
         delay,
-        ease: [0.25, 0.4, 0.25, 1],
+        ease: EASE,
       }}
     >
       {children}
