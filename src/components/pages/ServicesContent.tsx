@@ -96,7 +96,7 @@ const networkServices = [
 
 export default function ServicesContent() {
   return (
-    <main>
+    <>
       {/* Page hero */}
       <section className="gradient-brand pt-32 pb-20 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -250,6 +250,6 @@ export default function ServicesContent() {
           </ScrollReveal>
         </div>
       </section>
-    </main>
+    </>
   )
 }

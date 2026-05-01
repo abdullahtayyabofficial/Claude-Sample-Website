@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Space_Grotesk, Inter } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/layout/Navbar'
@@ -17,6 +17,12 @@ const inter = Inter({
   display: 'swap',
   weight: ['300', '400', '500', '600'],
 })
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#010738',
+}
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://abdullahtayyab.com'),

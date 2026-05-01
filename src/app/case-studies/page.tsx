@@ -5,7 +5,7 @@ import ScrollReveal from '@/components/ui/ScrollReveal'
 import GradientText from '@/components/ui/GradientText'
 
 export const metadata: Metadata = {
-  title: 'Case Studies | Real Marketing Results by Abdullah Tayyab',
+  title: 'Case Studies — Real Campaigns, Real Growth',
   description:
     'Explore real-world case studies showcasing revenue growth, lead generation, and performance marketing results.',
 }

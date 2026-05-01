@@ -29,7 +29,7 @@ function SectionBlock({ label, children }: { label: string; children: React.Reac
 
 export default function CaseStudyLayout({ caseStudy }: CaseStudyLayoutProps) {
   return (
-    <main>
+    <>
       {/* Hero */}
       <section className="gradient-brand pt-32 pb-20 text-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -72,7 +72,7 @@ export default function CaseStudyLayout({ caseStudy }: CaseStudyLayoutProps) {
         <section className="bg-white border-b border-[var(--color-border)]">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <ScrollReveal>
-              <div className={`grid grid-cols-${Math.min(caseStudy.metrics.length, 3)} gap-px bg-[var(--color-border)]`}>
+              <div className={`grid gap-px bg-[var(--color-border)] ${caseStudy.metrics.length >= 3 ? 'grid-cols-3' : 'grid-cols-2'}`}>
                 {caseStudy.metrics.map((metric) => (
                   <div key={metric.label} className="bg-white px-8 py-9 text-center">
                     <p className="text-3xl sm:text-4xl font-heading font-bold gradient-brand-text leading-none mb-2">
@@ -179,6 +179,6 @@ export default function CaseStudyLayout({ caseStudy }: CaseStudyLayoutProps) {
           </ScrollReveal>
         </div>
       </section>
-    </main>
+    </>
   )
 }
