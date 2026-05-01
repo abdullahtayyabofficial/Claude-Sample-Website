@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand */
+  --color-brand-dark: #010738;
+  --color-brand-mid: #0a3a8a;
+  --color-brand-light: #15a1df;
+
+  /* Neutral */
+  --color-surface: #ffffff;
+  --color-surface-muted: #f8f9fc;
+  --color-border: #e8eaf0;
+  --color-text-primary: #0a0a14;
+  --color-text-secondary: #4a4f6a;
+  --color-text-muted: #8890a8;
+
+  /* Fonts */
+  --font-heading: var(--font-space-grotesk), "Space Grotesk", sans-serif;
+  --font-body: var(--font-inter), "Inter", sans-serif;
+
+  /* Shadows */
+  --shadow-card: 0 4px 24px rgba(1, 7, 56, 0.07);
+  --shadow-card-hover: 0 12px 48px rgba(1, 7, 56, 0.13);
+  --shadow-glow: 0 0 40px rgba(21, 161, 223, 0.18);
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: #ffffff;
+    color: var(--color-text-primary);
+    font-family: var(--font-body);
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    line-height: 1.2;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .gradient-brand {
+    background: linear-gradient(135deg, var(--color-brand-dark) 0%, var(--color-brand-light) 100%);
+  }
+
+  .gradient-brand-text {
+    background: linear-gradient(135deg, var(--color-brand-dark) 0%, var(--color-brand-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-brand-text-reverse {
+    background: linear-gradient(135deg, var(--color-brand-light) 0%, var(--color-brand-dark) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow-brand {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .card-shadow {
+    box-shadow: var(--shadow-card);
+  }
+
+  .card-shadow-hover {
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  .section-padding {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-padding {
+      padding-top: 8rem;
+      padding-bottom: 8rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section-padding {
+      padding-top: 10rem;
+      padding-bottom: 10rem;
+    }
+  }
+}
