@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import ScrollReveal from '@/components/ui/ScrollReveal'
 import GradientText from '@/components/ui/GradientText'
 import Button from '@/components/ui/Button'
+import { sendContactEmail } from '@/app/actions/contact'
 
 type FormState = 'idle' | 'submitting' | 'success' | 'error'
 
@@ -41,17 +42,15 @@ export default function ContactCTA() {
     setErrorMsg('')
 
     try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
-      })
-
-      if (!res.ok) throw new Error('Failed to send')
-
-      setState('success')
-      setForm(initialForm)
-      window.location.href = '/thank-you'
+      const result = await sendContactEmail(form)
+      if (result.success) {
+        setState('success')
+        setForm(initialForm)
+        window.location.href = '/thank-you'
+      } else {
+        setState('error')
+        setErrorMsg('Something went wrong. Please try again or contact directly.')
+      }
     } catch {
       setState('error')
       setErrorMsg('Something went wrong. Please try again or contact directly.')
