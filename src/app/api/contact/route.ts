@@ -1,8 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-// Resend integration — requires RESEND_API_KEY and CONTACT_EMAIL env vars
-// Set these in Vercel environment variables before deployment
-
 interface ContactPayload {
   name: string
   email: string
@@ -30,8 +27,8 @@ export async function POST(req: NextRequest) {
     const { Resend } = await import('resend')
     const resend = new Resend(apiKey)
 
-    await resend.emails.send({
-      from: 'Portfolio Contact <noreply@abdullahtayyab.com>',
+    const { error } = await resend.emails.send({
+      from: 'Portfolio Contact <onboarding@resend.dev>',
       to: toEmail,
       replyTo: body.email,
       subject: `New enquiry from ${body.name} — ${body.businessType}`,
@@ -45,6 +42,11 @@ export async function POST(req: NextRequest) {
         body.message,
       ].join('\n'),
     })
+
+    if (error) {
+      console.error('Resend error:', error)
+      return NextResponse.json({ error: 'Failed to send email' }, { status: 500 })
+    }
 
     return NextResponse.json({ success: true })
   } catch (err) {
