@@ -7,7 +7,7 @@ export const testimonials: Testimonial[] = [
     role: 'Marketing Professional',
     company: 'LUMS Short Course',
     content:
-      "During a short course at LUMS, I had the chance to interact with Abdullah and later reached out for guidance on a Google campaign. I was genuinely impressed by the way he approached it — he took the time to break things down thoughtfully, explaining the strategy, structure, and optimization in a way that was both detailed and practical. It's rare to find someone who thinks in terms of the full funnel. I truly value the guidance he shared and would confidently recommend him to anyone serious about scaling through paid acquisition.",
+      "During a short course at LUMS, I had the chance to interact with Abdullah and later reached out for guidance on a Google campaign. I was genuinely impressed by the way he approached it. He took the time to break things down thoughtfully, explaining the strategy, structure, and optimization in a way that was both detailed and practical. It's rare to find someone who thinks in terms of the full funnel. I truly value the guidance he shared and would confidently recommend him to anyone serious about scaling through paid acquisition.",
   },
   {
     id: '2',

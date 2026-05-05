@@ -10,11 +10,11 @@ const EASE = [0.25, 0.4, 0.25, 1] as const
 const coreService = {
   title: 'Performance Marketing & Media Buying',
   tag: 'Delivered by Abdullah personally',
-  desc: 'I work directly with a select number of clients to build and manage paid media systems across Meta, Google, TikTok, and LinkedIn. Every campaign is strategy-first — built around your specific offer, audience, and growth target.',
+  desc: 'I work directly with a select number of clients to build and manage paid media systems across Meta, Google, TikTok, and LinkedIn. Every campaign is strategy-first, built around your specific offer, audience, and growth target.',
   items: [
     'Campaign strategy & media planning',
-    'Meta Ads — lead generation & ecommerce',
-    'Google Ads — search, shopping & performance max',
+    'Meta Ads: lead generation & ecommerce',
+    'Google Ads: search, shopping & performance max',
     'TikTok & LinkedIn ad management',
     'Conversion tracking & attribution setup',
     'Creative direction & ad copy',
@@ -226,7 +226,7 @@ export default function ServicesContent() {
                 </svg>
               </div>
               <p className="text-sm text-[var(--color-text-muted)] leading-relaxed">
-                <span className="font-semibold text-[var(--color-text-secondary)]">Please note:</span> The services listed under &quot;Extended Network&quot; — AI Automation, SEO, Web Design, and Visual Design — are delivered by trusted specialist partners, not by Abdullah personally. Abdullah acts as the coordinating point of contact and ensures all work meets the same standard expected from his direct engagements.
+                <span className="font-semibold text-[var(--color-text-secondary)]">Please note:</span> The services listed under &quot;Extended Network&quot; (AI Automation, SEO, Web Design, and Visual Design) are delivered by trusted specialist partners, not by Abdullah personally. Abdullah acts as the coordinating point of contact and ensures all work meets the same standard expected from his direct engagements.
               </p>
             </div>
           </ScrollReveal>

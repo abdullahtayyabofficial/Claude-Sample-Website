@@ -18,7 +18,7 @@ const stats = [
 const experience = [
   {
     role: 'Media Buying Executive',
-    company: 'Firebolt63 — Creative Marketing Agency',
+    company: 'Firebolt63, Creative Marketing Agency',
     period: 'Nov 2025 – Apr 2026',
     highlights: [
       'Generated PKR 24M+ in ecommerce sales in ~176 days, achieving 325% YoY growth',
@@ -30,7 +30,7 @@ const experience = [
   },
   {
     role: 'Media Buyer',
-    company: 'Wave Byte — Ecommerce Service Provider',
+    company: 'Wave Byte, Ecommerce Service Provider',
     period: 'Dec 2024 – Apr 2025',
     highlights: [
       'Managed over PKR 1.5M in ad spend; scaled campaigns to PKR 600K+',
@@ -58,12 +58,12 @@ const credentials = [
 
 const speaking = [
   {
-    title: 'Guest Speaker — Digital Marketing Landscape',
+    title: 'Guest Speaker: Digital Marketing Landscape',
     org: 'LUMS CES, Advertising Programme',
     desc: 'Delivered a session on modern performance marketing and the role of AI in digital advertising.',
   },
   {
-    title: 'Guest Speaker — Proving ROI on Marketing',
+    title: 'Guest Speaker: Proving ROI on Marketing',
     org: 'BIC Foundry, Beaconhouse International College',
     desc: 'Spoke on measurement frameworks, attribution models, and how marketers demonstrate business value.',
   },
@@ -87,7 +87,7 @@ export default function AboutContent() {
           >
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/60 mb-3">About</p>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-semibold leading-tight max-w-3xl">
-              From Campaigns to Systems —<br className="hidden sm:block" /> Built for Scale
+              From Campaigns to Systems,<br className="hidden sm:block" /> Built for Scale
             </h1>
           </motion.div>
         </div>
@@ -125,13 +125,13 @@ export default function AboutContent() {
 
             <ScrollReveal className="lg:col-span-3" direction="left" delay={0.1}>
               <p className="text-lg text-[var(--color-text-secondary)] leading-relaxed mb-5">
-                I&apos;m a performance marketer who builds data-driven systems that turn advertising into a predictable revenue engine. Since 2024, I&apos;ve managed media budgets across Meta, Google, TikTok, and LinkedIn — delivering results for brands in ecommerce, real estate, education, hospitality, and professional services.
+                I&apos;m a performance marketer who builds data-driven systems that turn advertising into a predictable revenue engine. Since 2024, I&apos;ve managed media budgets across Meta, Google, TikTok, and LinkedIn, delivering results for brands in ecommerce, real estate, education, hospitality, and professional services.
               </p>
               <p className="text-[var(--color-text-secondary)] leading-relaxed mb-5">
-                My approach isn&apos;t about running ads. It&apos;s about building complete marketing systems — where every component, from creative to conversion tracking to scaling strategy, works in alignment to deliver measurable, repeatable growth.
+                My approach isn&apos;t about running ads. It&apos;s about building complete marketing systems, where every component, from creative to conversion tracking to scaling strategy, works in alignment to deliver measurable, repeatable growth.
               </p>
               <p className="text-[var(--color-text-secondary)] leading-relaxed mb-8">
-                I&apos;ve worked with brands across ecommerce, real estate, hospitality, co-working, professional services, and large-scale events — adapting strategy and execution to each vertical while maintaining a consistent focus on ROI and long-term scalability.
+                I&apos;ve worked with brands across ecommerce, real estate, hospitality, co-working, professional services, and large-scale events, adapting strategy and execution to each vertical while maintaining a consistent focus on ROI and long-term scalability.
               </p>
               <div className="flex flex-wrap gap-3">
                 <Button href="/#contact" size="md">Book a Call</Button>
@@ -226,7 +226,7 @@ export default function AboutContent() {
                       </svg>
                     </div>
                     <div>
-                      <p className="text-sm font-semibold text-[var(--color-text-primary)]">BBIT — Virtual University of Pakistan</p>
+                      <p className="text-sm font-semibold text-[var(--color-text-primary)]">BBIT, Virtual University of Pakistan</p>
                       <p className="text-xs text-[var(--color-text-muted)]">Bachelor of Business & Information Technology</p>
                     </div>
                   </div>

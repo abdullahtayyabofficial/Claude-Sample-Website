@@ -65,7 +65,7 @@ export default function About() {
             About
           </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-semibold text-[var(--color-text-primary)]">
-            From Campaigns to Systems —{' '}
+            From Campaigns to Systems,{' '}
             <GradientText>Built for Scale</GradientText>
           </h2>
         </ScrollReveal>
@@ -105,10 +105,10 @@ export default function About() {
           {/* Bio column */}
           <ScrollReveal className="lg:col-span-3" direction="left" delay={0.1}>
             <p className="text-lg text-[var(--color-text-secondary)] leading-relaxed mb-6">
-              I&apos;m a performance marketer who builds data-driven systems that turn advertising into a predictable revenue engine. Since 2024, I&apos;ve managed media budgets across Meta, Google, TikTok, and LinkedIn — delivering results for brands in ecommerce, real estate, education, hospitality, and professional services.
+              I&apos;m a performance marketer who builds data-driven systems that turn advertising into a predictable revenue engine. Since 2024, I&apos;ve managed media budgets across Meta, Google, TikTok, and LinkedIn, delivering results for brands in ecommerce, real estate, education, hospitality, and professional services.
             </p>
             <p className="text-[var(--color-text-secondary)] leading-relaxed mb-8">
-              My approach isn&apos;t about running ads. It&apos;s about building complete marketing systems — where every component, from creative to conversion tracking to scaling strategy, works in alignment to deliver measurable, repeatable growth.
+              My approach isn&apos;t about running ads. It&apos;s about building complete marketing systems, where every component, from creative to conversion tracking to scaling strategy, works in alignment to deliver measurable, repeatable growth.
             </p>
 
             {/* Experience timeline */}
@@ -192,7 +192,7 @@ export default function About() {
                     </svg>
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-[var(--color-text-primary)]">BBIT — Virtual University of Pakistan</p>
+                    <p className="text-sm font-semibold text-[var(--color-text-primary)]">BBIT, Virtual University of Pakistan</p>
                     <p className="text-xs text-[var(--color-text-muted)]">Bachelor of Business & Information Technology</p>
                   </div>
                 </div>
@@ -221,12 +221,12 @@ export default function About() {
               <div className="space-y-5">
                 {[
                   {
-                    title: 'Guest Speaker — Digital Marketing Landscape',
+                    title: 'Guest Speaker: Digital Marketing Landscape',
                     org: 'LUMS CES Advertising',
                     icon: '🎤',
                   },
                   {
-                    title: 'Guest Speaker — How to Prove ROI on Marketing',
+                    title: 'Guest Speaker: How to Prove ROI on Marketing',
                     org: 'BIC Foundry, Beaconhouse International College',
                     icon: '🎤',
                   },

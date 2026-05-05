@@ -40,15 +40,15 @@ export default function ProofStrip() {
           {allLogos.map((logo, i) => (
             <div
               key={`${logo.name}-${i}`}
-              className="flex items-center justify-center shrink-0 opacity-50 hover:opacity-90 transition-opacity duration-300 grayscale hover:grayscale-0"
-              style={{ height: '64px' }}
+              className="flex items-center justify-center shrink-0 opacity-90 hover:opacity-50 hover:grayscale transition-all duration-300"
+              style={{ height: '72px' }}
             >
               <Image
                 src={logo.src}
                 alt={logo.name}
                 width={logo.width}
                 height={logo.height}
-                className="object-contain max-h-10 w-auto"
+                className="object-contain max-h-12 w-auto"
                 unoptimized
               />
             </div>

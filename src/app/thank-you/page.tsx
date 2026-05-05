@@ -3,7 +3,7 @@ import GradientText from '@/components/ui/GradientText'
 import Button from '@/components/ui/Button'
 
 export const metadata: Metadata = {
-  title: "Thank You — Message Received",
+  title: "Thank You: Message Received",
   description: "Your message has been received. Abdullah Tayyab will be in touch within 24 hours.",
   robots: { index: false, follow: false },
 }

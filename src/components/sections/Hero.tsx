@@ -8,9 +8,9 @@ import GradientText from '@/components/ui/GradientText'
 import NodeNetwork from '@/components/ui/NodeNetwork'
 
 const metrics = [
-  { value: '₨100M+', label: 'Revenue Driven' },
+  { value: '₨30M+', label: 'Revenue Driven' },
   { value: '10,000+', label: 'Leads Generated' },
-  { value: '93%', label: 'Client Retention' },
+  { value: '4x-16x', label: 'Avg ROAS' },
 ]
 
 const EASE = [0.25, 0.4, 0.25, 1] as const
@@ -55,16 +55,6 @@ export default function Hero() {
 
           {/* ── Left: Text content ── */}
           <div className="flex flex-col justify-center order-2 lg:order-1">
-            {/* Tag */}
-            <motion.div {...fadeUp(0)}>
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[var(--color-brand-light)]/25 bg-[var(--color-brand-light)]/6 mb-6 w-fit">
-                <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-brand-light)] shrink-0" />
-                <span className="text-xs font-semibold text-[var(--color-brand-light)] tracking-wide">
-                  Performance Marketer & Media Buyer
-                </span>
-              </div>
-            </motion.div>
-
             {/* H1 */}
             <motion.h1
               className="text-4xl sm:text-5xl lg:text-[3.4rem] font-heading font-semibold text-[var(--color-text-primary)] leading-[1.08] mb-6"
@@ -180,7 +170,7 @@ export default function Hero() {
                         Abdullah Tayyab
                       </p>
                       <p className="text-xs text-[var(--color-text-muted)] mt-0.5">
-                        Performance Marketer & Media Buyer
+                        AI &amp; Marketing
                       </p>
                     </div>
                   </div>

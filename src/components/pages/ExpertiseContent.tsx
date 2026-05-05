@@ -11,7 +11,7 @@ const items = [
   {
     id: 'meta-ads',
     title: 'Meta Ads',
-    desc: 'End-to-end campaign management across Facebook and Instagram — from strategy and audience architecture to creative testing and scaling.',
+    desc: 'End-to-end campaign management across Facebook and Instagram, from strategy and audience architecture to creative testing and scaling.',
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15v-4H7l5-8v4h4l-5 8z" />
@@ -30,7 +30,7 @@ const items = [
   {
     id: 'google-ads',
     title: 'Google Ads',
-    desc: 'Full Google Ads management across Search, Shopping, Display, YouTube, and Performance Max — with a focus on intent-driven results.',
+    desc: 'Full Google Ads management across Search, Shopping, Display, YouTube, and Performance Max, with a focus on intent-driven results.',
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
         <path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
@@ -140,7 +140,7 @@ const items = [
   {
     id: 'funnel',
     title: 'Funnel Building',
-    desc: 'Complete funnel architecture — from traffic entry to conversion — designed to maximise lead quality and purchase rate at every stage.',
+    desc: 'Complete funnel architecture, from traffic entry to conversion, designed to maximise lead quality and purchase rate at every stage.',
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
         <path d="M4.25 5.61C6.27 8.2 10 13 10 13v6c0 .55.45 1 1 1h2c.55 0 1-.45 1-1v-6s3.72-4.8 5.74-7.39A.998.998 0 0018.95 4H5.04c-.83 0-1.3.95-.79 1.61z" />

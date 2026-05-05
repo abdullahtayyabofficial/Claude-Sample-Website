@@ -56,7 +56,7 @@ export const metadata: Metadata = {
         url: '/images/og/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Abdullah Tayyab — AI-Powered Marketing Systems',
+        alt: 'Abdullah Tayyab, AI-Powered Marketing Systems',
       },
     ],
   },

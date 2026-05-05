@@ -62,8 +62,9 @@ export default function Testimonials() {
           {allItems.map((t, i) => (
             <div
               key={`${t.id}-${i}`}
-              className="w-[340px] sm:w-[380px] shrink-0 bg-[var(--color-surface-muted)] rounded-2xl border border-[var(--color-border)] p-7 flex flex-col gap-4 hover:border-[var(--color-brand-light)]/40 transition-colors duration-300"
+              className="w-[340px] sm:w-[380px] shrink-0 gradient-border-card"
             >
+              <div className="gradient-border-card-inner bg-[var(--color-surface-muted)] p-7 flex flex-col gap-4">
               <QuoteIcon />
               <p className="text-[var(--color-text-secondary)] text-sm leading-relaxed flex-1">
                 &ldquo;{t.content}&rdquo;
@@ -91,6 +92,7 @@ export default function Testimonials() {
                     </svg>
                   ))}
                 </div>
+              </div>
               </div>
             </div>
           ))}
