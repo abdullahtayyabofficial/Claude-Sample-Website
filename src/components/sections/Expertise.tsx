@@ -112,20 +112,20 @@ const items = [
     ],
   },
   {
-    id: 'seo',
-    title: 'SEO & Search Optimization',
+    id: 'ai-automation',
+    title: 'AI & Automation',
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-        <path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+        <path d="M12 2a5 5 0 015 5v1h1a2 2 0 012 2v8a2 2 0 01-2 2H6a2 2 0 01-2-2v-8a2 2 0 012-2h1V7a5 5 0 015-5zm0 2a3 3 0 00-3 3v1h6V7a3 3 0 00-3-3zm0 8a2 2 0 110 4 2 2 0 010-4z"/>
       </svg>
     ),
     skills: [
-      'On-Page & Technical SEO',
-      'Local SEO & Google Business',
-      'Keyword Research & Strategy',
-      'GEO / AEO (AI Search Optimization)',
-      'Technical SEO Audits',
-      'Link Building',
+      'GoHighLevel CRM & Automations',
+      'AI Chatbots & Virtual Assistants',
+      'Lead Nurturing Workflows',
+      'WhatsApp Business Automation',
+      'Email Marketing Automation',
+      'Funnel & Pipeline Setup',
     ],
   },
   {
