@@ -120,24 +120,6 @@ const items = [
     ],
   },
   {
-    id: 'ai-automation',
-    title: 'AI & Automation',
-    desc: 'Smart systems and AI-powered workflows that reduce manual work, speed up decision-making, and improve performance across marketing and sales.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-        <path d="M12 2a5 5 0 015 5v1h1a2 2 0 012 2v8a2 2 0 01-2 2H6a2 2 0 01-2-2v-8a2 2 0 012-2h1V7a5 5 0 015-5zm0 2a3 3 0 00-3 3v1h6V7a3 3 0 00-3-3zm0 8a2 2 0 110 4 2 2 0 010-4z" />
-      </svg>
-    ),
-    skills: [
-      'GoHighLevel CRM & Automations',
-      'AI Chatbots & Virtual Assistants',
-      'Lead Nurturing Workflows',
-      'WhatsApp Business Automation',
-      'Email Marketing Automation',
-      'Funnel & Pipeline Setup',
-    ],
-  },
-  {
     id: 'funnel',
     title: 'Funnel Building',
     desc: 'Complete funnel architecture, from traffic entry to conversion, designed to maximise lead quality and purchase rate at every stage.',
