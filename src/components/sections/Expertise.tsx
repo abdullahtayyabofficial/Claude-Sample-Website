@@ -122,8 +122,6 @@ const items = [
     skills: [
       'Landing Page Strategy',
       'Lead Magnet Design',
-      'Email & WhatsApp Sequences',
-      'Conversion Rate Optimisation',
       'Checkout & Lead Form Optimisation',
       'Upsell & Retargeting Flows',
     ],
