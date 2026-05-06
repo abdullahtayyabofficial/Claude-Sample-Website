@@ -86,8 +86,8 @@ export default function AboutContent() {
             transition={{ duration: 0.6, ease: EASE }}
           >
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/60 mb-3">About</p>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-semibold leading-tight max-w-3xl">
-              From Campaigns to Systems,<br className="hidden sm:block" /> Built for Scale
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-semibold leading-tight max-w-4xl">
+              From Campaign Execution to System-Level Thinking:<br className="hidden sm:block" /> Built for Scalable Growth
             </h1>
           </motion.div>
         </div>
@@ -125,19 +125,79 @@ export default function AboutContent() {
 
             <ScrollReveal className="lg:col-span-3" direction="left" delay={0.1}>
               <p className="text-lg text-[var(--color-text-secondary)] leading-relaxed mb-5">
-                I&apos;m a performance marketer who builds data-driven systems that turn advertising into a predictable revenue engine. Since 2024, I&apos;ve managed media budgets across Meta, Google, TikTok, and LinkedIn, delivering results for brands in ecommerce, real estate, education, hospitality, and professional services.
+                I&apos;m Abdullah Tayyab, a performance marketer focused on building marketing systems that actually scale, not just campaigns that temporarily perform. My work sits at the intersection of strategy, data, and execution, where every decision is tied to measurable business outcomes rather than assumptions.
               </p>
               <p className="text-[var(--color-text-secondary)] leading-relaxed mb-5">
-                My approach isn&apos;t about running ads. It&apos;s about building complete marketing systems, where every component, from creative to conversion tracking to scaling strategy, works in alignment to deliver measurable, repeatable growth.
+                Over time, I&apos;ve worked across service-based businesses, ecommerce brands, and growth-focused companies, managing and optimizing campaigns across Meta and Google. Instead of approaching each project as a set of ads to run, I treat it as a system to build, where everything from audience structure to creative direction and conversion tracking works together toward consistent performance.
+              </p>
+              <p className="text-[var(--color-text-secondary)] leading-relaxed mb-5">
+                My approach is grounded in structured testing, clear data interpretation, and continuous optimization. I use AI where it actually adds value, speeding up analysis, improving decision-making, and helping identify patterns faster, but never replacing strategy with shortcuts. The goal is always the same: turn marketing into something predictable, scalable, and repeatable.
+              </p>
+              <p className="text-[var(--color-text-secondary)] leading-relaxed mb-5">
+                Beyond execution, I&apos;ve also been actively involved in the learning and sharing side of marketing. I&apos;ve delivered sessions on digital marketing and ROI-driven strategy, worked with individuals through one-on-one consultations, and continue to stay close to evolving industry practices. My background includes certifications from Google and LUMS, along with hands-on experience that comes from managing real budgets, real campaigns, and real expectations.
               </p>
               <p className="text-[var(--color-text-secondary)] leading-relaxed mb-8">
-                I&apos;ve worked with brands across ecommerce, real estate, hospitality, co-working, professional services, and large-scale events, adapting strategy and execution to each vertical while maintaining a consistent focus on ROI and long-term scalability.
+                At this stage, I&apos;m focused on working with businesses that want more than just activity. They want clarity, structure, and a system behind their growth. Because in the long run, performance doesn&apos;t come from isolated wins — it comes from systems that consistently produce them.
               </p>
               <div className="flex flex-wrap gap-3">
                 <Button href="/#contact" size="md">Book a Call</Button>
                 <Button href="/case-studies" variant="secondary" size="md">View Case Studies</Button>
               </div>
             </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Approach / Vision / Mission */}
+      <section className="py-16 bg-[var(--color-surface-muted)]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                title: 'My Approach',
+                text: "I don't believe in random testing or chasing trends. Every strategy is built around understanding what's working, why it's working, and how it can be scaled without breaking performance. The focus is always on building a system that holds under pressure, not just one that works in ideal conditions.",
+                icon: (
+                  <svg viewBox="0 0 16 16" fill="none" className="w-4 h-4">
+                    <path d="M2 12l4-4 3 3 5-7" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                ),
+              },
+              {
+                title: 'My Vision',
+                text: 'To help businesses move away from unpredictable marketing and toward structured, data-driven growth systems that scale with confidence.',
+                icon: (
+                  <svg viewBox="0 0 16 16" fill="none" className="w-4 h-4">
+                    <circle cx="8" cy="8" r="2.5" stroke="white" strokeWidth="1.5"/>
+                    <path d="M8 2v1.5M8 12.5V14M2 8h1.5M12.5 8H14M3.5 3.5l1 1M11.5 11.5l1 1M11.5 3.5l-1 1M4.5 11.5l-1 1" stroke="white" strokeWidth="1.3" strokeLinecap="round"/>
+                  </svg>
+                ),
+              },
+              {
+                title: 'My Mission',
+                text: 'To combine performance marketing, creative strategy, and AI-driven optimization into systems that deliver consistent, measurable results without relying on guesswork.',
+                icon: (
+                  <svg viewBox="0 0 16 16" fill="none" className="w-4 h-4">
+                    <circle cx="8" cy="8" r="6" stroke="white" strokeWidth="1.4"/>
+                    <circle cx="8" cy="8" r="3" stroke="white" strokeWidth="1.4"/>
+                    <circle cx="8" cy="8" r="1" fill="white"/>
+                  </svg>
+                ),
+              },
+            ].map((p, i) => (
+              <ScrollReveal key={p.title} delay={i * 0.1} direction="up">
+                <div className="bg-white rounded-2xl border border-[var(--color-border)] p-8 h-full">
+                  <div className="w-10 h-10 rounded-xl gradient-brand flex items-center justify-center mb-5 shrink-0">
+                    {p.icon}
+                  </div>
+                  <h2 className="font-heading font-semibold text-[var(--color-text-primary)] text-xl mb-3">
+                    {p.title}
+                  </h2>
+                  <p className="text-[var(--color-text-secondary)] leading-relaxed text-sm">
+                    {p.text}
+                  </p>
+                </div>
+              </ScrollReveal>
+            ))}
           </div>
         </div>
       </section>
