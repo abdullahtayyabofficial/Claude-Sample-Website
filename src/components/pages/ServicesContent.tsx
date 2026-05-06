@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import ScrollReveal from '@/components/ui/ScrollReveal'
+import GradientText from '@/components/ui/GradientText'
 import Button from '@/components/ui/Button'
 
 const EASE = [0.25, 0.4, 0.25, 1] as const
@@ -144,6 +145,12 @@ export default function ServicesContent() {
       {/* Services grid */}
       <section className="section-padding bg-[var(--color-surface-muted)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal className="text-center mb-12">
+            <p className="text-xl sm:text-2xl font-heading font-medium text-[var(--color-text-primary)] leading-relaxed max-w-3xl mx-auto">
+              Whether you need a focused growth strategy or a complete marketing system,{' '}
+              <GradientText>everything is designed to work together, not in silos.</GradientText>
+            </p>
+          </ScrollReveal>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service, i) => (
               <ScrollReveal key={service.id} delay={i * 0.07} direction="up">
@@ -184,10 +191,7 @@ export default function ServicesContent() {
             <h2 className="text-3xl sm:text-4xl font-heading font-semibold mb-5">
               Not Sure Which Service You Need?
             </h2>
-            <p className="text-white/75 mb-3 text-lg">
-              Whether you need a focused growth strategy or a complete marketing system, everything is designed to work together, not in silos.
-            </p>
-            <p className="text-white/60 mb-8">
+            <p className="text-white/75 mb-8 text-lg">
               Book a free call. We&apos;ll talk through where you are, where you want to go, and what the right approach looks like.
             </p>
             <Button href="/#contact" size="lg" variant="secondary">
