@@ -9,10 +9,10 @@ import Button from '@/components/ui/Button'
 const EASE = [0.25, 0.4, 0.25, 1] as const
 
 const stats = [
-  { value: '₨24M+', label: 'Ecommerce Sales', sub: 'in a single campaign' },
-  { value: '325%', label: 'YoY Growth', sub: 'achieved for one client' },
-  { value: '200M+', label: 'Ad Impressions', sub: 'delivered across campaigns' },
-  { value: '16x', label: 'Peak ROAS', sub: 'on Google Ads' },
+  { value: '₨30M+', label: 'Revenue Driven', sub: '' },
+  { value: '10k+', label: 'Leads Generated', sub: '' },
+  { value: '4x-16x', label: 'Avg ROAS', sub: '' },
+  { value: '400+', label: 'Campaigns Managed', sub: '' },
 ]
 
 const experience = [
