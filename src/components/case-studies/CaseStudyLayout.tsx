@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import type { CaseStudy } from '@/types'
 import Button from '@/components/ui/Button'
@@ -140,6 +141,23 @@ export default function CaseStudyLayout({ caseStudy }: CaseStudyLayoutProps) {
                       <span className="text-sm font-semibold text-[var(--color-text-primary)]">{r.label}: </span>
                       <span className="text-sm text-[var(--color-text-secondary)]">{r.value}</span>
                     </div>
+                  </div>
+                ))}
+              </div>
+            </SectionBlock>
+          )}
+
+          {caseStudy.visuals && caseStudy.visuals.length > 0 && (
+            <SectionBlock label="Campaign Visuals">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {caseStudy.visuals.map((src, i) => (
+                  <div key={i} className="relative aspect-video rounded-xl overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface-muted)]">
+                    <Image
+                      src={src}
+                      alt={`${caseStudy.client} campaign visual ${i + 1}`}
+                      fill
+                      className="object-cover"
+                    />
                   </div>
                 ))}
               </div>

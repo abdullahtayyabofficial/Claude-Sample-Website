@@ -2,6 +2,64 @@ import type { CaseStudy } from '@/types'
 
 export const caseStudies: CaseStudy[] = [
   {
+    slug: 'hardees-qsr',
+    title: 'Building an Always-On Online Revenue Engine for a QSR Brand',
+    client: 'Quick Service Restaurant (QSR)',
+    industry: 'Food & Beverage / Ecommerce',
+    thumbnail: '',
+    tags: ['Meta Ads', 'Google Ads', 'Ecommerce', 'ROAS Optimisation'],
+    overview:
+      'A well-known quick service restaurant brand with strong offline presence and an online ordering channel through its website. Before the engagement, the brand was running continuous paid campaigns for brand recall, but with no structured system that was consistently profitable and focused on driving online purchases as a primary outcome.',
+    problem:
+      'Ad campaigns were running as isolated, one-off bursts for brand awareness. There was no always-on conversion system and no consistent structure for driving online orders at a predictable cost. The goal was to shift from awareness-only to a structured, always-on revenue engine.',
+    strategy:
+      'A Consistent Sales Campaign Strategy was built around dedicated campaign chains running continuously, creating a steady pipeline of online orders rather than one-off promotional pushes. Smart Audience Architecture was implemented by structuring multiple audience segments: meal-based audiences, campaign-timed audiences, and retargeting-based lookalikes. Meta\'s AI dynamically allocated budget across audience sets in always-on format to maximize conversion efficiency. Meta served as the primary driver for offer-based food promotions and brand discovery; Google captured high-intent search traffic for the brand and its offers.',
+    execution:
+      'Campaigns were structured to run continuously across weeks, with offer-led creative (seasonal promotions, meal deals) refreshed to maintain engagement while the underlying audience architecture and campaign structure remained stable. Budget allocation between Meta and Google was calibrated per campaign period based on performance data, with Meta consistently delivering stronger direct order volume.',
+    results: [
+      { label: 'Revenue consistency', value: '4 consecutive months of consistent, compounding revenue growth from online orders' },
+      { label: 'Revenue generated', value: 'PKR 25M+ in online order revenue across the campaign period' },
+      { label: 'ROAS trajectory', value: '4x–16x Avg ROAS across the campaign duration, with progressive improvement each cycle' },
+      { label: 'Campaign structure', value: 'Always-on system replaced isolated one-off campaigns, creating predictable daily order volume' },
+    ],
+    metrics: [
+      { label: 'Avg ROAS', value: '4x–16x' },
+      { label: 'Revenue Generated', value: 'PKR 25M+' },
+      { label: 'Primary Platform', value: 'Meta Ads' },
+    ],
+    learnings:
+      'For high-frequency purchase categories like food, always-on campaign structure outperforms campaign bursts in both ROAS and total revenue. The key is building an audience architecture that compounds over time, each cycle feeding better lookalikes and retargeting pools back into the next.',
+  },
+  {
+    slug: 'commercial-real-estate-lead-gen',
+    title: '2,000+ Qualified Leads in 2 Months on a Fixed Budget',
+    client: 'Government-Backed Commercial Real Estate Authority',
+    industry: 'Real Estate / Government',
+    thumbnail: '',
+    tags: ['Meta Ads', 'Google Ads', 'Lead Generation', 'Real Estate'],
+    overview:
+      'A government-backed commercial real estate development authority in Punjab was responsible for launching and selling large-scale commercial plots, government-supported installment plans, high-credibility locations, and price points starting from PKR 140 lakhs. The challenge: convert an authority brand with no social media presence into a lead generation machine targeting high-intent commercial investors across Pakistan.',
+    problem:
+      'No existing social media foundation, zero paid campaign history, and zero audience data. Everything had to be built from scratch. At the same time, the primary success metric was high-quality, high-potential lead volume, not just reach or impressions. The brand also had a unique constraint: only two creatives were approved for use across the entire campaign, leaving no room for standard A/B testing.',
+    strategy:
+      'A multi-platform architecture was built across three distinct project campaigns. Meta was used for demographic-centric targeting, reaching diverse investor profiles through three separate campaign structures: AWT Pulse (broad commercial investors), Business Bay (business-focused investors), and Hospital Plot (niche high-value segment). Google was used to capture high-intent search traffic from investors already researching commercial property. With only two approved creatives, each was engineered to serve dual roles, one assigned to awareness, the other to re-marketing, splitting audiences by qualification stage to extract maximum efficiency from limited creative assets.',
+    execution:
+      'Campaigns ran simultaneously across all three projects. Meta Pixel and GA4 tracking were configured from the ground up, providing first-party data that fed back into audience refinement throughout the campaign. The government-backed credibility of the brand was made central to all messaging, transforming what could have been a liability (unfamiliarity with the authority) into a trust signal that outperformed private real estate brands in the same market.',
+    results: [
+      { label: 'AWT Pulse', value: '1,040 leads generated at approximately PKR 200 per lead' },
+      { label: 'Business Bay', value: '580+ leads generated at approximately PKR 200 per lead' },
+      { label: 'Hospital Plot', value: '202 leads generated at PKR 604 per lead' },
+      { label: 'Total leads', value: '2,000+ qualified leads generated across all three projects in 2 months' },
+    ],
+    metrics: [
+      { label: 'Leads Generated', value: '2,000', prefix: '', suffix: '+' },
+      { label: 'Timeframe', value: '2 months' },
+      { label: 'Avg Cost Per Lead', value: 'PKR ~205' },
+    ],
+    learnings:
+      'Creative constraints are not always a disadvantage. Being forced to make two creatives carry maximum weight led to more intentional audience segmentation and role assignment per creative, producing results that beat unconstrained campaigns. Government credibility, when properly positioned, is a powerful differentiator in high-consideration purchase categories.',
+  },
+  {
     slug: 'cubicle-coworking',
     title: 'From 3 Bookings to Full Capacity in 60 Days',
     client: 'Cubicle Co-Working Space',
@@ -31,35 +89,6 @@ export const caseStudies: CaseStudy[] = [
       'Co-working acquisition works best when the digital campaign and the physical experience reinforce each other. The event layer compressed months of trust-building into a single activation, turning a media-buying campaign into a community moment.',
   },
   {
-    slug: 'commercial-real-estate-lead-gen',
-    title: '1,784+ Qualified Leads in 2 Months on a Fixed Budget',
-    client: 'Government-Backed Commercial Real Estate Authority',
-    industry: 'Real Estate / Government',
-    thumbnail: '',
-    tags: ['Meta Ads', 'Google Ads', 'Lead Generation', 'Real Estate'],
-    overview:
-      'A government-backed commercial real estate development authority in Punjab was responsible for launching and selling large-scale commercial plots, government-supported installment plans, high-credibility locations, and price points starting from PKR 140 lakhs. The challenge: convert an authority brand with no social media presence into a lead generation machine targeting high-intent commercial investors across Pakistan.',
-    problem:
-      'No existing social media foundation, zero paid campaign history, and zero audience data. Everything had to be built from scratch. At the same time, the primary success metric was high-quality, high-potential lead volume, not just reach or impressions. The brand also had a unique constraint: only two creatives were approved for use across the entire campaign, leaving no room for standard A/B testing.',
-    strategy:
-      'A multi-platform architecture was built across three distinct project campaigns. Meta was used for demographic-centric targeting, reaching diverse investor profiles through three separate campaign structures: AWT Pulse (broad commercial investors), Business Bay (business-focused investors), and Hospital Plot (niche high-value segment). Google was used to capture high-intent search traffic from investors already researching commercial property. With only two approved creatives, each was engineered to serve dual roles, one assigned to awareness, the other to re-marketing, splitting audiences by qualification stage to extract maximum efficiency from limited creative assets.',
-    execution:
-      'Campaigns ran simultaneously across all three projects. Meta Pixel and GA4 tracking were configured from the ground up, providing first-party data that fed back into audience refinement throughout the campaign. The government-backed credibility of the brand was made central to all messaging, transforming what could have been a liability (unfamiliarity with the authority) into a trust signal that outperformed private real estate brands in the same market.',
-    results: [
-      { label: 'AWT Pulse', value: '1,040 leads generated at approximately PKR 200 per lead' },
-      { label: 'Business Bay', value: '580+ leads generated at approximately PKR 200 per lead' },
-      { label: 'Hospital Plot', value: '202 leads generated at PKR 604 per lead' },
-      { label: 'Total leads', value: '1,784+ qualified leads generated across all three projects in 2 months' },
-    ],
-    metrics: [
-      { label: 'Qualified Leads', value: '1,784', prefix: '', suffix: '+' },
-      { label: 'Timeframe', value: '2 months' },
-      { label: 'Lowest Cost Per Lead', value: '~PKR 200' },
-    ],
-    learnings:
-      'Creative constraints are not always a disadvantage. Being forced to make two creatives carry maximum weight led to more intentional audience segmentation and role assignment per creative, producing results that beat unconstrained campaigns. Government credibility, when properly positioned, is a powerful differentiator in high-consideration purchase categories.',
-  },
-  {
     slug: 'ffc-prize-distribution',
     title: 'Turning a Single Ceremony into a National Digital Moment',
     client: 'Fauji Fertilizers Company (FFC)',
@@ -87,35 +116,6 @@ export const caseStudies: CaseStudy[] = [
     ],
     learnings:
       'When the objective is pure brand dominance, budget concentration beats distribution. Anchoring the majority of spend on the YouTube Masthead created a single high-impact moment that carried the credibility of the entire campaign, with Meta and TikTok extending the reach far beyond what any single platform could deliver alone.',
-  },
-  {
-    slug: 'ffc-sona-soil-day',
-    title: '7.42M Impressions in 2 Days on a PKR 500,000 Budget',
-    client: 'Fauji Fertilizers Company (FFC)',
-    industry: 'Agriculture / FMCG',
-    thumbnail: '',
-    tags: ['YouTube Ads', 'Meta Ads', 'TikTok', 'Brand Awareness'],
-    overview:
-      'FFC wanted to mark World Soil Day with a meaningful digital presence across Pakistan. The objective was to maximize reach and video views within a controlled budget of PKR 500,000, spreading an educational, awareness-driven message about soil health to as wide an audience as possible across YouTube, Meta, and TikTok in a 2–3 day window.',
-    problem:
-      'No premium placements. No large budgets. Just a well-structured, platform-specific campaign built to deliver the most visibility per rupee spent, while ensuring the educational content connected authentically with viewers rather than being skipped.',
-    strategy:
-      'Budget allocation was structured around platform roles rather than spreading spend evenly. YouTube received the majority of the budget, focusing on reach and video retention, ensuring the message got through to each viewer rather than simply registering an impression. Meta handled cross-demographic and cross-age-group exposure, building frequency without exhausting the remaining budget. TikTok captured the high-consumption, short-form segment with native-style creative matched to platform behavior.',
-    execution:
-      'Creative content was educational in tone, designed to inform audiences about soil health in a way that felt genuine and worth watching, not promotional. This tone matched the content style preferred by YouTube\'s algorithm and resonated with TikTok\'s audience looking for informative short-form content. The result was an engagement rate of 40%+ and a YouTube engagement rate of 2.8%, a strong signal that the content connected rather than interrupted.',
-    results: [
-      { label: 'Total reach', value: '7.42 million impressions across YouTube, Meta, and TikTok in 2 days' },
-      { label: 'Video views', value: '5.9 million video views across all three platforms' },
-      { label: 'Engagement', value: '40%+ overall engagement rate · YouTube engagement rate of 2.8%' },
-      { label: 'Audience growth', value: 'YouTube: 4,600+ new subscribers · meaningful follower growth across Meta and TikTok' },
-    ],
-    metrics: [
-      { label: 'Impressions in 2 Days', value: '7.42M', prefix: '', suffix: '' },
-      { label: 'Video Views', value: '5.9M', prefix: '', suffix: '' },
-      { label: 'Engagement Rate', value: '40', prefix: '', suffix: '%+' },
-    ],
-    learnings:
-      'At limited scale, platform-specific creative and budget role assignment can outperform larger campaigns that spread spend evenly. Educational content, when it genuinely informs rather than promotes, achieves higher engagement and organic amplification than promotional messaging at the same spend level.',
   },
   {
     slug: 'wavebyte-ecommerce',
@@ -148,7 +148,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: 'icr-it-centre',
-    title: '500+ Student Enrollments Per Peak Batch Season',
+    title: '300+ Student Enrollments Per Peak Batch Season',
     client: 'ICR IT-Centre',
     industry: 'IT Training & Education',
     thumbnail: '',
@@ -163,45 +163,45 @@ export const caseStudies: CaseStudy[] = [
       'Creative sets were refreshed each batch cycle to maintain relevance and prevent ad fatigue, while the core offer remained consistent. Audience segmentation ensured new cold audiences and warm retargeting audiences received distinct messaging. Campaign structure was optimized over multiple cycles to keep cost per enrollment predictable and enrollment volume stable, regardless of batch or season.',
     results: [
       { label: 'Consistent batch enrollment', value: '80+ student enrollments per batch generated consistently across multiple cycles' },
-      { label: 'Peak season', value: '500+ enrollments achieved during peak enrollment season' },
+      { label: 'Peak season', value: '300+ enrollments achieved during peak enrollment season' },
       { label: 'Brand recognition', value: 'Enhanced local brand recognition and trust, generating organic referrals and walk-in inquiries' },
       { label: 'Campaign efficiency', value: 'Optimized structure maintained predictable cost and stable conversion rates across multiple batch cycles' },
     ],
     metrics: [
-      { label: 'Peak Season Enrollments', value: '500', prefix: '', suffix: '+' },
+      { label: 'Peak Season Enrollments', value: '300', prefix: '', suffix: '+' },
       { label: 'Consistent Batch Average', value: '80', prefix: '', suffix: '+ per batch' },
     ],
     learnings:
       'Education campaigns perform best when messaging evolves with the prospective student\'s journey. Stacking FOMO, social proof, and benefit-led creative across a properly structured funnel, rather than running a single angle to a cold audience, dramatically improves both enrollment volume and cost efficiency per student acquired.',
   },
   {
-    slug: 'hardees-qsr',
-    title: 'Building an Always-On Online Revenue Engine for a QSR Brand',
-    client: 'Quick Service Restaurant (QSR)',
-    industry: 'Food & Beverage / Ecommerce',
+    slug: 'ffc-sona-soil-day',
+    title: '7.42M Impressions in 2 Days on a PKR 500,000 Budget',
+    client: 'Fauji Fertilizers Company (FFC)',
+    industry: 'Agriculture / FMCG',
     thumbnail: '',
-    tags: ['Meta Ads', 'Google Ads', 'Ecommerce', 'ROAS Optimisation'],
+    tags: ['YouTube Ads', 'Meta Ads', 'TikTok', 'Brand Awareness'],
     overview:
-      'A well-known quick service restaurant brand with strong offline presence and an online ordering channel through its website. Before the engagement, the brand was running continuous paid campaigns for brand recall, but with no structured system that was consistently profitable and focused on driving online purchases as a primary outcome.',
+      'FFC wanted to mark World Soil Day with a meaningful digital presence across Pakistan. The objective was to maximize reach and video views within a controlled budget of PKR 500,000, spreading an educational, awareness-driven message about soil health to as wide an audience as possible across YouTube, Meta, and TikTok in a 2–3 day window.',
     problem:
-      'Ad campaigns were running as isolated, one-off bursts for brand awareness. There was no always-on conversion system and no consistent structure for driving online orders at a predictable cost. The goal was to shift from awareness-only to a structured, always-on revenue engine.',
+      'No premium placements. No large budgets. Just a well-structured, platform-specific campaign built to deliver the most visibility per rupee spent, while ensuring the educational content connected authentically with viewers rather than being skipped.',
     strategy:
-      'A Consistent Sales Campaign Strategy was built around dedicated campaign chains running continuously, creating a steady pipeline of online orders rather than one-off promotional pushes. Smart Audience Architecture was implemented by structuring multiple audience segments: meal-based audiences, campaign-timed audiences, and retargeting-based lookalikes. Meta\'s AI dynamically allocated budget across audience sets in always-on format to maximize conversion efficiency. Meta served as the primary driver for offer-based food promotions and brand discovery; Google captured high-intent search traffic for the brand and its offers.',
+      'Budget allocation was structured around platform roles rather than spreading spend evenly. YouTube received the majority of the budget, focusing on reach and video retention, ensuring the message got through to each viewer rather than simply registering an impression. Meta handled cross-demographic and cross-age-group exposure, building frequency without exhausting the remaining budget. TikTok captured the high-consumption, short-form segment with native-style creative matched to platform behavior.',
     execution:
-      'Campaigns were structured to run continuously across weeks, with offer-led creative (seasonal promotions, meal deals) refreshed to maintain engagement while the underlying audience architecture and campaign structure remained stable. Budget allocation between Meta and Google was calibrated per campaign period based on performance data, with Meta consistently delivering stronger direct order volume.',
+      'Creative content was educational in tone, designed to inform audiences about soil health in a way that felt genuine and worth watching, not promotional. This tone matched the content style preferred by YouTube\'s algorithm and resonated with TikTok\'s audience looking for informative short-form content. The result was an engagement rate of 40%+ and a YouTube engagement rate of 2.8%, a strong signal that the content connected rather than interrupted.',
     results: [
-      { label: 'Revenue consistency', value: '4 consecutive months of consistent, compounding revenue growth from online orders' },
-      { label: 'ROAS trajectory', value: 'Average ROAS of 4.8x across the campaign duration, with progressive improvement each cycle' },
-      { label: 'Campaign structure', value: 'Always-on system replaced isolated one-off campaigns, creating predictable daily order volume' },
-      { label: 'Scaling', value: 'ROAS lifted progressively across each campaign period through compound optimisation' },
+      { label: 'Total reach', value: '7.42 million impressions across YouTube, Meta, and TikTok in 2 days' },
+      { label: 'Video views', value: '5.9 million video views across all three platforms' },
+      { label: 'Engagement', value: '40%+ overall engagement rate · YouTube engagement rate of 2.8%' },
+      { label: 'Audience growth', value: 'YouTube: 4,600+ new subscribers · meaningful follower growth across Meta and TikTok' },
     ],
     metrics: [
-      { label: 'Average ROAS', value: '4.8x' },
-      { label: 'Revenue Growth Duration', value: '4 months' },
-      { label: 'Primary Platform', value: 'Meta Ads' },
+      { label: 'Impressions in 2 Days', value: '7.42M', prefix: '', suffix: '' },
+      { label: 'Video Views', value: '5.9M', prefix: '', suffix: '' },
+      { label: 'Engagement Rate', value: '40', prefix: '', suffix: '%+' },
     ],
     learnings:
-      'For high-frequency purchase categories like food, always-on campaign structure outperforms campaign bursts in both ROAS and total revenue. The key is building an audience architecture that compounds over time, each cycle feeding better lookalikes and retargeting pools back into the next.',
+      'At limited scale, platform-specific creative and budget role assignment can outperform larger campaigns that spread spend evenly. Educational content, when it genuinely informs rather than promotes, achieves higher engagement and organic amplification than promotional messaging at the same spend level.',
   },
 ]
 
