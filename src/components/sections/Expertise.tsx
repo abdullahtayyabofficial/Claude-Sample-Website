@@ -112,20 +112,20 @@ const items = [
     ],
   },
   {
-    id: 'tiktok-linkedin',
-    title: 'TikTok & LinkedIn Ads',
+    id: 'seo',
+    title: 'SEO & Search Optimization',
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-        <path d="M8 5v14l11-7z"/>
+        <path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
       </svg>
     ),
     skills: [
-      'TikTok Performance Campaigns',
-      'TikTok Creative Strategy',
-      'LinkedIn Lead Gen Forms',
-      'LinkedIn B2B Targeting',
-      'Awareness & Reach Campaigns',
-      'Cross-Platform Retargeting',
+      'On-Page & Technical SEO',
+      'Local SEO & Google Business',
+      'Keyword Research & Strategy',
+      'GEO / AEO (AI Search Optimization)',
+      'Technical SEO Audits',
+      'Link Building',
     ],
   },
   {

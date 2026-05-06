@@ -120,21 +120,21 @@ const items = [
     ],
   },
   {
-    id: 'tiktok-linkedin',
-    title: 'TikTok & LinkedIn Ads',
-    desc: 'Platform-native campaigns on TikTok for performance-led social reach, and LinkedIn for targeted B2B lead generation.',
+    id: 'seo',
+    title: 'SEO & Search Optimization',
+    desc: 'Long-term organic visibility strategies combining on-page, off-page, and technical SEO to drive consistent, compoundable traffic.',
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-        <path d="M8 5v14l11-7z" />
+        <path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
       </svg>
     ),
     skills: [
-      'TikTok Performance Campaigns',
-      'TikTok Creative Strategy',
-      'LinkedIn Lead Gen Forms',
-      'LinkedIn B2B Targeting',
-      'Awareness & Reach Campaigns',
-      'Cross-Platform Retargeting',
+      'On-Page & Technical SEO',
+      'Local SEO & Google Business',
+      'Keyword Research & Strategy',
+      'GEO / AEO (AI Search Optimization)',
+      'Technical SEO Audits',
+      'Link Building',
     ],
   },
   {
@@ -158,10 +158,11 @@ const items = [
 ]
 
 const tools = [
-  { category: 'Paid Social', list: ['Meta Ads Manager', 'TikTok Ads Manager', 'LinkedIn Campaign Manager'] },
-  { category: 'Search & Display', list: ['Google Ads', 'Performance Max', 'Google Merchant Center', 'Google Masthead'] },
+  { category: 'Meta Ads (Facebook & Instagram)', list: ['Turbo Ad Finder 2.0', 'Bigged', 'Meta Ad Library', 'Interest Insights', 'Minea'] },
+  { category: 'Google Ads/PPC', list: ['Google Ads Manager', 'Google Deck Assistant', 'Google Ads Match Type Helper', 'Eevar GTM Builder'] },
   { category: 'Tracking & Analytics', list: ['Meta Pixel', 'Conversions API (CAPI)', 'Google Analytics 4', 'Google Tag Manager', 'Firebase Console', 'Meta for Developers'] },
   { category: 'Reporting', list: ['Looker Studio', 'GA4 Explorations', 'Meta Ads Reporting'] },
+  { category: 'AI Tools', list: ['ChatGPT', 'Claude (AI)', 'Manus AI', 'AdCreative.ai'] },
 ]
 
 export default function ExpertiseContent() {
