@@ -45,6 +45,16 @@
   50% { opacity: 0.5; }
 }
 
+@property --ba {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes spin-border {
+  to { --ba: 360deg; }
+}
+
 @layer base {
   *,
   *::before,
@@ -141,5 +151,26 @@
 
   .pause-animation {
     animation-play-state: paused;
+  }
+
+  .gradient-border-card {
+    --ba: 0deg;
+    animation: spin-border 6s linear infinite;
+    background: conic-gradient(
+      from var(--ba),
+      rgba(1,7,56,0.10) 0deg,
+      rgba(21,161,223,0.65) 60deg,
+      rgba(1,7,56,0.10) 130deg,
+      rgba(21,161,223,0.65) 220deg,
+      rgba(1,7,56,0.10) 290deg,
+      rgba(1,7,56,0.10) 360deg
+    );
+    padding: 1.5px;
+    border-radius: 1rem;
+  }
+
+  .gradient-border-card-inner {
+    border-radius: calc(1rem - 1.5px);
+    height: 100%;
   }
 }

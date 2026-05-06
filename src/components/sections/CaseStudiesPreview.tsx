@@ -4,7 +4,6 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import ScrollReveal from '@/components/ui/ScrollReveal'
 import GradientText from '@/components/ui/GradientText'
-import Button from '@/components/ui/Button'
 import { caseStudies } from '@/data/case-studies'
 
 const featured = caseStudies.slice(0, 3)
@@ -31,10 +30,11 @@ export default function CaseStudiesPreview() {
             <ScrollReveal key={cs.slug} delay={i * 0.1} direction="up">
               <Link href={`/case-studies/${cs.slug}`} className="group block h-full">
                 <motion.div
-                  className="bg-white rounded-2xl border border-[var(--color-border)] p-7 h-full flex flex-col"
-                  whileHover={{ y: -4, boxShadow: '0 12px 32px rgba(1,7,56,0.10)' }}
+                  className="gradient-border-card h-full"
+                  whileHover={{ y: -4, boxShadow: '0 12px 32px rgba(1,7,56,0.12)' }}
                   transition={{ duration: 0.25, ease: 'easeOut' }}
                 >
+                <div className="gradient-border-card-inner bg-white p-7 flex flex-col">
                   {/* Tags */}
                   <div className="flex flex-wrap gap-2 mb-4">
                     {cs.tags.slice(0, 2).map((tag) => (
@@ -80,6 +80,7 @@ export default function CaseStudiesPreview() {
                       <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </div>
+                </div>
                 </motion.div>
               </Link>
             </ScrollReveal>
@@ -87,9 +88,15 @@ export default function CaseStudiesPreview() {
         </div>
 
         <ScrollReveal className="text-center">
-          <Button href="/case-studies" variant="secondary" size="md">
-            View All {caseStudies.length} Case Studies
-          </Button>
+          <motion.a
+            href="/case-studies"
+            className="inline-flex items-center justify-center px-8 py-3.5 rounded-full text-sm font-medium border border-[var(--color-brand-dark)]/20 text-[var(--color-brand-dark)] transition-colors duration-200 hover:text-[var(--color-brand-light)] hover:border-[var(--color-brand-light)]"
+            whileHover={{ scale: 1.02, boxShadow: '0 0 22px rgba(21,161,223,0.35), 0 0 60px rgba(21,161,223,0.10)' }}
+            whileTap={{ scale: 0.98 }}
+            transition={{ duration: 0.2 }}
+          >
+            View All Case Studies
+          </motion.a>
         </ScrollReveal>
 
       </div>

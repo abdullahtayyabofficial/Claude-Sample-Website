@@ -8,7 +8,7 @@ import GradientText from '@/components/ui/GradientText'
 const faqs = [
   {
     q: 'What types of businesses do you work with?',
-    a: 'I work across industries — ecommerce, service-based, real estate, education, SaaS, and more. The common thread is that they want predictable, data-driven growth through paid media. If you have a solid offer and want to scale it systematically, we can work together.',
+    a: 'I work across industries, including ecommerce, service-based, real estate, education, SaaS, and more. The common thread is that they want predictable, data-driven growth through paid media. If you have a solid offer and want to scale it systematically, we can work together.',
   },
   {
     q: 'What platforms do you run ads on?',
@@ -16,15 +16,15 @@ const faqs = [
   },
   {
     q: 'What ROAS can I expect?',
-    a: "Results depend on your offer, funnel quality, and market. My track record shows 6x–16x ROAS for ecommerce clients and strong lead quality improvements for service businesses. I don't promise specific numbers — I build the systems that make those numbers achievable.",
+    a: "Results depend on your offer, funnel quality, and market. My track record shows 6x–16x ROAS for ecommerce clients and strong lead quality improvements for service businesses. I don't promise specific numbers. I build the systems that make those numbers achievable.",
   },
   {
     q: 'Do you work with small budgets?',
-    a: "Yes. I've started campaigns at PKR 1,500/day and scaled them to PKR 100K+/day. The system I build is designed to validate at any budget and grow as performance is confirmed — not the other way around.",
+    a: "Yes. I've started campaigns at PKR 1,500/day and scaled them to PKR 100K+/day. The system I build is designed to validate at any budget and grow as performance is confirmed, not the other way around.",
   },
   {
     q: 'How do you handle tracking and attribution?',
-    a: 'Every engagement starts with proper tracking setup — Meta Pixel with CAPI, GA4, Google Tag Manager, Firebase, and custom dashboards. Without clean data, optimisation is guesswork. I fix the data layer first.',
+    a: 'Every engagement starts with proper tracking setup: Meta Pixel with CAPI, GA4, Google Tag Manager, Firebase, and custom dashboards. Without clean data, optimisation is guesswork. I fix the data layer first.',
   },
   {
     q: 'What does working together look like?',
@@ -32,7 +32,7 @@ const faqs = [
   },
   {
     q: 'How quickly can I expect results?',
-    a: 'For lead generation, meaningful traction typically shows in the first 2–4 weeks as the system gathers data. Ecommerce campaigns can generate results faster. Scaling decisions happen after the data validates — not before.',
+    a: 'For lead generation, meaningful traction typically shows in the first 2–4 weeks as the system gathers data. Ecommerce campaigns can generate results faster. Scaling decisions happen after the data validates, not before.',
   },
   {
     q: 'Do you offer consulting or one-time audits?',

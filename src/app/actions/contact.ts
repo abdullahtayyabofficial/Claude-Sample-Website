@@ -24,7 +24,7 @@ export async function sendContactEmail(data: {
       from: 'Portfolio Contact <onboarding@resend.dev>',
       to: toEmail,
       replyTo: data.email,
-      subject: `New enquiry from ${data.name} — ${data.businessType}`,
+      subject: `New enquiry from ${data.name}, ${data.businessType}`,
       text: [
         `Name: ${data.name}`,
         `Email: ${data.email}`,
