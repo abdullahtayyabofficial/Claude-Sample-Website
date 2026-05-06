@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion'
 import ScrollReveal from '@/components/ui/ScrollReveal'
-import GradientText from '@/components/ui/GradientText'
 import Button from '@/components/ui/Button'
 
 const EASE = [0.25, 0.4, 0.25, 1] as const
@@ -132,8 +131,8 @@ export default function ServicesContent() {
             transition={{ duration: 0.6, ease: EASE }}
           >
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/60 mb-3">Services</p>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-semibold leading-tight max-w-3xl">
-              A Complete Marketing System;<br className="hidden sm:block" /> Built to Drive Growth
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-semibold leading-tight max-w-xl">
+              A Complete Marketing System; Built to Drive Growth
             </h1>
             <p className="text-white/75 text-lg mt-5 max-w-2xl leading-relaxed">
               From Paid Media, Automations, SEO to Design, everything is built to work together as one system, focused on performance, scalability, and measurable results.
@@ -165,7 +164,7 @@ export default function ServicesContent() {
                   <ul className="space-y-2.5 mt-auto">
                     {service.items.map((item) => (
                       <li key={item} className="flex items-start gap-2.5 text-sm text-[var(--color-text-secondary)]">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-brand-light)] shrink-0 mt-1.5" />
+                        <span className="text-[var(--color-brand-light)] shrink-0 leading-snug">→</span>
                         {item}
                       </li>
                     ))}
@@ -177,18 +176,6 @@ export default function ServicesContent() {
         </div>
       </section>
 
-      {/* Positioning line */}
-      <section className="py-16 bg-white">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <ScrollReveal>
-            <p className="text-xl sm:text-2xl font-heading font-medium text-[var(--color-text-primary)] leading-relaxed">
-              Whether you need a focused growth strategy or a complete marketing system,{' '}
-              <GradientText>everything is designed to work together, not in silos.</GradientText>
-            </p>
-          </ScrollReveal>
-        </div>
-      </section>
-
       {/* CTA */}
       <section className="section-padding gradient-brand text-white text-center">
         <div className="max-w-2xl mx-auto px-4 sm:px-6">
@@ -197,7 +184,10 @@ export default function ServicesContent() {
             <h2 className="text-3xl sm:text-4xl font-heading font-semibold mb-5">
               Not Sure Which Service You Need?
             </h2>
-            <p className="text-white/75 mb-8 text-lg">
+            <p className="text-white/75 mb-3 text-lg">
+              Whether you need a focused growth strategy or a complete marketing system, everything is designed to work together, not in silos.
+            </p>
+            <p className="text-white/60 mb-8">
               Book a free call. We&apos;ll talk through where you are, where you want to go, and what the right approach looks like.
             </p>
             <Button href="/#contact" size="lg" variant="secondary">
