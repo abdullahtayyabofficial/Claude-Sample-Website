@@ -191,7 +191,7 @@ export default function ExpertiseContent() {
                   <div className="w-10 h-10 rounded-xl gradient-brand flex items-center justify-center text-white mb-4 shadow-sm shrink-0">
                     {item.icon}
                   </div>
-                  <h3 className="font-heading font-semibold text-[var(--color-text-primary)] text-base mb-2 leading-snug">
+                  <h3 className="font-heading font-semibold text-[var(--color-text-primary)] text-base mb-2 leading-snug min-h-[2.75rem]">
                     {item.title}
                   </h3>
                   <p className="text-xs text-[var(--color-text-muted)] mb-4 leading-relaxed">

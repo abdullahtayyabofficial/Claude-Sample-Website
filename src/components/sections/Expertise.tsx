@@ -171,7 +171,7 @@ export default function Expertise() {
                   </div>
 
                   {/* Title */}
-                  <h3 className="font-heading font-semibold text-[var(--color-text-primary)] text-base mb-3 leading-snug">
+                  <h3 className="font-heading font-semibold text-[var(--color-text-primary)] text-base mb-3 leading-snug min-h-[2.75rem]">
                     {item.title}
                   </h3>
 
