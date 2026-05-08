@@ -151,9 +151,9 @@ export default function Expertise() {
           {items.map((item, i) => {
             const isActive = active === item.id
             return (
-              <ScrollReveal key={item.id} delay={i * 0.06} direction="up">
+              <ScrollReveal key={item.id} delay={i * 0.06} direction="up" className="h-full">
                 <motion.div
-                  className="relative bg-white rounded-2xl border border-[var(--color-border)] p-6 cursor-pointer overflow-hidden group"
+                  className="relative bg-white rounded-2xl border border-[var(--color-border)] p-6 cursor-pointer overflow-hidden group h-full"
                   whileHover={{ y: -4, boxShadow: 'var(--shadow-card-hover)' }}
                   onClick={() => setActive(isActive ? null : item.id)}
                   layout
