@@ -93,11 +93,11 @@ export default function Hero() {
               {...fadeUp(0.32)}
             >
               {metrics.map((m) => (
-                <div key={m.label} className="pr-6 first:pl-0 pl-6">
-                  <p className="text-2xl sm:text-3xl font-heading font-bold gradient-brand-text leading-none mb-1.5">
+                <div key={m.label} className="pr-3 sm:pr-6 first:pl-0 pl-3 sm:pl-6">
+                  <p className="text-lg sm:text-2xl lg:text-3xl font-heading font-bold gradient-brand-text leading-none mb-1.5">
                     {m.value}
                   </p>
-                  <p className="text-xs text-[var(--color-text-muted)] font-medium leading-snug">
+                  <p className="text-[10px] sm:text-xs text-[var(--color-text-muted)] font-medium leading-snug">
                     {m.label}
                   </p>
                 </div>

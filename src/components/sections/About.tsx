@@ -81,11 +81,11 @@ export default function About() {
                 />
               </div>
               <motion.div
-                className="absolute -bottom-5 -right-5 bg-white rounded-2xl px-5 py-4 card-shadow border border-[var(--color-border)]"
+                className="absolute -bottom-4 -right-2 sm:-bottom-5 sm:-right-5 bg-white rounded-2xl px-4 py-3 sm:px-5 sm:py-4 card-shadow border border-[var(--color-border)]"
                 animate={{ y: [0, -6, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
               >
-                <p className="text-2xl font-heading font-bold gradient-brand-text leading-none">2+</p>
+                <p className="text-xl sm:text-2xl font-heading font-bold gradient-brand-text leading-none">2+</p>
                 <p className="text-xs text-[var(--color-text-muted)] mt-0.5">Years in Performance<br/>Marketing</p>
               </motion.div>
             </div>

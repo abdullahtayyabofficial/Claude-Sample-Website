@@ -75,11 +75,11 @@ export default function CaseStudyLayout({ caseStudy }: CaseStudyLayoutProps) {
             <ScrollReveal>
               <div className={`grid gap-px bg-[var(--color-border)] ${caseStudy.metrics.length >= 3 ? 'grid-cols-3' : 'grid-cols-2'}`}>
                 {caseStudy.metrics.map((metric) => (
-                  <div key={metric.label} className="bg-white px-8 py-9 text-center">
-                    <p className="text-3xl sm:text-4xl font-heading font-bold gradient-brand-text leading-none mb-2">
+                  <div key={metric.label} className="bg-white px-3 py-6 sm:px-8 sm:py-9 text-center">
+                    <p className="text-lg sm:text-3xl lg:text-4xl font-heading font-bold gradient-brand-text leading-tight mb-1 sm:mb-2 break-words">
                       {metric.prefix}{metric.value}{metric.suffix}
                     </p>
-                    <p className="text-sm text-[var(--color-text-muted)]">{metric.label}</p>
+                    <p className="text-[10px] sm:text-sm text-[var(--color-text-muted)] leading-snug">{metric.label}</p>
                   </div>
                 ))}
               </div>
