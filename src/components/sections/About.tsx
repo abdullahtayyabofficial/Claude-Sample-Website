@@ -13,39 +13,6 @@ const stats = [
   { value: '400+', label: 'Campaigns Managed', sub: '' },
 ]
 
-const experience = [
-  {
-    role: 'Media Buying Executive',
-    company: 'Firebolt63 (Creative Marketing Agency)',
-    period: 'Nov 2025 – Apr 2026',
-    highlights: [
-      'Generated PKR 24M+ in ecommerce sales in ~176 days, achieving 325% YoY growth',
-      'Produced 1,700+ real estate leads within limited monthly budget in under 2 months',
-      'Delivered 200M+ impressions, 115K+ hours watch time, and 150K+ social followers growth',
-      'Executed large-scale campaigns: PKR 10M+ nationwide, PKR 3M Google Masthead (30M+ impressions in 1 day)',
-      'Achieved up to 12x ROAS on Meta and 16x ROAS on Google Ads',
-    ],
-  },
-  {
-    role: 'Media Buyer',
-    company: 'Wave Byte (Ecommerce Service Provider)',
-    period: 'Dec 2024 – Apr 2025',
-    highlights: [
-      'Managed over PKR 1.5M in ad spend; scaled ad campaigns to PKR 600K+',
-      'Scaled budgets from PKR 1,500 to 100K+/day while maintaining 5–8x ROAS',
-      'Executed seminar marketing across 7 cities, generating 570+ leads in 17 days',
-    ],
-  },
-  {
-    role: 'Social Media Marketer',
-    company: 'Hello World Technologies',
-    period: 'Jun 2024 – Dec 2024',
-    highlights: [
-      'Grew Cubicle Co-Working Space bookings from 3 to 25+ in under 60 days',
-      'Led marketing for large-scale IT event attracting 600+ participants',
-    ],
-  },
-]
 
 const credentials = [
   { label: 'Google Digital Garage', sub: 'Digital Marketing Fundamentals' },
@@ -143,32 +110,6 @@ export default function About() {
             <p className="text-[var(--color-text-secondary)] leading-relaxed mb-8">
               My approach is grounded in structured testing, clear data interpretation, and continuous optimization. I use AI where it actually adds value, speeding up analysis, improving decision-making, and helping identify patterns faster, but never replacing strategy with shortcuts.
             </p>
-
-            {/* Experience timeline */}
-            <div className="space-y-6">
-              {experience.map((exp, i) => (
-                <div
-                  key={exp.company}
-                  className="relative pl-5 border-l-2 border-[var(--color-border)] hover:border-[var(--color-brand-light)] transition-colors duration-300"
-                >
-                  <div className="mb-1.5">
-                    <span className="font-heading font-semibold text-[var(--color-text-primary)] text-sm">
-                      {exp.role}
-                    </span>
-                    <span className="text-[var(--color-text-muted)] text-sm"> · {exp.company}</span>
-                  </div>
-                  <p className="text-xs text-[var(--color-brand-light)] font-medium mb-2">{exp.period}</p>
-                  <ul className="space-y-1">
-                    {exp.highlights.slice(0, i === 0 ? 3 : 2).map((h) => (
-                      <li key={h} className="text-sm text-[var(--color-text-secondary)] flex gap-2">
-                        <span className="text-[var(--color-brand-light)] mt-0.5 shrink-0">·</span>
-                        {h}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
 
             <div className="mt-8">
               <Button href="#contact" size="md">Work With Me</Button>
