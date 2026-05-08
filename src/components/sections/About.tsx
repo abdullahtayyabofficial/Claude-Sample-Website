@@ -13,14 +13,6 @@ const stats = [
   { value: '400+', label: 'Campaigns Managed', sub: '' },
 ]
 
-
-const credentials = [
-  { label: 'Google Digital Garage', sub: 'Digital Marketing Fundamentals' },
-  { label: 'LUMS CES', sub: 'Advertising · Entrepreneurship · Communication' },
-  { label: 'Anthropic', sub: 'Claude 101 Completion' },
-  { label: 'Google Skillshop', sub: 'Google Soft Skills Program' },
-]
-
 const pillars = [
   {
     title: 'My Approach',
@@ -148,66 +140,6 @@ export default function About() {
               </div>
             </ScrollReveal>
           ))}
-        </div>
-
-        {/* Credentials + community */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <ScrollReveal direction="up" delay={0}>
-            <div className="bg-[var(--color-surface-muted)] rounded-2xl border border-[var(--color-border)] p-7">
-              <h3 className="font-heading font-semibold text-[var(--color-text-primary)] mb-5 text-base">
-                Education & Certifications
-              </h3>
-              <div className="space-y-4">
-                <div className="flex gap-3">
-                  <div className="w-8 h-8 rounded-lg gradient-brand flex items-center justify-center shrink-0">
-                    <svg viewBox="0 0 16 16" fill="none" className="w-4 h-4">
-                      <path d="M8 2L2 5l6 3 6-3-6-3zM2 9l6 3 6-3M2 12l6 3 6-3" stroke="white" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-[var(--color-text-primary)]">BBIT, Virtual University of Pakistan</p>
-                    <p className="text-xs text-[var(--color-text-muted)]">Bachelor of Business & Information Technology</p>
-                  </div>
-                </div>
-                {credentials.map((c) => (
-                  <div key={c.label} className="flex gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-[var(--color-border)] flex items-center justify-center shrink-0">
-                      <svg viewBox="0 0 16 16" fill="none" className="w-3.5 h-3.5">
-                        <path d="M13 5L6.5 11.5 3 8" stroke="var(--color-brand-light)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
-                    </div>
-                    <div>
-                      <p className="text-sm font-semibold text-[var(--color-text-primary)]">{c.label}</p>
-                      <p className="text-xs text-[var(--color-text-muted)]">{c.sub}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </ScrollReveal>
-
-          <ScrollReveal direction="up" delay={0.1}>
-            <div className="bg-[var(--color-surface-muted)] rounded-2xl border border-[var(--color-border)] p-7">
-              <h3 className="font-heading font-semibold text-[var(--color-text-primary)] mb-5 text-base">
-                Community & Speaking
-              </h3>
-              <div className="space-y-5">
-                {[
-                  { title: 'Guest Speaker: Digital Marketing Landscape', org: 'LUMS CES Advertising', icon: '🎤' },
-                  { title: 'Guest Speaker: How to Prove ROI on Marketing', org: 'BIC Foundry, Beaconhouse International College', icon: '🎤' },
-                  { title: '1-on-1 Free Media Buying Consultations', org: 'Topmate · LinkedIn', icon: '💬' },
-                ].map((item) => (
-                  <div key={item.title} className="flex gap-3">
-                    <span className="text-lg shrink-0 mt-0.5">{item.icon}</span>
-                    <div>
-                      <p className="text-sm font-semibold text-[var(--color-text-primary)]">{item.title}</p>
-                      <p className="text-xs text-[var(--color-text-muted)]">{item.org}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </ScrollReveal>
         </div>
 
       </div>
