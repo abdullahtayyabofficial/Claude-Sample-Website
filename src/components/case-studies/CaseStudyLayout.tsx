@@ -32,7 +32,7 @@ export default function CaseStudyLayout({ caseStudy }: CaseStudyLayoutProps) {
   return (
     <>
       {/* ── Hero ── */}
-      <section className="relative min-h-[58vh] lg:min-h-[66vh] flex flex-col justify-end overflow-hidden bg-[#010738]">
+      <section className="relative min-h-[58vh] lg:min-h-[66vh] flex flex-col justify-end overflow-hidden bg-[#010738] noise-overlay">
         {caseStudy.heroImage ? (
           <>
             <Image
@@ -338,7 +338,7 @@ export default function CaseStudyLayout({ caseStudy }: CaseStudyLayoutProps) {
       )}
 
       {/* ── CTA — "You could be next" ── */}
-      <section className="section-padding gradient-brand text-white relative overflow-hidden">
+      <section className="section-padding gradient-brand text-white relative overflow-hidden noise-overlay">
         {/* Subtle pattern */}
         <div
           className="absolute inset-0 opacity-[0.05]"

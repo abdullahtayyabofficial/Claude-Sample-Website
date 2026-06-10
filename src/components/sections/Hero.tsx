@@ -32,7 +32,7 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen flex items-center bg-white overflow-hidden"
+      className="relative min-h-screen flex items-center bg-white overflow-hidden noise-overlay"
     >
       {/* Ambient background glow */}
       <div
@@ -55,6 +55,21 @@ export default function Hero() {
 
           {/* ── Left: Text content ── */}
           <div className="flex flex-col justify-center order-2 lg:order-1">
+
+            {/* AI Pulse Status Badge */}
+            <motion.div
+              className="inline-flex items-center gap-2.5 self-start bg-white border border-[var(--color-border)] rounded-full px-3.5 py-1.5 mb-6 shadow-sm"
+              {...fadeUp(0.02)}
+            >
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--color-brand-light)] opacity-70" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--color-brand-light)]" />
+              </span>
+              <span className="text-xs font-semibold text-[var(--color-text-secondary)] tracking-wide">
+                Available for new clients
+              </span>
+            </motion.div>
+
             {/* H1 */}
             <motion.h1
               className="text-4xl sm:text-5xl lg:text-[3.4rem] font-heading font-semibold text-[var(--color-text-primary)] leading-[1.08] mb-6"
