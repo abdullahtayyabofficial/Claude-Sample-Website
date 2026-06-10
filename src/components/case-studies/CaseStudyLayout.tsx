@@ -155,36 +155,17 @@ export default function CaseStudyLayout({ caseStudy }: CaseStudyLayoutProps) {
             </SectionBlock>
           )}
 
-          {/* ── The Challenge — styled for narrative tension ── */}
           {caseStudy.problem && (
-            <ScrollReveal>
-              <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-12 py-12 border-t border-[var(--color-border)]">
-                <div className="lg:pt-1">
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-brand-light)] mb-2">
-                    The Challenge
-                  </p>
-                  {/* Visual indicator — problem icon */}
-                  <div className="hidden lg:flex mt-4 w-8 h-8 rounded-full bg-red-50 border border-red-100 items-center justify-center">
-                    <svg viewBox="0 0 16 16" fill="none" className="w-4 h-4 text-red-400">
-                      <path d="M8 3v5M8 11v1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                      <circle cx="8" cy="8" r="6.5" stroke="currentColor" strokeWidth="1" />
-                    </svg>
-                  </div>
-                </div>
-                <div className="lg:col-span-3">
-                  <div className="bg-red-50/60 border border-red-100/80 rounded-2xl px-6 py-5">
-                    <p className="text-[var(--color-text-secondary)] leading-relaxed whitespace-pre-line">
-                      {caseStudy.problem}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </ScrollReveal>
+            <SectionBlock label="The Challenge">
+              <p className="text-[var(--color-text-secondary)] leading-relaxed whitespace-pre-line">
+                {caseStudy.problem}
+              </p>
+            </SectionBlock>
           )}
 
           {/* ── Strategy & Approach ── */}
           {(caseStudy.strategyPoints || caseStudy.strategy) && (
-            <SectionBlock label="My Strategy & Approach">
+            <SectionBlock label="Strategy & Approach">
               {caseStudy.strategyPoints ? (
                 <ol className="space-y-7">
                   {caseStudy.strategyPoints.map((point, i) => (
@@ -224,14 +205,9 @@ export default function CaseStudyLayout({ caseStudy }: CaseStudyLayoutProps) {
             <ScrollReveal>
               <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-12 py-12 border-t border-[var(--color-border)]">
                 <div className="lg:pt-1">
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-brand-light)] mb-2">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-brand-light)]">
                     Results / Outcomes
                   </p>
-                  <div className="hidden lg:flex mt-4 w-8 h-8 rounded-full bg-emerald-50 border border-emerald-100 items-center justify-center">
-                    <svg viewBox="0 0 16 16" fill="none" className="w-4 h-4 text-emerald-500">
-                      <path d="M3 8.5l3.5 3.5 6.5-7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </div>
                 </div>
                 <div className="lg:col-span-3">
                   <div className="space-y-3">
