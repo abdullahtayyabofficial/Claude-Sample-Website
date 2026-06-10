@@ -13,10 +13,10 @@ interface CaseStudyLayoutProps {
   caseStudy: CaseStudy
 }
 
-function SectionBlock({ label, children }: { label: string; children: React.ReactNode }) {
+function SectionBlock({ label, children, accent }: { label: string; children: React.ReactNode; accent?: boolean }) {
   return (
     <ScrollReveal>
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-12 py-12 border-t border-[var(--color-border)]">
+      <div className={`grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-12 py-12 border-t border-[var(--color-border)] ${accent ? 'lg:items-start' : ''}`}>
         <div className="lg:pt-1">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-brand-light)]">
             {label}
@@ -31,32 +31,41 @@ function SectionBlock({ label, children }: { label: string; children: React.Reac
 export default function CaseStudyLayout({ caseStudy }: CaseStudyLayoutProps) {
   return (
     <>
-      {/* Hero */}
-      <section className="relative min-h-[56vh] lg:min-h-[64vh] flex flex-col justify-end overflow-hidden bg-[#010738]">
+      {/* ── Hero ── */}
+      <section className="relative min-h-[58vh] lg:min-h-[66vh] flex flex-col justify-end overflow-hidden bg-[#010738]">
         {caseStudy.heroImage ? (
           <>
             <Image
               src={caseStudy.heroImage}
               alt={caseStudy.client}
               fill
-              className="object-cover opacity-45"
+              className="object-cover opacity-40"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#010738] via-[#010738]/55 to-[#010738]/20" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#010738] via-[#010738]/60 to-[#010738]/10" />
           </>
         ) : (
           <div className="absolute inset-0 gradient-brand opacity-90" />
         )}
 
+        {/* Subtle grid texture overlay */}
+        <div
+          className="absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage: 'linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)',
+            backgroundSize: '48px 48px',
+          }}
+        />
+
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-12 sm:pb-16 w-full">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: EASE }}
+            transition={{ duration: 0.65, ease: EASE }}
           >
             <Link
               href="/case-studies"
-              className="inline-flex items-center gap-2 text-white/55 text-sm font-medium hover:text-white transition-colors mb-8"
+              className="inline-flex items-center gap-2 text-white/50 text-sm font-medium hover:text-white transition-colors mb-8"
             >
               <svg viewBox="0 0 16 16" fill="none" className="w-4 h-4">
                 <path d="M10 3L5 8l5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -64,25 +73,30 @@ export default function CaseStudyLayout({ caseStudy }: CaseStudyLayoutProps) {
               All Case Studies
             </Link>
 
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/50 mb-4">
-              {caseStudy.client} &nbsp;·&nbsp; {caseStudy.industry}
-            </p>
+            {/* Client + industry badge */}
+            <div className="flex items-center gap-2 mb-5">
+              <span className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--color-brand-light)]">
+                {caseStudy.client}
+              </span>
+              <span className="text-white/30">·</span>
+              <span className="text-xs text-white/45 tracking-wide">{caseStudy.industry}</span>
+            </div>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-heading font-semibold text-white leading-[1.12] mb-4 max-w-3xl">
+            <h1 className="text-3xl sm:text-4xl lg:text-[2.8rem] font-heading font-semibold text-white leading-[1.1] mb-4 max-w-3xl">
               {caseStudy.title}
             </h1>
 
             {caseStudy.subtitle && (
-              <p className="text-white/70 text-base sm:text-lg font-medium mb-5 max-w-2xl">
+              <p className="text-white/60 text-base sm:text-lg font-medium mb-6 max-w-2xl">
                 {caseStudy.subtitle}
               </p>
             )}
 
-            <div className="flex flex-wrap gap-2 mt-6">
+            <div className="flex flex-wrap gap-2 mt-5">
               {caseStudy.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="text-xs font-medium px-2.5 py-1 rounded-full bg-white/10 text-white/75 border border-white/10"
+                  className="text-xs font-medium px-2.5 py-1 rounded-full bg-white/8 text-white/65 border border-white/10 backdrop-blur-sm"
                 >
                   {tag}
                 </span>
@@ -92,14 +106,15 @@ export default function CaseStudyLayout({ caseStudy }: CaseStudyLayoutProps) {
         </div>
       </section>
 
-      {/* Metrics */}
+      {/* ── Metrics Strip ── */}
       {caseStudy.metrics && caseStudy.metrics.length > 0 && (
         <section className="bg-white border-b border-[var(--color-border)]">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <ScrollReveal>
               <div className={`grid gap-px bg-[var(--color-border)] ${caseStudy.metrics.length >= 3 ? 'grid-cols-3' : 'grid-cols-2'}`}>
                 {caseStudy.metrics.map((metric) => (
-                  <div key={metric.label} className="bg-white px-3 py-7 sm:px-8 sm:py-10 text-center">
+                  <div key={metric.label} className="bg-white px-3 py-7 sm:px-8 sm:py-10 text-center group relative overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-brand-light)]/3 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <p className="text-xl sm:text-3xl lg:text-4xl font-heading font-bold gradient-brand-text leading-tight mb-1.5 sm:mb-2 break-words">
                       {metric.prefix}{metric.value}{metric.suffix}
                     </p>
@@ -112,7 +127,23 @@ export default function CaseStudyLayout({ caseStudy }: CaseStudyLayoutProps) {
         </section>
       )}
 
-      {/* Content */}
+      {/* ── Outcome Callout — "Lead with the win" ── */}
+      {caseStudy.callout && (
+        <section className="bg-[var(--color-surface-muted)] border-b border-[var(--color-border)] py-10 sm:py-14">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <ScrollReveal>
+              <div className="flex gap-5 sm:gap-7 items-stretch">
+                <div className="w-1 shrink-0 rounded-full" style={{ background: 'linear-gradient(180deg, #010738 0%, #15a1df 100%)' }} />
+                <blockquote className="text-xl sm:text-2xl lg:text-[1.65rem] font-heading font-semibold text-[var(--color-text-primary)] leading-[1.3]">
+                  {caseStudy.callout}
+                </blockquote>
+              </div>
+            </ScrollReveal>
+          </div>
+        </section>
+      )}
+
+      {/* ── Body Content ── */}
       <section className="bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
 
@@ -124,14 +155,34 @@ export default function CaseStudyLayout({ caseStudy }: CaseStudyLayoutProps) {
             </SectionBlock>
           )}
 
+          {/* ── The Challenge — styled for narrative tension ── */}
           {caseStudy.problem && (
-            <SectionBlock label="The Challenge">
-              <p className="text-[var(--color-text-secondary)] leading-relaxed">
-                {caseStudy.problem}
-              </p>
-            </SectionBlock>
+            <ScrollReveal>
+              <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-12 py-12 border-t border-[var(--color-border)]">
+                <div className="lg:pt-1">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-brand-light)] mb-2">
+                    The Challenge
+                  </p>
+                  {/* Visual indicator — problem icon */}
+                  <div className="hidden lg:flex mt-4 w-8 h-8 rounded-full bg-red-50 border border-red-100 items-center justify-center">
+                    <svg viewBox="0 0 16 16" fill="none" className="w-4 h-4 text-red-400">
+                      <path d="M8 3v5M8 11v1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                      <circle cx="8" cy="8" r="6.5" stroke="currentColor" strokeWidth="1" />
+                    </svg>
+                  </div>
+                </div>
+                <div className="lg:col-span-3">
+                  <div className="bg-red-50/60 border border-red-100/80 rounded-2xl px-6 py-5">
+                    <p className="text-[var(--color-text-secondary)] leading-relaxed whitespace-pre-line">
+                      {caseStudy.problem}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </ScrollReveal>
           )}
 
+          {/* ── Strategy & Approach ── */}
           {(caseStudy.strategyPoints || caseStudy.strategy) && (
             <SectionBlock label="My Strategy & Approach">
               {caseStudy.strategyPoints ? (
@@ -168,27 +219,46 @@ export default function CaseStudyLayout({ caseStudy }: CaseStudyLayoutProps) {
             </SectionBlock>
           )}
 
+          {/* ── Results — styled as payoff ── */}
           {caseStudy.results && caseStudy.results.length > 0 && (
-            <SectionBlock label="Results / Outcomes">
-              <div className="space-y-3">
-                {caseStudy.results.map((r) => (
-                  <div
-                    key={r.label}
-                    className="flex gap-4 bg-[var(--color-surface-muted)] rounded-xl px-5 py-4 border border-[var(--color-border)]"
-                  >
-                    <div className="w-5 h-5 rounded-full gradient-brand flex items-center justify-center shrink-0 mt-0.5">
-                      <svg viewBox="0 0 10 10" fill="none" className="w-2.5 h-2.5">
-                        <path d="M2 5l2.5 2.5L8 3" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </div>
-                    <div>
-                      <span className="text-sm font-semibold text-[var(--color-text-primary)]">{r.label}: </span>
-                      <span className="text-sm text-[var(--color-text-secondary)]">{r.value}</span>
-                    </div>
+            <ScrollReveal>
+              <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-12 py-12 border-t border-[var(--color-border)]">
+                <div className="lg:pt-1">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-brand-light)] mb-2">
+                    Results / Outcomes
+                  </p>
+                  <div className="hidden lg:flex mt-4 w-8 h-8 rounded-full bg-emerald-50 border border-emerald-100 items-center justify-center">
+                    <svg viewBox="0 0 16 16" fill="none" className="w-4 h-4 text-emerald-500">
+                      <path d="M3 8.5l3.5 3.5 6.5-7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
                   </div>
-                ))}
+                </div>
+                <div className="lg:col-span-3">
+                  <div className="space-y-3">
+                    {caseStudy.results.map((r, i) => (
+                      <motion.div
+                        key={r.label}
+                        initial={{ opacity: 0, x: -8 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: i * 0.07, duration: 0.4, ease: EASE }}
+                        className="flex gap-4 bg-gradient-to-r from-emerald-50/70 to-transparent rounded-xl px-5 py-4 border border-emerald-100/60"
+                      >
+                        <div className="w-5 h-5 rounded-full gradient-brand flex items-center justify-center shrink-0 mt-0.5">
+                          <svg viewBox="0 0 10 10" fill="none" className="w-2.5 h-2.5">
+                            <path d="M2 5l2.5 2.5L8 3" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
+                        </div>
+                        <div>
+                          <span className="text-sm font-semibold text-[var(--color-text-primary)]">{r.label}: </span>
+                          <span className="text-sm text-[var(--color-text-secondary)]">{r.value}</span>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
               </div>
-            </SectionBlock>
+            </ScrollReveal>
           )}
 
           {caseStudy.visuals && caseStudy.visuals.length > 0 && (
@@ -211,7 +281,7 @@ export default function CaseStudyLayout({ caseStudy }: CaseStudyLayoutProps) {
         </div>
       </section>
 
-      {/* Major Campaigns — FFC only */}
+      {/* ── Major Campaigns — FFC only ── */}
       {caseStudy.campaigns && caseStudy.campaigns.length > 0 && (
         <section className="bg-[var(--color-surface-muted)] border-t border-[var(--color-border)] py-16 sm:py-20">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -230,7 +300,7 @@ export default function CaseStudyLayout({ caseStudy }: CaseStudyLayoutProps) {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {caseStudy.campaigns.map((campaign, i) => (
                 <ScrollReveal key={campaign.name} delay={i * 0.07}>
-                  <div className="bg-white rounded-2xl border border-[var(--color-border)] card-shadow p-6 h-full">
+                  <div className="bg-white rounded-2xl border border-[var(--color-border)] card-shadow p-6 h-full hover:border-[var(--color-brand-light)]/40 transition-colors duration-200">
                     <div className="flex items-start gap-3 mb-5">
                       <div className="w-8 h-8 rounded-full gradient-brand flex items-center justify-center shrink-0 mt-0.5">
                         <span className="text-white text-xs font-bold">{i + 1}</span>
@@ -267,16 +337,26 @@ export default function CaseStudyLayout({ caseStudy }: CaseStudyLayoutProps) {
         </section>
       )}
 
-      {/* CTA */}
-      <section className="section-padding gradient-brand text-white text-center">
-        <div className="max-w-2xl mx-auto px-4 sm:px-6">
+      {/* ── CTA — "You could be next" ── */}
+      <section className="section-padding gradient-brand text-white relative overflow-hidden">
+        {/* Subtle pattern */}
+        <div
+          className="absolute inset-0 opacity-[0.05]"
+          style={{
+            backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px)',
+            backgroundSize: '32px 32px',
+          }}
+        />
+        <div className="relative z-10 max-w-2xl mx-auto px-4 sm:px-6 text-center">
           <ScrollReveal>
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/60 mb-3">Work Together</p>
-            <h2 className="text-3xl sm:text-4xl font-heading font-semibold mb-5">
-              Want Results Like These?
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/55 mb-3">
+              Your Business Could Be Next
+            </p>
+            <h2 className="text-3xl sm:text-4xl font-heading font-semibold mb-4">
+              Ready to Build a System That Delivers Results Like These?
             </h2>
-            <p className="text-white/75 mb-8 text-lg">
-              Let&apos;s talk through your goals and build a system designed to deliver them.
+            <p className="text-white/70 mb-8 text-lg leading-relaxed">
+              Every result on this page started with one conversation. Let&apos;s talk about what&apos;s possible for your business.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Button href="/#contact" size="lg" variant="secondary">Book a Free Call</Button>

@@ -14,6 +14,7 @@ export interface CaseStudy {
   slug: string
   title: string
   subtitle?: string
+  callout?: string
   client: string
   industry: string
   thumbnail: string

@@ -9,6 +9,8 @@ export const caseStudies: CaseStudy[] = [
     heroImage: '/images/case-studies/hardees-qsr/hero.jpg',
     thumbnail: '',
     tags: ['Meta Ads', 'Google Ads', 'eCommerce', 'ROAS Optimisation'],
+    callout:
+      'PKR 31M+ in online order revenue. 18K+ purchases. 4x–16x ROAS — not in one lucky month, but across 4 consecutive months of compounding growth, built on a system that ran every single day.',
     overview:
       'The client is a QSR brand operating across multiple Pakistani cities, with strong offline presence and an ecommerce channel through their website. Before the engagement, the brand was running isolated and engagement campaigns for brand recall, delivering inconsistent results. The goal was to build a structured, effective ecommerce system that drives online orders every single day of the month.',
     problem:
@@ -56,6 +58,8 @@ export const caseStudies: CaseStudy[] = [
     heroImage: '/images/case-studies/commercial-real-estate-lead-gen/hero.jpg',
     thumbnail: '',
     tags: ['Meta Ads', 'Google Ads', 'Lead Generation', 'Real Estate'],
+    callout:
+      '1,784+ qualified commercial real estate leads. Two months. Two approved creatives. Zero prior social media presence. This is what structured media buying looks like when guesswork is replaced with a system.',
     overview:
       'A government-backed commercial real estate development authority in Punjab was responsible for launching and selling large-scale commercial plots — government-supported installment plans, high-credibility locations, and price points starting from PKR 140 lakhs. The challenge: convert an authority brand with no social media presence into a lead generation machine targeting high-intent commercial investors across Pakistan.',
     problem:
@@ -98,6 +102,8 @@ export const caseStudies: CaseStudy[] = [
     heroImage: '/images/case-studies/ffc/hero.jpg',
     thumbnail: '',
     tags: ['YouTube Ads', 'Meta Ads', 'TikTok', 'Brand Awareness', 'Multi-Platform'],
+    callout:
+      '140M+ impressions. 88.5M+ video views. 155K+ new followers and subscribers — across 5 national campaigns, built on one consistent multi-platform architecture that turned every FFC event into a nationwide digital moment.',
     overview:
       'Fauji Fertilizers Company (FFC) is one of Pakistan\'s largest and most recognized agricultural brands, with a nationwide presence serving millions of farmers. A comprehensive multi-platform digital marketing program was designed and executed across FFC\'s major events and global observance days — spanning prize distribution ceremonies, agricultural conventions, and awareness days — transforming each offline moment into a nationwide digital movement across YouTube, Meta, and TikTok.',
     problem:
@@ -176,6 +182,8 @@ export const caseStudies: CaseStudy[] = [
     heroImage: '/images/case-studies/cubicle-coworking/hero.jpg',
     thumbnail: '',
     tags: ['Meta Ads', 'Lead Generation', 'Event Marketing', 'Creative Strategy'],
+    callout:
+      '3 bookings to 25+ and full capacity — in under 60 days, from a standing start. Paid media built the pipeline. One community event compressed months of trust-building into a single night.',
     overview:
       'Cubicle is the only co-working space in its area, targeting freelancers, startups, and IT companies. The goal was to fill private offices, dedicated desks, and the co-working area as quickly as possible — generating passive monthly revenue while positioning Cubicle as the premium yet affordable workspace in the local market.',
     problem:
@@ -217,6 +225,8 @@ export const caseStudies: CaseStudy[] = [
     heroImage: '/images/case-studies/wavebyte-ecommerce/hero.jpg',
     thumbnail: '',
     tags: ['Meta Ads', 'Lead Generation', 'Ecommerce', 'Scaling Strategy'],
+    callout:
+      'PKR 1.5M+ in total ad spend. 5–8x ROAS maintained at every single scaling stage — from PKR 1,500 a day to PKR 100,000+. Most businesses lose ROAS when they scale. This one didn\'t.',
     overview:
       'Wave Byte is a UAE-based ecommerce service provider offering complete dropshipping, warehousing, product sourcing, 3PL, and order fulfillment solutions. The primary goal was to generate a continuous flow of qualified leads from aspiring entrepreneurs looking to start their dropshipping journey — while also filling monthly seminars and webinars to convert attendees into paying customers.',
     problem:
@@ -258,6 +268,8 @@ export const caseStudies: CaseStudy[] = [
     heroImage: '/images/case-studies/icr-it-centre/hero.jpg',
     thumbnail: '',
     tags: ['Meta Ads', 'Lead Generation', 'Education', 'Creative Strategy'],
+    callout:
+      '300+ enrollments in one peak season. 80+ per batch, consistently, cycle after cycle. When enrollment depends on word-of-mouth, it\'s a gamble. When it\'s built on a system — it\'s predictable.',
     overview:
       'ICR IT-Centre is an IT training institute offering skill-based courses including Digital Marketing, Web & App Development, and Graphic Design. The primary requirement was to generate consistent student enrollments batch after batch — while positioning ICR as a credible, affordable, and career-oriented institute for young students seeking practical skills and job opportunities.',
     problem:
