@@ -14,7 +14,9 @@ interface FormData {
   email: string
   phone: string
   businessType: string
-  message: string
+  problems: string
+  monthlyRevenue: string
+  currentMarketing: string
 }
 
 const initialForm: FormData = {
@@ -22,7 +24,9 @@ const initialForm: FormData = {
   email: '',
   phone: '',
   businessType: '',
-  message: '',
+  problems: '',
+  monthlyRevenue: '',
+  currentMarketing: '',
 }
 
 export default function ContactCTA() {
@@ -31,7 +35,7 @@ export default function ContactCTA() {
   const [errorMsg, setErrorMsg] = useState('')
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
   ) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
@@ -145,17 +149,57 @@ export default function ContactCTA() {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-[var(--color-text-primary)] mb-2">
-                  Message <span className="text-[var(--color-brand-light)]">*</span>
+                <label htmlFor="problems" className="block text-sm font-medium text-[var(--color-text-primary)] mb-2">
+                  What specific problems are you facing with your business?
+                  <span className="text-[var(--color-text-muted)] font-normal ml-1">(optional)</span>
                 </label>
                 <textarea
-                  id="message"
-                  name="message"
-                  required
-                  rows={5}
-                  value={form.message}
+                  id="problems"
+                  name="problems"
+                  rows={4}
+                  value={form.problems}
                   onChange={handleChange}
-                  placeholder="Tell me about your business, your goals, and where you're stuck..."
+                  placeholder="e.g. Low lead quality, high ad costs, inconsistent sales, poor ROAS, no clear marketing system..."
+                  className="w-full px-4 py-3 rounded-xl border border-[var(--color-border)] text-[var(--color-text-primary)] placeholder:text-[var(--color-text-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-light)]/30 focus:border-[var(--color-brand-light)] transition-colors text-sm resize-none"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="monthlyRevenue" className="block text-sm font-medium text-[var(--color-text-primary)] mb-2">
+                  What is your monthly revenue? <span className="text-[var(--color-brand-light)]">*</span>
+                </label>
+                <select
+                  id="monthlyRevenue"
+                  name="monthlyRevenue"
+                  required
+                  value={form.monthlyRevenue}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 rounded-xl border border-[var(--color-border)] text-[var(--color-text-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-light)]/30 focus:border-[var(--color-brand-light)] transition-colors text-sm bg-white appearance-none"
+                >
+                  <option value="" disabled>Select your monthly revenue</option>
+                  <option value="<$10k">&lt;$10k</option>
+                  <option value="$10k-$30k">$10k – $30k</option>
+                  <option value="$30k-$50k">$30k – $50k</option>
+                  <option value="$50k-$100k">$50k – $100k</option>
+                  <option value="$100k-$250k">$100k – $250k</option>
+                  <option value="$250k-$500k">$250k – $500k</option>
+                  <option value="$500k-$1M">$500k – $1M</option>
+                  <option value="$1M+">$1M+</option>
+                </select>
+              </div>
+
+              <div>
+                <label htmlFor="currentMarketing" className="block text-sm font-medium text-[var(--color-text-primary)] mb-2">
+                  Are you currently doing any kind of marketing? <span className="text-[var(--color-brand-light)]">*</span>
+                </label>
+                <textarea
+                  id="currentMarketing"
+                  name="currentMarketing"
+                  required
+                  rows={3}
+                  value={form.currentMarketing}
+                  onChange={handleChange}
+                  placeholder="Type your answer"
                   className="w-full px-4 py-3 rounded-xl border border-[var(--color-border)] text-[var(--color-text-primary)] placeholder:text-[var(--color-text-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-light)]/30 focus:border-[var(--color-brand-light)] transition-colors text-sm resize-none"
                 />
               </div>

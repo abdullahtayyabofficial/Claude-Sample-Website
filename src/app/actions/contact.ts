@@ -7,7 +7,9 @@ export async function sendContactEmail(data: {
   email: string
   phone?: string
   businessType: string
-  message: string
+  problems?: string
+  monthlyRevenue: string
+  currentMarketing: string
 }): Promise<{ success: boolean; error?: string }> {
   const apiKey = process.env.RESEND_API_KEY
   const toEmail = process.env.CONTACT_EMAIL
@@ -30,9 +32,13 @@ export async function sendContactEmail(data: {
         `Email: ${data.email}`,
         `Phone: ${data.phone || 'Not provided'}`,
         `Business Type: ${data.businessType}`,
+        `Monthly Revenue: ${data.monthlyRevenue}`,
         '',
-        'Message:',
-        data.message,
+        'Current Marketing:',
+        data.currentMarketing,
+        '',
+        'Business Problems:',
+        data.problems || 'Not provided',
       ].join('\n'),
     })
 
