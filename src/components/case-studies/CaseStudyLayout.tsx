@@ -39,10 +39,10 @@ export default function CaseStudyLayout({ caseStudy }: CaseStudyLayoutProps) {
               src={caseStudy.heroImage}
               alt={caseStudy.client}
               fill
-              className="object-cover opacity-40"
+              className="object-cover opacity-60"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#010738] via-[#010738]/60 to-[#010738]/10" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#010738] via-[#010738]/40 to-transparent" />
           </>
         ) : (
           <div className="absolute inset-0 gradient-brand opacity-90" />

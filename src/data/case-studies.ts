@@ -6,7 +6,7 @@ export const caseStudies: CaseStudy[] = [
     title: 'Building an Always-On Online Revenue Engine for a QSR Brand',
     client: 'Quick Service Restaurant (QSR)',
     industry: 'Food & Beverage / eCommerce',
-    heroImage: '/images/case-studies/hardees-qsr/hero.jpg',
+    heroImage: '/images/case-studies/hardees-qsr/hero.jpeg',
     thumbnail: '',
     tags: ['Meta Ads', 'Google Ads', 'eCommerce', 'ROAS Optimisation'],
     callout:
