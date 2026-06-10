@@ -106,7 +106,7 @@ export default function Hero() {
           </div>
 
           {/* ── Right: Photo + Node Network ── */}
-          <div className="relative flex items-center justify-center order-1 lg:order-2 h-[460px] sm:h-[540px] lg:h-[620px]">
+          <div className="relative hidden lg:flex items-center justify-center order-1 lg:order-2 h-[460px] sm:h-[540px] lg:h-[620px]">
             {/* Canvas node network fills the column */}
             <div className="absolute inset-0 rounded-3xl overflow-hidden">
               <NodeNetwork />
