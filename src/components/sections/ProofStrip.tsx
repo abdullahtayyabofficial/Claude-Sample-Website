@@ -34,7 +34,7 @@ export default function ProofStrip() {
         <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
         <div
-          className="flex items-center gap-12 sm:gap-16 animate-scroll-left"
+          className="flex items-center gap-16 sm:gap-24 animate-scroll-left"
           style={{ width: 'max-content' }}
         >
           {allLogos.map((logo, i) => (
