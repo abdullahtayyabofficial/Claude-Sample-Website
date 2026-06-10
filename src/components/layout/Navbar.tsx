@@ -17,15 +17,8 @@ const navLinks = [
 ]
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const pathname = usePathname()
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 16)
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
 
   useEffect(() => {
     setMobileOpen(false)
@@ -39,12 +32,7 @@ export default function Navbar() {
   return (
     <>
       <motion.header
-        className={cn(
-          'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-          scrolled
-            ? 'bg-white/95 backdrop-blur-md border-b border-[var(--color-border)] shadow-sm'
-            : 'bg-transparent',
-        )}
+        className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-[var(--color-border)]"
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: [0.25, 0.4, 0.25, 1] as const }}
