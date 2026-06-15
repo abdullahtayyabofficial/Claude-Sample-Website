@@ -4,6 +4,7 @@ export interface CaseStudy {
   client: string
   industry: string
   thumbnail: string
+  heroImage?: string
   tags: string[]
   overview?: string
   problem?: string
