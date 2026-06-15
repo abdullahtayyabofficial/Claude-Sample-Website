@@ -155,7 +155,7 @@
   /* Case study card */
   .cs-card-border {
     background: #ffffff;
-    border: 1.5px solid rgba(21, 161, 223, 0.25);
+    border: 1.5px solid rgba(21, 161, 223, 0.45);
     border-radius: 1rem;
     box-shadow: 0 2px 12px rgba(1, 7, 56, 0.05);
     transition: box-shadow 0.3s ease, border-color 0.3s ease;
@@ -173,7 +173,7 @@
     border-radius: 1rem 1rem 0 0;
   }
   .cs-card-border:hover {
-    border-color: rgba(21, 161, 223, 0.55);
+    border-color: rgba(21, 161, 223, 0.75);
     box-shadow: 0 8px 32px rgba(21, 161, 223, 0.13), 0 2px 8px rgba(1, 7, 56, 0.05);
   }
   .cs-card-inner {
