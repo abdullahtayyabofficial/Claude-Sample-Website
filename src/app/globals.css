@@ -152,20 +152,33 @@
     animation-play-state: paused;
   }
 
-  /* Case study card — gradient border + inner tint */
+  /* Case study card */
   .cs-card-border {
-    background: linear-gradient(135deg, #010738 0%, #15a1df 50%, #010738 100%);
-    padding: 1.5px;
+    background: #ffffff;
+    border: 1px solid var(--color-border);
     border-radius: 1rem;
-    transition: background 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 12px rgba(1, 7, 56, 0.06);
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .cs-card-border::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-brand-dark) 0%, var(--color-brand-light) 100%);
+    border-radius: 1rem 1rem 0 0;
   }
   .cs-card-border:hover {
-    background: linear-gradient(135deg, #15a1df 0%, #010738 50%, #15a1df 100%);
-    box-shadow: 0 20px 48px rgba(21, 161, 223, 0.22);
+    border-color: rgba(21, 161, 223, 0.3);
+    box-shadow: 0 8px 32px rgba(21, 161, 223, 0.15), 0 2px 8px rgba(1, 7, 56, 0.06);
   }
   .cs-card-inner {
-    border-radius: calc(1rem - 1.5px);
-    background: linear-gradient(160deg, #ffffff 0%, #f0f6ff 60%, #e8f4fb 100%);
+    border-radius: 0;
+    background: transparent;
   }
 
   .gradient-border-card {
