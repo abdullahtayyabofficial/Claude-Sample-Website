@@ -67,13 +67,6 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Hide native cursor on mouse devices — CustomCursor takes over */
-  @media (pointer: fine) and (hover: hover) {
-    * {
-      cursor: none !important;
-    }
-  }
-
   body {
     background-color: #ffffff;
     color: var(--color-text-primary);
@@ -157,6 +150,22 @@
 
   .pause-animation {
     animation-play-state: paused;
+  }
+
+  /* Case study card — gradient border + inner tint */
+  .cs-card-border {
+    background: linear-gradient(135deg, #010738 0%, #15a1df 50%, #010738 100%);
+    padding: 1.5px;
+    border-radius: 1rem;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+  }
+  .cs-card-border:hover {
+    background: linear-gradient(135deg, #15a1df 0%, #010738 50%, #15a1df 100%);
+    box-shadow: 0 20px 48px rgba(21, 161, 223, 0.22);
+  }
+  .cs-card-inner {
+    border-radius: calc(1rem - 1.5px);
+    background: linear-gradient(160deg, #ffffff 0%, #f0f6ff 60%, #e8f4fb 100%);
   }
 
   .gradient-border-card {

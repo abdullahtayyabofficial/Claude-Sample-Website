@@ -12,26 +12,13 @@ interface CaseStudyCardProps {
 export default function CaseStudyCard({ caseStudy }: CaseStudyCardProps) {
   return (
     <Link href={`/case-studies/${caseStudy.slug}`} className="group block h-full">
-      {/* Blue gradient border wrapper */}
       <motion.div
-        className="h-full rounded-2xl p-[1.5px] flex flex-col"
-        style={{
-          background: 'linear-gradient(135deg, #010738 0%, #15a1df 50%, #010738 100%)',
-        }}
-        whileHover={{
-          y: -6,
-          background: 'linear-gradient(135deg, #15a1df 0%, #010738 50%, #15a1df 100%)',
-          boxShadow: '0 20px 48px rgba(21,161,223,0.22)',
-        }}
-        transition={{ duration: 0.3, ease: 'easeOut' }}
+        className="cs-card-border h-full flex flex-col"
+        whileHover={{ y: -6 }}
+        transition={{ duration: 0.25, ease: 'easeOut' }}
       >
-        {/* Inner card */}
-        <div
-          className="flex flex-col flex-1 rounded-[14px] overflow-hidden"
-          style={{
-            background: 'linear-gradient(160deg, #ffffff 0%, #f0f6ff 60%, #e8f4fb 100%)',
-          }}
-        >
+        <div className="cs-card-inner flex flex-col flex-1 overflow-hidden" style={{ borderRadius: 'calc(1rem - 1.5px)' }}>
+
           {/* Logo */}
           <div className="px-6 pt-6 pb-4 min-h-[64px] flex items-center">
             {caseStudy.logo ? (
@@ -51,7 +38,7 @@ export default function CaseStudyCard({ caseStudy }: CaseStudyCardProps) {
             )}
           </div>
 
-          {/* Hero image — slightly narrower via horizontal padding */}
+          {/* Hero image — inset from sides */}
           {caseStudy.heroImage && (
             <div className="px-4 pb-1">
               <div className="relative w-full aspect-[16/9] overflow-hidden rounded-xl bg-[var(--color-surface-muted)]">
@@ -112,6 +99,7 @@ export default function CaseStudyCard({ caseStudy }: CaseStudyCardProps) {
               </span>
             </div>
           </div>
+
         </div>
       </motion.div>
     </Link>

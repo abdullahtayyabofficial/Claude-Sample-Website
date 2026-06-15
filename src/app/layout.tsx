@@ -3,8 +3,6 @@ import { Space_Grotesk, Inter } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
-import LenisProvider from '@/components/providers/LenisProvider'
-import CustomCursor from '@/components/ui/CustomCursor'
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -94,12 +92,9 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="overflow-x-hidden">
-        <LenisProvider>
-          <CustomCursor />
-          <Navbar />
-          <main>{children}</main>
-          <Footer />
-        </LenisProvider>
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   )
