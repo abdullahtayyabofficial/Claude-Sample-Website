@@ -1,16 +1,12 @@
 import type { Metadata } from 'next'
+import ServicesContent from '@/components/pages/ServicesContent'
 
 export const metadata: Metadata = {
-  title: 'Marketing Services | AI-Powered Growth Solutions',
+  title: 'Services | A Complete Marketing System Built to Drive Growth',
   description:
-    'Access a full stack of marketing services including automation, SEO, design, and development.',
+    'Meta Ads, Google Ads, AI Automation, SEO, Web Design, and Visual Design — everything built to work together as one performance-driven system.',
 }
 
-// Services page — implemented in Step 4 (awaiting service structure approval)
 export default function ServicesPage() {
-  return (
-    <div className="min-h-screen pt-24 flex items-center justify-center">
-      <p className="text-[var(--color-text-muted)]">[Services Page — Step 4]</p>
-    </div>
-  )
+  return <ServicesContent />
 }

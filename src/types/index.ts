@@ -1,18 +1,36 @@
+export interface StrategyPoint {
+  title: string
+  description: string
+}
+
+export interface FfcCampaign {
+  name: string
+  impressions: string
+  videoViews: string
+  followers: string
+}
+
 export interface CaseStudy {
   slug: string
   title: string
+  subtitle?: string
+  callout?: string
   client: string
   industry: string
   thumbnail: string
+  heroImage?: string
+  logo?: string
   tags: string[]
   overview?: string
   problem?: string
   strategy?: string
+  strategyPoints?: StrategyPoint[]
   execution?: string
   results?: CaseStudyResult[]
   visuals?: string[]
   learnings?: string
   metrics?: CaseStudyMetric[]
+  campaigns?: FfcCampaign[]
 }
 
 export interface CaseStudyResult {

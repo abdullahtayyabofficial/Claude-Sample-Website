@@ -112,23 +112,6 @@ const items = [
     ],
   },
   {
-    id: 'tiktok-linkedin',
-    title: 'TikTok & LinkedIn Ads',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-        <path d="M8 5v14l11-7z"/>
-      </svg>
-    ),
-    skills: [
-      'TikTok Performance Campaigns',
-      'TikTok Creative Strategy',
-      'LinkedIn Lead Gen Forms',
-      'LinkedIn B2B Targeting',
-      'Awareness & Reach Campaigns',
-      'Cross-Platform Retargeting',
-    ],
-  },
-  {
     id: 'funnel',
     title: 'Funnel Building',
     icon: (
@@ -139,8 +122,6 @@ const items = [
     skills: [
       'Landing Page Strategy',
       'Lead Magnet Design',
-      'Email & WhatsApp Sequences',
-      'Conversion Rate Optimisation',
       'Checkout & Lead Form Optimisation',
       'Upsell & Retargeting Flows',
     ],
@@ -170,9 +151,9 @@ export default function Expertise() {
           {items.map((item, i) => {
             const isActive = active === item.id
             return (
-              <ScrollReveal key={item.id} delay={i * 0.06} direction="up">
+              <ScrollReveal key={item.id} delay={i * 0.06} direction="up" className="h-full">
                 <motion.div
-                  className="relative bg-white rounded-2xl border border-[var(--color-border)] p-6 cursor-pointer overflow-hidden group"
+                  className="relative bg-white rounded-2xl border border-[var(--color-border)] p-6 cursor-pointer overflow-hidden group h-full"
                   whileHover={{ y: -4, boxShadow: 'var(--shadow-card-hover)' }}
                   onClick={() => setActive(isActive ? null : item.id)}
                   layout
@@ -190,7 +171,7 @@ export default function Expertise() {
                   </div>
 
                   {/* Title */}
-                  <h3 className="font-heading font-semibold text-[var(--color-text-primary)] text-base mb-3 leading-snug">
+                  <h3 className="font-heading font-semibold text-[var(--color-text-primary)] text-base mb-3 leading-snug min-h-[2.75rem]">
                     {item.title}
                   </h3>
 

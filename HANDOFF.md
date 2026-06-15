@@ -1,7 +1,8 @@
 # Project Handoff — Abdullah Tayyab Portfolio
+### Session 2 Complete — Updated May 2026
 
-> Feed this file to a new Claude session to resume exactly where this session stopped.
-> Companion file: `CLAUDE.md` (also in project root) contains persistent technical context.
+> Feed this file + `CLAUDE.md` to a new Claude session to resume exactly where this session stopped.
+> Both files live in the project root.
 
 ---
 
@@ -9,16 +10,17 @@
 
 A premium personal portfolio website for **Abdullah Tayyab**, a performance marketer and media buyer based in Pakistan. The site is a client acquisition and authority-building tool — not a generic portfolio or agency site.
 
-**Live domain (deployment target):** https://abdullahtayyab.com  
-**Repo branch:** `claude/build-portfolio-website-U3hLc`  
-**Deployment platform:** Vercel  
+**Live URL:** https://abdullahtayyab.com ✅ Deployed on Vercel
+**Repo:** `abdullahtayyabofficial/Claude-Sample-Website`
+**Active branch:** `claude/portfolio-website-dev-4YbiL`
+**Deployment platform:** Vercel
 
 **Core positioning line:**
 > "I build and scale AI-powered marketing systems that drive predictable business growth."
 
 ---
 
-## 2. Tech Stack (Final, No Changes)
+## 2. Tech Stack (Final — No Changes)
 
 | Layer | Decision |
 |---|---|
@@ -28,28 +30,28 @@ A premium personal portfolio website for **Abdullah Tayyab**, a performance mark
 | Animation | Framer Motion v12 |
 | Email backend | Resend (API route at `/api/contact`) |
 | Fonts | Space Grotesk (headings) + Inter (body) via `next/font/google` |
-| Deployment | Vercel |
-
-**Why this stack:** User specified Next.js + TypeScript + Tailwind + Framer Motion explicitly. Resend was chosen for the contact form because the user already has an account and API key. Static generation throughout for performance and simplicity — no dynamic server rendering needed for a portfolio.
+| Deployment | Vercel ✅ Live |
 
 ---
 
-## 3. Architecture Decisions Made (and Why)
+## 3. Architecture Decisions
 
 | Decision | Reason |
 |---|---|
 | App Router only, no Pages Router | Next.js 15 best practice; cleaner layout nesting |
-| All source under `src/` | Standard project hygiene, separates source from config |
-| `@/*` path alias → `src/*` | Avoids `../../` imports across deep component trees |
+| All source under `src/` | Separates source from config |
+| `@/*` path alias → `src/*` | Avoids `../../` deep imports |
 | No external icon libraries | User constraint — inline SVG only |
 | No analytics/tracking scripts | User constraint — explicitly ruled out |
-| CSS keyframe animations for infinite scrolls (ProofStrip, Testimonials) | Better performance than Framer Motion for continuous loops |
+| CSS keyframe animations for infinite scrolls | Better performance than Framer Motion for continuous loops |
 | Framer Motion for all other animations | Scroll reveal, hover lift, floating card, mobile menu |
-| `ease` arrays typed as `as const` | Framer Motion v12 breaks on plain `number[]` — needs tuple type |
-| `'use client'` only on components that need it | Maximise Server Component usage for performance |
-| Data files (`src/data/`) separate from components | Clean separation — data can be updated without touching UI |
-| Case study pages use conditional rendering | Only render sections that have actual content per study |
-| Services page includes a network disclaimer | User requirement — services delivered via trusted specialists, not Abdullah personally |
+| `ease` arrays typed `as const` | Framer Motion v12 breaks on plain `number[]` |
+| `'use client'` only on components that need it | Maximise Server Component usage |
+| Server wrapper + client content pattern for pages | `page.tsx` exports metadata (server); content in `*Content.tsx` (client) |
+| Data files (`src/data/`) separate from components | Clean separation — data updated without touching UI |
+| Case study pages use conditional rendering | Only render sections that have actual content |
+| Services page includes network disclaimer | User requirement — services via trusted specialists |
+| `<main>` only in `layout.tsx` | Content components use `<>` fragments — no nested landmark |
 
 ---
 
@@ -57,13 +59,13 @@ A premium personal portfolio website for **Abdullah Tayyab**, a performance mark
 
 | Ruled Out | Why |
 |---|---|
-| External calendar booking link (Calendly etc.) | User doesn't have one yet — "Book a Call" scrolls to contact form instead |
-| External icon libraries (Heroicons, Lucide etc.) | User constraint — all icons are inline SVG |
-| Google Analytics / Meta Pixel / tracking | User constraint — no tracking scripts anywhere in codebase |
-| ISR (Incremental Static Regeneration) | Not needed for a portfolio — full static is simpler and faster |
-| Pages Router | App Router only per architecture decision |
-| Template-style or agency-style design | User explicitly wants a premium personal brand site, not generic |
-| Committing `.env.local` | API key is gitignored — must never be committed |
+| External calendar booking (Calendly etc.) | User doesn't have one — "Book a Call" scrolls to contact form |
+| External icon libraries | User constraint |
+| Google Analytics / Meta Pixel / tracking | User constraint |
+| ISR (Incremental Static Regeneration) | Not needed for a portfolio |
+| Pages Router | App Router only |
+| Freelance projects on About page | User removed — no data provided |
+| Committing `.env.local` | API key gitignored — never commit |
 
 ---
 
@@ -71,102 +73,94 @@ A premium personal portfolio website for **Abdullah Tayyab**, a performance mark
 
 ```
 /
-├── CLAUDE.md                         ← Persistent technical context (read this)
-├── HANDOFF.md                        ← This file
-├── .env.local                        ← Gitignored. Contains RESEND_API_KEY + CONTACT_EMAIL
-├── package.json
-├── next.config.ts
-├── tsconfig.json
-├── postcss.config.mjs
-├── eslint.config.mjs
+├── CLAUDE.md
+├── HANDOFF.md
+├── .env.local                            ← Gitignored. RESEND_API_KEY + CONTACT_EMAIL
+├── package.json / next.config.ts / tsconfig.json / etc.
 ├── public/
 │   └── images/
-│       ├── hero/
-│       │   └── PLACE_IMAGE_HERE.md   ← User must place abdullah-tayyab.jpg here
-│       ├── logos/
-│       │   └── PLACE_LOGOS_HERE.md   ← User must place 9 logo PNGs here
-│       ├── case-studies/             ← Empty — awaiting case study assets
-│       └── og/                       ← Empty — awaiting OG image
+│       ├── hero/abdullah-tayyab.jpg      ← ✅ Placed
+│       ├── logos/[9 logo PNGs]           ← ✅ All placed
+│       └── og/og-image.jpg               ← ✅ Placed
 └── src/
     ├── app/
-    │   ├── globals.css               ← Tailwind @theme + all custom utilities + keyframes
-    │   ├── layout.tsx                ← Root layout: fonts, metadata, Navbar, Footer
-    │   ├── page.tsx                  ← Home page — composes all sections
-    │   ├── about/page.tsx            ← STUB — needs full page implementation (Step 4)
-    │   ├── expertise/page.tsx        ← STUB — needs full page implementation (Step 4)
-    │   ├── services/page.tsx         ← STUB — needs full page implementation (Step 4)
+    │   ├── globals.css                   ← ✅ Tailwind @theme + utilities + keyframes
+    │   ├── layout.tsx                    ← ✅ Root layout: fonts, metadata, viewport, Navbar, Footer
+    │   ├── page.tsx                      ← ✅ Home — 9 sections
+    │   ├── sitemap.ts                    ← ✅ /sitemap.xml (12 routes)
+    │   ├── robots.ts                     ← ✅ /robots.txt
+    │   ├── about/page.tsx                ← ✅ Server wrapper → AboutContent
+    │   ├── expertise/page.tsx            ← ✅ Server wrapper → ExpertiseContent
+    │   ├── services/page.tsx             ← ✅ Server wrapper → ServicesContent
     │   ├── case-studies/
-    │   │   ├── page.tsx              ← Listing page — works, shows "coming soon" when empty
-    │   │   └── [slug]/page.tsx       ← Dynamic page — ready, waits on data
-    │   ├── privacy-policy/page.tsx   ← ✅ Complete — generated for single-person site
-    │   ├── thank-you/page.tsx        ← ✅ Complete
-    │   └── api/contact/route.ts      ← ✅ Complete — Resend integration, env-gated
+    │   │   ├── page.tsx                  ← ✅ Listing page
+    │   │   └── [slug]/page.tsx           ← ✅ 7 routes pre-rendered
+    │   ├── privacy-policy/page.tsx       ← ✅ Complete
+    │   ├── thank-you/page.tsx            ← ✅ Complete
+    │   └── api/contact/route.ts          ← ✅ Resend backend built — NOT yet working end-to-end
     ├── components/
-    │   ├── layout/
-    │   │   ├── Navbar.tsx            ← ✅ Fixed, scroll-aware, animated mobile menu
-    │   │   └── Footer.tsx            ← ✅ Real social links set
+    │   ├── layout/Navbar.tsx             ← ✅ Fixed, scroll-aware
+    │   ├── layout/Footer.tsx             ← ✅ Real social links
     │   ├── sections/
-    │   │   ├── Hero.tsx              ← ✅ Complete
-    │   │   ├── ProofStrip.tsx        ← ✅ Complete (needs logo files from user)
-    │   │   ├── About.tsx             ← ✅ Complete (homepage section)
-    │   │   ├── Expertise.tsx         ← ✅ Complete (homepage section)
-    │   │   ├── CaseStudiesPreview.tsx← ⏳ STUB — awaiting case study data (Step 5)
-    │   │   ├── Testimonials.tsx      ← ✅ Complete
-    │   │   ├── Process.tsx           ← ✅ Complete
-    │   │   ├── FAQ.tsx               ← ✅ Complete
-    │   │   └── ContactCTA.tsx        ← ✅ Complete
-    │   ├── ui/
-    │   │   ├── Button.tsx            ← variant: primary | secondary | ghost
-    │   │   ├── Card.tsx              ← hover lift animation
-    │   │   ├── GradientText.tsx      ← Brand gradient text fill
-    │   │   ├── ScrollReveal.tsx      ← Fade+slide on scroll enter (uses useInView)
-    │   │   └── NodeNetwork.tsx       ← Canvas particle animation (hero background)
+    │   │   ├── Hero.tsx                  ← ✅
+    │   │   ├── ProofStrip.tsx            ← ✅
+    │   │   ├── About.tsx                 ← ✅
+    │   │   ├── Expertise.tsx             ← ✅
+    │   │   ├── CaseStudiesPreview.tsx    ← ✅ Shows 3 featured case studies
+    │   │   ├── Testimonials.tsx          ← ✅
+    │   │   ├── Process.tsx               ← ✅
+    │   │   ├── FAQ.tsx                   ← ✅
+    │   │   └── ContactCTA.tsx            ← ✅ Form built — Resend not working yet
+    │   ├── pages/
+    │   │   ├── AboutContent.tsx          ← ✅
+    │   │   ├── ExpertiseContent.tsx      ← ✅
+    │   │   └── ServicesContent.tsx       ← ✅
+    │   ├── ui/Button / Card / GradientText / ScrollReveal / NodeNetwork
     │   └── case-studies/
-    │       ├── CaseStudyCard.tsx     ← Card for listing/preview
-    │       └── CaseStudyLayout.tsx   ← Full case study page layout (conditional sections)
+    │       ├── CaseStudyCard.tsx         ← ✅
+    │       └── CaseStudyLayout.tsx       ← ✅ Premium layout
     ├── data/
-    │   ├── case-studies.ts           ← ⏳ Empty array — awaiting PDFs (Step 5)
-    │   ├── testimonials.ts           ← ✅ Populated — 6 real testimonials
-    │   ├── services.ts               ← ⏳ Empty — awaiting approval (Step 4)
-    │   └── expertise.ts              ← ⏳ Empty — data is inline in Expertise.tsx for now
-    ├── lib/utils.ts                  ← cn(), slugify(), formatDate()
-    └── types/index.ts                ← All shared types: CaseStudy, Testimonial, Service, etc.
+    │   ├── case-studies.ts               ← ✅ 7 real case studies
+    │   └── testimonials.ts               ← ✅ 6 real testimonials
+    ├── lib/utils.ts
+    └── types/index.ts
 ```
 
 ---
 
-## 6. Design System (Do Not Change Without Asking)
+## 6. Pages — All Complete
 
-### Brand Colors
-```css
---color-brand-dark:     #010738   /* Deep navy */
---color-brand-light:    #15a1df   /* Bright blue */
---color-surface-muted:  #f8f9fc
---color-border:         #e8eaf0
---color-text-primary:   #0a0a14
---color-text-secondary: #4a4f6a
---color-text-muted:     #8890a8
-```
-
-### Key Custom Utilities
-```css
-.gradient-brand          /* bg: 135deg, #010738 → #15a1df */
-.gradient-brand-text     /* same gradient as text fill */
-.section-padding         /* 6rem / 8rem / 10rem vertical at sm/md/lg */
-.card-shadow             /* standard card drop shadow */
-.animate-scroll-left     /* 30s infinite left scroll (ProofStrip) */
-.animate-float           /* 4s up/down float */
-.animate-glow-pulse      /* 3s opacity pulse */
-```
-
-### Fonts
-- Headings: `font-heading` → Space Grotesk (CSS var `--font-space-grotesk`)
-- Body: `font-body` → Inter (CSS var `--font-inter`)
-- Both injected via `next/font/google` on `<html>` in `layout.tsx`
+| Route | Status |
+|---|---|
+| `/` | ✅ |
+| `/about` | ✅ |
+| `/expertise` | ✅ |
+| `/services` | ✅ |
+| `/case-studies` | ✅ |
+| `/case-studies/[slug]` × 7 | ✅ |
+| `/privacy-policy` | ✅ |
+| `/thank-you` | ✅ |
+| `/api/contact` | ✅ Built — Resend end-to-end not yet working |
+| `/sitemap.xml` | ✅ |
+| `/robots.txt` | ✅ |
 
 ---
 
-## 7. Person Data Reference
+## 7. Case Studies (7 Entries — All Populated)
+
+| Slug | Key Metric |
+|---|---|
+| `cubicle-coworking` | 25+ bookings in <60 days |
+| `commercial-real-estate-lead-gen` | 1,784+ leads in 2 months |
+| `ffc-prize-distribution` | 65.8M+ impressions |
+| `ffc-sona-soil-day` | 7.42M impressions in 2 days |
+| `wavebyte-ecommerce` | ₨1.5M+ spend, 5–8x ROAS |
+| `icr-it-centre` | 500+ peak season enrollments |
+| `hardees-qsr` | 4.8x avg ROAS, 4 months |
+
+---
+
+## 8. Person / Data Reference
 
 | Field | Value |
 |---|---|
@@ -181,119 +175,88 @@ A premium personal portfolio website for **Abdullah Tayyab**, a performance mark
 | Certifications | Google Digital Garage, LUMS CES, Anthropic Claude 101, Google Skillshop |
 
 **Work history:**
-- **Firebolt63** (Nov 2025–Apr 2026): PKR 24M+ ecommerce sales, 325% YoY growth, 200M+ impressions, up to 16x ROAS
-- **Wave Byte** (Dec 2024–Apr 2025): PKR 1.5M+ ad spend managed, 5–8x ROAS, 570+ seminar leads in 17 days
-- **Hello World Technologies** (Jun–Dec 2024): Cubicle Co-Working 3→25+ bookings in 60 days, 600+ IT event participants
-
-**Community:**
-- Guest Speaker at LUMS CES (Advertising)
-- Guest Speaker at BIC Foundry, Beaconhouse International College
-- Free 1-on-1 media buying consultations on Topmate/LinkedIn
+- **Firebolt63** (Nov 2025–Apr 2026): PKR 24M+ ecommerce, 325% YoY, 200M+ impressions, 16x ROAS
+- **Wave Byte** (Dec 2024–Apr 2025): PKR 1.5M+ spend, 5–8x ROAS, 570+ leads in 17 days
+- **Hello World Technologies** (Jun–Dec 2024): Cubicle 3→25+ bookings, 600+ IT event participants
 
 ---
 
-## 8. Environment Variables
+## 9. Environment Variables
 
 ```
 RESEND_API_KEY=re_ALn8oPh7_GWG1eJkdWE1KzYdX65bpHp2P
 CONTACT_EMAIL=abdullahtayyab.805@gmail.com
 ```
 
-`.env.local` already created locally and is gitignored. Must also be set in Vercel dashboard before deploying.
+`.env.local` exists locally and is gitignored.
+These must also be set in **Vercel dashboard → Settings → Environment Variables**.
 
 ---
 
-## 9. Image Files Still Needed From User
+## 10. Deployment Status
 
-The user must manually save these files (they cannot be auto-generated):
-
-| File path | What it is | Status |
-|---|---|---|
-| `public/images/hero/abdullah-tayyab.jpg` | Seated boardroom professional photo | ⏳ User must place |
-| `public/images/logos/hardees.png` | Hardee's logo (crop from logos sheet) | ⏳ User must place |
-| `public/images/logos/hello-world-tech.png` | Hello World Technologies | ⏳ User must place |
-| `public/images/logos/cbd-punjab.png` | CBD Punjab | ⏳ User must place |
-| `public/images/logos/ffc.png` | FFC | ⏳ User must place |
-| `public/images/logos/hbl-zarai.png` | HBL Zarai Services | ⏳ User must place |
-| `public/images/logos/cubicle.png` | Cubicle Co-Working | ⏳ User must place |
-| `public/images/logos/sabiha-anees.png` | Sabiha Anees | ⏳ User must place |
-| `public/images/logos/wave-byte.png` | Wave Byte | ⏳ User must place |
-| `public/images/logos/icr.png` | ICR IT Centre | ⏳ User must place |
-| `public/images/og/og-image.jpg` | 1200×630 Open Graph image | ⏳ User must place |
+| Item | Status |
+|---|---|
+| Vercel deployment | ✅ Live at abdullahtayyab.com |
+| Hero photo | ✅ Placed |
+| All 9 logos | ✅ Placed |
+| OG image | ✅ Placed |
+| Resend domain verification | ⚠️ Unknown — needs checking |
+| Resend env vars in Vercel | ⚠️ Unknown — needs checking |
+| Contact form working end-to-end | ❌ Not yet confirmed working |
 
 ---
 
-## 10. Build Progress
+## 11. PRIORITY TASKS FOR NEXT SESSION
 
-| Step | Description | Status |
-|---|---|---|
-| 1 | Project architecture + full scaffold | ✅ Done |
-| 2 | Hero section | ✅ Done |
-| 3 | Home page sections (all 9) | ✅ Done (CaseStudiesPreview is a stub) |
-| 4 | Individual pages — About, Expertise, Services | ⏳ **NEXT** |
-| 5 | Case study system | ⏳ Awaiting PDFs from user |
-| 6 | Contact functionality (Resend) | ✅ Done |
-| 7 | Final polish | ⏳ Pending |
+### #1 — Fix Contact Form / Resend Integration (MOST URGENT)
 
----
+The backend API route (`/api/contact/route.ts`) is fully built and uses Resend. The frontend form (`ContactCTA.tsx`) POSTs to `/api/contact`. However, the contact form is not working end-to-end.
 
-## 11. What's Next — Step 4
+**What the next session should do:**
+1. Diagnose why the form isn't working — check Vercel function logs for the `/api/contact` route to see the actual error
+2. The most likely causes:
+   - `RESEND_API_KEY` or `CONTACT_EMAIL` not set in Vercel environment variables
+   - Domain `abdullahtayyab.com` not verified in Resend (required because `from` is `noreply@abdullahtayyab.com`)
+3. Fix whatever is blocking it and verify a real form submission goes through
 
-Build the full individual pages (currently all stubs):
+**Current contact API route** (`src/app/api/contact/route.ts`):
+- Validates: name, email, businessType, message (required); phone (optional)
+- Sends via Resend: `from: 'Portfolio Contact <noreply@abdullahtayyab.com>'`
+- On success: returns `{ success: true }`, frontend redirects to `/thank-you`
+- On failure: returns error, frontend shows inline error message
 
-### `/about` page
-- Full-page version of the About section with expanded content
-- Use the same CV data already used in the homepage About section
-- Add freelance projects section (IBS Canada, Tots&Teens, Smart Trendz)
+**If Resend domain verification is blocked or slow**, a quick workaround is to change the `from` address to Resend's default sender `onboarding@resend.dev` (only works when sending to the account owner's email — fine for a personal portfolio).
 
-### `/expertise` page
-- Full-page version of the Expertise section
-- Expand each of the 8 skill cards with more detail
-- Could include a "tools I use" section at the bottom
+### #2 — Website Tweaks & Improvements (TBD by user)
 
-### `/services` page
-- Structure approved by user:
-  - **Core:** Performance Marketing / Media Buying (Abdullah personally)
-  - **Network — AI Automation:** GoHighLevel, AI Agents, + 2–3 more
-  - **Network — SEO:** On-page/Off-page/Local SEO, GEO/AEO, + 2–3 more
-  - **Network — Web Design:** WordPress, Wix, + 2–3 more
-  - **Network — Visual Design:** Social content, Branding, Logos, + expand to ~6 items
-- **MUST include disclaimer:** Network services are delivered via trusted specialists, not Abdullah personally. Draft was to be approved by user — write it and note it's for approval.
-
-### After Step 4
-- Ask user for case study PDFs to begin Step 5
-- Step 7 (final polish) comes last: OG image, meta review, performance audit, Vercel deploy
+User has requested tweaks and changes to the website. These have not been specified yet — ask the user to list them at the start of the next session before beginning any work.
 
 ---
 
-## 12. Workflow Rules This Session Established
+## 12. Constraints & Rules (Carry Forward)
 
-1. Never invent data — only use what has been provided, or ask.
-2. Ask before building any section where data is missing.
-3. Pause and present after each major step for approval before continuing.
-4. No external icon libraries — inline SVG only.
-5. No analytics or tracking scripts anywhere.
-6. `.env.local` is gitignored — never commit API keys.
-7. Framer Motion ease arrays must use `as const` (Framer Motion v12 strict typing).
-8. Services page must include the network specialist disclaimer.
-9. Case study page renders only sections with actual content (conditional).
-10. Commit to branch `claude/build-portfolio-website-U3hLc` — never push to main without permission.
+- Never invent data — only use what has been provided, or ask
+- No external icon libraries — inline SVG only
+- No analytics or tracking scripts
+- Framer Motion ease arrays must use `as const`
+- Services page must keep the network specialist disclaimer
+- `.env.local` is gitignored — never commit API keys
+- Always develop on `claude/portfolio-website-dev-4YbiL` — never push to `main` without permission
+- Server wrapper (`page.tsx`) + client content component pattern for all individual pages
+- `<main>` landmark only in `layout.tsx` — content components use `<>` fragments
 
 ---
 
-## 13. How to Start the Dev Server
+## 13. How to Start Dev Server
 
 ```bash
 cd /home/user/Claude-Sample-Website
-npm run dev
-# → http://localhost:3000
-```
-
-Build check:
-```bash
-npm run build
+npm install        # if node_modules not present
+npm run dev        # → http://localhost:3000
+npm run build      # production build check
 ```
 
 ---
 
-*Generated at end of Session 1 — May 2026*
+*Updated end of Session 2 — May 2026*

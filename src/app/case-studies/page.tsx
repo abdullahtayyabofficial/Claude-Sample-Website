@@ -5,9 +5,9 @@ import ScrollReveal from '@/components/ui/ScrollReveal'
 import GradientText from '@/components/ui/GradientText'
 
 export const metadata: Metadata = {
-  title: 'Case Studies | Real Marketing Results by Abdullah Tayyab',
+  title: 'Case Studies — Built on Systems. Proven at Scale.',
   description:
-    'Explore real-world case studies showcasing revenue growth, lead generation, and performance marketing results.',
+    'Real campaigns, structured execution, and measurable outcomes — from performance ecommerce to large-scale brand dominance.',
 }
 
 export default function CaseStudiesPage() {
@@ -19,10 +19,10 @@ export default function CaseStudiesPage() {
             Proven Results
           </p>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-semibold text-[var(--color-text-primary)] mb-4">
-            Real Campaigns. <GradientText>Real Growth.</GradientText>
+            Built on Systems. <GradientText>Proven at Scale.</GradientText>
           </h1>
           <p className="text-[var(--color-text-secondary)] text-lg max-w-2xl mx-auto">
-            Every case study is a window into how AI-powered marketing systems drive predictable, scalable results.
+            Real campaigns, structured execution, and measurable outcomes — from performance ecommerce to large-scale brand dominance.
           </p>
         </ScrollReveal>
 

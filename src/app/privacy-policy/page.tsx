@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Privacy Policy | Abdullah Tayyab',
-  description: 'Privacy policy for abdullahtayyab.com — how your information is collected, used, and protected.',
+  description: 'Privacy policy for abdullahtayyab.com: how your information is collected, used, and protected.',
 }
 
 export default function PrivacyPolicyPage() {
@@ -44,11 +44,11 @@ export default function PrivacyPolicyPage() {
             </h2>
             <p className="mb-3">I only collect information you voluntarily provide through the contact form:</p>
             <ul className="list-disc pl-5 space-y-1.5">
-              <li><strong>Full Name</strong> — to address you properly</li>
-              <li><strong>Email Address</strong> — to respond to your enquiry</li>
-              <li><strong>Phone Number</strong> — optional, used only if you prefer a call</li>
-              <li><strong>Business Type</strong> — to understand your context</li>
-              <li><strong>Message</strong> — the content of your enquiry</li>
+              <li><strong>Full Name:</strong> to address you properly</li>
+              <li><strong>Email Address:</strong> to respond to your enquiry</li>
+              <li><strong>Phone Number:</strong> optional, used only if you prefer a call</li>
+              <li><strong>Business Type:</strong> to understand your context</li>
+              <li><strong>Message:</strong> the content of your enquiry</li>
             </ul>
             <p className="mt-3">
               I do not collect any information automatically beyond what your browser sends as part of a standard HTTP request (e.g. IP address, browser type). This Website does not use analytics scripts, third-party tracking pixels, or advertising tags.
@@ -87,7 +87,7 @@ export default function PrivacyPolicyPage() {
               5. Data Retention
             </h2>
             <p>
-              Your contact information is retained only for as long as necessary to conduct the conversation you initiated, or until you request its deletion. I do not store contact form submissions in any database — messages are delivered by email and kept in my inbox.
+              Your contact information is retained only for as long as necessary to conduct the conversation you initiated, or until you request its deletion. I do not store contact form submissions in any database. Messages are delivered by email and kept in my inbox.
             </p>
           </section>
 

@@ -8,9 +8,9 @@ import GradientText from '@/components/ui/GradientText'
 import NodeNetwork from '@/components/ui/NodeNetwork'
 
 const metrics = [
-  { value: '₨100M+', label: 'Revenue Driven' },
+  { value: '₨30M+', label: 'Revenue Driven' },
   { value: '10,000+', label: 'Leads Generated' },
-  { value: '93%', label: 'Client Retention' },
+  { value: '4x-16x', label: 'Avg ROAS' },
 ]
 
 const EASE = [0.25, 0.4, 0.25, 1] as const
@@ -32,7 +32,7 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen flex items-center bg-white overflow-hidden"
+      className="relative min-h-screen flex items-center bg-white overflow-hidden noise-overlay"
     >
       {/* Ambient background glow */}
       <div
@@ -55,15 +55,6 @@ export default function Hero() {
 
           {/* ── Left: Text content ── */}
           <div className="flex flex-col justify-center order-2 lg:order-1">
-            {/* Tag */}
-            <motion.div {...fadeUp(0)}>
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[var(--color-brand-light)]/25 bg-[var(--color-brand-light)]/6 mb-6 w-fit">
-                <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-brand-light)] shrink-0" />
-                <span className="text-xs font-semibold text-[var(--color-brand-light)] tracking-wide">
-                  Performance Marketer & Media Buyer
-                </span>
-              </div>
-            </motion.div>
 
             {/* H1 */}
             <motion.h1
@@ -103,11 +94,11 @@ export default function Hero() {
               {...fadeUp(0.32)}
             >
               {metrics.map((m) => (
-                <div key={m.label} className="pr-6 first:pl-0 pl-6">
-                  <p className="text-2xl sm:text-3xl font-heading font-bold gradient-brand-text leading-none mb-1.5">
+                <div key={m.label} className="text-center sm:text-left pr-3 sm:pr-6 first:pl-0 pl-3 sm:pl-6">
+                  <p className="text-xl sm:text-2xl lg:text-3xl font-heading font-bold gradient-brand-text leading-none mb-1.5">
                     {m.value}
                   </p>
-                  <p className="text-xs text-[var(--color-text-muted)] font-medium leading-snug">
+                  <p className="text-[11px] sm:text-xs text-[var(--color-text-muted)] font-medium leading-snug">
                     {m.label}
                   </p>
                 </div>
@@ -116,7 +107,7 @@ export default function Hero() {
           </div>
 
           {/* ── Right: Photo + Node Network ── */}
-          <div className="relative flex items-center justify-center order-1 lg:order-2 h-[460px] sm:h-[540px] lg:h-[620px]">
+          <div className="relative hidden lg:flex items-center justify-center order-1 lg:order-2 h-[460px] sm:h-[540px] lg:h-[620px]">
             {/* Canvas node network fills the column */}
             <div className="absolute inset-0 rounded-3xl overflow-hidden">
               <NodeNetwork />
@@ -180,7 +171,7 @@ export default function Hero() {
                         Abdullah Tayyab
                       </p>
                       <p className="text-xs text-[var(--color-text-muted)] mt-0.5">
-                        Performance Marketer & Media Buyer
+                        AI &amp; Marketing
                       </p>
                     </div>
                   </div>
