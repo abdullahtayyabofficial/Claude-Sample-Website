@@ -19,6 +19,7 @@ export interface CaseStudy {
   industry: string
   thumbnail: string
   heroImage?: string
+  logo?: string
   tags: string[]
   overview?: string
   problem?: string

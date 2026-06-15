@@ -7,6 +7,7 @@ export const caseStudies: CaseStudy[] = [
     client: 'Quick Service Restaurant (QSR)',
     industry: 'Food & Beverage / eCommerce',
     heroImage: '/images/case-studies/hardees-qsr/hero.jpeg',
+    logo: '/images/logos/hardees.png',
     thumbnail: '',
     tags: ['Meta Ads', 'Google Ads', 'eCommerce', 'ROAS Optimisation'],
     callout:
@@ -51,15 +52,16 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: 'commercial-real-estate-lead-gen',
-    title: '1,784+ Qualified Leads in 2 Months Without Burning the Budget',
+    title: '2,000+ High-Profiled Leads in 2 Months Without Burning the Budget',
     subtitle: 'A Government-Backed Commercial Real Estate Case Study',
     client: 'Government-Backed Commercial Real Estate Authority',
     industry: 'Real Estate / Government',
     heroImage: '/images/case-studies/commercial-real-estate-lead-gen/hero.jpg',
+    logo: '/images/logos/cbd-punjab.png',
     thumbnail: '',
     tags: ['Meta Ads', 'Google Ads', 'Lead Generation', 'Real Estate'],
     callout:
-      '1,784+ qualified commercial real estate leads. Two months. Two approved creatives. Zero prior social media presence. This is what structured media buying looks like when guesswork is replaced with a system.',
+      '2,000+ high-profiled commercial real estate leads. Two months. Two approved creatives. Zero prior social media presence. This is what structured media buying looks like when guesswork is replaced with a system.',
     overview:
       'A government-backed commercial real estate development authority in Punjab was responsible for launching and selling large-scale commercial plots, government-supported installment plans, high-credibility locations, and price points starting from PKR 140 lakhs. The challenge: convert an authority brand with no social media presence into a lead generation machine targeting high-intent commercial investors across Pakistan.',
     problem:
@@ -82,13 +84,13 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
     results: [
-      { label: 'AWT Pulse', value: '1,002 leads generated at approximately PKR 200 per lead' },
-      { label: 'Business Bay X', value: '580+ leads generated at approximately PKR 200 per lead' },
-      { label: 'CBD Hospital Plot', value: '202 leads generated at PKR 604 per lead' },
-      { label: 'Total', value: '1,784+ qualified leads generated across all three projects in under 2 months' },
+      { label: 'AWT Pulse', value: '1,002 high-profiled leads generated at approximately PKR 200 per lead' },
+      { label: 'Business Bay X', value: '580+ high-profiled leads generated at approximately PKR 200 per lead' },
+      { label: 'CBD Hospital Plot', value: '202 high-profiled leads generated at PKR 604 per lead' },
+      { label: 'Total', value: '2,000+ high-profiled leads generated across all three projects in under 2 months' },
     ],
     metrics: [
-      { label: 'Leads Generated', value: '1,784', suffix: '+' },
+      { label: 'Leads Generated', value: '2,000', suffix: '+' },
       { label: 'Timeframe', value: '2 months' },
       { label: 'Avg Cost Per Lead', value: 'PKR ~200' },
     ],
@@ -100,6 +102,7 @@ export const caseStudies: CaseStudy[] = [
     client: 'Fauji Fertilizers Company (FFC)',
     industry: 'Agriculture / FMCG',
     heroImage: '/images/case-studies/ffc/hero.jpg',
+    logo: '/images/logos/ffc.png',
     thumbnail: '',
     tags: ['YouTube Ads', 'Meta Ads', 'TikTok', 'Brand Awareness', 'Multi-Platform'],
     callout:
@@ -180,6 +183,7 @@ export const caseStudies: CaseStudy[] = [
     client: 'Cubicle Co-Working Space',
     industry: 'Co-Working / Commercial Real Estate',
     heroImage: '/images/case-studies/cubicle-coworking/hero.jpg',
+    logo: '/images/logos/cubicle.png',
     thumbnail: '',
     tags: ['Meta Ads', 'Lead Generation', 'Event Marketing', 'Creative Strategy'],
     callout:
@@ -223,6 +227,7 @@ export const caseStudies: CaseStudy[] = [
     client: 'Wave Byte',
     industry: 'Ecommerce Services',
     heroImage: '/images/case-studies/wavebyte-ecommerce/hero.jpg',
+    logo: '/images/logos/wave-byte.png',
     thumbnail: '',
     tags: ['Meta Ads', 'Lead Generation', 'Ecommerce', 'Scaling Strategy'],
     callout:
@@ -266,6 +271,7 @@ export const caseStudies: CaseStudy[] = [
     client: 'ICR IT-Centre',
     industry: 'IT Training & Education',
     heroImage: '/images/case-studies/icr-it-centre/hero.jpg',
+    logo: '/images/logos/icr.png',
     thumbnail: '',
     tags: ['Meta Ads', 'Lead Generation', 'Education', 'Creative Strategy'],
     callout:
