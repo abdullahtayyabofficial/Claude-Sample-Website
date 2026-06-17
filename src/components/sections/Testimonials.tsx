@@ -25,7 +25,7 @@ export default function Testimonials() {
   const stripRef = useRef<HTMLDivElement>(null)
 
   return (
-    <section id="testimonials" className="section-padding bg-white overflow-hidden">
+    <section id="testimonials" className="section-padding bg-[var(--color-surface)] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal className="text-center mb-14">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-brand-light)] mb-3">

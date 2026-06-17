@@ -19,7 +19,7 @@ const allLogos = [...logos, ...logos]
 
 export default function ProofStrip() {
   return (
-    <section className="py-14 border-y border-[var(--color-border)] bg-white overflow-hidden">
+    <section className="py-14 border-y border-[var(--color-border)] bg-[var(--color-surface)] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
           Trusted by forward-thinking brands

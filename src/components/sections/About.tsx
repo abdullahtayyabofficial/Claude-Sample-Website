@@ -48,7 +48,7 @@ const pillars = [
 
 export default function About() {
   return (
-    <section id="about" className="section-padding bg-white">
+    <section id="about" className="section-padding bg-[var(--color-surface)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section label + heading */}
@@ -81,7 +81,7 @@ export default function About() {
                 />
               </div>
               <motion.div
-                className="absolute -bottom-4 -right-2 sm:-bottom-5 sm:-right-5 bg-white rounded-2xl px-4 py-3 sm:px-5 sm:py-4 card-shadow border border-[var(--color-border)]"
+                className="absolute -bottom-4 -right-2 sm:-bottom-5 sm:-right-5 bg-[var(--color-surface)] rounded-2xl px-4 py-3 sm:px-5 sm:py-4 card-shadow border border-[var(--color-border)]"
                 animate={{ y: [0, -6, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
               >
@@ -115,7 +115,7 @@ export default function About() {
             {stats.map((s) => (
               <div
                 key={s.label}
-                className="bg-[var(--color-surface-muted)] px-6 py-7 text-center hover:bg-white transition-colors duration-200"
+                className="bg-[var(--color-surface-muted)] px-6 py-7 text-center hover:bg-[var(--color-surface)] transition-colors duration-200"
               >
                 <p className="text-3xl font-heading font-bold gradient-brand-text leading-none mb-1">{s.value}</p>
                 <p className="text-sm font-semibold text-[var(--color-text-primary)] mb-0.5">{s.label}</p>

@@ -14,7 +14,7 @@ export default function Card({ children, className, hover = true, glow = false }
   return (
     <motion.div
       className={cn(
-        'bg-white rounded-2xl border border-[var(--color-border)] card-shadow',
+        'bg-[var(--color-surface)] rounded-2xl border border-[var(--color-border)] card-shadow',
         hover && 'cursor-pointer',
         glow && 'glow-brand',
         className,

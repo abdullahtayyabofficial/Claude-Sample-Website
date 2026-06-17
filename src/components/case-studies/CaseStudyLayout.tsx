@@ -108,12 +108,12 @@ export default function CaseStudyLayout({ caseStudy }: CaseStudyLayoutProps) {
 
       {/* ── Metrics Strip ── */}
       {caseStudy.metrics && caseStudy.metrics.length > 0 && (
-        <section className="bg-white border-b border-[var(--color-border)]">
+        <section className="bg-[var(--color-surface)] border-b border-[var(--color-border)]">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <ScrollReveal>
               <div className={`grid gap-px bg-[var(--color-border)] ${caseStudy.metrics.length >= 3 ? 'grid-cols-3' : 'grid-cols-2'}`}>
                 {caseStudy.metrics.map((metric) => (
-                  <div key={metric.label} className="bg-white px-3 py-7 sm:px-8 sm:py-10 text-center group relative overflow-hidden">
+                  <div key={metric.label} className="bg-[var(--color-surface)] px-3 py-7 sm:px-8 sm:py-10 text-center group relative overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-brand-light)]/3 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <p className="text-xl sm:text-3xl lg:text-4xl font-heading font-bold gradient-brand-text leading-tight mb-1.5 sm:mb-2 break-words">
                       {metric.prefix}{metric.value}{metric.suffix}
@@ -144,7 +144,7 @@ export default function CaseStudyLayout({ caseStudy }: CaseStudyLayoutProps) {
       )}
 
       {/* ── Body Content ── */}
-      <section className="bg-white">
+      <section className="bg-[var(--color-surface)]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
 
           {caseStudy.overview && (
@@ -276,7 +276,7 @@ export default function CaseStudyLayout({ caseStudy }: CaseStudyLayoutProps) {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {caseStudy.campaigns.map((campaign, i) => (
                 <ScrollReveal key={campaign.name} delay={i * 0.07}>
-                  <div className="bg-white rounded-2xl border border-[var(--color-border)] card-shadow p-6 h-full hover:border-[var(--color-brand-light)]/40 transition-colors duration-200">
+                  <div className="bg-[var(--color-surface)] rounded-2xl border border-[var(--color-border)] card-shadow p-6 h-full hover:border-[var(--color-brand-light)]/40 transition-colors duration-200">
                     <div className="flex items-start gap-3 mb-5">
                       <div className="w-8 h-8 rounded-full gradient-brand flex items-center justify-center shrink-0 mt-0.5">
                         <span className="text-white text-xs font-bold">{i + 1}</span>

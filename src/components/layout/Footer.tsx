@@ -92,7 +92,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.platform}
-                  className="w-9 h-9 rounded-full bg-white border border-[var(--color-border)] flex items-center justify-center text-[var(--color-text-secondary)] hover:text-[var(--color-brand-light)] hover:border-[var(--color-brand-light)] transition-colors duration-150 shadow-sm"
+                  className="w-9 h-9 rounded-full bg-[var(--color-surface)] border border-[var(--color-border)] flex items-center justify-center text-[var(--color-text-secondary)] hover:text-[var(--color-brand-light)] hover:border-[var(--color-brand-light)] transition-colors duration-150 shadow-sm"
                 >
                   {social.icon}
                 </a>

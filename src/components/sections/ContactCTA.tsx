@@ -81,7 +81,7 @@ export default function ContactCTA() {
           <ScrollReveal delay={0.1}>
             <motion.form
               onSubmit={handleSubmit}
-              className="bg-white rounded-3xl border border-[var(--color-border)] card-shadow p-8 sm:p-10 space-y-6"
+              className="bg-[var(--color-surface)] rounded-3xl border border-[var(--color-border)] card-shadow p-8 sm:p-10 space-y-6"
             >
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
@@ -174,7 +174,7 @@ export default function ContactCTA() {
                   required
                   value={form.monthlyRevenue}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-xl border border-[var(--color-border)] text-[var(--color-text-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-light)]/30 focus:border-[var(--color-brand-light)] transition-colors text-sm bg-white appearance-none"
+                  className="w-full px-4 py-3 rounded-xl border border-[var(--color-border)] text-[var(--color-text-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--color-brand-light)]/30 focus:border-[var(--color-brand-light)] transition-colors text-sm bg-[var(--color-surface)] appearance-none"
                 >
                   <option value="" disabled>Select your monthly revenue</option>
                   <option value="<$10k">&lt;$10k</option>

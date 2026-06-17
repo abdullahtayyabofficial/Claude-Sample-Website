@@ -9,7 +9,7 @@ export default function PrivacyPolicyPage() {
   const lastUpdated = 'May 1, 2026'
 
   return (
-    <div className="min-h-screen bg-white pt-28 pb-20">
+    <div className="min-h-screen bg-[var(--color-surface)] pt-28 pb-20">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}

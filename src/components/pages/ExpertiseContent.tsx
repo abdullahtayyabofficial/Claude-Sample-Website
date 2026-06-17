@@ -181,7 +181,7 @@ export default function ExpertiseContent() {
             {items.map((item, i) => (
               <ScrollReveal key={item.id} delay={i * 0.05} direction="up" className="h-full">
                 <motion.div
-                  className="bg-white rounded-2xl border border-[var(--color-border)] p-6 h-full group"
+                  className="bg-[var(--color-surface)] rounded-2xl border border-[var(--color-border)] p-6 h-full group"
                   whileHover={{ y: -4, boxShadow: '0 12px 32px rgba(1,7,56,0.10)' }}
                   transition={{ duration: 0.25, ease: 'easeOut' }}
                 >
@@ -216,7 +216,7 @@ export default function ExpertiseContent() {
       </section>
 
       {/* Tools */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-[var(--color-surface)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal className="mb-12">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-brand-light)] mb-3">Stack</p>

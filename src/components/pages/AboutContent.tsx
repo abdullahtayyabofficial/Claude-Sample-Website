@@ -34,7 +34,7 @@ export default function AboutContent() {
       </section>
 
       {/* Bio + photo */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-[var(--color-surface)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-start">
 
@@ -53,7 +53,7 @@ export default function AboutContent() {
                   />
                 </div>
                 <motion.div
-                  className="absolute -bottom-4 -right-2 sm:-bottom-5 sm:-right-5 bg-white rounded-2xl px-4 py-3 sm:px-5 sm:py-4 card-shadow border border-[var(--color-border)]"
+                  className="absolute -bottom-4 -right-2 sm:-bottom-5 sm:-right-5 bg-[var(--color-surface)] rounded-2xl px-4 py-3 sm:px-5 sm:py-4 card-shadow border border-[var(--color-border)]"
                   animate={{ y: [0, -6, 0] }}
                   transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
                 >
@@ -125,7 +125,7 @@ export default function AboutContent() {
               },
             ].map((p, i) => (
               <ScrollReveal key={p.title} delay={i * 0.1} direction="up">
-                <div className="bg-white rounded-2xl border border-[var(--color-border)] p-8 h-full">
+                <div className="bg-[var(--color-surface)] rounded-2xl border border-[var(--color-border)] p-8 h-full">
                   <div className="w-10 h-10 rounded-xl gradient-brand flex items-center justify-center mb-5 shrink-0">
                     {p.icon}
                   </div>
@@ -150,7 +150,7 @@ export default function AboutContent() {
               {stats.map((s) => (
                 <div
                   key={s.label}
-                  className="bg-[var(--color-surface-muted)] px-6 py-7 text-center hover:bg-white transition-colors duration-200"
+                  className="bg-[var(--color-surface-muted)] px-6 py-7 text-center hover:bg-[var(--color-surface)] transition-colors duration-200"
                 >
                   <p className="text-3xl font-heading font-bold gradient-brand-text leading-none mb-1">{s.value}</p>
                   <p className="text-sm font-semibold text-[var(--color-text-primary)] mb-0.5">{s.label}</p>

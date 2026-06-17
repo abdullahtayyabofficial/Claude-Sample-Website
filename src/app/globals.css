@@ -7,7 +7,7 @@
   --color-brand-light: #15a1df;
 
   /* Neutral */
-  --color-surface: #ffffff;
+  --color-surface: #F2F8FC;
   --color-surface-muted: #f8f9fc;
   --color-border: #e8eaf0;
   --color-text-primary: #0a0a14;
@@ -68,7 +68,7 @@
   }
 
   body {
-    background-color: #ffffff;
+    background-color: #F2F8FC;
     color: var(--color-text-primary);
     font-family: var(--font-body);
     line-height: 1.6;
@@ -154,7 +154,7 @@
 
   /* Case study card */
   .cs-card-border {
-    background: #ffffff;
+    background: #F2F8FC;
     border: 1.5px solid rgba(21, 161, 223, 0.45);
     border-radius: 1rem;
     box-shadow: 0 2px 12px rgba(1, 7, 56, 0.05);

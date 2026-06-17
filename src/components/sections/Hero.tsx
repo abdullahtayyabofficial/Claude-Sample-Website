@@ -32,7 +32,7 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen flex items-center bg-white overflow-hidden noise-overlay"
+      className="relative min-h-screen flex items-center bg-[var(--color-surface)] overflow-hidden noise-overlay"
     >
       {/* Ambient background glow */}
       <div

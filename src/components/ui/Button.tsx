@@ -21,7 +21,7 @@ const variants = {
   primary:
     'gradient-brand text-white shadow-md hover:shadow-lg hover:opacity-95',
   secondary:
-    'bg-white text-brand-dark border border-brand-dark/20 hover:border-brand-light hover:text-brand-light',
+    'bg-[var(--color-surface)] text-brand-dark border border-brand-dark/20 hover:border-brand-light hover:text-brand-light',
   ghost:
     'bg-transparent text-brand-dark hover:text-brand-light',
 }

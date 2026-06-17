@@ -155,7 +155,7 @@ export default function ServicesContent() {
             {services.map((service, i) => (
               <ScrollReveal key={service.id} delay={i * 0.07} direction="up">
                 <motion.div
-                  className="bg-white rounded-2xl border border-[var(--color-border)] p-7 h-full flex flex-col"
+                  className="bg-[var(--color-surface)] rounded-2xl border border-[var(--color-border)] p-7 h-full flex flex-col"
                   whileHover={{ y: -4, boxShadow: '0 12px 32px rgba(1,7,56,0.10)' }}
                   transition={{ duration: 0.25, ease: 'easeOut' }}
                 >

@@ -62,7 +62,7 @@ export default function FAQ() {
             return (
               <ScrollReveal key={i} delay={i * 0.04} direction="up">
                 <div
-                  className="bg-white rounded-2xl border border-[var(--color-border)] overflow-hidden transition-shadow duration-200 hover:shadow-md"
+                  className="bg-[var(--color-surface)] rounded-2xl border border-[var(--color-border)] overflow-hidden transition-shadow duration-200 hover:shadow-md"
                 >
                   <button
                     className="w-full text-left px-7 py-5 flex items-center justify-between gap-4 cursor-pointer"
