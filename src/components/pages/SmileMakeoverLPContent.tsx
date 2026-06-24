@@ -10,8 +10,10 @@ const EASE = [0.25, 0.4, 0.25, 1] as const
 const SUB_COPY =
   'This is a no-pitch, but a 30-minute diagnostic call. If we are not a good fit, we will tell you.'
 
-const LIGHT_GRADIENT = 'linear-gradient(135deg, #f0f7ff 0%, #e5f0fb 40%, #f4f9ff 100%)'
-const DARK_GRADIENT = 'linear-gradient(135deg, #010738 0%, #051860 45%, #071f6b 100%)'
+const LIGHT_GRADIENT =
+  'linear-gradient(135deg, #f8f9fc 0%, #bde2f6 25%, #7ec8ee 55%, #cce9f8 80%, #f0f8ff 100%)'
+const DARK_GRADIENT =
+  'linear-gradient(135deg, #000000 0%, #010738 30%, #0d2b6b 58%, #010b3a 80%, #000000 100%)'
 
 // ─── Shared utilities ──────────────────────────────────────────────────────────
 
@@ -182,9 +184,9 @@ function Hero() {
     >
       {/* Ambient glow */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[900px] h-[600px] bg-[#15a1df] opacity-[0.1] blur-[140px] rounded-full" />
-        <div className="absolute top-1/4 left-[15%] w-[350px] h-[350px] bg-[#15a1df] opacity-[0.05] blur-[90px] rounded-full" />
-        <div className="absolute top-1/3 right-[10%] w-[250px] h-[250px] bg-[#15a1df] opacity-[0.04] blur-[80px] rounded-full" />
+        <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[1000px] h-[700px] bg-[#15a1df] opacity-[0.16] blur-[140px] rounded-full" />
+        <div className="absolute top-1/4 left-[10%] w-[400px] h-[400px] bg-[#0d4fa8] opacity-[0.35] blur-[100px] rounded-full" />
+        <div className="absolute top-1/3 right-[5%] w-[320px] h-[320px] bg-[#15a1df] opacity-[0.12] blur-[90px] rounded-full" />
         <div
           className="absolute inset-0 opacity-[0.025]"
           style={{
@@ -386,7 +388,7 @@ const consequences = [
 
 function PainAgitation() {
   return (
-    <section className="bg-white py-28 px-6 relative overflow-hidden">
+    <section className="bg-[#f8f9fc] py-28 px-6 relative overflow-hidden">
       <div className="relative z-10 max-w-3xl mx-auto">
         <FadeUp>
           <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-[48px] text-[#0a0a14] leading-tight mb-5">
@@ -584,7 +586,7 @@ const reasons = [
 
 function WhyChooseUs() {
   return (
-    <section className="bg-white py-28 px-6 relative overflow-hidden">
+    <section className="bg-[#f8f9fc] py-28 px-6 relative overflow-hidden">
       <div className="relative z-10 max-w-6xl mx-auto">
         <FadeUp>
           <div className="text-center mb-16">
@@ -774,7 +776,7 @@ const archetypes = [
 
 function QualifySection() {
   return (
-    <section className="bg-white py-28 px-6">
+    <section className="bg-[#f8f9fc] py-28 px-6">
       <div className="max-w-5xl mx-auto">
         <FadeUp>
           <div className="text-center mb-16">
@@ -1156,7 +1158,7 @@ const missionParas = [
 
 function BrandMission() {
   return (
-    <section className="bg-white py-28 px-6 relative overflow-hidden">
+    <section className="bg-[#f8f9fc] py-28 px-6 relative overflow-hidden">
       <div className="relative z-10 max-w-3xl mx-auto">
         <FadeUp>
           <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-[46px] text-[#0a0a14] leading-tight mb-16">
@@ -1330,7 +1332,8 @@ function FinalCTA() {
   return (
     <section className="py-28 px-6 relative overflow-hidden" style={{ background: DARK_GRADIENT }}>
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute bottom-[-15%] left-1/2 -translate-x-1/2 w-[1100px] h-[600px] bg-[#15a1df] opacity-[0.09] blur-[160px] rounded-full" />
+        <div className="absolute bottom-[-15%] left-1/2 -translate-x-1/2 w-[1100px] h-[600px] bg-[#15a1df] opacity-[0.18] blur-[140px] rounded-full" />
+        <div className="absolute top-[10%] left-[15%] w-[500px] h-[400px] bg-[#0d4fa8] opacity-[0.30] blur-[100px] rounded-full" />
         <div
           className="absolute inset-0 opacity-[0.025]"
           style={{
