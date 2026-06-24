@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import type { CaseStudy, CaseStudyResultsTable } from '@/types'
 import Button from '@/components/ui/Button'
 import ScrollReveal from '@/components/ui/ScrollReveal'
@@ -54,8 +54,13 @@ interface CaseStudyLayoutProps {
 }
 
 function ProofImageCard({ src, alt, onClick }: { src: string; alt: string; onClick: () => void }) {
+  const preload = useCallback(() => {
+    const img = new window.Image()
+    img.src = src
+  }, [src])
+
   return (
-    <div className="proof-img-border rounded-xl p-[2px]">
+    <div className="proof-img-border rounded-xl p-[2px]" onMouseEnter={preload} onTouchStart={preload}>
       <button
         onClick={onClick}
         className="group relative w-full aspect-[16/9] rounded-[10px] overflow-hidden bg-[var(--color-surface-muted)] block cursor-zoom-in"
@@ -97,7 +102,9 @@ function SectionBlock({ label, children, accent }: { label: string; children: Re
 
 export default function CaseStudyLayout({ caseStudy }: CaseStudyLayoutProps) {
   const [lightboxSrc, setLightboxSrc] = useState<string | null>(null)
-  const closeLightbox = useCallback(() => setLightboxSrc(null), [])
+  const [lightboxReady, setLightboxReady] = useState(false)
+  const closeLightbox = useCallback(() => { setLightboxSrc(null); setLightboxReady(false) }, [])
+  const openLightbox = useCallback((src: string) => { setLightboxReady(false); setLightboxSrc(src) }, [])
 
   const metaProofs = caseStudy.proofImages?.slice(0, 10) ?? []
   const ga4Proofs = caseStudy.proofImages?.slice(10) ?? []
@@ -469,7 +476,7 @@ export default function CaseStudyLayout({ caseStudy }: CaseStudyLayoutProps) {
                 <div className={`grid grid-cols-2 gap-5 ${ga4Proofs.length > 0 ? 'mb-16' : ''}`}>
                   {metaProofs.map((src, i) => (
                     <ScrollReveal key={i} delay={i * 0.05}>
-                      <ProofImageCard src={src} alt={`Campaigns proof ${i + 1}`} onClick={() => setLightboxSrc(src)} />
+                      <ProofImageCard src={src} alt={`Campaigns proof ${i + 1}`} onClick={() => openLightbox(src)} />
                     </ScrollReveal>
                   ))}
                 </div>
@@ -487,7 +494,7 @@ export default function CaseStudyLayout({ caseStudy }: CaseStudyLayoutProps) {
                 <div className="grid grid-cols-2 gap-5">
                   {ga4Proofs.map((src, i) => (
                     <ScrollReveal key={i} delay={i * 0.05}>
-                      <ProofImageCard src={src} alt={`GA4 proof ${i + 1}`} onClick={() => setLightboxSrc(src)} />
+                      <ProofImageCard src={src} alt={`GA4 proof ${i + 1}`} onClick={() => openLightbox(src)} />
                     </ScrollReveal>
                   ))}
                 </div>
@@ -524,17 +531,25 @@ export default function CaseStudyLayout({ caseStudy }: CaseStudyLayoutProps) {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.96, opacity: 0 }}
               transition={{ duration: 0.1 }}
-              className="relative max-w-6xl w-full max-h-[90vh]"
+              className="relative max-w-6xl w-full max-h-[90vh] flex items-center justify-center"
               onClick={(e) => e.stopPropagation()}
             >
+              {!lightboxReady && (
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-full border-2 border-white/20 border-t-white animate-spin" />
+                </div>
+              )}
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={lightboxSrc}
                 alt="Proof of work enlarged"
-                className="w-full h-auto max-h-[88vh] object-contain rounded-xl"
+                className={`w-full h-auto max-h-[88vh] object-contain rounded-xl transition-opacity duration-150 ${lightboxReady ? 'opacity-100' : 'opacity-0'}`}
+                onLoad={() => setLightboxReady(true)}
               />
               {/* Watermark overlay persists in lightbox */}
-              <div className="proof-watermark absolute inset-0 pointer-events-none rounded-xl" aria-hidden="true" />
+              {lightboxReady && (
+                <div className="proof-watermark absolute inset-0 pointer-events-none rounded-xl" aria-hidden="true" />
+              )}
             </motion.div>
           </motion.div>
         )}
