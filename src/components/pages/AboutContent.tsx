@@ -249,7 +249,7 @@ export default function AboutContent() {
             <p className="text-[var(--color-text-secondary)]">Credentials from institutions and platforms that have shaped my practice.</p>
           </ScrollReveal>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-5">
             {[
               { title: 'Entrepreneurship', issuer: 'LUMS CES Program', img: '/images/about/certifications/cert-1.jpg', url: 'https://www.linkedin.com/posts/abdullahtayyabofficial_lums-ceslums-entrepreneurship-ugcPost-7377356663051341825-BKFJ/' },
               { title: 'Advertising: Print, Outdoor & Digital', issuer: 'LUMS CES Program', img: '/images/about/certifications/cert-2.jpg', url: 'https://www.linkedin.com/posts/abdullahtayyabofficial_lums-ceslums-advertising-ugcPost-7379084937540431872-160M/' },
