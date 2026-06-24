@@ -345,13 +345,13 @@ export default function CaseStudyLayout({ caseStudy }: CaseStudyLayoutProps) {
                     <ScrollReveal key={i} delay={i * 0.05}>
                       <button
                         onClick={() => setLightboxSrc(src)}
-                        className="group relative w-full aspect-[16/9] rounded-xl overflow-hidden border border-[var(--color-border)] bg-white block cursor-zoom-in"
+                        className="group relative w-full aspect-[16/9] rounded-xl overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface-muted)] block cursor-zoom-in"
                       >
                         <Image
                           src={src}
                           alt={`Campaigns proof ${i + 1}`}
                           fill
-                          className="object-cover object-top transition-transform duration-300 group-hover:scale-[1.02]"
+                          className="object-contain transition-transform duration-300 group-hover:scale-[1.02]"
                           sizes="(max-width: 768px) 100vw, 700px"
                         />
                         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-200 flex items-center justify-center">
@@ -379,13 +379,13 @@ export default function CaseStudyLayout({ caseStudy }: CaseStudyLayoutProps) {
                     <ScrollReveal key={i} delay={i * 0.05}>
                       <button
                         onClick={() => setLightboxSrc(src)}
-                        className="group relative w-full aspect-[16/9] rounded-xl overflow-hidden border border-[var(--color-border)] bg-white block cursor-zoom-in"
+                        className="group relative w-full aspect-[16/9] rounded-xl overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface-muted)] block cursor-zoom-in"
                       >
                         <Image
                           src={src}
                           alt={`GA4 proof ${i + 1}`}
                           fill
-                          className="object-cover object-top transition-transform duration-300 group-hover:scale-[1.02]"
+                          className="object-contain transition-transform duration-300 group-hover:scale-[1.02]"
                           sizes="(max-width: 768px) 100vw, 700px"
                         />
                         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-200 flex items-center justify-center">
@@ -410,15 +410,26 @@ export default function CaseStudyLayout({ caseStudy }: CaseStudyLayoutProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
+            transition={{ duration: 0.1 }}
             className="fixed inset-0 z-[9999] bg-black/92 flex items-center justify-center p-4 sm:p-8"
             onClick={closeLightbox}
           >
+            {/* Close button — fixed top-right, never overlaps image */}
+            <button
+              onClick={closeLightbox}
+              className="fixed top-4 right-4 w-10 h-10 rounded-full bg-white/15 hover:bg-white/30 border border-white/25 text-white flex items-center justify-center transition-colors duration-100 z-10"
+              aria-label="Close"
+            >
+              <svg viewBox="0 0 16 16" fill="none" className="w-4 h-4">
+                <path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+              </svg>
+            </button>
+
             <motion.div
-              initial={{ scale: 0.92, opacity: 0 }}
+              initial={{ scale: 0.96, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.92, opacity: 0 }}
-              transition={{ duration: 0.22 }}
+              exit={{ scale: 0.96, opacity: 0 }}
+              transition={{ duration: 0.1 }}
               className="relative max-w-6xl w-full max-h-[90vh]"
               onClick={(e) => e.stopPropagation()}
             >
@@ -426,17 +437,8 @@ export default function CaseStudyLayout({ caseStudy }: CaseStudyLayoutProps) {
               <img
                 src={lightboxSrc}
                 alt="Proof of work enlarged"
-                className="w-full h-auto max-h-[85vh] object-contain rounded-xl"
+                className="w-full h-auto max-h-[88vh] object-contain rounded-xl"
               />
-              <button
-                onClick={closeLightbox}
-                className="absolute -top-4 -right-4 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white flex items-center justify-center transition-colors duration-150"
-                aria-label="Close"
-              >
-                <svg viewBox="0 0 16 16" fill="none" className="w-4 h-4">
-                  <path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                </svg>
-              </button>
             </motion.div>
           </motion.div>
         )}
