@@ -162,6 +162,130 @@ export default function AboutContent() {
         </div>
       </section>
 
+      {/* ── Achievements ── */}
+      <section className="section-padding bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl font-heading font-bold text-[var(--color-text-primary)]">
+              Achievements
+            </h2>
+          </ScrollReveal>
+
+          <div className="space-y-20 lg:space-y-28">
+            {/* #1 — LUMS CES: image left, text right */}
+            <ScrollReveal>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+                <div className="relative rounded-2xl overflow-hidden aspect-[4/3] bg-[var(--color-surface-muted)] border border-[var(--color-border)]">
+                  <Image
+                    src="/images/about/achievements/lums.jpg"
+                    alt="Guest Speaker at LUMS CES"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-brand-light)] mb-3">Guest Speaker</p>
+                  <h3 className="text-2xl sm:text-3xl font-heading font-semibold text-[var(--color-text-primary)] mb-2 leading-snug">
+                    Session on Digital Marketing Landscape
+                  </h3>
+                  <p className="text-sm font-medium text-[var(--color-text-secondary)] mb-5">LUMS CES — Advertising Course</p>
+                  <p className="text-[var(--color-text-secondary)] leading-relaxed">
+                    Delivered a session talk on the evolution of digital marketing for advertising students at LUMS Centre for Executive Studies. Covered how the landscape has shifted toward performance-first thinking, practical applications of paid media, and what it takes to build results-driven campaigns — bridging academic frameworks with real-world execution.
+                  </p>
+                </div>
+              </div>
+            </ScrollReveal>
+
+            {/* #2 — ICR IT Centre: text left, image right */}
+            <ScrollReveal>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+                <div className="order-2 lg:order-1">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-brand-light)] mb-3">Instructor Experience</p>
+                  <h3 className="text-2xl sm:text-3xl font-heading font-semibold text-[var(--color-text-primary)] mb-2 leading-snug">
+                    Digital Marketing Instructor
+                  </h3>
+                  <p className="text-sm font-medium text-[var(--color-text-secondary)] mb-5">ICR IT Centre, Rahim Yar Khan</p>
+                  <p className="text-[var(--color-text-secondary)] leading-relaxed">
+                    Taught digital marketing across 2 full batches, working with 45+ students on Meta Ads, campaign strategy, content creation, and performance analytics. Before stepping into a lead role, served as Assistant Instructor — handling backend operations and delivering lectures independently in the lead instructor&apos;s absence. A hands-on teaching experience that reinforced how to communicate complex performance concepts clearly.
+                  </p>
+                </div>
+                <div className="order-1 lg:order-2 relative rounded-2xl overflow-hidden aspect-[4/3] bg-[var(--color-surface-muted)] border border-[var(--color-border)]">
+                  <Image
+                    src="/images/about/achievements/icr.jpg"
+                    alt="Instructor at ICR IT Centre"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+            </ScrollReveal>
+
+            {/* #3 — BIC Foundry: image left, text right */}
+            <ScrollReveal>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+                <div className="relative rounded-2xl overflow-hidden aspect-[4/3] bg-[var(--color-surface-muted)] border border-[var(--color-border)]">
+                  <Image
+                    src="/images/about/achievements/bic.jpg"
+                    alt="Guest Speaker at BIC Foundry"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-brand-light)] mb-3">Guest Speaker</p>
+                  <h3 className="text-2xl sm:text-3xl font-heading font-semibold text-[var(--color-text-primary)] mb-2 leading-snug">
+                    Session on &ldquo;How to Prove ROI on Marketing&rdquo;
+                  </h3>
+                  <p className="text-sm font-medium text-[var(--color-text-secondary)] mb-5">BIC Foundry — Beaconhouse International College</p>
+                  <p className="text-[var(--color-text-secondary)] leading-relaxed">
+                    Conducted an online session for startup founders under the BIC Foundry initiative, focused on how to measure and maximize ROI on marketing spend. Covered attribution, campaign efficiency, and how to translate ad performance into business-level outcomes — practical frameworks for early-stage founders making their first marketing decisions.
+                  </p>
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Certifications ── */}
+      <section className="section-padding bg-[var(--color-surface-muted)]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal className="mb-12">
+            <h2 className="text-3xl sm:text-4xl font-heading font-bold text-[var(--color-text-primary)] mb-2">Certifications</h2>
+            <p className="text-[var(--color-text-secondary)]">Credentials from institutions and platforms that have shaped my practice.</p>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+            {[
+              { title: 'Fundamentals of Digital Marketing', issuer: 'Google Digital Garage', img: '/images/about/certifications/cert-1.jpg' },
+              { title: 'Advertising: Print, Outdoor & Digital', issuer: 'LUMS CES Program 2025', img: '/images/about/certifications/cert-2.jpg' },
+              { title: 'Entrepreneurship', issuer: 'LUMS CES Program 2025', img: '/images/about/certifications/cert-3.jpg' },
+              { title: 'Professional Communication Skills', issuer: 'LUMS CES (April 2026)', img: '/images/about/certifications/cert-4.jpg' },
+              { title: 'Claude 101 Completion', issuer: 'Anthropic', img: '/images/about/certifications/cert-5.jpg' },
+              { title: 'Google Soft Skills Program', issuer: 'Google Skillshop / PAFLA', img: '/images/about/certifications/cert-6.jpg' },
+              { title: 'Marketing & Content Creation', issuer: 'ICR IT Centre, RYK', img: '/images/about/certifications/cert-7.jpg' },
+            ].map((cert, i) => (
+              <ScrollReveal key={cert.title} delay={i * 0.06}>
+                <div className="bg-white rounded-2xl border border-[var(--color-border)] overflow-hidden card-shadow hover:card-shadow-hover transition-shadow duration-300 group">
+                  <div className="relative aspect-[4/3] bg-[var(--color-surface-muted)]">
+                    <Image
+                      src={cert.img}
+                      alt={cert.title}
+                      fill
+                      className="object-cover group-hover:scale-[1.03] transition-transform duration-300"
+                    />
+                  </div>
+                  <div className="px-4 py-3">
+                    <p className="text-sm font-semibold text-[var(--color-text-primary)] leading-snug mb-1">{cert.title}</p>
+                    <p className="text-xs text-[var(--color-text-muted)]">{cert.issuer}</p>
+                  </div>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="section-padding gradient-brand text-white text-center">
         <div className="max-w-2xl mx-auto px-4 sm:px-6">
