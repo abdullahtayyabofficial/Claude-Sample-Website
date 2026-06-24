@@ -224,32 +224,41 @@ export const caseStudies: CaseStudy[] = [
     callout:
       '3 bookings to 25+ and full capacity, in under 60 days, from a standing start. Paid media built the pipeline. One community event compressed months of trust-building into a single night.',
     overview:
-      'Cubicle is the only co-working space in its area, targeting freelancers, startups, and IT companies. The goal was to fill private offices, dedicated desks, and the co-working area as quickly as possible, generating passive monthly revenue while positioning Cubicle as the premium yet affordable workspace in the local market.',
+      'Cubicle is the only coworking space in its city, targeting freelancers, startups, and IT companies.\n\nThe client\'s primary requirement was to fill all private offices, dedicated desks, and the class/training area as quickly as possible to start generating passive monthly revenue.\n\nAdditionally, they wanted to position Cubicle as the most premium yet affordable coworking space in the local market.',
     problem:
       'No existing audience, zero organic traction, and a market where workspace decisions are largely driven by word-of-mouth and trust. The brand needed paid media to simultaneously build awareness and drive immediate bookings from a completely cold start.',
+    strategyIntro:
+      'To achieve rapid occupancy, we executed a full-funnel campaign strategy designed to generate both awareness and conversions simultaneously.',
     strategyPoints: [
       {
-        title: 'Full-Funnel Campaign Architecture',
+        title: 'Launch & Awareness Phase',
         description:
-          'A three-phase campaign was built: a Launch & Awareness phase using broad sales campaigns targeting tech and business audiences to generate initial traction, followed by a Retargeting & Re-Conversion phase with high-intent campaigns narrowed to warm audiences, improving conversion efficiency and reducing wasted spend at every stage.',
+          'Launched Sales Campaigns targeting broad tech and business audiences to generate traction and visibility.\n\nThe goal was to build visibility and drive early inquiries, positioning Cubicle as the go-to professional space for small teams and entrepreneurs.',
       },
       {
-        title: 'Multi-Format Creative Strategy',
+        title: 'Retargeting & High-Conversion Phase',
         description:
-          'The creative strategy combined direct-selling benefit messaging with announcement-style visuals across static, carousel, video, and UGC formats, matching each funnel stage with the right creative format to maximize relevance and conversion at each audience temperature.',
+          'Followed with high-intent retargeting campaign, narrowing down to warm and business-related audiences to improve conversion efficiency and reduce wasted ad spend.\n\nThis approach was to save unnecessary ad spend and filter only high-intent prospects, improving conversion rates and lead quality dramatically.',
       },
       {
-        title: 'Community PR Activation',
+        title: 'Creatives Strategy',
         description:
-          'Alongside paid media, a Community PR layer was added: an IT Networking Festival was organised at Cubicle, inviting local business owners and tech professionals to experience the space directly. The event attracted 600+ participants, building brand positioning, partnerships, and organic trust in a single activation.',
+          'Developed a multi-angle creative strategy, combining direct-selling, benefit-driven, and announcement-style visuals across static, carousel, video, and UGC formats.',
+      },
+      {
+        title: 'Community PR & Event Marketing',
+        description:
+          'To strengthen brand positioning, we organized a Grand IT Networking Event hosted at Cubicle - inviting local business and tech professionals.\n\nThe event attracted 600+ participants, building strong PR, partnerships, and organic buzz, while also showcasing the space itself to hundreds of potential clients.',
       },
     ],
     results: [
-      { label: 'Booking Growth', value: 'From 3 to 25+ bookings in under 60 days, full operational capacity reached' },
-      { label: 'Event Activation', value: '600+ participants attended the linked IT Networking Festival' },
-      { label: 'Brand Positioning', value: 'Established Cubicle as the go-to professional co-working space for the local business and tech community' },
-      { label: 'ROAS', value: 'Profitable Meta Ads performance maintained, with organic social conversions supplementing paid results' },
+      { label: 'Bookings', value: '25+ offices booked, along with multiple dedicated seats and class area reservations' },
+      { label: 'ROAS', value: 'Achieved an estimated ROAS between 8x-10x, combining Meta Ads performance with organic event conversions' },
+      { label: 'Brand Visibility', value: 'Increased Cubicle\'s brand visibility across the entire city\'s business and IT ecosystem' },
+      { label: 'Positioning', value: 'Established Cubicle as the top-of-mind coworking space within 60 days of campaign launch' },
     ],
+    outcome:
+      'Cubicle went from only 3 bookings to full operational capacity in under two months.',
     metrics: [
       { label: 'Bookings in 60 Days', value: '25', suffix: '+' },
       { label: 'Event Participants', value: '600', suffix: '+' },
