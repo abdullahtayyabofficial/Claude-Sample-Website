@@ -156,16 +156,16 @@ function StickyNav() {
           : 'bg-transparent'
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
         <Link
           href="/"
-          className="font-heading font-bold text-xl text-white tracking-tight hover:text-[#15a1df] transition-colors"
+          className="font-heading font-bold text-base text-white tracking-tight hover:text-[#15a1df] transition-colors"
         >
           Abdullah Tayyab
         </Link>
         <a
           href={BOOKING_URL}
-          className="font-heading font-semibold text-sm text-white bg-[#15a1df] hover:bg-[#0d8bbf] px-5 py-2.5 rounded-lg transition-all duration-200 hover:shadow-[0_0_20px_rgba(21,161,223,0.4)]"
+          className="font-heading font-semibold text-xs text-white bg-[#15a1df] hover:bg-[#0d8bbf] px-4 py-2 rounded-lg transition-all duration-200 hover:shadow-[0_0_20px_rgba(21,161,223,0.4)]"
         >
           Book Your Free Strategy Call
         </a>
@@ -276,60 +276,80 @@ function Hero() {
   )
 }
 
-// ─── Social Proof (LIGHT GRADIENT) ────────────────────────────────────────────
+// ─── Proof / Case Studies (LIGHT GRADIENT) — Alisha style ────────────────────
 
-const testimonials = [
+const proofCaseStudies = [
   {
-    quote:
-      '[PLACEHOLDER - e.g., "We went from chasing price shoppers to booking three veneer consultations a week within the first month"]',
-    body: '[PLACEHOLDER - 2-3 sentences expanding on the result]',
-    name: '[First Name, Last Name]',
-    title: '[Title - e.g., Principal Dentist / Practice Owner]',
-    clinic: '[Clinic Name] - [City]',
+    image: '/images/case-studies/hardees-qsr/hero.jpeg',
+    headline:
+      'PKR 31M+ Revenue. 18,000+ Online Purchases. 4x-16x ROAS. 7 Consecutive Months of Compounding Growth.',
+    description:
+      'Built an always-on conversion system for a national QSR brand that had never run structured sales campaigns. Shifted from sporadic awareness bursts to a disciplined, daily revenue engine on Meta and Google. ROAS improved progressively across all 7 months, with the system compounding in performance every single month.',
+    client: 'QSR Brand (Hardee\'s)',
+    industry: 'Food & Beverage / eCommerce',
   },
   {
-    quote:
-      '[PLACEHOLDER - e.g., "Finally, patients are arriving to the consultation already knowing what veneers cost and why they want to go ahead"]',
-    body: '[PLACEHOLDER - 2-3 sentences expanding on the result]',
-    name: '[First Name, Last Name]',
-    title: '[Title]',
-    clinic: '[Clinic Name] - [City]',
+    image: '/images/case-studies/commercial-real-estate-lead-gen/hero.jpg',
+    headline:
+      '2,042 High-Profiled Leads. 3 Commercial Projects. Under 2.5 Months. PKR ~205 Average Cost Per Lead.',
+    description:
+      'Generated qualified investor leads from a complete cold start for a government-backed real estate authority launching high-ticket commercial projects priced from PKR 140M+. Zero pixel data, zero warm audiences. Built entirely on Meta through precision three-tier audience architecture specific to each project.',
+    client: 'CBD Punjab',
+    industry: 'Real Estate / Government Authority',
+  },
+  {
+    image: '/images/case-studies/cubicle-coworking/hero.jpg',
+    headline:
+      '3 Bookings to Full Operational Capacity. 25+ Offices Filled. 600+ Event Participants. In Under 60 Days.',
+    description:
+      'Took a brand-new co-working space from near-empty to fully booked in under two months. A full-funnel paid media strategy built awareness and drove direct bookings simultaneously. A live IT networking event hosted at the space brought 600+ local professionals through the door and compressed months of trust-building into one night.',
+    client: 'Cubicle Co-Working',
+    industry: 'Co-Working Space',
   },
 ]
 
-function SocialProof() {
+function ProofSection() {
   return (
     <section className="py-28 px-6" style={{ background: LIGHT_GRADIENT }}>
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <FadeUp>
           <div className="text-center mb-16">
-            <p className="font-heading font-bold text-sm uppercase tracking-[0.15em] text-[#15a1df] mb-4">
-              Results
-            </p>
             <h2 className="font-heading font-bold text-3xl md:text-4xl text-[#0a0a14] mb-5">
-              The Proof?
+              Real Clients. Real Results.
             </h2>
             <p className="text-[#4a4f6a] text-lg max-w-2xl mx-auto leading-relaxed">
-              Cosmetic clinics are using the Case-Ready Smile Pipeline™ to stop depending on
-              referrals and word-of-mouth — and start choosing the cases they actually want to do.
+              Not vanity metrics. Outcome-specific results tied to revenue driven, leads generated,
+              and systems that compound month after month.
             </p>
           </div>
         </FadeUp>
 
-        <div className="grid md:grid-cols-2 gap-6">
-          {testimonials.map((t, i) => (
+        <div className="grid md:grid-cols-3 gap-6">
+          {proofCaseStudies.map((cs, i) => (
             <FadeUp key={i} delay={i * 0.1}>
-              <div className="h-full rounded-2xl border border-white/80 bg-white p-8 flex flex-col relative overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
-                <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#010738] to-[#15a1df]" />
-                <div className="text-[#15a1df] text-lg tracking-wider mb-5">★★★★★</div>
-                <blockquote className="font-heading font-semibold text-[#0a0a14] text-lg leading-snug mb-4 italic flex-1">
-                  &quot;{t.quote}&quot;
-                </blockquote>
-                <p className="text-[#4a4f6a] text-sm leading-relaxed mb-6">{t.body}</p>
-                <div className="border-t border-[#e8eaf0] pt-5">
-                  <p className="font-heading font-bold text-[#0a0a14] text-sm">{t.name}</p>
-                  <p className="text-[#8890a8] text-xs mt-0.5">{t.title}</p>
-                  <p className="text-[#8890a8] text-xs">{t.clinic}</p>
+              <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 flex flex-col">
+                {/* Screenshot / Hero image */}
+                <div className="relative aspect-video overflow-hidden">
+                  <Image
+                    src={cs.image}
+                    alt={cs.client}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                {/* Card body */}
+                <div className="p-7 flex flex-col flex-1">
+                  <div className="text-[#f59e0b] text-xl tracking-wide mb-4">★★★★★</div>
+                  <h3 className="font-heading font-bold text-[#0a0a14] text-lg leading-snug mb-4 flex-1">
+                    &quot;{cs.headline}&quot;
+                  </h3>
+                  <p className="text-[#4a4f6a] text-sm leading-relaxed mb-6">
+                    {cs.description}
+                  </p>
+                  <div className="border-t border-[#e8eaf0] pt-5">
+                    <p className="font-heading font-bold text-[#0a0a14] text-sm">{cs.client}</p>
+                    <p className="text-[#8890a8] text-xs mt-0.5">{cs.industry}</p>
+                  </div>
                 </div>
               </div>
             </FadeUp>
@@ -500,9 +520,6 @@ function HowItWorks() {
       <div className="max-w-4xl mx-auto">
         <FadeUp>
           <div className="text-center mb-20">
-            <p className="font-heading font-bold text-sm uppercase tracking-[0.15em] text-[#15a1df] mb-4">
-              The System
-            </p>
             <h2 className="font-heading font-bold text-3xl md:text-4xl text-[#0a0a14] mb-5">
               How It Works
             </h2>
@@ -590,9 +607,6 @@ function WhyChooseUs() {
       <div className="relative z-10 max-w-6xl mx-auto">
         <FadeUp>
           <div className="text-center mb-16">
-            <p className="font-heading font-bold text-sm uppercase tracking-[0.15em] text-[#15a1df] mb-4">
-              Why Us
-            </p>
             <h2 className="font-heading font-bold text-3xl md:text-4xl text-[#0a0a14] mb-5 leading-tight">
               6 Reasons Why Cosmetic Clinics Choose the{' '}
               <span
@@ -667,9 +681,6 @@ function Differentiation() {
     <section className="py-28 px-6" style={{ background: LIGHT_GRADIENT }}>
       <div className="max-w-4xl mx-auto">
         <FadeUp>
-          <p className="font-heading font-bold text-sm uppercase tracking-[0.15em] text-[#15a1df] mb-4">
-            The Difference
-          </p>
           <h2 className="font-heading font-bold text-3xl md:text-4xl text-[#0a0a14] mb-12 leading-tight">
             How Is This Different To Other Agencies?
           </h2>
@@ -780,9 +791,6 @@ function QualifySection() {
       <div className="max-w-5xl mx-auto">
         <FadeUp>
           <div className="text-center mb-16">
-            <p className="font-heading font-bold text-sm uppercase tracking-[0.15em] text-[#15a1df] mb-4">
-              Fit Check
-            </p>
             <h2 className="font-heading font-bold text-3xl md:text-4xl text-[#0a0a14] mb-5 leading-tight">
               Is the Case-Ready Smile Pipeline™ Right For Your Clinic?
             </h2>
@@ -872,263 +880,6 @@ function QualifySection() {
     </section>
   )
 }
-
-// ─── Case Studies (LIGHT GRADIENT) with carousel ──────────────────────────────
-
-const carouselCaseStudies = [
-  {
-    slug: 'hardees-qsr',
-    client: 'QSR Brand (Hardee\'s)',
-    title: 'Always-On Revenue Engine for a QSR Brand',
-    industry: 'Food & Beverage / eCommerce',
-    tags: ['Meta Ads', 'Google Ads', 'ROAS Optimisation'],
-    heroImage: '/images/case-studies/hardees-qsr/hero.jpeg',
-    logo: '/images/logos/hardees.png',
-    metrics: [
-      { label: 'Revenue', value: 'PKR 31M+' },
-      { label: 'ROAS', value: '4x-16x' },
-      { label: 'Online Purchases', value: '18K+' },
-    ],
-  },
-  {
-    slug: 'commercial-real-estate-lead-gen',
-    client: 'CBD Punjab',
-    title: '2,042 Leads Across 3 High-Ticket Commercial Projects',
-    industry: 'Real Estate / Government',
-    tags: ['Meta Ads', 'Lead Generation', 'Real Estate'],
-    heroImage: '/images/case-studies/commercial-real-estate-lead-gen/hero.jpg',
-    logo: '/images/logos/cbd-punjab.png',
-    metrics: [
-      { label: 'Leads Generated', value: '2,042' },
-      { label: 'Avg Cost Per Lead', value: 'PKR ~205' },
-      { label: 'Timeframe', value: '<2.5 months' },
-    ],
-  },
-  {
-    slug: 'cubicle-coworking',
-    client: 'Cubicle Co-Working',
-    title: 'From 3 Bookings to Full Capacity in 60 Days',
-    industry: 'Co-Working Space',
-    tags: ['Meta Ads', 'Lead Generation', 'Event Marketing'],
-    heroImage: '/images/case-studies/cubicle-coworking/hero.jpg',
-    logo: '/images/logos/cubicle.png',
-    metrics: [
-      { label: 'Bookings', value: '25+' },
-      { label: 'Event Participants', value: '600+' },
-      { label: 'Time to Capacity', value: '<60 days' },
-    ],
-  },
-  {
-    slug: 'wavebyte-ecommerce',
-    client: 'Wave Byte',
-    title: 'Scaling to PKR 1.5M+ Ad Spend at 5-8x ROAS',
-    industry: 'Ecommerce Services',
-    tags: ['Meta Ads', 'Scaling Strategy', 'Lead Generation'],
-    heroImage: '/images/case-studies/wavebyte-ecommerce/hero.jpg',
-    logo: '/images/logos/wave-byte.png',
-    metrics: [
-      { label: 'Ad Spend Managed', value: 'PKR 1.5M+' },
-      { label: 'Average ROAS', value: '5-8x' },
-      { label: 'Budget Scaled', value: 'PKR 600K+' },
-    ],
-  },
-  {
-    slug: 'icr-it-centre',
-    client: 'ICR IT Centre',
-    title: '300+ Student Enrollments Per Peak Batch Season',
-    industry: 'IT Training & Education',
-    tags: ['Meta Ads', 'Lead Generation', 'Education'],
-    heroImage: '/images/case-studies/icr-it-centre/hero.jpg',
-    logo: '/images/logos/icr.png',
-    metrics: [
-      { label: 'Peak Enrollments', value: '300+' },
-      { label: 'Consistent Batch Avg', value: '80+ per batch' },
-    ],
-  },
-  {
-    slug: 'ffc-pakistan',
-    client: 'Fauji Fertilizers (FFC)',
-    title: '140M+ Impressions Across 5 National Campaigns',
-    industry: 'Agriculture / FMCG',
-    tags: ['YouTube Ads', 'Meta Ads', 'TikTok', 'Brand Awareness'],
-    heroImage: '/images/case-studies/ffc/hero.jpg',
-    logo: '/images/logos/ffc.png',
-    metrics: [
-      { label: 'Total Impressions', value: '140M+' },
-      { label: 'Video Views', value: '88.5M+' },
-      { label: 'New Followers', value: '155K+' },
-    ],
-  },
-]
-
-function CaseStudiesSection() {
-  const [activeIndex, setActiveIndex] = useState(0)
-  const maxIndex = carouselCaseStudies.length - 3 // = 3, for showing 3 at a time
-
-  const visibleStudies = carouselCaseStudies.slice(activeIndex, activeIndex + 3)
-
-  return (
-    <section className="py-28 px-6" style={{ background: LIGHT_GRADIENT }}>
-      <div className="max-w-6xl mx-auto">
-        <FadeUp>
-          <div className="text-center mb-16">
-            <p className="font-heading font-bold text-sm uppercase tracking-[0.15em] text-[#15a1df] mb-4">
-              Proof
-            </p>
-            <h2 className="font-heading font-bold text-3xl md:text-4xl text-[#0a0a14] mb-5">
-              Real Results. Real Clients.
-            </h2>
-            <p className="text-[#4a4f6a] text-lg max-w-2xl mx-auto leading-relaxed">
-              Outcome-specific results tied to leads generated, revenue driven, and systems that
-              compound month after month.
-            </p>
-          </div>
-        </FadeUp>
-
-        <div className="relative">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeIndex}
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -30 }}
-              transition={{ duration: 0.38, ease: EASE }}
-              className="grid md:grid-cols-3 gap-5"
-            >
-              {visibleStudies.map((cs) => (
-                <div
-                  key={cs.slug}
-                  className="bg-white rounded-2xl border border-[#e8eaf0] overflow-hidden flex flex-col group hover:border-[#15a1df]/35 hover:shadow-lg transition-all duration-300"
-                >
-                  {/* Hero image */}
-                  <div className="relative aspect-video overflow-hidden">
-                    <Image
-                      src={cs.heroImage}
-                      alt={cs.client}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    {/* Logo overlay */}
-                    {cs.logo && (
-                      <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm rounded-lg p-2">
-                        <div className="relative w-16 h-7">
-                          <Image
-                            src={cs.logo}
-                            alt={cs.client}
-                            fill
-                            className="object-contain"
-                          />
-                        </div>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-6 flex flex-col flex-1">
-                    <p className="text-[#8890a8] text-xs font-semibold uppercase tracking-[0.1em] mb-2">
-                      {cs.industry}
-                    </p>
-                    <h3 className="font-heading font-bold text-[#0a0a14] text-base leading-snug mb-4 flex-1">
-                      {cs.title}
-                    </h3>
-
-                    {/* Metrics */}
-                    <div className="grid grid-cols-3 gap-2 mb-5">
-                      {cs.metrics.map((m) => (
-                        <div key={m.label} className="bg-[#f8f9fc] rounded-lg px-2 py-2 text-center">
-                          <p className="font-heading font-bold text-[#010738] text-sm leading-none mb-1">
-                            {m.value}
-                          </p>
-                          <p className="text-[#8890a8] text-[10px] leading-tight">{m.label}</p>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Tags */}
-                    <div className="flex flex-wrap gap-1.5 mb-5">
-                      {cs.tags.slice(0, 3).map((tag) => (
-                        <span
-                          key={tag}
-                          className="text-[10px] font-semibold text-[#15a1df] bg-[#15a1df]/[0.08] px-2.5 py-1 rounded-full"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-
-                    <Link
-                      href={`/case-studies/${cs.slug}`}
-                      className="text-sm font-heading font-semibold text-[#15a1df] flex items-center gap-1 hover:gap-2 transition-all duration-200"
-                    >
-                      View full case study
-                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                      </svg>
-                    </Link>
-                  </div>
-                </div>
-              ))}
-            </motion.div>
-          </AnimatePresence>
-
-          {/* Navigation arrows */}
-          <div className="flex items-center justify-center gap-4 mt-10">
-            <button
-              onClick={() => setActiveIndex(Math.max(0, activeIndex - 1))}
-              disabled={activeIndex === 0}
-              className={`w-11 h-11 rounded-full border flex items-center justify-center transition-all duration-200 ${
-                activeIndex === 0
-                  ? 'border-[#e8eaf0] text-[#c8cad6] cursor-not-allowed'
-                  : 'border-[#15a1df]/40 text-[#15a1df] hover:bg-[#15a1df]/[0.08] hover:border-[#15a1df]'
-              }`}
-              aria-label="Previous case studies"
-            >
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-
-            {/* Dots */}
-            <div className="flex gap-2">
-              {Array.from({ length: maxIndex + 1 }).map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setActiveIndex(i)}
-                  className={`rounded-full transition-all duration-200 ${
-                    i === activeIndex
-                      ? 'w-6 h-2 bg-[#15a1df]'
-                      : 'w-2 h-2 bg-[#d0d4e8] hover:bg-[#15a1df]/50'
-                  }`}
-                  aria-label={`Go to slide ${i + 1}`}
-                />
-              ))}
-            </div>
-
-            <button
-              onClick={() => setActiveIndex(Math.min(maxIndex, activeIndex + 1))}
-              disabled={activeIndex === maxIndex}
-              className={`w-11 h-11 rounded-full border flex items-center justify-center transition-all duration-200 ${
-                activeIndex === maxIndex
-                  ? 'border-[#e8eaf0] text-[#c8cad6] cursor-not-allowed'
-                  : 'border-[#15a1df]/40 text-[#15a1df] hover:bg-[#15a1df]/[0.08] hover:border-[#15a1df]'
-              }`}
-              aria-label="Next case studies"
-            >
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-          </div>
-        </div>
-
-        <FadeUp>
-          <SectionCTA dark={false} />
-        </FadeUp>
-      </div>
-    </section>
-  )
-}
-
 // ─── Brand Mission (WHITE) ─────────────────────────────────────────────────────
 
 const missionParas = [
@@ -1259,9 +1010,6 @@ function FAQSection() {
       <div className="max-w-3xl mx-auto">
         <FadeUp>
           <div className="text-center mb-16">
-            <p className="font-heading font-bold text-sm uppercase tracking-[0.15em] text-[#15a1df] mb-4">
-              Questions
-            </p>
             <h2 className="font-heading font-bold text-3xl md:text-4xl text-[#0a0a14]">
               Frequently Asked Questions
             </h2>
@@ -1426,13 +1174,12 @@ export default function SmileMakeoverLPContent() {
     <div className="font-body">
       <StickyNav />
       <Hero />
-      <SocialProof />
+      <ProofSection />
       <PainAgitation />
       <HowItWorks />
       <WhyChooseUs />
       <Differentiation />
       <QualifySection />
-      <CaseStudiesSection />
       <BrandMission />
       <FAQSection />
       <FinalCTA />
