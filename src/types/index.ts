@@ -30,6 +30,7 @@ export interface CaseStudy {
   visuals?: string[]
   learnings?: string
   metrics?: CaseStudyMetric[]
+  proofImages?: string[]
   campaigns?: FfcCampaign[]
 }
 

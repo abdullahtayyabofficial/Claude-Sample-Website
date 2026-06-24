@@ -11,38 +11,44 @@ export const caseStudies: CaseStudy[] = [
     thumbnail: '',
     tags: ['Meta Ads', 'Google Ads', 'eCommerce', 'ROAS Optimisation'],
     callout:
-      'PKR 31M+ in online order revenue. 18K+ purchases. 4x–16x ROAS, not in one lucky month, but across 4 consecutive months of compounding growth, built on a system that ran every single day.',
+      'PKR 31M+ in online order revenue. 18K+ purchases. 4x–16x ROAS — not as a one-time spike, but across 7 consecutive months of compounding growth, built on a system that ran every single day.',
     overview:
-      'The client is a QSR brand operating across multiple Pakistani cities, with strong offline presence and an ecommerce channel through their website. Before the engagement, the brand was running isolated and engagement campaigns for brand recall, delivering inconsistent results. The goal was to build a structured, effective ecommerce system that drives online orders every single day of the month.',
+      'The client is a QSR brand operating across Pakistan, with a strong offline presence and an online ordering channel through its website.\n\nBefore, the brand was running awareness and engagement campaigns for brand recall, but sales-focused conversion campaigns were rare and inconsistent.\n\nThe job was to change that: build a structured, always-on conversion system that drove online orders every single day of the month.',
     problem:
       'Ad campaigns were running as isolated, one-off bursts for brand awareness, with no structured conversion focus, no consistent audience architecture, and no predictable system for driving daily online orders. The brand needed to shift from sporadic awareness spends to a disciplined, always-on revenue engine with compounding performance.',
     strategyPoints: [
       {
-        title: 'Consistent Sales Campaign Strategy',
+        title: 'Consistent Sales Campaign System',
         description:
-          'Shifted from isolated campaigns to a disciplined, month-long consistent campaign structure, running paid ads continuously rather than as one-off blasts. All conversion campaigns were data-led and performance-focused, with a clear daily online-order objective from day one.',
+          'Shifted from occasional campaign launches to a disciplined, month-long conversion campaign structure, running sales ads consistently rather than in bursts. This alone created a steady pipeline of online orders that the brand hadn\'t experienced before.',
       },
       {
         title: 'Smart Audience Architecture',
         description:
-          'Structured multiple Meta-based audience segments, meal-based audiences, campaign-timed audiences, and retargeting-based lookalikes. Meta\'s AI dynamically allocated budget across audience sets in always-on format, with consistently compounding performance as each cycle fed better data back into the next.',
+          'Structured multiple distinct audience segments: interest-based audiences, competitor brand audiences, and retargeting pools built from custom and lookalike data. Meta\'s AI then dynamically allocated budget across ad sets based on real-time performance, putting more spend behind whatever was converting best at any given moment.',
       },
       {
-        title: 'Offers & Event-Based Campaign Strategy',
+        title: 'Offer & Event-Based Campaign Strategy',
         description:
-          'Meta was leveraged as the primary driver for offer-based food promotions and time-sensitive deals. Seasonal promotions, meal deals, and dinner-specific campaigns were structured on a consistent weekly cadence, building a data-driven audience that responded predictably to each offer type, keeping best-performing ads alive and compounding.',
+          'Built the campaign calendar around how Pakistanis actually engage with fast food. Seasonal events like Basant and Eid were activated with dedicated, time-bound promotions. For consistent weekday volume, we ran a structured day-of-week deal cadence: Monday Deal, Tuesday Deal, and so on — giving customers a fresh reason to order every day of the week.',
       },
       {
         title: 'Platform Focus',
         description:
-          'Meta served as the primary conversion driver for offer-based food promotions, delivering stronger direct order volume. A calibrated portion of spend was allocated to Google to capture high-intent search traffic from customers already searching for the brand or its offers, maximising total order volume per campaign period.',
+          'Meta was the primary driver throughout, given its stronger performance for offer-based food promotions and social discovery. A small portion of spend was allocated to Google to capture high-intent search traffic.',
       },
     ],
     results: [
       { label: 'Revenue Generated', value: 'PKR 31M+ in online order revenue across the campaign period' },
       { label: 'Online Purchases', value: '18K+ purchases driven through the always-on campaign system' },
       { label: 'ROAS', value: '4x–16x Average ROAS across the campaign duration, with progressive improvement month-over-month' },
-      { label: 'Revenue Trajectory', value: '4 consecutive months of consistent, compounding revenue growth from online orders' },
+      { label: 'Revenue Trajectory', value: '7 consecutive months of consistent, compounding revenue growth from online orders' },
+    ],
+    proofImages: [
+      '/images/case-studies/hardees-qsr/proof/proof-1.jpg',
+      '/images/case-studies/hardees-qsr/proof/proof-2.jpg',
+      '/images/case-studies/hardees-qsr/proof/proof-3.jpg',
+      '/images/case-studies/hardees-qsr/proof/proof-4.jpg',
     ],
     metrics: [
       { label: 'Revenue Generated', value: 'PKR 31M', suffix: '+' },

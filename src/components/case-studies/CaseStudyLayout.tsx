@@ -237,6 +237,23 @@ export default function CaseStudyLayout({ caseStudy }: CaseStudyLayoutProps) {
             </ScrollReveal>
           )}
 
+          {caseStudy.proofImages && caseStudy.proofImages.length > 0 && (
+            <SectionBlock label="Proof of Work (Selective):">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {caseStudy.proofImages.map((src, i) => (
+                  <div key={i} className="relative aspect-video rounded-xl overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface-muted)]">
+                    <Image
+                      src={src}
+                      alt={`${caseStudy.client} proof of work ${i + 1}`}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
+            </SectionBlock>
+          )}
+
           {caseStudy.visuals && caseStudy.visuals.length > 0 && (
             <SectionBlock label="Campaign Visuals">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
