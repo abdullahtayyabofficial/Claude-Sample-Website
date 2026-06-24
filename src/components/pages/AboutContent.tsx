@@ -190,7 +190,7 @@ export default function AboutContent() {
                   </h3>
                   <p className="text-sm font-medium text-[var(--color-text-secondary)] mb-5">LUMS CES — Advertising Course</p>
                   <p className="text-[var(--color-text-secondary)] leading-relaxed">
-                    Delivered a session talk on the evolution of digital marketing for advertising students at LUMS Centre for Executive Studies. Covered how the landscape has shifted toward performance-first thinking, practical applications of paid media, and what it takes to build results-driven campaigns — bridging academic frameworks with real-world execution.
+                    Invited as a Guest Speaker by the Centre for Continuing Education Studies at LUMS to deliver a session on the Role of Digital Marketing — covering platform strategy, campaign execution, and AI-driven marketing for the next generation of business professionals. What made it especially meaningful: Abdullah was once a student of this very course. Returning as a speaker was a full-circle moment.
                   </p>
                 </div>
               </div>
@@ -234,11 +234,11 @@ export default function AboutContent() {
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-brand-light)] mb-3">Guest Speaker</p>
                   <h3 className="text-2xl sm:text-3xl font-heading font-semibold text-[var(--color-text-primary)] mb-2 leading-snug">
-                    Session on &ldquo;How to Prove ROI on Marketing&rdquo;
+                    Session on &ldquo;How to Prove ROI on Marketing Spend&rdquo;
                   </h3>
                   <p className="text-sm font-medium text-[var(--color-text-secondary)] mb-5">BIC Foundry — Beaconhouse International College</p>
                   <p className="text-[var(--color-text-secondary)] leading-relaxed">
-                    Conducted an online session for startup founders under the BIC Foundry initiative, focused on how to measure and maximize ROI on marketing spend. Covered attribution, campaign efficiency, and how to translate ad performance into business-level outcomes — practical frameworks for early-stage founders making their first marketing decisions.
+                    Addressed startup founders at BIC Foundry on &ldquo;How to Prove ROI on Marketing Spend&rdquo; — helping early-stage entrepreneurs master unit economics, attribution, and the frameworks that separate real marketing from speculation. Covered CAC, LTV, and how to build an ROI engine instead of just running campaigns.
                   </p>
                 </div>
               </div>
