@@ -256,12 +256,12 @@ export const caseStudies: CaseStudy[] = [
       { label: 'Time to Full Capacity', value: '<60 days' },
     ],
     proofImages: [
-      '/images/case-studies/cubicle-coworking/proof/proof-1.jpg',
-      '/images/case-studies/cubicle-coworking/proof/proof-2.jpg',
-      '/images/case-studies/cubicle-coworking/proof/proof-3.jpg',
-      '/images/case-studies/cubicle-coworking/proof/proof-4.jpg',
-      '/images/case-studies/cubicle-coworking/proof/proof-5.jpg',
-      '/images/case-studies/cubicle-coworking/proof/proof-6.jpg',
+      '/images/case-studies/cubicle-coworking/proof/1. overall.jpeg',
+      '/images/case-studies/cubicle-coworking/proof/2.jpeg',
+      '/images/case-studies/cubicle-coworking/proof/3.jpeg',
+      '/images/case-studies/cubicle-coworking/proof/4.jpeg',
+      '/images/case-studies/cubicle-coworking/proof/5.jpeg',
+      '/images/case-studies/cubicle-coworking/proof/6.jpeg',
     ],
   },
   {
