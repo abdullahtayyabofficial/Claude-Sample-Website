@@ -368,6 +368,18 @@ export const caseStudies: CaseStudy[] = [
       { label: 'Peak Season Enrollments', value: '300', suffix: '+' },
       { label: 'Consistent Batch Average', value: '80', suffix: '+ per batch' },
     ],
+    proofImages: [
+      '/images/case-studies/icr-it-centre/proof/proof-1.jpg',
+      '/images/case-studies/icr-it-centre/proof/proof-2.jpg',
+      '/images/case-studies/icr-it-centre/proof/proof-3.jpg',
+      '/images/case-studies/icr-it-centre/proof/proof-4.jpg',
+      '/images/case-studies/icr-it-centre/proof/proof-5.jpg',
+      '/images/case-studies/icr-it-centre/proof/proof-6.jpg',
+      '/images/case-studies/icr-it-centre/proof/proof-7.jpg',
+      '/images/case-studies/icr-it-centre/proof/proof-8.jpg',
+      '/images/case-studies/icr-it-centre/proof/proof-9.jpg',
+      '/images/case-studies/icr-it-centre/proof/proof-10.jpg',
+    ],
   },
 ]
 
