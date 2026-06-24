@@ -116,14 +116,12 @@ export const caseStudies: CaseStudy[] = [
     outcome:
       'In approximately three months, built a functioning paid acquisition engine for a government real estate authority from a blank slate — delivering consistent lead flow across three distinct high-ticket commercial projects simultaneously.\n\nThe campaigns demonstrated that even for ultra-premium, low-search-volume commercial real estate, Meta Ads can be a viable and cost-efficient lead generation channel when audience architecture is built with precision. The cost per lead stayed well under PKR 205 across all projects, and the pipeline generated represents significant revenue potential for the authority.\n\nThe foundation is now in place — warm audience data, tested creatives, and a proven campaign structure — to scale further as new projects launch.',
     proofImages: [
-      '/images/case-studies/commercial-real-estate-lead-gen/proof/proof-1.jpg',
-      '/images/case-studies/commercial-real-estate-lead-gen/proof/proof-2.jpg',
-      '/images/case-studies/commercial-real-estate-lead-gen/proof/proof-3.jpg',
-      '/images/case-studies/commercial-real-estate-lead-gen/proof/proof-4.jpg',
-      '/images/case-studies/commercial-real-estate-lead-gen/proof/proof-5.jpg',
-      '/images/case-studies/commercial-real-estate-lead-gen/proof/proof-6.jpg',
-      '/images/case-studies/commercial-real-estate-lead-gen/proof/proof-7.jpg',
-      '/images/case-studies/commercial-real-estate-lead-gen/proof/proof-8.jpg',
+      '/images/case-studies/commercial-real-estate-lead-gen/proof/1. l.g overall campaigns.jpeg',
+      '/images/case-studies/commercial-real-estate-lead-gen/proof/2. l.g overall adsets.jpeg',
+      '/images/case-studies/commercial-real-estate-lead-gen/proof/3. l.g overall ads.jpeg',
+      '/images/case-studies/commercial-real-estate-lead-gen/proof/4. l.g NSIT.jpeg',
+      '/images/case-studies/commercial-real-estate-lead-gen/proof/5. l.g BB.jpeg',
+      '/images/case-studies/commercial-real-estate-lead-gen/proof/6. l.g HP.jpeg',
     ],
     metrics: [
       { label: 'Leads Generated', value: '2,042' },
