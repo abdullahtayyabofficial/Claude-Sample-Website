@@ -181,6 +181,11 @@
     background: transparent;
   }
 
+  /* Proof of work image border */
+  .proof-img-border {
+    background: linear-gradient(135deg, #010738 0%, #15a1df 100%);
+  }
+
   .gradient-border-card {
     --ba: 0deg;
     animation: spin-border 6s linear infinite;

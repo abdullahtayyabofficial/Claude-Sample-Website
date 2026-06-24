@@ -343,23 +343,25 @@ export default function CaseStudyLayout({ caseStudy }: CaseStudyLayoutProps) {
                 <div className="grid grid-cols-2 gap-5 mb-16">
                   {metaProofs.map((src, i) => (
                     <ScrollReveal key={i} delay={i * 0.05}>
-                      <button
-                        onClick={() => setLightboxSrc(src)}
-                        className="group relative w-full aspect-[16/9] rounded-xl overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface-muted)] block cursor-zoom-in"
-                      >
-                        <Image
-                          src={src}
-                          alt={`Campaigns proof ${i + 1}`}
-                          fill
-                          className="object-contain transition-transform duration-300 group-hover:scale-[1.02]"
-                          sizes="(max-width: 768px) 100vw, 700px"
-                        />
-                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-200 flex items-center justify-center">
-                          <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-black/60 text-white text-xs font-medium px-3 py-1.5 rounded-full">
-                            Click to enlarge
-                          </span>
-                        </div>
-                      </button>
+                      <div className="proof-img-border rounded-xl p-[2px]">
+                        <button
+                          onClick={() => setLightboxSrc(src)}
+                          className="group relative w-full aspect-[16/9] rounded-[10px] overflow-hidden bg-[var(--color-surface-muted)] block cursor-zoom-in"
+                        >
+                          <Image
+                            src={src}
+                            alt={`Campaigns proof ${i + 1}`}
+                            fill
+                            className="object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+                            sizes="(max-width: 768px) 100vw, 700px"
+                          />
+                          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-200 flex items-center justify-center">
+                            <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-black/60 text-white text-xs font-medium px-3 py-1.5 rounded-full">
+                              Click to enlarge
+                            </span>
+                          </div>
+                        </button>
+                      </div>
                     </ScrollReveal>
                   ))}
                 </div>
@@ -377,23 +379,25 @@ export default function CaseStudyLayout({ caseStudy }: CaseStudyLayoutProps) {
                 <div className="grid grid-cols-2 gap-5">
                   {ga4Proofs.map((src, i) => (
                     <ScrollReveal key={i} delay={i * 0.05}>
-                      <button
-                        onClick={() => setLightboxSrc(src)}
-                        className="group relative w-full aspect-[16/9] rounded-xl overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface-muted)] block cursor-zoom-in"
-                      >
-                        <Image
-                          src={src}
-                          alt={`GA4 proof ${i + 1}`}
-                          fill
-                          className="object-contain transition-transform duration-300 group-hover:scale-[1.02]"
-                          sizes="(max-width: 768px) 100vw, 700px"
-                        />
-                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-200 flex items-center justify-center">
-                          <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-black/60 text-white text-xs font-medium px-3 py-1.5 rounded-full">
-                            Click to enlarge
-                          </span>
-                        </div>
-                      </button>
+                      <div className="proof-img-border rounded-xl p-[2px]">
+                        <button
+                          onClick={() => setLightboxSrc(src)}
+                          className="group relative w-full aspect-[16/9] rounded-[10px] overflow-hidden bg-[var(--color-surface-muted)] block cursor-zoom-in"
+                        >
+                          <Image
+                            src={src}
+                            alt={`GA4 proof ${i + 1}`}
+                            fill
+                            className="object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+                            sizes="(max-width: 768px) 100vw, 700px"
+                          />
+                          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-200 flex items-center justify-center">
+                            <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-black/60 text-white text-xs font-medium px-3 py-1.5 rounded-full">
+                              Click to enlarge
+                            </span>
+                          </div>
+                        </button>
+                      </div>
                     </ScrollReveal>
                   ))}
                 </div>
