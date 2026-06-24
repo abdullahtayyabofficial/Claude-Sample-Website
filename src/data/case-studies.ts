@@ -308,11 +308,11 @@ export const caseStudies: CaseStudy[] = [
       { label: 'Budget Scaled Per Campaign', value: '₨600K', suffix: '+' },
     ],
     proofImages: [
-      '/images/case-studies/wavebyte-ecommerce/proof/proof-1.jpg',
-      '/images/case-studies/wavebyte-ecommerce/proof/proof-2.jpg',
-      '/images/case-studies/wavebyte-ecommerce/proof/proof-3.jpg',
-      '/images/case-studies/wavebyte-ecommerce/proof/proof-4.jpg',
-      '/images/case-studies/wavebyte-ecommerce/proof/proof-5.jpg',
+      '/images/case-studies/wavebyte-ecommerce/proof/1.jpg',
+      '/images/case-studies/wavebyte-ecommerce/proof/2.jpg',
+      '/images/case-studies/wavebyte-ecommerce/proof/3.jpg',
+      '/images/case-studies/wavebyte-ecommerce/proof/4.jpg',
+      '/images/case-studies/wavebyte-ecommerce/proof/5.jpg',
     ],
   },
   {
