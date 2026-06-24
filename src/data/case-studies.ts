@@ -49,6 +49,12 @@ export const caseStudies: CaseStudy[] = [
       '/images/case-studies/hardees-qsr/proof/proof-2.jpg',
       '/images/case-studies/hardees-qsr/proof/proof-3.jpg',
       '/images/case-studies/hardees-qsr/proof/proof-4.jpg',
+      '/images/case-studies/hardees-qsr/proof/proof-5.jpg',
+      '/images/case-studies/hardees-qsr/proof/proof-6.jpg',
+      '/images/case-studies/hardees-qsr/proof/proof-7.jpg',
+      '/images/case-studies/hardees-qsr/proof/proof-8.jpg',
+      '/images/case-studies/hardees-qsr/proof/proof-9.jpg',
+      '/images/case-studies/hardees-qsr/proof/proof-10.jpg',
     ],
     metrics: [
       { label: 'Revenue Generated', value: 'PKR 31M', suffix: '+' },
