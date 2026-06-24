@@ -11,7 +11,7 @@ export const caseStudies: CaseStudy[] = [
     thumbnail: '',
     tags: ['Meta Ads', 'Google Ads', 'eCommerce', 'ROAS Optimisation'],
     callout:
-      'PKR 31M+ in online order revenue. 18K+ purchases. 4x–16x ROAS — not as a one-time spike, but across 7 consecutive months of compounding growth, built on a system that ran every single day.',
+      'PKR 31M+ in online order revenue. 18K+ purchases. 4x-16x ROAS - not as a one-time spike, but across 7 consecutive months of compounding growth, built on a system that ran every single day.',
     overview:
       'The client is a QSR brand operating across Pakistan, with a strong offline presence and an online ordering channel through its website.\n\nBefore, the brand was running awareness and engagement campaigns for brand recall, but sales-focused conversion campaigns were rare and inconsistent.\n\nThe job was to change that: build a structured, always-on conversion system that drove online orders every single day of the month.',
     problem:
@@ -27,6 +27,7 @@ export const caseStudies: CaseStudy[] = [
         description:
           'Structured multiple distinct audience segments: interest-based audiences, competitor brand audiences, and retargeting pools built from custom and lookalike data. Meta\'s AI then dynamically allocated budget across ad sets based on real-time performance, putting more spend behind whatever was converting best at any given moment.',
       },
+
       {
         title: 'Offer & Event-Based Campaign Strategy',
         description:
@@ -41,7 +42,7 @@ export const caseStudies: CaseStudy[] = [
     results: [
       { label: 'Revenue Generated', value: 'PKR 31M+ in online order revenue across the campaign period' },
       { label: 'Online Purchases', value: '18K+ purchases driven through the always-on campaign system' },
-      { label: 'ROAS', value: '4x–16x Average ROAS across the campaign duration, with progressive improvement month-over-month' },
+      { label: 'ROAS', value: '4x-16x Average ROAS across the campaign duration, with progressive improvement month-over-month' },
       { label: 'Revenue Trajectory', value: '7 consecutive months of consistent, compounding revenue growth from online orders' },
     ],
     proofImages: [
@@ -66,7 +67,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     metrics: [
       { label: 'Revenue Generated', value: 'PKR 31M', suffix: '+' },
-      { label: 'Avg ROAS', value: '4x–16x' },
+      { label: 'Avg ROAS', value: '4x-16x' },
       { label: 'Online Purchases', value: '18K', suffix: '+' },
     ],
   },
@@ -81,21 +82,21 @@ export const caseStudies: CaseStudy[] = [
     thumbnail: '',
     tags: ['Meta Ads', 'Lead Generation', 'Real Estate', 'High-Ticket'],
     callout:
-      '2,042 high-profiled commercial real estate leads. Three distinct high-ticket projects. One disciplined paid media system built entirely from a cold start — no pixel history, no prior data, no warm audiences.',
+      '2,042 high-profiled commercial real estate leads. Three distinct high-ticket projects. One disciplined paid media system built entirely from a cold start - no pixel history, no prior data, no warm audiences.',
     overview:
       'A government-backed real estate development authority in Punjab, responsible for launching and selling large-scale commercial projects, including premium office tower plots, healthcare infrastructure plots, and mixed-use commercial units.\n\nThe projects span across some of Lahore\'s most strategically located zones, with price points starting from PKR 140 Million per unit and going significantly higher.\n\nThis is not a typical real estate brand. The authority carries institutional credibility, but that same structure comes with its own constraints. Limited creative flexibility, volume-focused expectations, and a market that largely operates on word-of-mouth at this tier.',
     problem:
-      'There was no existing paid media foundation. Zero data, zero pixel history, zero audience warm-up. A completely cold start.\n\nThe challenge wasn\'t just generating leads. It was generating leads at a controlled cost, for projects priced in the hundreds of millions. There was no search volume to tap on Google — the projects were too new. The entire acquisition had to be built on Meta, through interruption-based marketing to cold audiences.\n\nAdditionally, the client operated with strict creative restrictions — only two active creatives at a time, significantly limiting the ability to test and iterate at the speed performance marketing typically demands.\n\nAt the same time, the client\'s primary measure of success was lead volume. The tension between generating high-volume leads and maintaining quality for ultra-high-ticket purchases was a constant balancing act throughout the campaign.',
+      'There was no existing paid media foundation. Zero data, zero pixel history, zero audience warm-up. A completely cold start.\n\nThe challenge wasn\'t just generating leads. It was generating leads at a controlled cost, for projects priced in the hundreds of millions. There was no search volume to tap on Google - the projects were too new. The entire acquisition had to be built on Meta, through interruption-based marketing to cold audiences.\n\nAdditionally, the client operated with strict creative restrictions - only two active creatives at a time, significantly limiting the ability to test and iterate at the speed performance marketing typically demands.\n\nAt the same time, the client\'s primary measure of success was lead volume. The tension between generating high-volume leads and maintaining quality for ultra-high-ticket purchases was a constant balancing act throughout the campaign.',
     strategyPoints: [
       {
         title: 'Three-Tier Audience Architecture',
         description:
-          'Rather than running a single broad audience or relying purely on interest targeting, we built a deliberate three-tier structure for each project.\n\nTier 1 — Ultra High-Net-Worth: Targeted using employer-level demographics combined with wealth management, private banking, and luxury investment interests. This layer was built specifically to attract serious buyers — the kind of investor for whom a PKR 290M plot is a portfolio decision, not a stretch.\n\nTier 2 — High-Profile Real Estate Investors: A slightly wider net, still high-income, but anchored around real estate investment behaviors & interests rather than pure wealth signals. This audience was designed to balance quality with a broader pool, capturing active investors who may not fit the ultra-luxury profile but remain strong prospects for commercial acquisitions.\n\nTier 3 — Volume Layer: A broader, age-optimized audience built to sustain lead flow and satisfy the client\'s volume expectations. Built with strategic age and demographic suggestions to ensure the volume generated wasn\'t entirely noise — but the trade-off on quality here was deliberate and acknowledged.',
+          'Rather than running a single broad audience or relying purely on interest targeting, we built a deliberate three-tier structure for each project.\n\nTier 1 - Ultra High-Net-Worth: Targeted using employer-level demographics combined with wealth management, private banking, and luxury investment interests. This layer was built specifically to attract serious buyers - the kind of investor for whom a PKR 290M plot is a portfolio decision, not a stretch.\n\nTier 2 - High-Profile Real Estate Investors: A slightly wider net, still high-income, but anchored around real estate investment behaviors & interests rather than pure wealth signals. This audience was designed to balance quality with a broader pool, capturing active investors who may not fit the ultra-luxury profile but remain strong prospects for commercial acquisitions.\n\nTier 3 - Volume Layer: A broader, age-optimized audience built to sustain lead flow and satisfy the client\'s volume expectations. Built with strategic age and demographic suggestions to ensure the volume generated wasn\'t entirely noise - but the trade-off on quality here was deliberate and acknowledged.',
       },
       {
         title: 'Project-Specific Campaign Execution',
         description:
-          'Each project ran as an independent campaign structure, with its own targeting calibration, creative set, and lead form.\n\nNSIT Pulse: targeted investors and business owners looking for commercial units adjacent to DHA Phase 6 & 7. FOMO-driven messaging around limited availability (only 16 units) and strong investment returns.\n\nCBD Hospital Plot: targeted healthcare sector investors, hospital groups, and large-scale developers. Deadline-driven campaign (sealed bid auction, submission by specific date) with professional, authority-led messaging across Meta and LinkedIn.\n\nBusiness Bay-II: targeted real estate developers and corporate investors. Premium positioning around 6 iconic office tower plots, FAR 1:8, with a 10% upfront discount as the conversion hook.',
+          'Each of the different projects ran as independent campaign structures, each with its own targeting calibration, creative set, and lead form.\n\nNSIT Pulse: targeted investors and business owners looking for commercial units adjacent to DHA Phase 6 & 7. FOMO-driven messaging around limited availability (only 16 units) and strong investment returns.\n\nCBD Hospital Plot: targeted healthcare sector investors, hospital groups, and large-scale developers. Deadline-driven campaign (sealed bid auction, submission by specific date) with professional, authority-led messaging across Meta and LinkedIn.\n\nBusiness Bay-II: targeted real estate developers and corporate investors. Premium positioning around 6 iconic office tower plots, FAR 1:8, with a 10% upfront discount as the conversion hook.',
       },
       {
         title: 'Creative Strategy Within Constraints',
@@ -104,7 +105,7 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
     resultsTable: {
-      intro: 'Over approximately two months, starting from zero, the campaigns delivered:',
+      intro: 'Over less than 2.5 months, starting from zero, the campaigns delivered:',
       headers: ['Project', 'Leads Generated', 'Cost Per Lead'],
       rows: [
         ['NSIT Pulse', '1,035+', 'PKR ~216'],
@@ -114,7 +115,7 @@ export const caseStudies: CaseStudy[] = [
       totalRow: ['Total', '2,042', 'PKR ~205 avg'],
     },
     outcome:
-      'In approximately three months, built a functioning paid acquisition engine for a government real estate authority from a blank slate — delivering consistent lead flow across three distinct high-ticket commercial projects simultaneously.\n\nThe campaigns demonstrated that even for ultra-premium, low-search-volume commercial real estate, Meta Ads can be a viable and cost-efficient lead generation channel when audience architecture is built with precision. The cost per lead stayed well under PKR 205 across all projects, and the pipeline generated represents significant revenue potential for the authority.\n\nThe foundation is now in place — warm audience data, tested creatives, and a proven campaign structure — to scale further as new projects launch.',
+      'In less than 2.5 months, built a functioning paid acquisition engine for a government real estate authority from a blank slate - delivering consistent lead flow across three distinct high-ticket commercial projects simultaneously.\n\nThe campaigns demonstrated that even for ultra-premium, low-search-volume commercial real estate, Meta Ads can be a viable and cost-efficient lead generation channel when audience architecture is built with precision. The cost per lead stayed well under PKR 205 across all projects, and the pipeline generated represents significant revenue potential for the authority.\n\nThe foundation is now in place - warm audience data, tested creatives, and a proven campaign structure - to scale further as new projects launch.',
     proofImages: [
       '/images/case-studies/commercial-real-estate-lead-gen/proof/1. l.g overall campaigns.jpeg',
       '/images/case-studies/commercial-real-estate-lead-gen/proof/2. l.g overall adsets.jpeg',

@@ -240,22 +240,54 @@ export default function CaseStudyLayout({ caseStudy }: CaseStudyLayoutProps) {
           {(caseStudy.strategyPoints || caseStudy.strategy) && (
             <SectionBlock label="Strategy & Approach">
               {caseStudy.strategyPoints ? (
-                <ol className="space-y-7">
-                  {caseStudy.strategyPoints.map((point, i) => (
-                    <li key={i} className="flex gap-4 sm:gap-5">
-                      <span className="flex-shrink-0 w-7 h-7 rounded-full gradient-brand flex items-center justify-center text-white text-xs font-bold mt-0.5">
-                        {i + 1}
-                      </span>
-                      <div>
-                        <h4 className="text-sm font-semibold text-[var(--color-text-primary)] mb-1.5">
-                          {point.title}
-                        </h4>
-                        <p className="text-[var(--color-text-secondary)] text-sm leading-relaxed">
-                          {point.description}
-                        </p>
-                      </div>
-                    </li>
-                  ))}
+                <ol className="space-y-8">
+                  {caseStudy.strategyPoints.map((point, i) => {
+                    const parts = point.description.split('\n\n').filter(Boolean)
+                    const intro = parts.length > 1 ? parts[0] : null
+                    const bullets = parts.length > 1 ? parts.slice(1) : parts
+                    return (
+                      <li key={i} className="flex gap-4 sm:gap-5">
+                        <span className="flex-shrink-0 w-7 h-7 rounded-full gradient-brand flex items-center justify-center text-white text-xs font-bold mt-0.5">
+                          {i + 1}
+                        </span>
+                        <div className="flex-1">
+                          <h4 className="text-sm font-semibold text-[var(--color-text-primary)] mb-2">
+                            {point.title}
+                          </h4>
+                          {intro && (
+                            <p className="text-[var(--color-text-secondary)] text-sm leading-relaxed mb-3">
+                              {intro}
+                            </p>
+                          )}
+                          {bullets.length > 1 ? (
+                            <ul className="space-y-2.5">
+                              {bullets.map((bullet, bi) => {
+                                const colonIdx = bullet.indexOf(':')
+                                const hasLabel = colonIdx > 0 && colonIdx < 60
+                                const label = hasLabel ? bullet.slice(0, colonIdx) : null
+                                const body = hasLabel ? bullet.slice(colonIdx + 1).trim() : bullet
+                                return (
+                                  <li key={bi} className="flex gap-2.5 text-sm leading-relaxed">
+                                    <span className="text-[var(--color-brand-light)] mt-1.5 shrink-0">•</span>
+                                    <span className="text-[var(--color-text-secondary)]">
+                                      {label && (
+                                        <span className="font-semibold text-[var(--color-brand-light)]">{label}: </span>
+                                      )}
+                                      {body}
+                                    </span>
+                                  </li>
+                                )
+                              })}
+                            </ul>
+                          ) : (
+                            <p className="text-[var(--color-text-secondary)] text-sm leading-relaxed">
+                              {bullets[0]}
+                            </p>
+                          )}
+                        </div>
+                      </li>
+                    )
+                  })}
                 </ol>
               ) : (
                 <p className="text-[var(--color-text-secondary)] leading-relaxed">
@@ -490,6 +522,8 @@ export default function CaseStudyLayout({ caseStudy }: CaseStudyLayoutProps) {
                 alt="Proof of work enlarged"
                 className="w-full h-auto max-h-[88vh] object-contain rounded-xl"
               />
+              {/* Watermark overlay persists in lightbox */}
+              <div className="proof-watermark absolute inset-0 pointer-events-none rounded-xl" aria-hidden="true" />
             </motion.div>
           </motion.div>
         )}
