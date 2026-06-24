@@ -1,26 +1,26 @@
 # Project Handoff — Abdullah Tayyab Portfolio
-### Session 2 Complete — Updated May 2026
+### Updated June 2026 — For New Session Continuity
 
-> Feed this file + `CLAUDE.md` to a new Claude session to resume exactly where this session stopped.
+> Feed this file + `CLAUDE.md` to a new Claude session to resume exactly where this left off.
 > Both files live in the project root.
 
 ---
 
 ## 1. What This Project Is
 
-A premium personal portfolio website for **Abdullah Tayyab**, a performance marketer and media buyer based in Pakistan. The site is a client acquisition and authority-building tool — not a generic portfolio or agency site.
+A premium personal portfolio website for **Abdullah Tayyab**, a performance marketer and media buyer based in Pakistan. The site is a client acquisition and authority-building tool.
 
-**Live URL:** https://abdullahtayyab.com ✅ Deployed on Vercel
-**Repo:** `abdullahtayyabofficial/Claude-Sample-Website`
-**Active branch:** `claude/portfolio-website-dev-4YbiL`
+**Live URL:** https://abdullahtayyab.com — Deployed on Vercel  
+**Repo:** `abdullahtayyabofficial/Claude-Sample-Website`  
+**Active branch:** `claude/fix-contact-form-FteOp`  
 **Deployment platform:** Vercel
 
-**Core positioning line:**
+**Core positioning:**
 > "I build and scale AI-powered marketing systems that drive predictable business growth."
 
 ---
 
-## 2. Tech Stack (Final — No Changes)
+## 2. Tech Stack
 
 | Layer | Decision |
 |---|---|
@@ -28,235 +28,243 @@ A premium personal portfolio website for **Abdullah Tayyab**, a performance mark
 | Language | TypeScript (strict mode) |
 | Styling | Tailwind CSS v4 with `@tailwindcss/postcss` |
 | Animation | Framer Motion v12 |
-| Email backend | Resend (API route at `/api/contact`) |
+| Email backend | Resend via Server Action (`src/app/actions/contact.ts`) |
 | Fonts | Space Grotesk (headings) + Inter (body) via `next/font/google` |
-| Deployment | Vercel ✅ Live |
+| Deployment | Vercel |
 
 ---
 
-## 3. Architecture Decisions
+## 3. Branch State — IMPORTANT
 
-| Decision | Reason |
-|---|---|
-| App Router only, no Pages Router | Next.js 15 best practice; cleaner layout nesting |
-| All source under `src/` | Separates source from config |
-| `@/*` path alias → `src/*` | Avoids `../../` deep imports |
-| No external icon libraries | User constraint — inline SVG only |
-| No analytics/tracking scripts | User constraint — explicitly ruled out |
-| CSS keyframe animations for infinite scrolls | Better performance than Framer Motion for continuous loops |
-| Framer Motion for all other animations | Scroll reveal, hover lift, floating card, mobile menu |
-| `ease` arrays typed `as const` | Framer Motion v12 breaks on plain `number[]` |
-| `'use client'` only on components that need it | Maximise Server Component usage |
-| Server wrapper + client content pattern for pages | `page.tsx` exports metadata (server); content in `*Content.tsx` (client) |
-| Data files (`src/data/`) separate from components | Clean separation — data updated without touching UI |
-| Case study pages use conditional rendering | Only render sections that have actual content |
-| Services page includes network disclaimer | User requirement — services via trusted specialists |
-| `<main>` only in `layout.tsx` | Content components use `<>` fragments — no nested landmark |
+There are two active development branches with **different work**:
 
----
+### `claude/fix-contact-form-FteOp` (CURRENT — work here)
+- Contact form rewritten as a Next.js **Server Action** (`src/app/actions/contact.ts`) — replaces old API route
+- Uses `from: 'Portfolio Contact <onboarding@resend.dev>'` — no domain verification needed
+- Mobile responsiveness fixes (hero metrics, case study metrics strip, About page badge overflow)
+- Expertise card height consistency fixes
+- **Old case studies** — 7 entries with separate `ffc-prize-distribution` and `ffc-sona-soil-day` slugs
 
-## 4. What Was Ruled Out
+### `claude/portfolio-website-dev-4YbiL` (BEHIND on contact/responsiveness)
+- **FFC consolidation** — two FFC case studies merged into one `ffc-pakistan` slug with `campaigns[]` array
+- **Premium animations layer** — Lenis smooth scroll, custom cursor (mix-blend-difference), magnetic Button effect, noise texture overlay
+- **Case study layout redesign** — hero images, callout pull-quotes, strategyPoints numbered list, emerald Results cards
+- **Updated numbers** — QSR: 31M+ impressions, 18k+ purchases; Lead Gen: 1,784+ total leads
+- Cleanup: removed AI pulse badge, removed red Challenge styling, removed em dashes, renamed "My Strategy" → "Strategy"
 
-| Ruled Out | Why |
-|---|---|
-| External calendar booking (Calendly etc.) | User doesn't have one — "Book a Call" scrolls to contact form |
-| External icon libraries | User constraint |
-| Google Analytics / Meta Pixel / tracking | User constraint |
-| ISR (Incremental Static Regeneration) | Not needed for a portfolio |
-| Pages Router | App Router only |
-| Freelance projects on About page | User removed — no data provided |
-| Committing `.env.local` | API key gitignored — never commit |
+**⚠️ These two branches have diverged. They need to be reconciled.** The recommended approach for a new session is to merge/rebase the dev branch work into `fix-contact-form-FteOp`, then push and deploy.
 
 ---
 
-## 5. Full Folder Structure (Current State)
+## 4. Contact Form — Current State
 
-```
-/
-├── CLAUDE.md
-├── HANDOFF.md
-├── .env.local                            ← Gitignored. RESEND_API_KEY + CONTACT_EMAIL
-├── package.json / next.config.ts / tsconfig.json / etc.
-├── public/
-│   └── images/
-│       ├── hero/abdullah-tayyab.jpg      ← ✅ Placed
-│       ├── logos/[9 logo PNGs]           ← ✅ All placed
-│       └── og/og-image.jpg               ← ✅ Placed
-└── src/
-    ├── app/
-    │   ├── globals.css                   ← ✅ Tailwind @theme + utilities + keyframes
-    │   ├── layout.tsx                    ← ✅ Root layout: fonts, metadata, viewport, Navbar, Footer
-    │   ├── page.tsx                      ← ✅ Home — 9 sections
-    │   ├── sitemap.ts                    ← ✅ /sitemap.xml (12 routes)
-    │   ├── robots.ts                     ← ✅ /robots.txt
-    │   ├── about/page.tsx                ← ✅ Server wrapper → AboutContent
-    │   ├── expertise/page.tsx            ← ✅ Server wrapper → ExpertiseContent
-    │   ├── services/page.tsx             ← ✅ Server wrapper → ServicesContent
-    │   ├── case-studies/
-    │   │   ├── page.tsx                  ← ✅ Listing page
-    │   │   └── [slug]/page.tsx           ← ✅ 7 routes pre-rendered
-    │   ├── privacy-policy/page.tsx       ← ✅ Complete
-    │   ├── thank-you/page.tsx            ← ✅ Complete
-    │   └── api/contact/route.ts          ← ✅ Resend backend built — NOT yet working end-to-end
-    ├── components/
-    │   ├── layout/Navbar.tsx             ← ✅ Fixed, scroll-aware
-    │   ├── layout/Footer.tsx             ← ✅ Real social links
-    │   ├── sections/
-    │   │   ├── Hero.tsx                  ← ✅
-    │   │   ├── ProofStrip.tsx            ← ✅
-    │   │   ├── About.tsx                 ← ✅
-    │   │   ├── Expertise.tsx             ← ✅
-    │   │   ├── CaseStudiesPreview.tsx    ← ✅ Shows 3 featured case studies
-    │   │   ├── Testimonials.tsx          ← ✅
-    │   │   ├── Process.tsx               ← ✅
-    │   │   ├── FAQ.tsx                   ← ✅
-    │   │   └── ContactCTA.tsx            ← ✅ Form built — Resend not working yet
-    │   ├── pages/
-    │   │   ├── AboutContent.tsx          ← ✅
-    │   │   ├── ExpertiseContent.tsx      ← ✅
-    │   │   └── ServicesContent.tsx       ← ✅
-    │   ├── ui/Button / Card / GradientText / ScrollReveal / NodeNetwork
-    │   └── case-studies/
-    │       ├── CaseStudyCard.tsx         ← ✅
-    │       └── CaseStudyLayout.tsx       ← ✅ Premium layout
-    ├── data/
-    │   ├── case-studies.ts               ← ✅ 7 real case studies
-    │   └── testimonials.ts               ← ✅ 6 real testimonials
-    ├── lib/utils.ts
-    └── types/index.ts
-```
+The contact form is now a **Server Action**, not an API route.
 
----
+**File:** `src/app/actions/contact.ts`  
+**Component:** `src/components/sections/ContactCTA.tsx` — calls `sendContactEmail()` via `import { sendContactEmail } from '@/app/actions/contact'`
 
-## 6. Pages — All Complete
+**Flow:**
+1. User fills form (name, email, phone optional, businessType, message)
+2. `handleSubmit` calls `sendContactEmail(form)`
+3. On success: `window.location.href = '/thank-you'`
+4. On error: inline error message shown
 
-| Route | Status |
-|---|---|
-| `/` | ✅ |
-| `/about` | ✅ |
-| `/expertise` | ✅ |
-| `/services` | ✅ |
-| `/case-studies` | ✅ |
-| `/case-studies/[slug]` × 7 | ✅ |
-| `/privacy-policy` | ✅ |
-| `/thank-you` | ✅ |
-| `/api/contact` | ✅ Built — Resend end-to-end not yet working |
-| `/sitemap.xml` | ✅ |
-| `/robots.txt` | ✅ |
+**Current `from` address:** `onboarding@resend.dev` — works without domain verification but only delivers to the Resend account owner's email. This is fine for a personal portfolio.
 
----
-
-## 7. Case Studies (7 Entries — All Populated)
-
-| Slug | Key Metric |
-|---|---|
-| `cubicle-coworking` | 25+ bookings in <60 days |
-| `commercial-real-estate-lead-gen` | 1,784+ leads in 2 months |
-| `ffc-prize-distribution` | 65.8M+ impressions |
-| `ffc-sona-soil-day` | 7.42M impressions in 2 days |
-| `wavebyte-ecommerce` | ₨1.5M+ spend, 5–8x ROAS |
-| `icr-it-centre` | 500+ peak season enrollments |
-| `hardees-qsr` | 4.8x avg ROAS, 4 months |
-
----
-
-## 8. Person / Data Reference
-
-| Field | Value |
-|---|---|
-| Name | Abdullah Tayyab |
-| Title | Performance Marketer & Media Buyer |
-| Email | abdullahtayyab.805@gmail.com |
-| LinkedIn | https://www.linkedin.com/in/abdullahtayyabofficial/ |
-| Facebook | https://www.facebook.com/i.abdullahtayyabofficial |
-| Instagram | https://www.instagram.com/abdullahtayyab.official/ |
-| Hero metrics | ₨100M+ Revenue Driven · 10,000+ Leads Generated · 93% Client Retention |
-| Education | BBIT — Virtual University of Pakistan |
-| Certifications | Google Digital Garage, LUMS CES, Anthropic Claude 101, Google Skillshop |
-
-**Work history:**
-- **Firebolt63** (Nov 2025–Apr 2026): PKR 24M+ ecommerce, 325% YoY, 200M+ impressions, 16x ROAS
-- **Wave Byte** (Dec 2024–Apr 2025): PKR 1.5M+ spend, 5–8x ROAS, 570+ leads in 17 days
-- **Hello World Technologies** (Jun–Dec 2024): Cubicle 3→25+ bookings, 600+ IT event participants
-
----
-
-## 9. Environment Variables
-
+**Environment variables needed (Vercel dashboard):**
 ```
 RESEND_API_KEY=re_ALn8oPh7_GWG1eJkdWE1KzYdX65bpHp2P
 CONTACT_EMAIL=abdullahtayyab.805@gmail.com
 ```
 
-`.env.local` exists locally and is gitignored.
-These must also be set in **Vercel dashboard → Settings → Environment Variables**.
+**Status:** The code is correct. If the form doesn't work on the live site, the most likely cause is that the env vars are NOT set in the Vercel dashboard. Check: Vercel → Project → Settings → Environment Variables.
 
 ---
 
-## 10. Deployment Status
+## 5. Case Studies (Current State on `fix-contact-form-FteOp`)
 
-| Item | Status |
+7 entries with old structure:
+
+| Slug | Key Metric |
 |---|---|
-| Vercel deployment | ✅ Live at abdullahtayyab.com |
-| Hero photo | ✅ Placed |
-| All 9 logos | ✅ Placed |
-| OG image | ✅ Placed |
-| Resend domain verification | ⚠️ Unknown — needs checking |
-| Resend env vars in Vercel | ⚠️ Unknown — needs checking |
-| Contact form working end-to-end | ❌ Not yet confirmed working |
+| `hardees-qsr` | PKR 25M+, 4x–16x ROAS |
+| `commercial-real-estate-lead-gen` | 2,000+ leads in 2 months |
+| `cubicle-coworking` | 25+ bookings in <60 days |
+| `ffc-prize-distribution` | 65.8M+ impressions |
+| `wavebyte-ecommerce` | PKR 1.5M+ spend, 5–8x ROAS |
+| `icr-it-centre` | 300+ enrollments |
+| `ffc-sona-soil-day` | 7.42M impressions in 2 days |
+
+**On `portfolio-website-dev-4YbiL`** (not yet merged here):
+- `ffc-prize-distribution` + `ffc-sona-soil-day` consolidated into `ffc-pakistan`
+- Corrected numbers: QSR 31M+ impressions / 18k+ purchases; Lead Gen 1,784+ leads
+- Hero images added for hardees-qsr (`hero.jpeg`), commercial-real-estate-lead-gen (`hero.jpg`), ffc (`hero.jpg`)
 
 ---
 
-## 11. PRIORITY TASKS FOR NEXT SESSION
+## 6. Animation Layer (`portfolio-website-dev-4YbiL` only — not yet on this branch)
 
-### #1 — Fix Contact Form / Resend Integration (MOST URGENT)
+These were added to the dev branch and need to be ported over:
 
-The backend API route (`/api/contact/route.ts`) is fully built and uses Resend. The frontend form (`ContactCTA.tsx`) POSTs to `/api/contact`. However, the contact form is not working end-to-end.
+**Lenis smooth scroll** (`src/components/providers/LenisProvider.tsx`):
+- Wraps app in `layout.tsx`
+- `duration: 1.15`, easing: `1 - 2^(-10t)`, `smoothWheel: true`, `wheelMultiplier: 0.85`
+- `scroll-behavior: smooth` removed from `globals.css` (Lenis replaces it)
 
-**What the next session should do:**
-1. Diagnose why the form isn't working — check Vercel function logs for the `/api/contact` route to see the actual error
-2. The most likely causes:
-   - `RESEND_API_KEY` or `CONTACT_EMAIL` not set in Vercel environment variables
-   - Domain `abdullahtayyab.com` not verified in Resend (required because `from` is `noreply@abdullahtayyab.com`)
-3. Fix whatever is blocking it and verify a real form submission goes through
+**Custom cursor** (`src/components/ui/CustomCursor.tsx`):
+- Dot: 7px white circle, `mix-blend-difference` (visible on any bg)
+- Ring: 36px circle, lags behind with spring physics
+- Only activates on `(pointer: fine) and (hover: hover)` devices
+- Added `cursor: none !important` media query in `globals.css`
 
-**Current contact API route** (`src/app/api/contact/route.ts`):
-- Validates: name, email, businessType, message (required); phone (optional)
-- Sends via Resend: `from: 'Portfolio Contact <noreply@abdullahtayyab.com>'`
-- On success: returns `{ success: true }`, frontend redirects to `/thank-you`
-- On failure: returns error, frontend shows inline error message
+**Magnetic Button** (`src/components/ui/Button.tsx`):
+- `useMagnetic` hook, `strength = 0.28`, spring `stiffness: 350 / damping: 22`
+- Applied to all 3 Button render paths
 
-**If Resend domain verification is blocked or slow**, a quick workaround is to change the `from` address to Resend's default sender `onboarding@resend.dev` (only works when sending to the account owner's email — fine for a personal portfolio).
-
-### #2 — Website Tweaks & Improvements (TBD by user)
-
-User has requested tweaks and changes to the website. These have not been specified yet — ask the user to list them at the start of the next session before beginning any work.
+**Noise texture** (`.noise-overlay` in `globals.css`):
+- SVG fractalNoise `baseFrequency='0.72'`, `numOctaves: 4`
+- Applied on hero section and CTA section: `className="... noise-overlay"`
 
 ---
 
-## 12. Constraints & Rules (Carry Forward)
+## 7. Full Folder Structure
 
-- Never invent data — only use what has been provided, or ask
-- No external icon libraries — inline SVG only
-- No analytics or tracking scripts
-- Framer Motion ease arrays must use `as const`
-- Services page must keep the network specialist disclaimer
-- `.env.local` is gitignored — never commit API keys
-- Always develop on `claude/portfolio-website-dev-4YbiL` — never push to `main` without permission
-- Server wrapper (`page.tsx`) + client content component pattern for all individual pages
-- `<main>` landmark only in `layout.tsx` — content components use `<>` fragments
-
----
-
-## 13. How to Start Dev Server
-
-```bash
-cd /home/user/Claude-Sample-Website
-npm install        # if node_modules not present
-npm run dev        # → http://localhost:3000
-npm run build      # production build check
+```
+src/
+├── app/
+│   ├── globals.css              ✅ Tailwind @theme + utilities + keyframes
+│   ├── layout.tsx               ✅ Root layout
+│   ├── page.tsx                 ✅ Home — 9 sections
+│   ├── sitemap.ts               ✅
+│   ├── robots.ts                ✅
+│   ├── actions/
+│   │   └── contact.ts           ✅ Server Action (this branch)
+│   ├── about/page.tsx           ✅
+│   ├── expertise/page.tsx       ✅
+│   ├── services/page.tsx        ✅
+│   ├── case-studies/
+│   │   ├── page.tsx             ✅ Listing page
+│   │   └── [slug]/page.tsx      ✅ 7 routes pre-rendered
+│   ├── privacy-policy/page.tsx  ✅
+│   └── thank-you/page.tsx       ✅
+├── components/
+│   ├── layout/Navbar.tsx        ✅ Always white, scroll-aware
+│   ├── layout/Footer.tsx        ✅ Real social links
+│   ├── sections/[9 sections]    ✅ All complete
+│   ├── pages/[3 content files]  ✅
+│   ├── ui/Button / Card / GradientText / ScrollReveal / NodeNetwork
+│   └── case-studies/
+│       ├── CaseStudyCard.tsx    ✅
+│       └── CaseStudyLayout.tsx  ✅
+├── data/
+│   ├── case-studies.ts          ✅ 7 entries (old FFC structure on this branch)
+│   └── testimonials.ts          ✅ 6 real testimonials
+├── lib/utils.ts
+└── types/index.ts
 ```
 
 ---
 
-*Updated end of Session 2 — May 2026*
+## 8. PRIORITY TASKS FOR NEXT SESSION
+
+### #1 — Merge branches (FIRST THING)
+
+The dev branch (`portfolio-website-dev-4YbiL`) has major improvements that aren't on this branch. Recommended approach:
+
+```bash
+git checkout claude/fix-contact-form-FteOp
+git merge claude/portfolio-website-dev-4YbiL
+# Resolve any conflicts (likely in case-studies.ts, ContactCTA.tsx, layout.tsx)
+# Keep: Server Action contact form from this branch, animation layer from dev branch
+git push -u origin claude/fix-contact-form-FteOp
+```
+
+If there are complex conflicts, the safe approach is to manually apply the key changes from the dev branch one by one.
+
+### #2 — Verify contact form end-to-end
+
+After merging, test the contact form on the live site:
+1. Open browser devtools → Network tab
+2. Submit the form
+3. Check that the Server Action fires without error
+4. Check that email arrives at `abdullahtayyab.805@gmail.com`
+
+If the email doesn't arrive:
+- Verify `RESEND_API_KEY` and `CONTACT_EMAIL` are set in Vercel → Settings → Environment Variables
+- Check Vercel function logs for errors
+- The `from: 'onboarding@resend.dev'` address only works for the Resend account owner's email — confirm the account email matches `CONTACT_EMAIL`
+
+### #3 — User-requested tweaks (TBD)
+
+The user mentioned there's "one more thing" before landing pages. Ask the user to list any tweaks at the start of the session.
+
+### #4 — Niche-specific landing pages
+
+Next major phase. Not yet started. These are separate routes targeting specific niches (e.g., `/for/ecommerce-brands`, `/for/real-estate-agencies`).
+
+---
+
+## 9. Images
+
+| Path | Status |
+|---|---|
+| `public/images/hero/abdullah-tayyab.jpg` | ✅ Placed |
+| `public/images/logos/[9 logos]` | ✅ All placed |
+| `public/images/og/og-image.jpg` | ✅ Placed |
+| `public/images/case-studies/hardees-qsr/hero.jpeg` | ✅ (on dev branch) |
+| `public/images/case-studies/commercial-real-estate-lead-gen/hero.jpg` | ✅ (on dev branch) |
+| `public/images/case-studies/ffc/hero.jpg` | ✅ (on dev branch) |
+| `public/images/case-studies/cubicle-coworking/hero.*` | ❌ Not yet |
+| `public/images/case-studies/wavebyte-ecommerce/hero.*` | ❌ Not yet |
+| `public/images/case-studies/icr-it-centre/hero.*` | ❌ Not yet |
+
+---
+
+## 10. Person / Data Reference
+
+| Field | Value |
+|---|---|
+| Name | Abdullah Tayyab |
+| Email | abdullahtayyab.805@gmail.com |
+| LinkedIn | https://www.linkedin.com/in/abdullahtayyabofficial/ |
+| Facebook | https://www.facebook.com/i.abdullahtayyabofficial |
+| Instagram | https://www.instagram.com/abdullahtayyab.official/ |
+| Hero metrics | ₨100M+ Revenue Driven · 10,000+ Leads Generated · 93% Client Retention |
+
+---
+
+## 11. Design System Quick Reference
+
+**Brand colors:**
+- `#010738` — brand dark (navy)
+- `#15a1df` — brand light (blue)
+- `#f8f9fc` — surface muted
+- `#e8eaf0` — border
+- `#0a0a14` — text primary
+- `#4a4f6a` — text secondary
+- `#8890a8` — text muted
+
+**Key utilities (globals.css):**
+- `.gradient-brand` — 135deg dark→light background
+- `.gradient-brand-text` — gradient text fill
+- `.section-padding` — responsive vertical padding
+- `.noise-overlay` — SVG fractalNoise texture (::after pseudo-element)
+- `.card-shadow` / `.card-shadow-hover`
+
+---
+
+## 12. Rules (Carry Forward)
+
+- Never invent data — only use what the user provides
+- No external icon libraries — inline SVG only
+- No analytics or tracking scripts
+- Framer Motion ease arrays must use `as const`
+- Services page must keep the network specialist disclaimer
+- `.env.local` is gitignored — **never commit API keys**
+- Always develop on `claude/fix-contact-form-FteOp` (current active branch)
+- `<main>` landmark only in `layout.tsx` — page content components use `<>` fragments
+- Server wrapper (`page.tsx` exports metadata) + client content component pattern for all pages
+
+---
+
+*Updated June 2026 — reflects state after Sessions 1–3*
