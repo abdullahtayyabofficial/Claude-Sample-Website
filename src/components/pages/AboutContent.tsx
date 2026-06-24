@@ -251,12 +251,12 @@ export default function AboutContent() {
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
             {[
-              { title: 'Entrepreneurship', issuer: 'LUMS CES Program', img: '/images/about/certifications/cert-1.jpg' },
-              { title: 'Advertising: Print, Outdoor & Digital', issuer: 'LUMS CES Program', img: '/images/about/certifications/cert-2.jpg' },
-              { title: 'Fundamentals of Digital Marketing', issuer: 'Google Digital Garage', img: '/images/about/certifications/cert-3.jpg' },
-              { title: 'Claude 101 Completion', issuer: 'Anthropic', img: '/images/about/certifications/cert-4.jpg' },
-              { title: 'Professional Communication Skills', issuer: 'LUMS CES', img: '/images/about/certifications/cert-5.jpg' },
-              { title: 'Google Soft Skills Program', issuer: 'Google Skillshop / PAFLA', img: '/images/about/certifications/cert-6.jpg' },
+              { title: 'Entrepreneurship', issuer: 'LUMS CES Program', img: '/images/about/certifications/cert-1.jpg', url: 'https://www.linkedin.com/posts/abdullahtayyabofficial_lums-ceslums-entrepreneurship-ugcPost-7377356663051341825-BKFJ/' },
+              { title: 'Advertising: Print, Outdoor & Digital', issuer: 'LUMS CES Program', img: '/images/about/certifications/cert-2.jpg', url: 'https://www.linkedin.com/posts/abdullahtayyabofficial_lums-ceslums-advertising-ugcPost-7379084937540431872-160M/' },
+              { title: 'Fundamentals of Digital Marketing', issuer: 'Google Digital Garage', img: '/images/about/certifications/cert-3.jpg', url: 'https://skillshop.exceedlms.com/student/award/xhTZz3VQ1bm2fPynVyExeRpL' },
+              { title: 'Claude 101 Completion', issuer: 'Anthropic', img: '/images/about/certifications/cert-4.jpg', url: 'https://verify.skilljar.com/c/j33ixy6egcop' },
+              { title: 'Professional Communication Skills', issuer: 'LUMS CES', img: '/images/about/certifications/cert-5.jpg', url: 'https://www.linkedin.com/posts/abdullahtayyabofficial_just-completed-the-professional-communication-activity-7452703405178953729-E7-6' },
+              { title: 'Google Soft Skills Program', issuer: 'Google Skillshop / PAFLA', img: '/images/about/certifications/cert-6.jpg', url: 'https://assets.pafla.org.pk/quiz-certificates/google-soft-skills-program-2751-5234954368309993-1702898805.pdf' },
             ].map((cert, i) => (
               <ScrollReveal key={cert.title} delay={i * 0.06}>
                 <div className="bg-white rounded-2xl border border-[var(--color-border)] overflow-hidden card-shadow hover:card-shadow-hover transition-shadow duration-300 group">
@@ -270,7 +270,18 @@ export default function AboutContent() {
                   </div>
                   <div className="px-4 py-3">
                     <p className="text-sm font-semibold text-[var(--color-text-primary)] leading-snug mb-1">{cert.title}</p>
-                    <p className="text-xs text-[var(--color-text-muted)]">{cert.issuer}</p>
+                    <p className="text-xs text-[var(--color-text-muted)] mb-2">{cert.issuer}</p>
+                    <a
+                      href={cert.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-xs font-semibold text-[var(--color-brand-light)] hover:underline"
+                    >
+                      Show Credential
+                      <svg viewBox="0 0 12 12" fill="none" className="w-3 h-3">
+                        <path d="M2 10L10 2M10 2H5M10 2v5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </a>
                   </div>
                 </div>
               </ScrollReveal>
