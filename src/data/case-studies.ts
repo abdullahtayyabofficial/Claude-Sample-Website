@@ -307,6 +307,13 @@ export const caseStudies: CaseStudy[] = [
       { label: 'Average ROAS', value: '5–8x' },
       { label: 'Budget Scaled Per Campaign', value: '₨600K', suffix: '+' },
     ],
+    proofImages: [
+      '/images/case-studies/wavebyte-ecommerce/proof/proof-1.jpg',
+      '/images/case-studies/wavebyte-ecommerce/proof/proof-2.jpg',
+      '/images/case-studies/wavebyte-ecommerce/proof/proof-3.jpg',
+      '/images/case-studies/wavebyte-ecommerce/proof/proof-4.jpg',
+      '/images/case-studies/wavebyte-ecommerce/proof/proof-5.jpg',
+    ],
   },
   {
     slug: 'icr-it-centre',
