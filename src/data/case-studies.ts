@@ -72,47 +72,63 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: 'commercial-real-estate-lead-gen',
-    title: '2,000+ High-Profiled Leads in 2 Months Without Burning the Budget',
+    title: '2,042 High-Profiled Leads Across 3 High-Ticket Commercial Projects',
     subtitle: 'A Government-Backed Commercial Real Estate Case Study',
     client: 'Government-Backed Commercial Real Estate Authority',
     industry: 'Real Estate / Government',
     heroImage: '/images/case-studies/commercial-real-estate-lead-gen/hero.jpg',
     logo: '/images/logos/cbd-punjab.png',
     thumbnail: '',
-    tags: ['Meta Ads', 'Google Ads', 'Lead Generation', 'Real Estate'],
+    tags: ['Meta Ads', 'Lead Generation', 'Real Estate', 'High-Ticket'],
     callout:
-      '2,000+ high-profiled commercial real estate leads. Two months. Two approved creatives. Zero prior social media presence. This is what structured media buying looks like when guesswork is replaced with a system.',
+      '2,042 high-profiled commercial real estate leads. Three distinct high-ticket projects. One disciplined paid media system built entirely from a cold start — no pixel history, no prior data, no warm audiences.',
     overview:
-      'A government-backed commercial real estate development authority in Punjab was responsible for launching and selling large-scale commercial plots, government-supported installment plans, high-credibility locations, and price points starting from PKR 140 lakhs. The challenge: convert an authority brand with no social media presence into a lead generation machine targeting high-intent commercial investors across Pakistan.',
+      'A government-backed real estate development authority in Punjab, responsible for launching and selling large-scale commercial projects, including premium office tower plots, healthcare infrastructure plots, and mixed-use commercial units.\n\nThe projects span across some of Lahore\'s most strategically located zones, with price points starting from PKR 140 Million per unit and going significantly higher.\n\nThis is not a typical real estate brand. The authority carries institutional credibility, but that same structure comes with its own constraints. Limited creative flexibility, volume-focused expectations, and a market that largely operates on word-of-mouth at this tier.',
     problem:
-      'There was no existing social media foundation, zero paid campaign history, and zero audience data, everything had to be built from scratch. At the same time, the primary success metric was high-quality, high-potential lead volume from an upscale commercial real estate market where purchase values start at PKR 140 lakhs per unit.\n\nAdditionally, the client was operating with strict creative constraints. With only two approved creatives available to carry an entire multi-project campaign of this magnitude, efficient media buying and precision targeting became non-negotiable.\n\nAt the same time, the brand\'s primary promise was one of rare exceptions: government-backed credibility in an industry riddled with scams and speculation. Positioning this correctly was critical throughout the campaign.',
+      'There was no existing paid media foundation. Zero data, zero pixel history, zero audience warm-up. A completely cold start.\n\nThe challenge wasn\'t just generating leads. It was generating leads at a controlled cost, for projects priced in the hundreds of millions. There was no search volume to tap on Google — the projects were too new. The entire acquisition had to be built on Meta, through interruption-based marketing to cold audiences.\n\nAdditionally, the client operated with strict creative restrictions — only two active creatives at a time, significantly limiting the ability to test and iterate at the speed performance marketing typically demands.\n\nAt the same time, the client\'s primary measure of success was lead volume. The tension between generating high-volume leads and maintaining quality for ultra-high-ticket purchases was a constant balancing act throughout the campaign.',
     strategyPoints: [
       {
-        title: 'Multi-Platform Campaign Architecture',
+        title: 'Three-Tier Audience Architecture',
         description:
-          'A three-project campaign structure was built across Meta and Google simultaneously. Meta handled demographic-centric targeting reaching diverse investor profiles through three distinct campaign structures: AWT Pulse (broad commercial investors), Business Bay X (business-focused investors), and CBD Hospital Plot (niche high-value segment). Google captured high-intent search traffic from investors already researching commercial property.',
+          'Rather than running a single broad audience or relying purely on interest targeting, we built a deliberate three-tier structure for each project.\n\nTier 1 — Ultra High-Net-Worth: Targeted using employer-level demographics combined with wealth management, private banking, and luxury investment interests. This layer was built specifically to attract serious buyers — the kind of investor for whom a PKR 290M plot is a portfolio decision, not a stretch.\n\nTier 2 — High-Profile Real Estate Investors: A slightly wider net, still high-income, but anchored around real estate investment behaviors & interests rather than pure wealth signals. This audience was designed to balance quality with a broader pool, capturing active investors who may not fit the ultra-luxury profile but remain strong prospects for commercial acquisitions.\n\nTier 3 — Volume Layer: A broader, age-optimized audience built to sustain lead flow and satisfy the client\'s volume expectations. Built with strategic age and demographic suggestions to ensure the volume generated wasn\'t entirely noise — but the trade-off on quality here was deliberate and acknowledged.',
       },
       {
-        title: 'Creative Constraint Engineering',
+        title: 'Project-Specific Campaign Execution',
         description:
-          'With only two approved creatives, each was engineered to serve a dual role, one assigned to awareness, the other to remarketing, splitting audiences by qualification stage to extract maximum efficiency from limited creative assets. What looked like a constraint became a forcing function for precision.',
+          'Each project ran as an independent campaign structure, with its own targeting calibration, creative set, and lead form.\n\nNSIT Pulse: targeted investors and business owners looking for commercial units adjacent to DHA Phase 6 & 7. FOMO-driven messaging around limited availability (only 16 units) and strong investment returns.\n\nCBD Hospital Plot: targeted healthcare sector investors, hospital groups, and large-scale developers. Deadline-driven campaign (sealed bid auction, submission by specific date) with professional, authority-led messaging across Meta and LinkedIn.\n\nBusiness Bay-II: targeted real estate developers and corporate investors. Premium positioning around 6 iconic office tower plots, FAR 1:8, with a 10% upfront discount as the conversion hook.',
       },
       {
-        title: 'Government Credibility as the Core Differentiator',
+        title: 'Creative Strategy Within Constraints',
         description:
-          'The government-backed nature of the authority was made central to all messaging, transforming what could have been a liability (unfamiliarity with the brand) into a trust signal that outperformed private real estate brands in the same market. Meta Pixel and GA4 tracking were configured from the ground up, providing first-party data that fed back into audience refinement throughout.',
+          'With only two live creatives permitted, there was no room for standard A/B testing velocity. Each creative had to carry maximum weight. The static creatives led with hard investment facts — pricing, FAR ratios, payment plans, and project scale — designed to immediately qualify or disqualify a viewer. The video creatives reinforced aspirational positioning, leaning into the prestige of government-backed development in Punjab\'s premier business district.',
       },
     ],
-    results: [
-      { label: 'AWT Pulse', value: '1,002 high-profiled leads generated at approximately PKR 200 per lead' },
-      { label: 'Business Bay X', value: '580+ high-profiled leads generated at approximately PKR 200 per lead' },
-      { label: 'CBD Hospital Plot', value: '202 high-profiled leads generated at PKR 604 per lead' },
-      { label: 'Total', value: '2,000+ high-profiled leads generated across all three projects in under 2 months' },
+    resultsTable: {
+      intro: 'Over approximately two months, starting from zero, the campaigns delivered:',
+      headers: ['Project', 'Leads Generated', 'Cost Per Lead'],
+      rows: [
+        ['NSIT Pulse', '1,035+', 'PKR ~216'],
+        ['Business Bay II', '775+', 'PKR ~194'],
+        ['Hospital Plot (Auction)', '232', 'PKR ~194'],
+      ],
+      totalRow: ['Total', '2,042', 'PKR ~205 avg'],
+    },
+    outcome:
+      'In approximately three months, built a functioning paid acquisition engine for a government real estate authority from a blank slate — delivering consistent lead flow across three distinct high-ticket commercial projects simultaneously.\n\nThe campaigns demonstrated that even for ultra-premium, low-search-volume commercial real estate, Meta Ads can be a viable and cost-efficient lead generation channel when audience architecture is built with precision. The cost per lead stayed well under PKR 205 across all projects, and the pipeline generated represents significant revenue potential for the authority.\n\nThe foundation is now in place — warm audience data, tested creatives, and a proven campaign structure — to scale further as new projects launch.',
+    proofImages: [
+      '/images/case-studies/commercial-real-estate-lead-gen/proof/proof-1.jpg',
+      '/images/case-studies/commercial-real-estate-lead-gen/proof/proof-2.jpg',
+      '/images/case-studies/commercial-real-estate-lead-gen/proof/proof-3.jpg',
+      '/images/case-studies/commercial-real-estate-lead-gen/proof/proof-4.jpg',
+      '/images/case-studies/commercial-real-estate-lead-gen/proof/proof-5.jpg',
+      '/images/case-studies/commercial-real-estate-lead-gen/proof/proof-6.jpg',
+      '/images/case-studies/commercial-real-estate-lead-gen/proof/proof-7.jpg',
+      '/images/case-studies/commercial-real-estate-lead-gen/proof/proof-8.jpg',
     ],
     metrics: [
-      { label: 'Leads Generated', value: '2,000', suffix: '+' },
-      { label: 'Timeframe', value: '2 months' },
-      { label: 'Avg Cost Per Lead', value: 'PKR ~200' },
+      { label: 'Leads Generated', value: '2,042' },
+      { label: 'Timeframe', value: '~3 months' },
+      { label: 'Avg Cost Per Lead', value: 'PKR ~205' },
     ],
   },
   {

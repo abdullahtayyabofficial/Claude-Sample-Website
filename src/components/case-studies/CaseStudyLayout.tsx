@@ -4,14 +4,80 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useCallback } from 'react'
-import type { CaseStudy } from '@/types'
+import type { CaseStudy, CaseStudyResultsTable } from '@/types'
 import Button from '@/components/ui/Button'
 import ScrollReveal from '@/components/ui/ScrollReveal'
 
 const EASE = [0.25, 0.4, 0.25, 1] as const
 
+function ResultsTable({ table }: { table: CaseStudyResultsTable }) {
+  return (
+    <div>
+      {table.intro && (
+        <p className="text-[var(--color-text-secondary)] mb-5 text-sm leading-relaxed">{table.intro}</p>
+      )}
+      <div className="overflow-hidden rounded-xl border border-[var(--color-border)]">
+        <table className="w-full text-sm">
+          <thead>
+            <tr className="bg-[var(--color-surface-muted)]">
+              {table.headers.map((h) => (
+                <th key={h} className="text-left px-5 py-3.5 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--color-text-secondary)] border-b border-[var(--color-border)]">
+                  {h}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {table.rows.map((row, i) => (
+              <tr key={i} className="border-b border-[var(--color-border)] last:border-0 hover:bg-[var(--color-surface-muted)]/50 transition-colors">
+                {row.map((cell, j) => (
+                  <td key={j} className="px-5 py-4 text-[var(--color-text-primary)]">{cell}</td>
+                ))}
+              </tr>
+            ))}
+            {table.totalRow && (
+              <tr className="bg-gradient-to-r from-[var(--color-brand-dark)]/5 to-[var(--color-brand-light)]/5">
+                {table.totalRow.map((cell, j) => (
+                  <td key={j} className="px-5 py-4 font-bold text-[var(--color-text-primary)]">{cell}</td>
+                ))}
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  )
+}
+
 interface CaseStudyLayoutProps {
   caseStudy: CaseStudy
+}
+
+function ProofImageCard({ src, alt, onClick }: { src: string; alt: string; onClick: () => void }) {
+  return (
+    <div className="proof-img-border rounded-xl p-[2px]">
+      <button
+        onClick={onClick}
+        className="group relative w-full aspect-[16/9] rounded-[10px] overflow-hidden bg-[var(--color-surface-muted)] block cursor-zoom-in"
+      >
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          className="object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+          sizes="(max-width: 768px) 100vw, 700px"
+        />
+        {/* Watermark */}
+        <div className="proof-watermark absolute inset-0 pointer-events-none" aria-hidden="true" />
+        {/* Hover overlay */}
+        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-200 flex items-center justify-center pointer-events-none">
+          <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-black/60 text-white text-xs font-medium px-3 py-1.5 rounded-full">
+            Click to enlarge
+          </span>
+        </div>
+      </button>
+    </div>
+  )
 }
 
 function SectionBlock({ label, children, accent }: { label: string; children: React.ReactNode; accent?: boolean }) {
@@ -244,6 +310,21 @@ export default function CaseStudyLayout({ caseStudy }: CaseStudyLayoutProps) {
             </ScrollReveal>
           )}
 
+          {caseStudy.resultsTable && (
+            <ScrollReveal>
+              <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-12 py-12 border-t border-[var(--color-border)]">
+                <div className="lg:pt-1">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-brand-light)]">
+                    Results / Outcomes
+                  </p>
+                </div>
+                <div className="lg:col-span-3">
+                  <ResultsTable table={caseStudy.resultsTable} />
+                </div>
+              </div>
+            </ScrollReveal>
+          )}
+
           {caseStudy.visuals && caseStudy.visuals.length > 0 && (
             <SectionBlock label="Campaign Visuals">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -332,36 +413,20 @@ export default function CaseStudyLayout({ caseStudy }: CaseStudyLayoutProps) {
               </h2>
             </ScrollReveal>
 
-            {/* Campaigns Data */}
+            {/* Campaigns Data — subheading only shown when GA4 data also exists */}
             {metaProofs.length > 0 && (
               <>
-                <ScrollReveal className="mb-6">
-                  <h3 className="text-xl font-heading font-semibold text-[var(--color-text-secondary)] border-b border-[var(--color-border)] pb-3">
-                    Campaigns Data
-                  </h3>
-                </ScrollReveal>
-                <div className="grid grid-cols-2 gap-5 mb-16">
+                {ga4Proofs.length > 0 && (
+                  <ScrollReveal className="mb-6">
+                    <h3 className="text-xl font-heading font-semibold text-[var(--color-text-secondary)] border-b border-[var(--color-border)] pb-3">
+                      Campaigns Data
+                    </h3>
+                  </ScrollReveal>
+                )}
+                <div className={`grid grid-cols-2 gap-5 ${ga4Proofs.length > 0 ? 'mb-16' : ''}`}>
                   {metaProofs.map((src, i) => (
                     <ScrollReveal key={i} delay={i * 0.05}>
-                      <div className="proof-img-border rounded-xl p-[2px]">
-                        <button
-                          onClick={() => setLightboxSrc(src)}
-                          className="group relative w-full aspect-[16/9] rounded-[10px] overflow-hidden bg-[var(--color-surface-muted)] block cursor-zoom-in"
-                        >
-                          <Image
-                            src={src}
-                            alt={`Campaigns proof ${i + 1}`}
-                            fill
-                            className="object-contain transition-transform duration-300 group-hover:scale-[1.02]"
-                            sizes="(max-width: 768px) 100vw, 700px"
-                          />
-                          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-200 flex items-center justify-center">
-                            <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-black/60 text-white text-xs font-medium px-3 py-1.5 rounded-full">
-                              Click to enlarge
-                            </span>
-                          </div>
-                        </button>
-                      </div>
+                      <ProofImageCard src={src} alt={`Campaigns proof ${i + 1}`} onClick={() => setLightboxSrc(src)} />
                     </ScrollReveal>
                   ))}
                 </div>
@@ -379,25 +444,7 @@ export default function CaseStudyLayout({ caseStudy }: CaseStudyLayoutProps) {
                 <div className="grid grid-cols-2 gap-5">
                   {ga4Proofs.map((src, i) => (
                     <ScrollReveal key={i} delay={i * 0.05}>
-                      <div className="proof-img-border rounded-xl p-[2px]">
-                        <button
-                          onClick={() => setLightboxSrc(src)}
-                          className="group relative w-full aspect-[16/9] rounded-[10px] overflow-hidden bg-[var(--color-surface-muted)] block cursor-zoom-in"
-                        >
-                          <Image
-                            src={src}
-                            alt={`GA4 proof ${i + 1}`}
-                            fill
-                            className="object-contain transition-transform duration-300 group-hover:scale-[1.02]"
-                            sizes="(max-width: 768px) 100vw, 700px"
-                          />
-                          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-200 flex items-center justify-center">
-                            <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-black/60 text-white text-xs font-medium px-3 py-1.5 rounded-full">
-                              Click to enlarge
-                            </span>
-                          </div>
-                        </button>
-                      </div>
+                      <ProofImageCard src={src} alt={`GA4 proof ${i + 1}`} onClick={() => setLightboxSrc(src)} />
                     </ScrollReveal>
                   ))}
                 </div>
@@ -447,6 +494,30 @@ export default function CaseStudyLayout({ caseStudy }: CaseStudyLayoutProps) {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* ── Outcome ── */}
+      {caseStudy.outcome && (
+        <section className="bg-white border-t border-[var(--color-border)]">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <ScrollReveal>
+              <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-12 py-12">
+                <div className="lg:pt-1">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-brand-light)]">
+                    Outcome
+                  </p>
+                </div>
+                <div className="lg:col-span-3 space-y-4">
+                  {caseStudy.outcome.split('\n\n').map((para, i) => (
+                    <p key={i} className="text-[var(--color-text-secondary)] leading-relaxed">
+                      {para}
+                    </p>
+                  ))}
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+        </section>
+      )}
 
       {/* ── CTA — "You could be next" ── */}
       <section className="section-padding gradient-brand text-white relative overflow-hidden noise-overlay">

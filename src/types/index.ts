@@ -10,6 +10,13 @@ export interface FfcCampaign {
   followers: string
 }
 
+export interface CaseStudyResultsTable {
+  intro?: string
+  headers: string[]
+  rows: string[][]
+  totalRow?: string[]
+}
+
 export interface CaseStudy {
   slug: string
   title: string
@@ -31,6 +38,8 @@ export interface CaseStudy {
   learnings?: string
   metrics?: CaseStudyMetric[]
   proofImages?: string[]
+  resultsTable?: CaseStudyResultsTable
+  outcome?: string
   campaigns?: FfcCampaign[]
 }
 

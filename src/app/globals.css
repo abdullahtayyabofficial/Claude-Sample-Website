@@ -181,6 +181,13 @@
     background: transparent;
   }
 
+  /* Proof of work watermark */
+  .proof-watermark {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='280'%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dominant-baseline='middle' font-family='Arial%2C sans-serif' font-size='34' font-weight='700' letter-spacing='3' fill='rgba(0%2C0%2C0%2C0.13)' transform='rotate(-35 210 140)'%3EABDULLAH TAYYAB%3C%2Ftext%3E%3C/svg%3E");
+    background-size: 420px 280px;
+    background-repeat: repeat;
+  }
+
   /* Proof of work image border */
   .proof-img-border {
     background: linear-gradient(135deg, #010738 0%, #15a1df 100%);
