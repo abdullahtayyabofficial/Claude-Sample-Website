@@ -1,5 +1,5 @@
 # Project Handoff — Abdullah Tayyab Portfolio
-### Session 2 Complete — Updated May 2026
+### Session 3 Complete — Updated June 2026
 
 > Feed this file + `CLAUDE.md` to a new Claude session to resume exactly where this session stopped.
 > Both files live in the project root.
@@ -8,155 +8,246 @@
 
 ## 1. What This Project Is
 
-A premium personal portfolio website for **Abdullah Tayyab**, a performance marketer and media buyer based in Pakistan. The site is a client acquisition and authority-building tool — not a generic portfolio or agency site.
+A premium personal portfolio website for **Abdullah Tayyab**, a performance marketer and media buyer based in Pakistan. The site is a client acquisition and authority-building tool — not a generic portfolio.
 
-**Live URL:** https://abdullahtayyab.com ✅ Deployed on Vercel
 **Repo:** `abdullahtayyabofficial/Claude-Sample-Website`
-**Active branch:** `claude/portfolio-website-dev-4YbiL`
-**Deployment platform:** Vercel
+**Active development branch:** `claude/portfolio-website-dev-4YbiL`
+**PR #5:** `claude/portfolio-website-dev-4YbiL` → `claude/build-portfolio-website-U3hLc` (open — Vercel auto-deploys previews from this PR)
+**Production branch:** `claude/build-portfolio-website-U3hLc` (no `main` branch exists)
+**Deployment:** Vercel
 
-**Core positioning line:**
+**Core positioning:**
 > "I build and scale AI-powered marketing systems that drive predictable business growth."
 
 ---
 
-## 2. Tech Stack (Final — No Changes)
+## 2. Tech Stack
 
-| Layer | Decision |
+| Layer | Choice |
 |---|---|
-| Framework | Next.js 15 — App Router, static generation |
-| Language | TypeScript (strict mode) |
-| Styling | Tailwind CSS v4 with `@tailwindcss/postcss` |
+| Framework | Next.js 15 (App Router, static generation) |
+| Language | TypeScript (strict) |
+| Styling | Tailwind CSS v4 (`@tailwindcss/postcss`) |
 | Animation | Framer Motion v12 |
-| Email backend | Resend (API route at `/api/contact`) |
+| Email | Resend (`/api/contact` route) |
 | Fonts | Space Grotesk (headings) + Inter (body) via `next/font/google` |
-| Deployment | Vercel ✅ Live |
+| Deployment | Vercel |
+
+**Rules that must not change:**
+- `ease` arrays in Framer Motion must use `as const` — e.g. `[0.25, 0.4, 0.25, 1] as const`
+- No external icon libraries — inline SVG only
+- No analytics or tracking scripts
+- `'use client'` only on components that use hooks or browser APIs
+- Server wrapper `page.tsx` (exports metadata) + client content component `*Content.tsx` pattern
+- `<main>` only in `layout.tsx` — content components use fragments
+- Never commit `.env.local`
+- Always develop on `claude/portfolio-website-dev-4YbiL`
 
 ---
 
-## 3. Architecture Decisions
-
-| Decision | Reason |
-|---|---|
-| App Router only, no Pages Router | Next.js 15 best practice; cleaner layout nesting |
-| All source under `src/` | Separates source from config |
-| `@/*` path alias → `src/*` | Avoids `../../` deep imports |
-| No external icon libraries | User constraint — inline SVG only |
-| No analytics/tracking scripts | User constraint — explicitly ruled out |
-| CSS keyframe animations for infinite scrolls | Better performance than Framer Motion for continuous loops |
-| Framer Motion for all other animations | Scroll reveal, hover lift, floating card, mobile menu |
-| `ease` arrays typed `as const` | Framer Motion v12 breaks on plain `number[]` |
-| `'use client'` only on components that need it | Maximise Server Component usage |
-| Server wrapper + client content pattern for pages | `page.tsx` exports metadata (server); content in `*Content.tsx` (client) |
-| Data files (`src/data/`) separate from components | Clean separation — data updated without touching UI |
-| Case study pages use conditional rendering | Only render sections that have actual content |
-| Services page includes network disclaimer | User requirement — services via trusted specialists |
-| `<main>` only in `layout.tsx` | Content components use `<>` fragments — no nested landmark |
-
----
-
-## 4. What Was Ruled Out
-
-| Ruled Out | Why |
-|---|---|
-| External calendar booking (Calendly etc.) | User doesn't have one — "Book a Call" scrolls to contact form |
-| External icon libraries | User constraint |
-| Google Analytics / Meta Pixel / tracking | User constraint |
-| ISR (Incremental Static Regeneration) | Not needed for a portfolio |
-| Pages Router | App Router only |
-| Freelance projects on About page | User removed — no data provided |
-| Committing `.env.local` | API key gitignored — never commit |
-
----
-
-## 5. Full Folder Structure (Current State)
-
-```
-/
-├── CLAUDE.md
-├── HANDOFF.md
-├── .env.local                            ← Gitignored. RESEND_API_KEY + CONTACT_EMAIL
-├── package.json / next.config.ts / tsconfig.json / etc.
-├── public/
-│   └── images/
-│       ├── hero/abdullah-tayyab.jpg      ← ✅ Placed
-│       ├── logos/[9 logo PNGs]           ← ✅ All placed
-│       └── og/og-image.jpg               ← ✅ Placed
-└── src/
-    ├── app/
-    │   ├── globals.css                   ← ✅ Tailwind @theme + utilities + keyframes
-    │   ├── layout.tsx                    ← ✅ Root layout: fonts, metadata, viewport, Navbar, Footer
-    │   ├── page.tsx                      ← ✅ Home — 9 sections
-    │   ├── sitemap.ts                    ← ✅ /sitemap.xml (12 routes)
-    │   ├── robots.ts                     ← ✅ /robots.txt
-    │   ├── about/page.tsx                ← ✅ Server wrapper → AboutContent
-    │   ├── expertise/page.tsx            ← ✅ Server wrapper → ExpertiseContent
-    │   ├── services/page.tsx             ← ✅ Server wrapper → ServicesContent
-    │   ├── case-studies/
-    │   │   ├── page.tsx                  ← ✅ Listing page
-    │   │   └── [slug]/page.tsx           ← ✅ 7 routes pre-rendered
-    │   ├── privacy-policy/page.tsx       ← ✅ Complete
-    │   ├── thank-you/page.tsx            ← ✅ Complete
-    │   └── api/contact/route.ts          ← ✅ Resend backend built — NOT yet working end-to-end
-    ├── components/
-    │   ├── layout/Navbar.tsx             ← ✅ Fixed, scroll-aware
-    │   ├── layout/Footer.tsx             ← ✅ Real social links
-    │   ├── sections/
-    │   │   ├── Hero.tsx                  ← ✅
-    │   │   ├── ProofStrip.tsx            ← ✅
-    │   │   ├── About.tsx                 ← ✅
-    │   │   ├── Expertise.tsx             ← ✅
-    │   │   ├── CaseStudiesPreview.tsx    ← ✅ Shows 3 featured case studies
-    │   │   ├── Testimonials.tsx          ← ✅
-    │   │   ├── Process.tsx               ← ✅
-    │   │   ├── FAQ.tsx                   ← ✅
-    │   │   └── ContactCTA.tsx            ← ✅ Form built — Resend not working yet
-    │   ├── pages/
-    │   │   ├── AboutContent.tsx          ← ✅
-    │   │   ├── ExpertiseContent.tsx      ← ✅
-    │   │   └── ServicesContent.tsx       ← ✅
-    │   ├── ui/Button / Card / GradientText / ScrollReveal / NodeNetwork
-    │   └── case-studies/
-    │       ├── CaseStudyCard.tsx         ← ✅
-    │       └── CaseStudyLayout.tsx       ← ✅ Premium layout
-    ├── data/
-    │   ├── case-studies.ts               ← ✅ 7 real case studies
-    │   └── testimonials.ts               ← ✅ 6 real testimonials
-    ├── lib/utils.ts
-    └── types/index.ts
-```
-
----
-
-## 6. Pages — All Complete
+## 3. All Pages — Status
 
 | Route | Status |
 |---|---|
-| `/` | ✅ |
-| `/about` | ✅ |
-| `/expertise` | ✅ |
-| `/services` | ✅ |
-| `/case-studies` | ✅ |
-| `/case-studies/[slug]` × 7 | ✅ |
-| `/privacy-policy` | ✅ |
-| `/thank-you` | ✅ |
-| `/api/contact` | ✅ Built — Resend end-to-end not yet working |
+| `/` | ✅ Complete |
+| `/about` | ✅ Complete + Speaking & Teaching + Certifications sections added this session |
+| `/expertise` | ✅ Complete |
+| `/services` | ✅ Complete (includes network specialist disclaimer) |
+| `/case-studies` | ✅ Complete |
+| `/case-studies/[slug]` × 6 | ✅ All complete with proof images |
+| `/privacy-policy` | ✅ Complete |
+| `/thank-you` | ✅ Complete |
+| `/api/contact` | ✅ Built — Resend integration not yet tested end-to-end |
 | `/sitemap.xml` | ✅ |
 | `/robots.txt` | ✅ |
 
 ---
 
-## 7. Case Studies (7 Entries — All Populated)
+## 4. Case Studies — Full State (6 Active)
 
-| Slug | Key Metric |
+All 6 case studies are fully populated with real content, proof images, and metrics.
+
+| Slug | Client | Key Metric | Proof Images |
+|---|---|---|---|
+| `hardees-qsr` | QSR Brand (Hardee's) | PKR 31M+ revenue, 4x–16x ROAS, 7 months | ✅ 18 images (10 campaigns + 8 GA4) |
+| `commercial-real-estate-lead-gen` | CBD Punjab | 2,042 leads, PKR ~205 avg CPL | ✅ 6 images |
+| `ffc-pakistan` | FFC (Fauji Fertilizers) | 140M+ impressions, 88.5M+ views | ❌ No proof images |
+| `cubicle-coworking` | Cubicle Co-Working | 3→25+ bookings in <60 days | ✅ 6 images |
+| `wavebyte-ecommerce` | Wave Byte | PKR 1.5M+ spend, 5–8x ROAS | ✅ 5 images |
+| `icr-it-centre` | ICR IT Centre | 300+ enrollments peak season | ✅ 10 images |
+
+### Case Study Image Paths
+```
+public/images/case-studies/
+├── hardees-qsr/
+│   ├── hero.jpeg
+│   └── proof/  (18 files: 1-10 sc *.jpeg + 1-8 ga4 *.png)
+├── commercial-real-estate-lead-gen/
+│   ├── hero.jpg
+│   └── proof/  (6 files: "1. l.g overall campaigns.jpeg" through "6. l.g HP.jpeg")
+├── ffc/
+│   └── hero.jpg
+├── cubicle-coworking/
+│   ├── hero.jpg
+│   └── proof/  (6 files: "1. overall.jpeg", "2.jpeg" through "6.jpeg")
+├── wavebyte-ecommerce/
+│   ├── hero.jpg
+│   └── proof/  (5 files: 1.jpg through 5.jpg)
+└── icr-it-centre/
+    ├── hero.jpg
+    └── proof/  (10 files: 1.jpg through 10.jpg)
+```
+
+### Case Study Data File
+`src/data/case-studies.ts` — single source of truth. All 6 case studies fully written.
+
+**Key fields used:**
+- `slug`, `title`, `subtitle`, `callout`, `client`, `industry`, `thumbnail`, `heroImage`, `logo`
+- `tags`, `overview` (supports `\n\n` for multi-paragraph), `problem`
+- `strategyIntro` (optional intro sentence before numbered strategy points)
+- `strategyPoints[]` — each with `title` + `description` (use `\n\n` to split into intro + bullet items)
+- `results[]`, `resultsTable` (CBD uses this instead of results[])
+- `outcome` (closing paragraph after proof section)
+- `metrics[]`, `proofImages[]`, `campaigns[]` (FFC only)
+
+**Strategy point bullet rendering logic** (in `CaseStudyLayout.tsx`):
+- Split `description` by `\n\n`
+- If only 1 chunk → plain paragraph
+- If 2+ chunks → first chunk = intro paragraph, rest = bullet list
+- Each bullet: if text before `:` is < 60 chars → render as bold brand-coloured label + body
+- If no `:` pattern → plain bullet with dot only
+
+---
+
+## 5. What Was Built This Session (Session 3)
+
+### Case Study Cards (Complete Redesign)
+- Layout: logo → hero image → title → description → metrics → tags + "Read case study" CTA
+- CSS class `.cs-card-border` in `globals.css`: white background, `1.5px solid rgba(21,161,223,0.45)` border, 3px gradient top accent, hover blue glow
+- `CaseStudyCard.tsx` fully rewritten
+
+### Custom Cursor + Lenis Smooth Scroll — Removed
+- Both removed from `layout.tsx` on user request (poor UX)
+- `cursor: none !important` rule also removed from `globals.css`
+
+### Proof of Work Section (All Case Studies)
+- Full-width section with "Proof of Work (Selective)" heading
+- Smart subheadings: "Campaigns Data" / "Google Analytics Data" only shown when both groups exist (Hardee's only)
+- Proof images split: `metaProofs = proofImages.slice(0, 10)`, `ga4Proofs = proofImages.slice(10)`
+- Each image: gradient border wrapper (`.proof-img-border`), `object-contain`, diagonal watermark overlay (`.proof-watermark`)
+- Lightbox: click to enlarge, close button `fixed top-4 right-4`, watermark persists in lightbox view
+- **Performance**: hover/touch preloads full-size image before click; spinner shown while loading
+
+### Watermark
+- CSS class `.proof-watermark` in `globals.css`
+- SVG data URI tiled pattern: "ABDULLAH TAYYAB" diagonal at -35°, `rgba(0,0,0,0.13)`, 420×280px tile
+- Applied to both grid thumbnails AND lightbox enlarged view
+
+### Case Study Content Rewrites
+All content rewritten to match user-provided reference documents:
+
+**Hardee's QSR:**
+- 7 months (not 4), PKR 31M+, 18K+ purchases, 4x–16x ROAS
+- 4 strategy points rewritten, callout updated
+
+**CBD Punjab:**
+- New title, callout, 3-paragraph overview, problem section
+- 3 strategy points with `\n\n` bullet format (Tier 1/2/3, project-specific, creative constraints)
+- `resultsTable` (not results[]) — 3 projects with leads + CPL
+- `outcome` section — 3 paragraphs
+- Leads: 2,042 high-profiled
+
+**Wave Byte:**
+- Overview rewritten to 3 paragraphs
+- `strategyIntro` added
+- 3 strategy points rewritten (Campaign Architecture & Scaling / Creative & Offer Strategy / Optimization & Retargeting)
+- Results rewritten to match 4 bullet points from reference
+
+**Cubicle Co-Working:**
+- Overview rewritten to 3 paragraphs
+- `strategyIntro` added
+- 4 strategy points (Launch & Awareness / Retargeting & High-Conversion / Creatives Strategy / Community PR & Event Marketing)
+- Results and outcome updated from reference screenshots
+
+### Em Dashes — Removed Globally
+All `—` replaced with `-` or restructured in: callouts, overviews, strategy descriptions, results, outcomes, and About page content.
+
+### Multi-Paragraph Rendering Fixes
+- `overview` field: split on `\n\n`, each chunk renders as separate `<p>` tag
+- `outcome` field: same `\n\n` split behaviour
+- `problem` field: uses `whitespace-pre-line`
+- `strategyIntro`: plain paragraph rendered before the `<ol>` of strategy points
+
+### New Type Fields Added (`src/types/index.ts`)
+- `strategyIntro?: string` — intro paragraph before strategy points list
+- `resultsTable?: CaseStudyResultsTable` — table format for results (CBD)
+- `outcome?: string` — closing section after proof images
+- `proofImages?: string[]` — array of proof image paths
+- `logo?: string` — brand logo for case study card
+
+### About Page — Speaking & Teaching + Certifications
+Added two new sections between Stats and CTA:
+
+**Speaking & Teaching (no section heading — removed on user request):**
+Three alternating image/text blocks:
+1. LUMS CES (image left, text right) — `public/images/about/achievements/lums.jpg`
+2. ICR IT Centre (text left, image right) — `public/images/about/achievements/icr.jpg`
+3. BIC Foundry (image left, text right) — `public/images/about/achievements/bic.jpg`
+
+All images uploaded ✅
+
+**Certifications (6 certs, 3-column grid):**
+Each card: certificate image → title → issuer → "Show Credential" external link
+
+| # | Title | Issuer | Image |
+|---|---|---|---|
+| 1 | Entrepreneurship | LUMS CES Program | `cert-1.jpg` ✅ |
+| 2 | Advertising: Print, Outdoor & Digital | LUMS CES Program | `cert-2.jpg` ✅ |
+| 3 | Fundamentals of Digital Marketing | Google Digital Garage | `cert-3.jpg` ✅ |
+| 4 | Claude 101 Completion | Anthropic | `cert-4.jpg` ✅ |
+| 5 | Professional Communication Skills | LUMS CES | `cert-5.jpg` ✅ |
+| 6 | Google Soft Skills Program | Google Skillshop / PAFLA | `cert-6.jpg` ✅ |
+
+All images uploaded ✅. "Certifications" heading uses `gradient-brand-text` class.
+
+---
+
+## 6. What Was Ruled Out This Session
+
+| Ruled Out | Why |
 |---|---|
-| `cubicle-coworking` | 25+ bookings in <60 days |
-| `commercial-real-estate-lead-gen` | 1,784+ leads in 2 months |
-| `ffc-prize-distribution` | 65.8M+ impressions |
-| `ffc-sona-soil-day` | 7.42M impressions in 2 days |
-| `wavebyte-ecommerce` | ₨1.5M+ spend, 5–8x ROAS |
-| `icr-it-centre` | 500+ peak season enrollments |
-| `hardees-qsr` | 4.8x avg ROAS, 4 months |
+| LinkedIn post scraping for achievement descriptions | LinkedIn returns 403 — blocked. Used user-provided text instead |
+| Custom cursor | Removed — poor UX on user request |
+| Lenis smooth scroll | Removed — poor UX on user request |
+| FFC proof images | User has not provided them yet |
+| 7th certification "Marketing & Content Creation (ICR)" | Removed on user request |
+| "Achievements" as section heading | Replaced with no heading (removed entirely on user request) |
+
+---
+
+## 7. File Structure — Key Files to Know
+
+```
+src/
+├── app/
+│   ├── globals.css              ← All CSS: @theme, @keyframes, .cs-card-border,
+│   │                               .proof-watermark, .proof-img-border, .gradient-border-card
+│   ├── layout.tsx               ← Root layout — Navbar + Footer only (no cursor, no Lenis)
+│   └── about/page.tsx           ← Server wrapper → AboutContent
+├── components/
+│   ├── case-studies/
+│   │   ├── CaseStudyCard.tsx    ← Logo → hero image → title → desc → metrics → tags
+│   │   └── CaseStudyLayout.tsx  ← Full case study page: hero, metrics strip, callout,
+│   │                               body sections, proof grid, lightbox, outcome, CTA
+│   └── pages/
+│       └── AboutContent.tsx     ← Bio, Approach/Vision/Mission, Stats,
+│                                   Speaking & Teaching (3 blocks), Certifications (6 cards), CTA
+├── data/
+│   └── case-studies.ts          ← All 6 case studies — single source of truth
+└── types/
+    └── index.ts                 ← CaseStudy, StrategyPoint, CaseStudyResultsTable,
+                                    CaseStudyMetric, CaseStudyResult, FfcCampaign, etc.
+```
 
 ---
 
@@ -172,12 +263,11 @@ A premium personal portfolio website for **Abdullah Tayyab**, a performance mark
 | Instagram | https://www.instagram.com/abdullahtayyab.official/ |
 | Hero metrics | ₨100M+ Revenue Driven · 10,000+ Leads Generated · 93% Client Retention |
 | Education | BBIT — Virtual University of Pakistan |
-| Certifications | Google Digital Garage, LUMS CES, Anthropic Claude 101, Google Skillshop |
 
 **Work history:**
-- **Firebolt63** (Nov 2025–Apr 2026): PKR 24M+ ecommerce, 325% YoY, 200M+ impressions, 16x ROAS
-- **Wave Byte** (Dec 2024–Apr 2025): PKR 1.5M+ spend, 5–8x ROAS, 570+ leads in 17 days
-- **Hello World Technologies** (Jun–Dec 2024): Cubicle 3→25+ bookings, 600+ IT event participants
+- **Firebolt63** (Nov 2025–Apr 2026): PKR 24M+ ecommerce, 325% YoY, 200M+ impressions
+- **Wave Byte** (Dec 2024–Apr 2025): PKR 1.5M+ ad spend, 5–8x ROAS
+- **Hello World Technologies** (Jun–Dec 2024): Cubicle 3→25+ bookings, 600+ event participants
 
 ---
 
@@ -188,75 +278,68 @@ RESEND_API_KEY=re_ALn8oPh7_GWG1eJkdWE1KzYdX65bpHp2P
 CONTACT_EMAIL=abdullahtayyab.805@gmail.com
 ```
 
-`.env.local` exists locally and is gitignored.
-These must also be set in **Vercel dashboard → Settings → Environment Variables**.
+`.env.local` is gitignored — never commit. Must also be set in Vercel dashboard.
 
 ---
 
-## 10. Deployment Status
+## 10. Git / Deployment Flow
 
-| Item | Status |
-|---|---|
-| Vercel deployment | ✅ Live at abdullahtayyab.com |
-| Hero photo | ✅ Placed |
-| All 9 logos | ✅ Placed |
-| OG image | ✅ Placed |
-| Resend domain verification | ⚠️ Unknown — needs checking |
-| Resend env vars in Vercel | ⚠️ Unknown — needs checking |
-| Contact form working end-to-end | ❌ Not yet confirmed working |
+```
+Feature work → claude/portfolio-website-dev-4YbiL
+                      ↓  (PR #5 open)
+             claude/build-portfolio-website-U3hLc  ← Vercel previews deploy here
+```
 
----
-
-## 11. PRIORITY TASKS FOR NEXT SESSION
-
-### #1 — Fix Contact Form / Resend Integration (MOST URGENT)
-
-The backend API route (`/api/contact/route.ts`) is fully built and uses Resend. The frontend form (`ContactCTA.tsx`) POSTs to `/api/contact`. However, the contact form is not working end-to-end.
-
-**What the next session should do:**
-1. Diagnose why the form isn't working — check Vercel function logs for the `/api/contact` route to see the actual error
-2. The most likely causes:
-   - `RESEND_API_KEY` or `CONTACT_EMAIL` not set in Vercel environment variables
-   - Domain `abdullahtayyab.com` not verified in Resend (required because `from` is `noreply@abdullahtayyab.com`)
-3. Fix whatever is blocking it and verify a real form submission goes through
-
-**Current contact API route** (`src/app/api/contact/route.ts`):
-- Validates: name, email, businessType, message (required); phone (optional)
-- Sends via Resend: `from: 'Portfolio Contact <noreply@abdullahtayyab.com>'`
-- On success: returns `{ success: true }`, frontend redirects to `/thank-you`
-- On failure: returns error, frontend shows inline error message
-
-**If Resend domain verification is blocked or slow**, a quick workaround is to change the `from` address to Resend's default sender `onboarding@resend.dev` (only works when sending to the account owner's email — fine for a personal portfolio).
-
-### #2 — Website Tweaks & Improvements (TBD by user)
-
-User has requested tweaks and changes to the website. These have not been specified yet — ask the user to list them at the start of the next session before beginning any work.
+- There is **no `main` branch** — do not push to main
+- Vercel auto-deploys a preview build whenever PR #5 gets new commits
+- To ship to production: merge PR #5 → `claude/build-portfolio-website-U3hLc`
 
 ---
 
-## 12. Constraints & Rules (Carry Forward)
+## 11. Pending / Next Session Tasks
 
-- Never invent data — only use what has been provided, or ask
-- No external icon libraries — inline SVG only
-- No analytics or tracking scripts
-- Framer Motion ease arrays must use `as const`
-- Services page must keep the network specialist disclaimer
-- `.env.local` is gitignored — never commit API keys
-- Always develop on `claude/portfolio-website-dev-4YbiL` — never push to `main` without permission
-- Server wrapper (`page.tsx`) + client content component pattern for all individual pages
-- `<main>` landmark only in `layout.tsx` — content components use `<>` fragments
+### High Priority
+1. **Contact form end-to-end test** — The `/api/contact` Resend route is built but never confirmed working. Check Vercel function logs, verify `RESEND_API_KEY` + `CONTACT_EMAIL` are set in Vercel dashboard, verify domain `abdullahtayyab.com` is verified in Resend. If blocked, fallback: change `from` to `onboarding@resend.dev`.
+
+2. **FFC case study proof images** — The FFC case study has no `proofImages` array. When user provides images, add a `proof/` folder under `public/images/case-studies/ffc/` and add paths to `case-studies.ts`.
+
+3. **FFC case study content update** — Content is written but based on available info. User may want to rewrite it with their own reference material (like the other case studies were done with PDF/screenshot references).
+
+### Lower Priority
+4. **Merge PR #5 to production** — When user is happy with the preview, merge PR #5 into `claude/build-portfolio-website-U3hLc` to push everything live.
+
+5. **Stats update on About page** — Currently shows `₨30M+` Revenue Driven but hero says `₨100M+`. Confirm correct number with user.
+
+6. **ICR case study content update** — Content exists but was not rewritten from user reference screenshots (unlike Hardee's, CBD, Wave Byte, Cubicle). User may want to align it.
 
 ---
 
-## 13. How to Start Dev Server
+## 12. How to Start Dev Server
 
 ```bash
-cd /home/user/Claude-Sample-Website
-npm install        # if node_modules not present
+npm install        # if node_modules missing
 npm run dev        # → http://localhost:3000
-npm run build      # production build check
+node_modules/.bin/next build   # use this for build checks (not npx next build)
 ```
 
 ---
 
-*Updated end of Session 2 — May 2026*
+## 13. Key CSS Classes (globals.css)
+
+| Class | What it does |
+|---|---|
+| `.gradient-brand` | Background gradient: dark→light blue |
+| `.gradient-brand-text` | Same gradient applied as text fill |
+| `.cs-card-border` | Case study card: white bg, blue border, 3px gradient top, hover glow |
+| `.proof-watermark` | Diagonal "ABDULLAH TAYYAB" SVG tile watermark — apply to proof image overlays |
+| `.proof-img-border` | Gradient border wrapper for proof images |
+| `.gradient-border-card` | Spinning conic gradient border (used in some UI cards) |
+| `.section-padding` | Responsive vertical padding (6rem → 8rem → 10rem) |
+| `.noise-overlay` | Adds subtle grain texture via `::after` pseudo-element |
+| `.animate-scroll-left` | 30s infinite horizontal scroll |
+| `.animate-float` | 4s float up/down |
+| `.pause-animation` | Pauses any CSS animation |
+
+---
+
+*Updated end of Session 3 — June 2026*
