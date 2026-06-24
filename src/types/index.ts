@@ -31,6 +31,7 @@ export interface CaseStudy {
   overview?: string
   problem?: string
   strategy?: string
+  strategyIntro?: string
   strategyPoints?: StrategyPoint[]
   execution?: string
   results?: CaseStudyResult[]

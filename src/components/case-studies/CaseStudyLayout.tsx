@@ -222,9 +222,13 @@ export default function CaseStudyLayout({ caseStudy }: CaseStudyLayoutProps) {
 
           {caseStudy.overview && (
             <SectionBlock label="Client Overview / Requirement">
-              <p className="text-[var(--color-text-secondary)] text-base sm:text-lg leading-relaxed">
-                {caseStudy.overview}
-              </p>
+              <div className="space-y-4">
+                {caseStudy.overview.split('\n\n').map((para, i) => (
+                  <p key={i} className="text-[var(--color-text-secondary)] text-base sm:text-lg leading-relaxed">
+                    {para}
+                  </p>
+                ))}
+              </div>
             </SectionBlock>
           )}
 
@@ -240,6 +244,12 @@ export default function CaseStudyLayout({ caseStudy }: CaseStudyLayoutProps) {
           {(caseStudy.strategyPoints || caseStudy.strategy) && (
             <SectionBlock label="Strategy & Approach">
               {caseStudy.strategyPoints ? (
+                <>
+                {caseStudy.strategyIntro && (
+                  <p className="text-[var(--color-text-secondary)] text-sm leading-relaxed mb-6">
+                    {caseStudy.strategyIntro}
+                  </p>
+                )}
                 <ol className="space-y-8">
                   {caseStudy.strategyPoints.map((point, i) => {
                     const parts = point.description.split('\n\n').filter(Boolean)
@@ -289,6 +299,7 @@ export default function CaseStudyLayout({ caseStudy }: CaseStudyLayoutProps) {
                     )
                   })}
                 </ol>
+                </>
               ) : (
                 <p className="text-[var(--color-text-secondary)] leading-relaxed">
                   {caseStudy.strategy}

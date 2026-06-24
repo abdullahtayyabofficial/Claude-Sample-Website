@@ -266,7 +266,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: 'wavebyte-ecommerce',
-    title: 'Scaling to PKR 1.5M+ Ad Spend at 5–8x ROAS',
+    title: 'Scaling to PKR 1.5M+ Ad Spend at 5-8x ROAS',
     client: 'Wave Byte',
     industry: 'Ecommerce Services',
     heroImage: '/images/case-studies/wavebyte-ecommerce/hero.jpg',
@@ -274,37 +274,39 @@ export const caseStudies: CaseStudy[] = [
     thumbnail: '',
     tags: ['Meta Ads', 'Lead Generation', 'Ecommerce', 'Scaling Strategy'],
     callout:
-      'PKR 1.5M+ in total ad spend. 5–8x ROAS maintained at every single scaling stage, from PKR 1,500 a day to PKR 100,000+. Most businesses lose ROAS when they scale. This one didn\'t.',
+      'PKR 1.5M+ in total ad spend. 5-8x ROAS maintained at every single scaling stage, from PKR 1,500 a day to PKR 100,000+. Most businesses lose ROAS when they scale. This one didn\'t.',
     overview:
-      'Wave Byte is a UAE-based ecommerce service provider offering complete dropshipping, warehousing, product sourcing, 3PL, and order fulfillment solutions. The primary goal was to generate a continuous flow of qualified leads from aspiring entrepreneurs looking to start their dropshipping journey, while also filling monthly seminars and webinars to convert attendees into paying customers.',
+      'WaveByte is a UAE-based e-commerce service provider offering complete solutions for dropshipping, warehousing, product sourcing, 3PL, and order fulfillment.\n\nThe client\'s primary requirement was to generate a continuous flow of qualified leads from aspiring entrepreneurs looking to start their dropshipping journey in the UAE, whether they were based locally or internationally.\n\nThey also aimed to promote and fill monthly seminars and webinars to educate potential clients, nurture interest, and convert attendees into paying customers.',
     problem:
       'The business needed a scalable, profitable lead generation system that could grow from minimal daily budgets to significant ad spend without sacrificing lead quality, ROAS, or conversion rate, and that could sustain seminar sign-ups month over month at every scaling stage.',
+    strategyIntro:
+      'To achieve scalable and profitable lead generation, we built a comprehensive paid media structure combining creative testing, segmentation, and automation.',
     strategyPoints: [
       {
-        title: 'Progressive Scaling System',
+        title: 'Campaign Architecture & Scaling',
         description:
-          'A structured scaling system was implemented, growing daily ad budgets from PKR 1,500 to over PKR 100,000, while maintaining 5–8x ROAS at every growth stage. Budget increases were data-driven and gradual, preventing the performance cliff that kills most scaling attempts.',
+          'Launched message and lead campaigns focused on driving inquiries from interested entrepreneurs through Meta Ads.\n\nImplemented a progressive scaling system, scaling ads from PKR 1,500 to over PKR 100,000 while maintaining ROAS between 5x-8x.\n\nManaged overall ad spend exceeding PKR 1.5M+, ensuring sustainable returns at each growth stage.',
       },
       {
-        title: 'Multi-Angle Creative Testing',
+        title: 'Creative & Offer Strategy',
         description:
-          'Multiple creative angles were developed and tested: FOMO Appeal, Benefit Appeal, Educational Hook, and Direct Selling, identifying the strongest performers at each budget level and scaling only what the data supported. Creative production was handled in collaboration with content and design teams, producing high-performing static and video formats.',
+          'Collaborated with content and design teams to produce high-performing static and video creatives that highlighted Wave Byte\'s complete e-commerce ecosystem - from training and store setup to logistics and fulfillment.\n\nTested multiple creative angles including FOMO Appeal, Benefit Appeal, Educational Hook, and Direct Selling Angle.\n\nDeveloped automated message templates to streamline the lead qualification process for both the business and the customers.',
       },
       {
-        title: 'Automated Lead Qualification & Retargeting',
+        title: 'Optimization & Retargeting',
         description:
-          'Automated message templates were developed to streamline lead qualification at scale, ensuring rapid response without added operational overhead. Retargeting layers were built to re-engage warm audiences, ad engagers, page visitors, and webinar registrants, keeping the funnel consistently full across all budget cycles.',
+          'Continuously tested audience segments, ad formats, and message sequences to lower CPA and improve conversion rates.\n\nBuilt retargeting layers to re-engage warm audiences - those who engaged with ads, messaged the page, or registered interest in webinars.',
       },
     ],
     results: [
-      { label: 'Total Ad Spend Managed', value: 'PKR 1.5M+ managed with sustainable returns at every scaling stage' },
-      { label: 'Scaling Achievement', value: 'Single campaign scaled to PKR 600K+ profitably; others to PKR 100K+' },
-      { label: 'ROAS', value: 'Average 5–8x ROAS maintained with consistent conversion flow through all scaling phases' },
-      { label: 'Lead Generation', value: 'Hundreds of qualified leads generated, fueling both direct sales and seminar / webinar sign-ups' },
+      { label: 'Scaling', value: 'Scaled 1 campaign up to PKR 600K+ profitably, while others up to PKR 100K+, maintaining consistent lead quality and engagement' },
+      { label: 'ROAS', value: 'Achieved an average ROAS of 5x-8x, with steady conversion flow even during scaling phases' },
+      { label: 'Lead Generation', value: 'Generated hundreds of qualified leads through message-based campaigns, fueling Wave Byte\'s sales funnel and event sign-ups' },
+      { label: 'Sustainable Growth', value: 'Established a predictable system that brought in continuous warm leads, helping the brand grow sustainably month over month' },
     ],
     metrics: [
       { label: 'Ad Spend Managed', value: '₨1.5M', suffix: '+' },
-      { label: 'Average ROAS', value: '5–8x' },
+      { label: 'Average ROAS', value: '5-8x' },
       { label: 'Budget Scaled Per Campaign', value: '₨600K', suffix: '+' },
     ],
     proofImages: [
