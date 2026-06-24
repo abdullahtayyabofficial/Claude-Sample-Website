@@ -166,8 +166,8 @@ export default function AboutContent() {
       <section className="section-padding bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-heading font-bold text-[var(--color-text-primary)]">
-              Achievements
+            <h2 className="text-4xl sm:text-5xl font-heading font-bold gradient-brand-text">
+              Speaking & Teaching
             </h2>
           </ScrollReveal>
 
@@ -251,7 +251,7 @@ export default function AboutContent() {
       <section className="section-padding bg-[var(--color-surface-muted)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal className="mb-12">
-            <h2 className="text-3xl sm:text-4xl font-heading font-bold text-[var(--color-text-primary)] mb-2">Certifications</h2>
+            <h2 className="text-3xl sm:text-4xl font-heading font-bold gradient-brand-text mb-2">Certifications</h2>
             <p className="text-[var(--color-text-secondary)]">Credentials from institutions and platforms that have shaped my practice.</p>
           </ScrollReveal>
 
