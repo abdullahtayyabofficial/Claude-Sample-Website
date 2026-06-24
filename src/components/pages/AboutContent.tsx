@@ -77,7 +77,7 @@ export default function AboutContent() {
                 Beyond execution, I&apos;ve also been actively involved in the learning and sharing side of marketing. I&apos;ve delivered sessions on digital marketing and ROI-driven strategy, worked with individuals through one-on-one consultations, and continue to stay close to evolving industry practices. My background includes certifications from Google and LUMS, along with hands-on experience that comes from managing real budgets, real campaigns, and real expectations.
               </p>
               <p className="text-[var(--color-text-secondary)] leading-relaxed mb-8">
-                At this stage, I&apos;m focused on working with businesses that want more than just activity. They want clarity, structure, and a system behind their growth. Because in the long run, performance doesn&apos;t come from isolated wins — it comes from systems that consistently produce them.
+                At this stage, I&apos;m focused on working with businesses that want more than just activity. They want clarity, structure, and a system behind their growth. Because in the long run, performance doesn&apos;t come from isolated wins. It comes from systems that consistently produce them.
               </p>
               <div className="flex flex-wrap gap-3">
                 <Button href="/#contact" size="md">Book a Call</Button>
@@ -188,9 +188,9 @@ export default function AboutContent() {
                   <h3 className="text-2xl sm:text-3xl font-heading font-semibold text-[var(--color-text-primary)] mb-2 leading-snug">
                     Session on Digital Marketing Landscape
                   </h3>
-                  <p className="text-sm font-medium text-[var(--color-text-secondary)] mb-5">LUMS CES — Advertising Course</p>
+                  <p className="text-sm font-medium text-[var(--color-text-secondary)] mb-5">LUMS CES, Advertising Course</p>
                   <p className="text-[var(--color-text-secondary)] leading-relaxed">
-                    Invited as a Guest Speaker by the Centre for Continuing Education Studies at LUMS to deliver a session on the Role of Digital Marketing — covering platform strategy, campaign execution, and AI-driven marketing for the next generation of business professionals. What made it especially meaningful: Abdullah was once a student of this very course. Returning as a speaker was a full-circle moment.
+                    Invited as a Guest Speaker by the Centre for Continuing Education Studies at LUMS to deliver a session on the Role of Digital Marketing, covering platform strategy, campaign execution, and AI-driven marketing for the next generation of business professionals. What made it especially meaningful: Abdullah was once a student of this very course. Returning as a speaker was a full-circle moment.
                   </p>
                 </div>
               </div>
@@ -206,7 +206,7 @@ export default function AboutContent() {
                   </h3>
                   <p className="text-sm font-medium text-[var(--color-text-secondary)] mb-5">ICR IT Centre, Rahim Yar Khan</p>
                   <p className="text-[var(--color-text-secondary)] leading-relaxed">
-                    Taught digital marketing across 2 full batches, working with 45+ students on Meta Ads, campaign strategy, content creation, and performance analytics. Before stepping into a lead role, served as Assistant Instructor — handling backend operations and delivering lectures independently in the lead instructor&apos;s absence. A hands-on teaching experience that reinforced how to communicate complex performance concepts clearly.
+                    Taught digital marketing across 2 full batches, working with 45+ students on Meta Ads, campaign strategy, content creation, and performance analytics. Before stepping into a lead role, served as Assistant Instructor, handling backend operations and delivering lectures independently in the lead instructor&apos;s absence. A hands-on teaching experience that reinforced how to communicate complex performance concepts clearly.
                   </p>
                 </div>
                 <div className="order-1 lg:order-2 relative rounded-2xl overflow-hidden aspect-[4/3] bg-[var(--color-surface-muted)] border border-[var(--color-border)]">
@@ -236,9 +236,9 @@ export default function AboutContent() {
                   <h3 className="text-2xl sm:text-3xl font-heading font-semibold text-[var(--color-text-primary)] mb-2 leading-snug">
                     Session on &ldquo;How to Prove ROI on Marketing Spend&rdquo;
                   </h3>
-                  <p className="text-sm font-medium text-[var(--color-text-secondary)] mb-5">BIC Foundry — Beaconhouse International College</p>
+                  <p className="text-sm font-medium text-[var(--color-text-secondary)] mb-5">BIC Foundry, Beaconhouse International College</p>
                   <p className="text-[var(--color-text-secondary)] leading-relaxed">
-                    Addressed startup founders at BIC Foundry on &ldquo;How to Prove ROI on Marketing Spend&rdquo; — helping early-stage entrepreneurs master unit economics, attribution, and the frameworks that separate real marketing from speculation. Covered CAC, LTV, and how to build an ROI engine instead of just running campaigns.
+                    Addressed startup founders at BIC Foundry on &ldquo;How to Prove ROI on Marketing Spend&rdquo;, helping early-stage entrepreneurs master unit economics, attribution, and the frameworks that separate real marketing from speculation. Covered CAC, LTV, and how to build an ROI engine instead of just running campaigns.
                   </p>
                 </div>
               </div>
@@ -257,13 +257,10 @@ export default function AboutContent() {
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
             {[
-              { title: 'Fundamentals of Digital Marketing', issuer: 'Google Digital Garage', img: '/images/about/certifications/cert-1.jpg' },
-              { title: 'Advertising: Print, Outdoor & Digital', issuer: 'LUMS CES Program 2025', img: '/images/about/certifications/cert-2.jpg' },
-              { title: 'Entrepreneurship', issuer: 'LUMS CES Program 2025', img: '/images/about/certifications/cert-3.jpg' },
-              { title: 'Professional Communication Skills', issuer: 'LUMS CES (April 2026)', img: '/images/about/certifications/cert-4.jpg' },
-              { title: 'Claude 101 Completion', issuer: 'Anthropic', img: '/images/about/certifications/cert-5.jpg' },
-              { title: 'Google Soft Skills Program', issuer: 'Google Skillshop / PAFLA', img: '/images/about/certifications/cert-6.jpg' },
-              { title: 'Marketing & Content Creation', issuer: 'ICR IT Centre, RYK', img: '/images/about/certifications/cert-7.jpg' },
+              { title: 'Entrepreneurship', issuer: 'LUMS CES Program', img: '/images/about/certifications/cert-1.jpg' },
+              { title: 'Advertising: Print, Outdoor & Digital', issuer: 'LUMS CES Program', img: '/images/about/certifications/cert-2.jpg' },
+              { title: 'Fundamentals of Digital Marketing', issuer: 'Google Digital Garage', img: '/images/about/certifications/cert-3.jpg' },
+              { title: 'Claude 101 Completion', issuer: 'Anthropic', img: '/images/about/certifications/cert-4.jpg' },
             ].map((cert, i) => (
               <ScrollReveal key={cert.title} delay={i * 0.06}>
                 <div className="bg-white rounded-2xl border border-[var(--color-border)] overflow-hidden card-shadow hover:card-shadow-hover transition-shadow duration-300 group">
