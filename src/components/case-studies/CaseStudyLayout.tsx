@@ -2,7 +2,8 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
+import { useState, useCallback } from 'react'
 import type { CaseStudy } from '@/types'
 import Button from '@/components/ui/Button'
 import ScrollReveal from '@/components/ui/ScrollReveal'
@@ -29,6 +30,12 @@ function SectionBlock({ label, children, accent }: { label: string; children: Re
 }
 
 export default function CaseStudyLayout({ caseStudy }: CaseStudyLayoutProps) {
+  const [lightboxSrc, setLightboxSrc] = useState<string | null>(null)
+  const closeLightbox = useCallback(() => setLightboxSrc(null), [])
+
+  const metaProofs = caseStudy.proofImages?.slice(0, 10) ?? []
+  const ga4Proofs = caseStudy.proofImages?.slice(10) ?? []
+
   return (
     <>
       {/* ── Hero ── */}
@@ -237,23 +244,6 @@ export default function CaseStudyLayout({ caseStudy }: CaseStudyLayoutProps) {
             </ScrollReveal>
           )}
 
-          {caseStudy.proofImages && caseStudy.proofImages.length > 0 && (
-            <SectionBlock label="Proof of Work (Selective):">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {caseStudy.proofImages.map((src, i) => (
-                  <div key={i} className="relative aspect-video rounded-xl overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface-muted)]">
-                    <Image
-                      src={src}
-                      alt={`${caseStudy.client} proof of work ${i + 1}`}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                ))}
-              </div>
-            </SectionBlock>
-          )}
-
           {caseStudy.visuals && caseStudy.visuals.length > 0 && (
             <SectionBlock label="Campaign Visuals">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -329,6 +319,128 @@ export default function CaseStudyLayout({ caseStudy }: CaseStudyLayoutProps) {
           </div>
         </section>
       )}
+
+      {/* ── Proof of Work ── */}
+      {caseStudy.proofImages && caseStudy.proofImages.length > 0 && (
+        <section className="bg-[var(--color-surface-muted)] border-t border-[var(--color-border)] py-16 sm:py-24">
+          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
+
+            <ScrollReveal className="text-center mb-14">
+              <h2 className="text-4xl sm:text-5xl font-heading font-bold text-[var(--color-text-primary)]">
+                Proof of Work{' '}
+                <span className="gradient-brand-text">(Selective)</span>
+              </h2>
+            </ScrollReveal>
+
+            {/* Campaigns Data */}
+            {metaProofs.length > 0 && (
+              <>
+                <ScrollReveal className="mb-6">
+                  <h3 className="text-xl font-heading font-semibold text-[var(--color-text-secondary)] border-b border-[var(--color-border)] pb-3">
+                    Campaigns Data
+                  </h3>
+                </ScrollReveal>
+                <div className="grid grid-cols-2 gap-5 mb-16">
+                  {metaProofs.map((src, i) => (
+                    <ScrollReveal key={i} delay={i * 0.05}>
+                      <button
+                        onClick={() => setLightboxSrc(src)}
+                        className="group relative w-full aspect-[16/9] rounded-xl overflow-hidden border border-[var(--color-border)] bg-white block cursor-zoom-in"
+                      >
+                        <Image
+                          src={src}
+                          alt={`Campaigns proof ${i + 1}`}
+                          fill
+                          className="object-cover object-top transition-transform duration-300 group-hover:scale-[1.02]"
+                          sizes="(max-width: 768px) 100vw, 700px"
+                        />
+                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-200 flex items-center justify-center">
+                          <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-black/60 text-white text-xs font-medium px-3 py-1.5 rounded-full">
+                            Click to enlarge
+                          </span>
+                        </div>
+                      </button>
+                    </ScrollReveal>
+                  ))}
+                </div>
+              </>
+            )}
+
+            {/* Google Analytics Data */}
+            {ga4Proofs.length > 0 && (
+              <>
+                <ScrollReveal className="mb-6">
+                  <h3 className="text-xl font-heading font-semibold text-[var(--color-text-secondary)] border-b border-[var(--color-border)] pb-3">
+                    Google Analytics Data
+                  </h3>
+                </ScrollReveal>
+                <div className="grid grid-cols-2 gap-5">
+                  {ga4Proofs.map((src, i) => (
+                    <ScrollReveal key={i} delay={i * 0.05}>
+                      <button
+                        onClick={() => setLightboxSrc(src)}
+                        className="group relative w-full aspect-[16/9] rounded-xl overflow-hidden border border-[var(--color-border)] bg-white block cursor-zoom-in"
+                      >
+                        <Image
+                          src={src}
+                          alt={`GA4 proof ${i + 1}`}
+                          fill
+                          className="object-cover object-top transition-transform duration-300 group-hover:scale-[1.02]"
+                          sizes="(max-width: 768px) 100vw, 700px"
+                        />
+                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-200 flex items-center justify-center">
+                          <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-black/60 text-white text-xs font-medium px-3 py-1.5 rounded-full">
+                            Click to enlarge
+                          </span>
+                        </div>
+                      </button>
+                    </ScrollReveal>
+                  ))}
+                </div>
+              </>
+            )}
+          </div>
+        </section>
+      )}
+
+      {/* ── Lightbox ── */}
+      <AnimatePresence>
+        {lightboxSrc && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-[9999] bg-black/92 flex items-center justify-center p-4 sm:p-8"
+            onClick={closeLightbox}
+          >
+            <motion.div
+              initial={{ scale: 0.92, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.92, opacity: 0 }}
+              transition={{ duration: 0.22 }}
+              className="relative max-w-6xl w-full max-h-[90vh]"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={lightboxSrc}
+                alt="Proof of work enlarged"
+                className="w-full h-auto max-h-[85vh] object-contain rounded-xl"
+              />
+              <button
+                onClick={closeLightbox}
+                className="absolute -top-4 -right-4 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white flex items-center justify-center transition-colors duration-150"
+                aria-label="Close"
+              >
+                <svg viewBox="0 0 16 16" fill="none" className="w-4 h-4">
+                  <path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                </svg>
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* ── CTA — "You could be next" ── */}
       <section className="section-padding gradient-brand text-white relative overflow-hidden noise-overlay">
