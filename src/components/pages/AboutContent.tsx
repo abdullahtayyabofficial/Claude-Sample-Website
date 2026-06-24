@@ -165,12 +165,6 @@ export default function AboutContent() {
       {/* ── Achievements ── */}
       <section className="section-padding bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollReveal className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-heading font-bold gradient-brand-text">
-              Speaking & Teaching
-            </h2>
-          </ScrollReveal>
-
           <div className="space-y-20 lg:space-y-28">
             {/* #1 — LUMS CES: image left, text right */}
             <ScrollReveal>
@@ -261,6 +255,8 @@ export default function AboutContent() {
               { title: 'Advertising: Print, Outdoor & Digital', issuer: 'LUMS CES Program', img: '/images/about/certifications/cert-2.jpg' },
               { title: 'Fundamentals of Digital Marketing', issuer: 'Google Digital Garage', img: '/images/about/certifications/cert-3.jpg' },
               { title: 'Claude 101 Completion', issuer: 'Anthropic', img: '/images/about/certifications/cert-4.jpg' },
+              { title: 'Professional Communication Skills', issuer: 'LUMS CES', img: '/images/about/certifications/cert-5.jpg' },
+              { title: 'Google Soft Skills Program', issuer: 'Google Skillshop / PAFLA', img: '/images/about/certifications/cert-6.jpg' },
             ].map((cert, i) => (
               <ScrollReveal key={cert.title} delay={i * 0.06}>
                 <div className="bg-white rounded-2xl border border-[var(--color-border)] overflow-hidden card-shadow hover:card-shadow-hover transition-shadow duration-300 group">
