@@ -255,6 +255,14 @@ export const caseStudies: CaseStudy[] = [
       { label: 'Event Participants', value: '600', suffix: '+' },
       { label: 'Time to Full Capacity', value: '<60 days' },
     ],
+    proofImages: [
+      '/images/case-studies/cubicle-coworking/proof/proof-1.jpg',
+      '/images/case-studies/cubicle-coworking/proof/proof-2.jpg',
+      '/images/case-studies/cubicle-coworking/proof/proof-3.jpg',
+      '/images/case-studies/cubicle-coworking/proof/proof-4.jpg',
+      '/images/case-studies/cubicle-coworking/proof/proof-5.jpg',
+      '/images/case-studies/cubicle-coworking/proof/proof-6.jpg',
+    ],
   },
   {
     slug: 'wavebyte-ecommerce',
