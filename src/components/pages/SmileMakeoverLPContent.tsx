@@ -8,7 +8,7 @@ import Image from 'next/image'
 const BOOKING_URL = '#' // TODO: Replace with Calendly link before going live
 const EASE = [0.25, 0.4, 0.25, 1] as const
 const SUB_COPY =
-  'This is a no-pitch, but a 30-minute diagnostic call. If we are not a good fit, we will tell you.'
+  'This is a no-pitch, but a 45-minute diagnostic call. If we are not a good fit, we will tell you.'
 
 const LIGHT_GRADIENT =
   'linear-gradient(135deg, #f8f9fc 0%, #bde2f6 25%, #7ec8ee 55%, #cce9f8 80%, #f0f8ff 100%)'
@@ -52,7 +52,7 @@ function CTAButton({
     <a
       href={BOOKING_URL}
       className={`inline-block font-heading font-bold text-white rounded-xl bg-[#15a1df] hover:bg-[#0d8bbf] transition-all duration-300 shadow-lg hover:shadow-[0_0_36px_rgba(21,161,223,0.5)] hover:-translate-y-0.5 ${
-        size === 'lg' ? 'text-base px-9 py-4' : 'text-sm px-7 py-3.5'
+        size === 'lg' ? 'text-lg px-14 py-5' : 'text-base px-9 py-4'
       }`}
     >
       {label}
@@ -71,7 +71,7 @@ function GradientCTAButton({
     <a
       href={BOOKING_URL}
       className={`relative inline-block font-heading font-bold text-white rounded-xl overflow-hidden group shadow-lg hover:shadow-[0_8px_36px_rgba(21,161,223,0.45)] hover:-translate-y-0.5 transition-all duration-300 ${
-        size === 'lg' ? 'text-base px-9 py-4' : 'text-sm px-7 py-3.5'
+        size === 'lg' ? 'text-lg px-14 py-5' : 'text-base px-9 py-4'
       }`}
       style={{ background: 'linear-gradient(135deg, #010738 0%, #0d5f99 55%, #15a1df 100%)' }}
     >
@@ -98,8 +98,8 @@ function SectionCTA({
     <div className="flex flex-col items-center gap-4 mt-16 pt-2">
       {dark ? <CTAButton label={label} /> : <GradientCTAButton label={label} />}
       <p
-        className={`text-sm max-w-sm text-center leading-relaxed ${
-          dark ? 'text-white/45' : 'text-[#8890a8]'
+        className={`text-base max-w-sm text-center leading-relaxed ${
+          dark ? 'text-white/45' : 'text-[#0a0a14]'
         }`}
       >
         {sub ?? SUB_COPY}
@@ -282,18 +282,18 @@ const proofCaseStudies = [
   {
     image: '/images/case-studies/hardees-qsr/hero.jpeg',
     headline:
-      'PKR 31M+ Revenue. 18,000+ Online Purchases. 4x-16x ROAS. 7 Consecutive Months of Compounding Growth.',
+      'PKR 31M+ Revenue. 18,000+ Online Purchases. 4x-16x ROAS.',
     description:
-      'Built an always-on conversion system for a national QSR brand that had never run structured sales campaigns. Shifted from sporadic awareness bursts to a disciplined, daily revenue engine on Meta and Google. ROAS improved progressively across all 7 months, with the system compounding in performance every single month.',
+      'Built an always-on conversion system for a national QSR brand that had never run structured sales campaigns. Shifted from sporadic awareness bursts to a disciplined, daily revenue engine on Meta and Google.',
     client: 'QSR Brand (Hardee\'s)',
     industry: 'Food & Beverage / eCommerce',
   },
   {
     image: '/images/case-studies/commercial-real-estate-lead-gen/hero.jpg',
     headline:
-      '2,042 High-Profiled Leads. 3 Commercial Projects. Under 2.5 Months. PKR ~205 Average Cost Per Lead.',
+      '2000+ High-Profile Leads. 3 Commercial Projects. Under 2.5 Months. PKR ~205 Average Cost Per Lead.',
     description:
-      'Generated qualified investor leads from a complete cold start for a government-backed real estate authority launching high-ticket commercial projects priced from PKR 140M+. Zero pixel data, zero warm audiences. Built entirely on Meta through precision three-tier audience architecture specific to each project.',
+      'Generated high-profile leads from a complete cold start for a government-backed real estate authority launching high-ticket commercial projects priced from PKR 140M+. Zero pixel data, zero warm audiences. Built entirely on Meta through precision three-tier audience architecture specific to each project.',
     client: 'CBD Punjab',
     industry: 'Real Estate / Government Authority',
   },
@@ -324,12 +324,12 @@ function ProofSection() {
           </div>
         </FadeUp>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-6 items-stretch">
           {proofCaseStudies.map((cs, i) => (
-            <FadeUp key={i} delay={i * 0.1}>
-              <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 flex flex-col">
+            <FadeUp key={i} delay={i * 0.1} className="h-full">
+              <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 flex flex-col h-full">
                 {/* Screenshot / Hero image */}
-                <div className="relative aspect-video overflow-hidden">
+                <div className="relative aspect-video overflow-hidden shrink-0">
                   <Image
                     src={cs.image}
                     alt={cs.client}
@@ -340,10 +340,10 @@ function ProofSection() {
                 {/* Card body */}
                 <div className="p-7 flex flex-col flex-1">
                   <div className="text-[#f59e0b] text-xl tracking-wide mb-4">★★★★★</div>
-                  <h3 className="font-heading font-bold text-[#0a0a14] text-lg leading-snug mb-4 flex-1">
+                  <h3 className="font-heading font-bold text-[#0a0a14] text-lg leading-snug mb-4">
                     &quot;{cs.headline}&quot;
                   </h3>
-                  <p className="text-[#4a4f6a] text-sm leading-relaxed mb-6">
+                  <p className="font-body text-[#4a4f6a] text-sm leading-relaxed mb-6 flex-1">
                     {cs.description}
                   </p>
                   <div className="border-t border-[#e8eaf0] pt-5">
@@ -796,7 +796,7 @@ function QualifySection() {
             </h2>
             <p className="text-[#4a4f6a] text-lg max-w-2xl mx-auto leading-relaxed">
               We only work with a specific type of cosmetic clinic. Read both columns honestly -
-              then decide if this is worth a 30-minute conversation.
+              then decide if this is worth a 45-minute conversation.
             </p>
           </div>
         </FadeUp>
@@ -872,7 +872,7 @@ function QualifySection() {
           <div className="flex flex-col items-center gap-4">
             <GradientCTAButton label="Check If Your Clinic Is a Good Fit" />
             <p className="text-[#8890a8] text-sm text-center">
-              Takes 30 minutes. We will tell you honestly whether we can help - and if not, who can.
+              Takes 45 minutes. We will tell you honestly whether we can help - and if not, who can.
             </p>
           </div>
         </FadeUp>
@@ -1073,7 +1073,7 @@ const closingParas = [
   'You have the clinical results. You have the patient transformations. You have everything it takes to be the go-to cosmetic clinic in your area.',
   'What you are missing is a controlled, repeatable system that turns all of that into qualified smile makeover consultations - week after week, without depending on referrals, Instagram posts, or whoever happens to search for a dentist this month.',
   'That is exactly what the Case-Ready Smile Pipeline™ is built to do.',
-  'Book your free 30-minute strategy call. We will audit your current patient acquisition, show you exactly where cosmetic enquiries are dropping off, and walk you through what the pipeline would look like for your clinic specifically. No pitch deck. No hard sell. Just a focused diagnostic built around your situation.',
+  'Book your free 45-minute strategy call. We will audit your current patient acquisition, show you exactly where cosmetic enquiries are dropping off, and walk you through what the pipeline would look like for your clinic specifically. No pitch deck. No hard sell. Just a focused diagnostic built around your situation.',
 ]
 
 function FinalCTA() {
