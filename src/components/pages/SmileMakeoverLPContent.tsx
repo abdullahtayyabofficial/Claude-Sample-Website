@@ -99,7 +99,7 @@ function SectionCTA({
       {dark ? <CTAButton label={label} /> : <GradientCTAButton label={label} />}
       <p
         className={`text-base max-w-sm text-center leading-relaxed ${
-          dark ? 'text-white/45' : 'text-[#0a0a14]'
+          dark ? 'text-white/70' : 'text-[#0a0a14]'
         }`}
       >
         {sub ?? SUB_COPY}
@@ -230,7 +230,7 @@ function Hero() {
               'Patients arrive pre-educated, pre-qualified, and ready to discuss treatment',
               'Built exclusively for cosmetic clinics - not general dental practices',
             ].map((item) => (
-              <li key={item} className="flex items-start gap-3 text-white/80 text-base md:text-lg">
+              <li key={item} className="flex items-start gap-3 text-white/95 text-base md:text-lg">
                 <CheckIcon />
                 {item}
               </li>
@@ -266,7 +266,7 @@ function Hero() {
         <FadeUp delay={0.4}>
           <div className="flex flex-col items-center gap-5">
             <CTAButton />
-            <p className="text-white/65 text-base max-w-md leading-relaxed">
+            <p className="text-white/88 text-base max-w-md leading-relaxed">
               {SUB_COPY}
             </p>
           </div>
@@ -317,7 +317,7 @@ function ProofSection() {
             <h2 className="font-heading font-bold text-3xl md:text-4xl text-[#0a0a14] mb-5">
               Real Clients. Real Results.
             </h2>
-            <p className="text-[#4a4f6a] text-lg max-w-2xl mx-auto leading-relaxed">
+            <p className="text-[#2d3250] text-lg max-w-2xl mx-auto leading-relaxed">
               Not vanity metrics. Outcome-specific results tied to revenue driven, leads generated,
               and systems that compound month after month.
             </p>
@@ -343,12 +343,12 @@ function ProofSection() {
                   <h3 className="font-heading font-bold text-[#0a0a14] text-lg leading-snug mb-4">
                     &quot;{cs.headline}&quot;
                   </h3>
-                  <p className="font-body text-[#4a4f6a] text-sm leading-relaxed mb-6 flex-1">
+                  <p className="font-body text-[#2d3250] text-sm leading-relaxed mb-6 flex-1">
                     {cs.description}
                   </p>
                   <div className="border-t border-[#e8eaf0] pt-5">
                     <p className="font-heading font-bold text-[#0a0a14] text-sm">{cs.client}</p>
-                    <p className="text-[#8890a8] text-xs mt-0.5">{cs.industry}</p>
+                    <p className="text-[#5a6180] text-xs mt-0.5">{cs.industry}</p>
                   </div>
                 </div>
               </div>
@@ -411,7 +411,7 @@ function PainAgitation() {
     <section className="bg-[#f8f9fc] py-28 px-6 relative overflow-hidden">
       <div className="relative z-10 max-w-3xl mx-auto">
         <FadeUp>
-          <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-[48px] text-[#0a0a14] leading-tight mb-5 text-center">
+          <h2 className="font-heading font-bold text-2xl md:text-3xl text-[#0a0a14] leading-tight mb-5 text-center md:whitespace-nowrap">
             You Are Not a General Dental Practice.
           </h2>
           <p className="font-heading font-bold text-2xl md:text-3xl text-[#15a1df] leading-tight mb-14 text-center">
@@ -420,7 +420,7 @@ function PainAgitation() {
         </FadeUp>
 
         <FadeUp delay={0.08}>
-          <p className="text-[#4a4f6a] text-lg mb-10 leading-relaxed">
+          <p className="text-[#2d3250] text-lg mb-10 leading-relaxed">
             If you are a cosmetic-focused clinic, you have probably already tried most of the obvious
             things:
           </p>
@@ -435,7 +435,7 @@ function PainAgitation() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.45, delay: i * 0.07, ease: EASE }}
-              className={`flex items-start gap-4 text-[#4a4f6a] text-base md:text-lg px-8 py-5 ${
+              className={`flex items-start gap-4 text-[#2d3250] text-base md:text-lg px-8 py-5 ${
                 i < failedSolutions.length - 1 ? 'border-b border-[#e8eaf0]' : ''
               }`}
             >
@@ -447,7 +447,7 @@ function PainAgitation() {
 
         {/* Consequence copy */}
         <FadeUp>
-          <p className="text-[#8890a8] text-xs font-semibold uppercase tracking-[0.2em] mb-8">
+          <p className="text-[#5a6180] text-xs font-semibold uppercase tracking-[0.2em] mb-8">
             And the result?
           </p>
         </FadeUp>
@@ -458,7 +458,7 @@ function PainAgitation() {
                 className={`text-lg leading-relaxed ${
                   para.emphasis
                     ? 'text-[#0a0a14] font-semibold text-xl'
-                    : 'text-[#4a4f6a]'
+                    : 'text-[#2d3250]'
                 }`}
               >
                 {para.text}
@@ -473,7 +473,7 @@ function PainAgitation() {
             <p className="text-[#0a0a14] text-xl font-heading font-semibold mb-4">
               That is why we built the Case-Ready Smile Pipeline™.
             </p>
-            <p className="text-[#4a4f6a] text-lg leading-relaxed">
+            <p className="text-[#2d3250] text-lg leading-relaxed">
               We do not run generic dental ads. We build a complete patient acquisition system -
               from the first ad a prospective patient sees, to the moment they sit in your chair
               already understanding the value of the treatment you are recommending.
@@ -523,7 +523,7 @@ function HowItWorks() {
             <h2 className="font-heading font-bold text-3xl md:text-4xl text-[#0a0a14] mb-5">
               How It Works
             </h2>
-            <p className="text-[#4a4f6a] text-lg max-w-2xl mx-auto leading-relaxed">
+            <p className="text-[#2d3250] text-lg max-w-2xl mx-auto leading-relaxed">
               From your strategy call to a live pipeline - a done-for-you system built specifically
               for cosmetic dental case acquisition.
             </p>
@@ -554,7 +554,7 @@ function HowItWorks() {
                     <h3 className="font-heading font-bold text-xl md:text-2xl text-[#0a0a14] mb-3 leading-snug">
                       {step.title}
                     </h3>
-                    <p className="text-[#4a4f6a] leading-relaxed text-base md:text-lg">
+                    <p className="text-[#2d3250] leading-relaxed text-base md:text-lg">
                       {step.desc}
                     </p>
                   </div>
@@ -601,6 +601,24 @@ const reasons = [
   },
 ]
 
+const REASON_GRADIENTS = [
+  'linear-gradient(135deg, #010738 0%, #0d2b6b 100%)',
+  'linear-gradient(135deg, #0d3d7a 0%, #15a1df 100%)',
+  'linear-gradient(135deg, #010738 0%, #1a3a8f 100%)',
+  'linear-gradient(135deg, #0d5f99 0%, #4ab9e8 100%)',
+  'linear-gradient(135deg, #030e5c 0%, #0d5f99 100%)',
+  'linear-gradient(135deg, #0d2b6b 0%, #15a1df 100%)',
+]
+
+function ReasonIcon({ index }: { index: number }) {
+  if (index === 0) return <><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></>
+  if (index === 1) return <><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></>
+  if (index === 2) return <><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></>
+  if (index === 3) return <><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></>
+  if (index === 4) return <><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></>
+  return <><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></>
+}
+
 function WhyChooseUs() {
   return (
     <section className="bg-[#f8f9fc] py-28 px-6 relative overflow-hidden">
@@ -608,7 +626,9 @@ function WhyChooseUs() {
         <FadeUp>
           <div className="text-center mb-16">
             <h2 className="font-heading font-bold text-3xl md:text-4xl text-[#0a0a14] mb-5 leading-tight">
-              6 Reasons Why Cosmetic Clinics Choose the{' '}
+              6 Reasons Why Cosmetic Clinics Choose{' '}
+              <br className="hidden md:inline" />
+              the{' '}
               <span
                 style={{
                   background: 'linear-gradient(135deg, #010738 10%, #15a1df 100%)',
@@ -620,24 +640,42 @@ function WhyChooseUs() {
                 Case-Ready Smile Pipeline™
               </span>
             </h2>
-            <p className="text-[#4a4f6a] text-lg max-w-2xl mx-auto leading-relaxed">
+            <p className="text-[#2d3250] text-lg max-w-2xl mx-auto leading-relaxed">
               We do not chase volume. We attract patients who are financially serious, emotionally
               ready, and specifically interested in cosmetic treatment.
             </p>
           </div>
         </FadeUp>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid md:grid-cols-2 gap-6">
           {reasons.map((r, i) => (
-            <FadeUp key={i} delay={i * 0.06}>
-              <div className="group relative bg-white border border-[#e8eaf0] rounded-2xl p-8 h-full hover:border-[#15a1df]/40 hover:shadow-lg transition-all duration-300">
-                <div className="w-10 h-10 rounded-xl bg-[#15a1df]/[0.08] border border-[#15a1df]/20 flex items-center justify-center mb-6">
-                  <span className="text-[#15a1df] font-bold text-base">{i + 1}</span>
+            <FadeUp key={i} delay={i * 0.06} className="h-full">
+              <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 h-full flex flex-col">
+                <div
+                  className="relative flex items-center justify-center py-10"
+                  style={{ background: REASON_GRADIENTS[i] }}
+                >
+                  <svg
+                    className="w-14 h-14 text-white/70"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={1.5}
+                  >
+                    <ReasonIcon index={i} />
+                  </svg>
+                  <span className="absolute bottom-3 left-4 w-8 h-8 rounded-lg bg-white/15 flex items-center justify-center font-heading font-bold text-white text-sm">
+                    {i + 1}
+                  </span>
                 </div>
-                <h3 className="font-heading font-bold text-[#0a0a14] text-base md:text-lg mb-3 leading-snug">
-                  {r.title}
-                </h3>
-                <p className="text-[#4a4f6a] leading-relaxed text-sm">{r.desc}</p>
+                <div className="p-7 flex-1 flex flex-col">
+                  <div className="border-l-[3px] border-[#15a1df] pl-4 mb-4">
+                    <h3 className="font-heading font-bold text-[#0a0a14] text-lg leading-snug">
+                      {r.title}
+                    </h3>
+                  </div>
+                  <p className="font-body text-[#2d3250] text-sm leading-relaxed flex-1">{r.desc}</p>
+                </div>
               </div>
             </FadeUp>
           ))}
@@ -654,18 +692,33 @@ function WhyChooseUs() {
 // ─── Differentiation (LIGHT GRADIENT) ─────────────────────────────────────────
 
 const weDoForYou = [
-  'Build and manage your cosmetic-intent ad campaigns on Google and Meta',
-  'Create your pre-education landing page and qualification funnel',
-  'Install SMS, email, and booking follow-up sequences',
-  'Manage lead qualification so your team only speaks to serious patients',
-  'Report on real revenue metrics - not vanity numbers',
+  {
+    label: 'Full Pipeline, Built For You',
+    desc: 'Ads, landing pages, qualification funnels, SMS and email follow-up, and reporting. We build and manage the entire system. You focus on treating patients.',
+  },
+  {
+    label: 'Case-Ready Patients Only',
+    desc: 'Every lead is pre-qualified before reaching your team. Price shoppers and tyre-kickers are filtered before they ever book. Your calendar fills with serious buyers.',
+  },
+  {
+    label: 'Revenue-Stage Reporting',
+    desc: 'We track cost per qualified consultation, show rate, and case acceptance - not impressions or clicks. You always know whether the pipeline is paying for itself.',
+  },
 ]
 
 const weNeedFromYou = [
-  'A willingness to follow up on qualified leads quickly and professionally',
-  'A front desk or treatment coordinator who can handle a consultative conversation',
-  'Before-and-after cases and authentic social proof we can use in creative',
-  'Realistic expectations - pipeline building takes consistency, not overnight miracles',
+  {
+    label: 'You Close the Cases',
+    desc: 'Follow up on qualified leads quickly and run a consultative in-chair process. We deliver case-ready patients - you convert them into accepted treatment.',
+  },
+  {
+    label: 'Give Us Your Proof',
+    desc: 'Before-and-afters, patient reviews, and transformation photos. Real social proof is the foundation of creative that converts.',
+  },
+  {
+    label: 'Stay the Course',
+    desc: 'The first 30-45 days are setup and optimisation. Compounding results come from consistency - not from expecting overnight magic.',
+  },
 ]
 
 const diffParas = [
@@ -695,7 +748,7 @@ function Differentiation() {
                     ? 'text-[#15a1df] font-heading font-semibold text-xl'
                     : i === 1
                     ? 'text-[#0a0a14] text-lg font-medium'
-                    : 'text-[#4a4f6a] text-lg'
+                    : 'text-[#2d3250] text-lg'
                 }`}
               >
                 {para}
@@ -706,28 +759,53 @@ function Differentiation() {
 
         <FadeUp>
           <div className="grid md:grid-cols-2 gap-5">
-            <div className="rounded-2xl bg-[#010738] p-8">
-              <p className="font-heading font-bold text-xs uppercase tracking-[0.15em] text-[#15a1df] mb-6">
-                What We Do For You
-              </p>
-              <ul className="space-y-4">
+            <div className="rounded-2xl bg-[#010738] overflow-hidden">
+              <div
+                className="flex items-center gap-3 px-8 py-5 border-b border-white/10"
+                style={{ background: 'linear-gradient(90deg, #0d2b6b 0%, #010738 100%)' }}
+              >
+                <svg className="w-5 h-5 text-[#15a1df] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                </svg>
+                <p className="font-heading font-bold text-xs uppercase tracking-[0.15em] text-[#15a1df]">
+                  What We Do For You
+                </p>
+              </div>
+              <ul className="p-8 space-y-6">
                 {weDoForYou.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-white/70 text-sm leading-relaxed">
-                    <CheckIcon />
-                    {item}
+                  <li key={item.label}>
+                    <div className="flex items-center gap-2 mb-1.5">
+                      <CheckIcon />
+                      <span className="font-heading font-bold text-white text-sm">{item.label}</span>
+                    </div>
+                    <p className="font-body text-white/[0.78] text-sm leading-relaxed pl-7">{item.desc}</p>
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="rounded-2xl bg-white border border-[#e8eaf0] p-8">
-              <p className="font-heading font-bold text-xs uppercase tracking-[0.15em] text-[#4a4f6a] mb-6">
-                What We Need From You
-              </p>
-              <ul className="space-y-4">
+            <div className="rounded-2xl bg-white border border-[#e8eaf0] overflow-hidden">
+              <div
+                className="flex items-center gap-3 px-8 py-5 border-b border-[#e8eaf0]"
+                style={{ background: 'linear-gradient(90deg, #e8f4fc 0%, #f8f9fc 100%)' }}
+              >
+                <svg className="w-5 h-5 text-[#010738] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                  <circle cx="9" cy="7" r="4"/>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+                <p className="font-heading font-bold text-xs uppercase tracking-[0.15em] text-[#010738]">
+                  What We Need From You
+                </p>
+              </div>
+              <ul className="p-8 space-y-6">
                 {weNeedFromYou.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-[#4a4f6a] text-sm leading-relaxed">
-                    <CheckIcon color="#010738" />
-                    {item}
+                  <li key={item.label}>
+                    <div className="flex items-center gap-2 mb-1.5">
+                      <CheckIcon color="#010738" />
+                      <span className="font-heading font-bold text-[#0a0a14] text-sm">{item.label}</span>
+                    </div>
+                    <p className="font-body text-[#2d3250] text-sm leading-relaxed pl-7">{item.desc}</p>
                   </li>
                 ))}
               </ul>
@@ -794,7 +872,7 @@ function QualifySection() {
             <h2 className="font-heading font-bold text-3xl md:text-4xl text-[#0a0a14] mb-5 leading-tight">
               Is the Case-Ready Smile Pipeline™ Right For Your Clinic?
             </h2>
-            <p className="text-[#4a4f6a] text-lg max-w-2xl mx-auto leading-relaxed">
+            <p className="text-[#2d3250] text-lg max-w-2xl mx-auto leading-relaxed">
               We only work with a specific type of cosmetic clinic. Read both columns honestly -
               then decide if this is worth a 45-minute conversation.
             </p>
@@ -817,7 +895,7 @@ function QualifySection() {
               </div>
               <ul className="space-y-4">
                 {isFor.map((item, i) => (
-                  <li key={i} className="flex items-start gap-3 text-[#4a4f6a] text-sm leading-relaxed">
+                  <li key={i} className="flex items-start gap-3 text-[#2d3250] text-sm leading-relaxed">
                     <CheckIcon color="#10b981" />
                     {item}
                   </li>
@@ -837,7 +915,7 @@ function QualifySection() {
               </div>
               <ul className="space-y-4">
                 {isNotFor.map((item, i) => (
-                  <li key={i} className="flex items-start gap-3 text-[#4a4f6a] text-sm leading-relaxed">
+                  <li key={i} className="flex items-start gap-3 text-[#2d3250] text-sm leading-relaxed">
                     <XIcon />
                     {item}
                   </li>
@@ -862,7 +940,7 @@ function QualifySection() {
                   {a.num}
                 </span>
                 <h4 className="font-heading font-bold text-[#0a0a14] text-lg mb-3 pr-12">{a.title}</h4>
-                <p className="text-[#4a4f6a] text-sm leading-relaxed">{a.desc}</p>
+                <p className="text-[#2d3250] text-sm leading-relaxed">{a.desc}</p>
               </div>
             </FadeUp>
           ))}
@@ -871,7 +949,7 @@ function QualifySection() {
         <FadeUp>
           <div className="flex flex-col items-center gap-4">
             <GradientCTAButton label="Check If Your Clinic Is a Good Fit" />
-            <p className="text-[#8890a8] text-sm text-center">
+            <p className="text-[#5a6180] text-sm text-center">
               Takes 45 minutes. We will tell you honestly whether we can help - and if not, who can.
             </p>
           </div>
@@ -936,7 +1014,7 @@ function BrandMission() {
                     ? 'text-[#15a1df] font-heading font-semibold text-xl'
                     : para.style === 'bold'
                     ? 'text-[#0a0a14] text-xl font-semibold'
-                    : 'text-[#4a4f6a] text-lg'
+                    : 'text-[#2d3250] text-lg'
                 }`}
               >
                 {para.text}
@@ -1045,7 +1123,7 @@ function FAQSection() {
                       transition={{ duration: 0.3, ease: EASE }}
                       className="overflow-hidden"
                     >
-                      <p className="px-7 pb-7 text-[#4a4f6a] leading-relaxed text-base">
+                      <p className="px-7 pb-7 text-[#2d3250] leading-relaxed text-base">
                         {item.a}
                       </p>
                     </motion.div>
@@ -1105,7 +1183,7 @@ function FinalCTA() {
                 className={`text-lg leading-relaxed ${
                   i === 2
                     ? 'text-[#15a1df] font-heading font-semibold text-xl'
-                    : 'text-white/68'
+                    : 'text-white/90'
                 }`}
               >
                 {para}
@@ -1118,7 +1196,7 @@ function FinalCTA() {
         <FadeUp>
           <ul className="inline-flex flex-col gap-4 text-left mb-14">
             {closingBullets.map((b) => (
-              <li key={b} className="flex items-start gap-3 text-white/82 text-lg">
+              <li key={b} className="flex items-start gap-3 text-white/95 text-lg">
                 <CheckIcon />
                 {b}
               </li>
@@ -1129,7 +1207,7 @@ function FinalCTA() {
         <FadeUp>
           <div className="flex flex-col items-center gap-5">
             <CTAButton />
-            <p className="text-white/40 text-sm max-w-lg leading-relaxed">
+            <p className="text-white/65 text-sm max-w-lg leading-relaxed">
               {SUB_COPY}
             </p>
           </div>
