@@ -767,20 +767,13 @@ function Differentiation() {
               >
                 <div className="absolute -top-12 -right-12 w-40 h-40 rounded-full bg-white/[0.06] blur-2xl" />
                 <div className="absolute -bottom-10 -left-10 w-32 h-32 rounded-full bg-[#15a1df]/20 blur-2xl" />
-                <div className="relative flex items-center gap-3">
-                  <div className="w-11 h-11 rounded-xl bg-white/15 backdrop-blur-sm border border-white/20 flex items-center justify-center shrink-0">
-                    <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="font-heading font-bold text-[11px] uppercase tracking-[0.2em] text-white/70 mb-0.5">
-                      Our Side
-                    </p>
-                    <h3 className="font-heading font-bold text-white text-xl leading-tight">
-                      What We Do For You
-                    </h3>
-                  </div>
+                <div className="relative">
+                  <p className="font-heading font-bold text-[11px] uppercase tracking-[0.2em] text-white/70 mb-1.5">
+                    Our Side
+                  </p>
+                  <h3 className="font-heading font-bold text-white text-xl leading-tight">
+                    What We Do For You
+                  </h3>
                 </div>
               </div>
               <div className="p-8 pt-7 flex-1 flex flex-col">
@@ -814,26 +807,17 @@ function Differentiation() {
             <div className="group relative bg-white rounded-3xl overflow-hidden shadow-[0_4px_24px_rgba(1,7,56,0.08)] hover:shadow-[0_12px_40px_rgba(1,7,56,0.15)] transition-shadow duration-500 flex flex-col">
               <div
                 className="relative px-8 pt-8 pb-7 overflow-hidden"
-                style={{ background: 'linear-gradient(135deg, #f0f7fd 0%, #d4e9f9 60%, #b8dcf5 100%)' }}
+                style={{ background: 'linear-gradient(135deg, #047857 0%, #10b981 60%, #34d399 100%)' }}
               >
-                <div className="absolute -top-12 -right-12 w-40 h-40 rounded-full bg-white/40 blur-2xl" />
-                <div className="absolute -bottom-10 -left-10 w-32 h-32 rounded-full bg-[#15a1df]/15 blur-2xl" />
-                <div className="relative flex items-center gap-3">
-                  <div className="w-11 h-11 rounded-xl bg-white/70 backdrop-blur-sm border border-white flex items-center justify-center shrink-0 shadow-sm">
-                    <svg className="w-5 h-5 text-[#010738]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                      <circle cx="9" cy="7" r="4" />
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="font-heading font-bold text-[11px] uppercase tracking-[0.2em] text-[#0d3d7a]/70 mb-0.5">
-                      Your Side
-                    </p>
-                    <h3 className="font-heading font-bold text-[#010738] text-xl leading-tight">
-                      What We Need From You
-                    </h3>
-                  </div>
+                <div className="absolute -top-12 -right-12 w-40 h-40 rounded-full bg-white/[0.08] blur-2xl" />
+                <div className="absolute -bottom-10 -left-10 w-32 h-32 rounded-full bg-[#10b981]/30 blur-2xl" />
+                <div className="relative">
+                  <p className="font-heading font-bold text-[11px] uppercase tracking-[0.2em] text-white/75 mb-1.5">
+                    Your Side
+                  </p>
+                  <h3 className="font-heading font-bold text-white text-xl leading-tight">
+                    What We Need From You
+                  </h3>
                 </div>
               </div>
               <div className="p-8 pt-7 flex-1 flex flex-col">
@@ -844,7 +828,8 @@ function Differentiation() {
                       className={`flex gap-4 ${idx < weNeedFromYou.length - 1 ? 'pb-5 border-b border-[#eef0f6]' : ''}`}
                     >
                       <div
-                        className="shrink-0 w-9 h-9 rounded-lg flex items-center justify-center font-heading font-bold text-[#010738] text-sm border border-[#15a1df]/30 bg-[#f0f7fd]"
+                        className="shrink-0 w-9 h-9 rounded-lg flex items-center justify-center font-heading font-bold text-white text-sm shadow-[0_4px_12px_rgba(16,185,129,0.35)]"
+                        style={{ background: 'linear-gradient(135deg, #047857 0%, #10b981 100%)' }}
                       >
                         {String(idx + 1).padStart(2, '0')}
                       </div>
