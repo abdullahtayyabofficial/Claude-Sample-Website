@@ -767,11 +767,8 @@ function Differentiation() {
               >
                 <div className="absolute -top-12 -right-12 w-40 h-40 rounded-full bg-white/[0.06] blur-2xl" />
                 <div className="absolute -bottom-10 -left-10 w-32 h-32 rounded-full bg-[#15a1df]/20 blur-2xl" />
-                <div className="relative">
-                  <p className="font-heading font-bold text-[11px] uppercase tracking-[0.2em] text-white/70 mb-1.5">
-                    Our Side
-                  </p>
-                  <h3 className="font-heading font-bold text-white text-xl leading-tight">
+                <div className="relative text-center">
+                  <h3 className="font-heading font-bold text-white text-2xl md:text-[26px] leading-tight">
                     What We Do For You
                   </h3>
                 </div>
@@ -811,11 +808,8 @@ function Differentiation() {
               >
                 <div className="absolute -top-12 -right-12 w-40 h-40 rounded-full bg-white/[0.08] blur-2xl" />
                 <div className="absolute -bottom-10 -left-10 w-32 h-32 rounded-full bg-[#10b981]/30 blur-2xl" />
-                <div className="relative">
-                  <p className="font-heading font-bold text-[11px] uppercase tracking-[0.2em] text-white/75 mb-1.5">
-                    Your Side
-                  </p>
-                  <h3 className="font-heading font-bold text-white text-xl leading-tight">
+                <div className="relative text-center">
+                  <h3 className="font-heading font-bold text-white text-2xl md:text-[26px] leading-tight">
                     What We Need From You
                   </h3>
                 </div>
