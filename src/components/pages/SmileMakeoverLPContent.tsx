@@ -411,10 +411,10 @@ function PainAgitation() {
     <section className="bg-[#f8f9fc] py-28 px-6 relative overflow-hidden">
       <div className="relative z-10 max-w-3xl mx-auto">
         <FadeUp>
-          <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-[48px] text-[#0a0a14] leading-tight mb-5">
+          <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-[48px] text-[#0a0a14] leading-tight mb-5 text-center">
             You Are Not a General Dental Practice.
           </h2>
-          <p className="font-heading font-bold text-2xl md:text-3xl text-[#15a1df] leading-tight mb-14">
+          <p className="font-heading font-bold text-2xl md:text-3xl text-[#15a1df] leading-tight mb-14 text-center">
             So Why Is Your Calendar Filled With the Wrong Patients?
           </p>
         </FadeUp>
@@ -681,7 +681,7 @@ function Differentiation() {
     <section className="py-28 px-6" style={{ background: LIGHT_GRADIENT }}>
       <div className="max-w-4xl mx-auto">
         <FadeUp>
-          <h2 className="font-heading font-bold text-3xl md:text-4xl text-[#0a0a14] mb-12 leading-tight">
+          <h2 className="font-heading font-bold text-3xl md:text-4xl text-[#0a0a14] mb-12 leading-tight text-center">
             How Is This Different To Other Agencies?
           </h2>
         </FadeUp>
@@ -912,7 +912,7 @@ function BrandMission() {
     <section className="bg-[#f8f9fc] py-28 px-6 relative overflow-hidden">
       <div className="relative z-10 max-w-3xl mx-auto">
         <FadeUp>
-          <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-[46px] text-[#0a0a14] leading-tight mb-16">
+          <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-[46px] text-[#0a0a14] leading-tight mb-16 text-center">
             We Exist For One Reason.{' '}
             <span
               style={{
@@ -945,7 +945,7 @@ function BrandMission() {
           ))}
 
           <FadeUp delay={0.3}>
-            <p className="font-heading font-bold text-2xl md:text-3xl text-[#0a0a14] pt-6 leading-tight">
+            <p className="font-heading font-bold text-2xl md:text-3xl text-[#0a0a14] pt-6 leading-tight text-center">
               We handle the pipeline.{' '}
               <span
                 style={{
