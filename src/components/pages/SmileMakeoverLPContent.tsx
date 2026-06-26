@@ -758,57 +758,108 @@ function Differentiation() {
         </div>
 
         <FadeUp>
-          <div className="grid md:grid-cols-2 gap-5">
-            <div className="rounded-2xl bg-[#010738] overflow-hidden">
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* WHAT WE DO FOR YOU */}
+            <div className="group relative bg-white rounded-3xl overflow-hidden shadow-[0_4px_24px_rgba(1,7,56,0.08)] hover:shadow-[0_12px_40px_rgba(1,7,56,0.15)] transition-shadow duration-500 flex flex-col">
               <div
-                className="flex items-center gap-3 px-8 py-5 border-b border-white/10"
-                style={{ background: 'linear-gradient(90deg, #0d2b6b 0%, #010738 100%)' }}
+                className="relative px-8 pt-8 pb-7 overflow-hidden"
+                style={{ background: 'linear-gradient(135deg, #010738 0%, #0d3d7a 60%, #15a1df 100%)' }}
               >
-                <svg className="w-5 h-5 text-[#15a1df] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
-                </svg>
-                <p className="font-heading font-bold text-xs uppercase tracking-[0.15em] text-[#15a1df]">
-                  What We Do For You
-                </p>
+                <div className="absolute -top-12 -right-12 w-40 h-40 rounded-full bg-white/[0.06] blur-2xl" />
+                <div className="absolute -bottom-10 -left-10 w-32 h-32 rounded-full bg-[#15a1df]/20 blur-2xl" />
+                <div className="relative flex items-center gap-3">
+                  <div className="w-11 h-11 rounded-xl bg-white/15 backdrop-blur-sm border border-white/20 flex items-center justify-center shrink-0">
+                    <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="font-heading font-bold text-[11px] uppercase tracking-[0.2em] text-white/70 mb-0.5">
+                      Our Side
+                    </p>
+                    <h3 className="font-heading font-bold text-white text-xl leading-tight">
+                      What We Do For You
+                    </h3>
+                  </div>
+                </div>
               </div>
-              <ul className="p-8 space-y-6">
-                {weDoForYou.map((item) => (
-                  <li key={item.label}>
-                    <div className="flex items-center gap-2 mb-1.5">
-                      <CheckIcon />
-                      <span className="font-heading font-bold text-white text-sm">{item.label}</span>
-                    </div>
-                    <p className="font-body text-white/[0.78] text-sm leading-relaxed pl-7">{item.desc}</p>
-                  </li>
-                ))}
-              </ul>
+              <div className="p-8 pt-7 flex-1 flex flex-col">
+                <ul className="space-y-5 flex-1">
+                  {weDoForYou.map((item, idx) => (
+                    <li
+                      key={item.label}
+                      className={`flex gap-4 ${idx < weDoForYou.length - 1 ? 'pb-5 border-b border-[#eef0f6]' : ''}`}
+                    >
+                      <div
+                        className="shrink-0 w-9 h-9 rounded-lg flex items-center justify-center font-heading font-bold text-white text-sm shadow-[0_4px_12px_rgba(21,161,223,0.35)]"
+                        style={{ background: 'linear-gradient(135deg, #010738 0%, #15a1df 100%)' }}
+                      >
+                        {String(idx + 1).padStart(2, '0')}
+                      </div>
+                      <div className="flex-1 pt-0.5">
+                        <h4 className="font-heading font-bold text-[#0a0a14] text-[15px] mb-1.5 leading-snug">
+                          {item.label}
+                        </h4>
+                        <p className="font-body text-[#2d3250] text-[14px] leading-relaxed">
+                          {item.desc}
+                        </p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-            <div className="rounded-2xl bg-white border border-[#e8eaf0] overflow-hidden">
+
+            {/* WHAT WE NEED FROM YOU */}
+            <div className="group relative bg-white rounded-3xl overflow-hidden shadow-[0_4px_24px_rgba(1,7,56,0.08)] hover:shadow-[0_12px_40px_rgba(1,7,56,0.15)] transition-shadow duration-500 flex flex-col">
               <div
-                className="flex items-center gap-3 px-8 py-5 border-b border-[#e8eaf0]"
-                style={{ background: 'linear-gradient(90deg, #e8f4fc 0%, #f8f9fc 100%)' }}
+                className="relative px-8 pt-8 pb-7 overflow-hidden"
+                style={{ background: 'linear-gradient(135deg, #f0f7fd 0%, #d4e9f9 60%, #b8dcf5 100%)' }}
               >
-                <svg className="w-5 h-5 text-[#010738] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                  <circle cx="9" cy="7" r="4"/>
-                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                </svg>
-                <p className="font-heading font-bold text-xs uppercase tracking-[0.15em] text-[#010738]">
-                  What We Need From You
-                </p>
+                <div className="absolute -top-12 -right-12 w-40 h-40 rounded-full bg-white/40 blur-2xl" />
+                <div className="absolute -bottom-10 -left-10 w-32 h-32 rounded-full bg-[#15a1df]/15 blur-2xl" />
+                <div className="relative flex items-center gap-3">
+                  <div className="w-11 h-11 rounded-xl bg-white/70 backdrop-blur-sm border border-white flex items-center justify-center shrink-0 shadow-sm">
+                    <svg className="w-5 h-5 text-[#010738]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                      <circle cx="9" cy="7" r="4" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="font-heading font-bold text-[11px] uppercase tracking-[0.2em] text-[#0d3d7a]/70 mb-0.5">
+                      Your Side
+                    </p>
+                    <h3 className="font-heading font-bold text-[#010738] text-xl leading-tight">
+                      What We Need From You
+                    </h3>
+                  </div>
+                </div>
               </div>
-              <ul className="p-8 space-y-6">
-                {weNeedFromYou.map((item) => (
-                  <li key={item.label}>
-                    <div className="flex items-center gap-2 mb-1.5">
-                      <CheckIcon color="#010738" />
-                      <span className="font-heading font-bold text-[#0a0a14] text-sm">{item.label}</span>
-                    </div>
-                    <p className="font-body text-[#2d3250] text-sm leading-relaxed pl-7">{item.desc}</p>
-                  </li>
-                ))}
-              </ul>
+              <div className="p-8 pt-7 flex-1 flex flex-col">
+                <ul className="space-y-5 flex-1">
+                  {weNeedFromYou.map((item, idx) => (
+                    <li
+                      key={item.label}
+                      className={`flex gap-4 ${idx < weNeedFromYou.length - 1 ? 'pb-5 border-b border-[#eef0f6]' : ''}`}
+                    >
+                      <div
+                        className="shrink-0 w-9 h-9 rounded-lg flex items-center justify-center font-heading font-bold text-[#010738] text-sm border border-[#15a1df]/30 bg-[#f0f7fd]"
+                      >
+                        {String(idx + 1).padStart(2, '0')}
+                      </div>
+                      <div className="flex-1 pt-0.5">
+                        <h4 className="font-heading font-bold text-[#0a0a14] text-[15px] mb-1.5 leading-snug">
+                          {item.label}
+                        </h4>
+                        <p className="font-body text-[#2d3250] text-[14px] leading-relaxed">
+                          {item.desc}
+                        </p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </FadeUp>
