@@ -210,7 +210,7 @@ function Hero() {
             We Install Your{' '}
             <span
               style={{
-                background: 'linear-gradient(135deg, #ffffff 10%, #15a1df 100%)',
+                background: 'linear-gradient(90deg, #a8dcf5 0%, #15a1df 55%, #0c75a8 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
@@ -218,7 +218,7 @@ function Hero() {
             >
               Case-Ready Smile Pipeline™
             </span>{' '}
-            To Fill Your Calendar With Qualified Smile Makeover Consultations
+            To Help You Fill Your Calendar With Qualified Smile Makeover Consultations
           </h1>
         </FadeUp>
 
