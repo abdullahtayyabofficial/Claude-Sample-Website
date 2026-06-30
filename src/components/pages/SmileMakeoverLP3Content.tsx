@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
-import { Radio_Canada, Lexend_Mega, Mrs_Saint_Delafield } from 'next/font/google'
+import { Radio_Canada, Lexend_Mega } from 'next/font/google'
 import Link from 'next/link'
 import Image from 'next/image'
 
@@ -18,13 +18,6 @@ const lexendMega = Lexend_Mega({
   weight: ['400', '500', '600', '700'],
   display: 'swap',
   variable: '--font-lexend-mega',
-})
-
-const mrsDelafield = Mrs_Saint_Delafield({
-  subsets: ['latin'],
-  weight: ['400'],
-  display: 'swap',
-  variable: '--font-mrs-delafield',
 })
 
 const LP3_FONT_OVERRIDE_CSS = `
@@ -53,11 +46,6 @@ const LP3_FONT_OVERRIDE_CSS = `
 .lp3-fonts .lp3-display {
   font-family: var(--font-lexend-mega), 'Lexend Mega', 'Arial Narrow', Arial, sans-serif !important;
   letter-spacing: 0.02em;
-}
-.lp3-fonts .lp3-signature {
-  font-family: var(--font-mrs-delafield), 'Mrs Saint Delafield', 'Brush Script MT', cursive !important;
-  letter-spacing: 0.005em;
-  font-weight: 400;
 }
 `
 
@@ -1224,17 +1212,6 @@ function BrandMission() {
               </span>
             </p>
           </FadeUp>
-
-          <FadeUp delay={0.4}>
-            <div className="text-center pt-10">
-              <p className="lp3-signature text-[#15a1df] text-5xl md:text-6xl leading-none">
-                Abdullah Tayyab
-              </p>
-              <p className="lp3-display text-[#5a6180] text-[11px] uppercase tracking-[0.25em] mt-3">
-                Performance Marketer + Founder
-              </p>
-            </div>
-          </FadeUp>
         </div>
 
         <FadeUp>
@@ -1440,7 +1417,7 @@ export default function SmileMakeoverLP3Content() {
     <>
       <style dangerouslySetInnerHTML={{ __html: LP3_FONT_OVERRIDE_CSS }} />
       <div
-        className={`${radioCanada.variable} ${lexendMega.variable} ${mrsDelafield.variable} lp3-fonts font-body`}
+        className={`${radioCanada.variable} ${lexendMega.variable} lp3-fonts font-body`}
       >
         <StickyNav />
         <Hero />
