@@ -62,7 +62,7 @@ const SUB_COPY_FINAL =
   'Free. 30 minutes. No pitch. If this is the right fit for your clinic, we will show you exactly what we would build for you.'
 
 const LIGHT_GRADIENT =
-  'linear-gradient(135deg, #f8f9fc 0%, #bde2f6 25%, #7ec8ee 55%, #cce9f8 80%, #f0f8ff 100%)'
+  'radial-gradient(ellipse at center, #f5fafd 0%, #e4f1fa 35%, #c2e1f4 70%, #88cdef 100%)'
 const DARK_GRADIENT =
   'linear-gradient(135deg, #000000 0%, #010738 30%, #0d2b6b 58%, #010b3a 80%, #000000 100%)'
 
@@ -347,7 +347,7 @@ function ProofSection() {
         <FadeUp>
           <div className="text-center mb-16">
             <h2 className="font-heading font-bold text-3xl md:text-4xl text-[#0a0a14] mb-5">
-              Real Clients. Real Numbers.
+              Documented Performance Across Industries
             </h2>
             <p className="text-[#2d3250] text-lg max-w-2xl mx-auto leading-relaxed">
               Outcome-specific results from real clients - tied to revenue driven, leads generated,
