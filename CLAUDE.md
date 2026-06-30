@@ -209,13 +209,13 @@ CTA: "Book a Call" → `/#contact` (scrolls to ContactCTA section on home page)
 
 ---
 
-## Niche Landing Pages
+## Niche Landing Pages (Existing)
 
-Standalone niche landing pages (route NOT inside `(site)/`, no shared Navbar/Footer, `robots: { index: false, follow: false }`) follow a separate playbook with prebaked design decisions.
+Standalone niche landing pages live at the root of `src/app/` (NOT inside the `(site)/` route group) so they render without the main site Navbar/Footer. Each LP has its own `robots: { index: false, follow: false }` metadata so it stays unlisted.
 
-**See: `LP-PLAYBOOK.md`** at the project root.
-
-The playbook captures every design decision, copy rule, section template, and "what not to do" lesson from the Case-Ready Smile Pipeline™ LP at `/smilemakeover-lp`. When the user asks to build a new niche LP, follow `LP-PLAYBOOK.md` verbatim - it is calibrated to land at the right design on the first build instead of iterating from scratch.
-
-Reference implementation: `src/components/pages/SmileMakeoverLPContent.tsx`
-Reference route: `/smilemakeover-lp`
+**Existing LPs:**
+- `/smilemakeover-lp` - Case-Ready Smile Pipeline™ for cosmetic dental clinics
+  - Server wrapper: `src/app/smilemakeover-lp/page.tsx`
+  - Client component: `src/components/pages/SmileMakeoverLPContent.tsx`
+  - Pattern: dark hero → light/marble alternating middle → dark final CTA → footer
+  - Booking URL is a `BOOKING_URL = '#'` constant - swap with real Calendly link before launch

@@ -1,9 +1,8 @@
 # Project Handoff - Abdullah Tayyab Portfolio
 ### Session 4 Complete - Updated June 2026
 
-> **Building a new niche landing page?** Read `LP-PLAYBOOK.md` first - it bakes
-> in every design decision from the Case-Ready Smile Pipeline™ LP so the next
-> LP lands at "finished" on the first build.
+> Feed this file + `CLAUDE.md` to a new Claude session to resume exactly where this session stopped.
+> Both files live in the project root.
 
 > Feed this file + `CLAUDE.md` to a new Claude session to resume exactly where this session stopped.
 > Both files live in the project root.
@@ -64,7 +63,7 @@ A premium personal portfolio website for **Abdullah Tayyab**, a performance mark
 | `/api/contact` | ✅ Built — Resend integration not yet tested end-to-end |
 | `/sitemap.xml` | ✅ |
 | `/robots.txt` | ✅ |
-| `/smilemakeover-lp` | ✅ Standalone niche LP - Case-Ready Smile Pipeline™ (cosmetic dental clinics). Not in navbar. `robots: noindex,nofollow`. See `LP-PLAYBOOK.md` for the full pattern. |
+| `/smilemakeover-lp` | ✅ Standalone niche LP - Case-Ready Smile Pipeline™ (cosmetic dental clinics). Not in navbar. `robots: noindex,nofollow`. Server wrapper + `SmileMakeoverLPContent.tsx`. |
 
 ---
 
@@ -139,16 +138,11 @@ public/images/case-studies/
 - Real case studies used: Hardee's, CBD Punjab, Cubicle Co-Working. No outbound links from LP.
 - Booking URL is a `BOOKING_URL = '#'` constant - replace with Calendly link before launch.
 
-### Permanent Rules Codified
-- **No em dashes anywhere**, ever. All `—` replaced with `-` across the file.
+### Permanent Rules Codified (in `CLAUDE.md` under "PERMANENT GLOBAL RULES")
+- **No em dashes anywhere**, ever. All `—` replaced with `-`.
 - **45-minute call** (not 30) in all CTA / FAQ copy.
-- Both rules now live in `CLAUDE.md` under "PERMANENT GLOBAL RULES".
-
-### LP Playbook
-- New file at project root: `LP-PLAYBOOK.md`.
-- Contains every design decision, copy rule, section template, and "what not to do" lesson from the ~12 rounds of iteration on the smile makeover LP.
-- Used as the master prompt for building any future niche LP.
-- `CLAUDE.md` references it under "Niche Landing Pages".
+- All development on `claude/portfolio-website-dev-4YbiL`.
+- No emojis in committed code.
 
 ---
 
