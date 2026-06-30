@@ -2,20 +2,33 @@
 
 import { useState, useEffect, useRef } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
+import { Playfair_Display, Lato } from 'next/font/google'
 import Link from 'next/link'
 import Image from 'next/image'
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800'],
+  display: 'swap',
+})
+
+const lato = Lato({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  display: 'swap',
+})
 
 const BOOKING_URL = '#' // TODO: Replace with Calendly link before going live
 const EASE = [0.25, 0.4, 0.25, 1] as const
 
 const SUB_COPY_HERO =
-  'A free, no-pitch 30-minute call. We will map your current patient flow against where it is leaking revenue, and show you exactly what the Case Study Smile Pipeline would look like installed in your clinic.'
+  'A free, no-pitch 30-minute call. We will map your current patient flow against where it is leaking revenue, and show you exactly what the Case-Ready Smile Pipeline would look like installed in your clinic.'
 const SUB_COPY_GENERIC =
   'Free. No pitch. 30 minutes. We will show you exactly where your funnel is leaking.'
 const SUB_COPY_FIT =
   '30 minutes. Free. We will tell you honestly whether this is right for you - and if it is not, what would be.'
 const SUB_COPY_FINAL =
-  'Free. 30 minutes. No pitch. We take on a limited number of clinics at a time and one per geographic market. If your area is available and this is the right fit, we will show you exactly what we would build.'
+  'Free. 30 minutes. No pitch. If this is the right fit for your clinic, we will show you exactly what we would build for you.'
 
 const LIGHT_GRADIENT =
   'linear-gradient(135deg, #f8f9fc 0%, #bde2f6 25%, #7ec8ee 55%, #cce9f8 80%, #f0f8ff 100%)'
@@ -130,20 +143,6 @@ function CheckIcon({ color = '#15a1df' }: { color?: string }) {
   )
 }
 
-function XIcon() {
-  return (
-    <svg
-      className="w-5 h-5 mt-0.5 shrink-0 text-red-400"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-      strokeWidth={2.5}
-    >
-      <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-    </svg>
-  )
-}
-
 // Sticky Nav
 
 function StickyNav() {
@@ -210,7 +209,7 @@ function Hero() {
         </FadeUp>
 
         <FadeUp delay={0.1}>
-          <h1 className="font-heading font-bold text-3xl sm:text-4xl md:text-[46px] lg:text-[52px] text-white leading-[1.1] tracking-tight mb-8">
+          <h1 className="font-heading font-bold text-3xl sm:text-4xl md:text-[42px] lg:text-[48px] text-white leading-[1.15] tracking-tight mb-10">
             We Install Your{' '}
             <span
               style={{
@@ -220,25 +219,19 @@ function Hero() {
                 backgroundClip: 'text',
               }}
             >
-              Case Study Smile Pipeline™
+              Case-Ready Smile Pipeline
             </span>{' '}
-            To Fill Your Calendar With Qualified Smile Makeover Consultations
+            To Generate Qualified Smile Makeover Consultations For Your Calendar
           </h1>
         </FadeUp>
 
-        <FadeUp delay={0.15}>
-          <p className="text-white/85 text-base md:text-lg max-w-2xl mx-auto leading-relaxed mb-10">
-            Ads. A pre-sell landing page. A qualification flow. Follow-up automation that actually
-            follows up. One connected system - not four separate vendors hoping it works out.
-          </p>
-        </FadeUp>
-
         <FadeUp delay={0.2}>
-          <ul className="inline-flex flex-col gap-3 text-left mb-12">
+          <ul className="inline-flex flex-col gap-4 text-left mb-12 max-w-2xl">
             {[
-              'Built around cosmetic patient intent - veneers, Invisalign, bonding, whitening, full transformations',
-              'A landing page that pre-sells and qualifies before the patient ever calls you',
-              'Follow-up automation running in the background - because 80% of leads are lost to bad nurture, not bad ads',
+              'Ads built around real cosmetic patient intent - veneers, Invisalign, bonding, whitening, full transformations',
+              'A pre-sell landing page that educates and qualifies before the patient ever picks up the phone',
+              'A qualification flow that filters out tyre-kickers before they reach your front desk',
+              'Follow-up automations running in the background - because most leads are lost to bad nurture, not bad ads',
             ].map((item) => (
               <li key={item} className="flex items-start gap-3 text-white/95 text-base md:text-lg">
                 <CheckIcon />
@@ -326,8 +319,8 @@ function ProofSection() {
               Real Clients. Real Numbers.
             </h2>
             <p className="text-[#2d3250] text-lg max-w-2xl mx-auto leading-relaxed">
-              The name is Case Study Smile Pipeline for a reason. Outcome-specific results tied to
-              revenue driven, leads generated, and systems that compound month after month.
+              Outcome-specific results from real clients - tied to revenue driven, leads generated,
+              and systems that compound month after month. Not vanity metrics.
             </p>
           </div>
         </FadeUp>
@@ -504,7 +497,7 @@ function PainAgitation() {
         <FadeUp>
           <div className="border-l-[3px] border-[#15a1df] pl-8 mb-16">
             <p className="text-[#0a0a14] text-xl font-heading font-semibold mb-4">
-              That is exactly the gap the Case Study Smile Pipeline closes.
+              That is exactly the gap the Case-Ready Smile Pipeline closes.
             </p>
             <p className="text-[#2d3250] text-lg leading-relaxed">
               Not more ad spend. Not more leads. A system that converts the leads you are already
@@ -531,7 +524,7 @@ const steps = [
   },
   {
     title: 'Step 2: Offer + Landing Page - Making Them Convert',
-    desc: 'We build a dedicated smile makeover landing page - your digital appointment setter. Its only job: educate, pre-qualify, and book the consultation. Take a landing page from 1% to 5% conversion on the same ad spend, and your return goes from 1x to 5x. Same clicks. Same cost. Five times the revenue. Most clinics never touch this number because they never built a page designed to move it.',
+    desc: 'We build a dedicated smile makeover landing page - your digital appointment setter. Its only job: educate, pre-qualify, and book the consultation. Lifting landing page conversion on the same ad spend is one of the highest-leverage moves in the entire system - same clicks, same cost, dramatically better output. Most clinics never touch this number because they never built a page designed to move it.',
   },
   {
     title: 'Step 3: Qualification - Filtering Before They Reach You',
@@ -554,7 +547,7 @@ function HowItWorks() {
         <FadeUp>
           <div className="text-center mb-20">
             <h2 className="font-heading font-bold text-3xl md:text-4xl text-[#0a0a14] mb-5">
-              How The Case Study Smile Pipeline Works
+              How The Case-Ready Smile Pipeline Works
             </h2>
             <p className="text-[#2d3250] text-lg max-w-2xl mx-auto leading-relaxed">
               Five connected stages. Each one feeds the next. Miss one and the whole system
@@ -609,7 +602,7 @@ const reasons = [
   },
   {
     title: 'Conversion Math, Not Click Counts',
-    desc: 'Cost per lead is a vanity metric. We report on cost per qualified lead, cost per booked consultation, show rate, case acceptance, and revenue per case. You will always know whether the pipeline is paying for itself - because that is the only number that matters.',
+    desc: 'Cost per lead is a vanity metric. We report on cost per qualified lead and cost per booked consultation - so you always know what each appointment on your calendar actually cost to acquire. Real numbers, not impressions and clicks.',
   },
   {
     title: 'Leads Treated As Assets, Not Failures',
@@ -647,7 +640,7 @@ function WhyChooseUs() {
                   backgroundClip: 'text',
                 }}
               >
-                Case Study Smile Pipeline™
+                Case-Ready Smile Pipeline™
               </span>
             </h2>
             <p className="text-[#2d3250] text-lg max-w-2xl mx-auto leading-relaxed">
@@ -729,30 +722,30 @@ const diffParas = [
   'Most marketing - dental or otherwise - fails for one of two reasons.',
   'The first is obsessing over ads while ignoring everything that happens after the click. You can have the best-performing ad in the world, and if it sends traffic to a page that does not convert, you have built an expensive way to lose money slowly.',
   'The second is skipping research entirely. Going straight to "let us run some ads" without understanding who you are actually talking to, what they have already tried, or what conversation is already happening in their head before they ever see your ad.',
-  'The Case Study Smile Pipeline exists because we treat marketing as a loop, not a one-time campaign. Research informs strategy. Strategy drives execution. Execution gets analysed. What we learn gets used to adjust and go again.',
-  'Get the right offer, to the right person, at the right time. That is the whole game.',
+  'The Case-Ready Smile Pipeline exists because we treat marketing as a loop, not a one-time campaign. Research informs strategy. Strategy drives execution. Execution gets analysed. What we learn gets used to adjust and go again.',
 ]
+
+const diffClosingLine =
+  'Get the right offer, to the right person, at the right time. That is the whole game.'
 
 function Differentiation() {
   return (
     <section className="py-28 px-6" style={{ background: LIGHT_GRADIENT }}>
       <div className="max-w-4xl mx-auto">
         <FadeUp>
-          <h2 className="font-heading font-bold text-3xl md:text-4xl text-[#0a0a14] mb-12 leading-tight text-center">
-            Why This Works When Generic Dental Marketing Does Not
+          <h2 className="font-heading font-bold text-3xl md:text-4xl text-[#0a0a14] mb-12 leading-tight text-center max-w-3xl mx-auto">
+            Why This Works When Generic
+            <br className="hidden md:inline" />{' '}
+            Dental Marketing Does Not
           </h2>
         </FadeUp>
 
-        <div className="space-y-7 mb-16">
+        <div className="space-y-7 mb-12">
           {diffParas.map((para, i) => (
             <FadeUp key={i} delay={i * 0.05}>
               <p
                 className={`leading-relaxed ${
-                  i === 4
-                    ? 'text-[#15a1df] font-heading font-semibold text-xl'
-                    : i === 0
-                    ? 'text-[#0a0a14] text-lg font-medium'
-                    : 'text-[#2d3250] text-lg'
+                  i === 0 ? 'text-[#0a0a14] text-lg font-medium' : 'text-[#2d3250] text-lg'
                 }`}
               >
                 {para}
@@ -760,6 +753,15 @@ function Differentiation() {
             </FadeUp>
           ))}
         </div>
+
+        <FadeUp>
+          <div className="relative rounded-2xl bg-white border border-[#15a1df]/25 shadow-[0_8px_32px_rgba(21,161,223,0.18)] mb-16 px-8 py-7 md:px-10 md:py-8 overflow-hidden">
+            <div className="absolute inset-y-0 left-0 w-[5px] bg-gradient-to-b from-[#010738] via-[#0d5f99] to-[#15a1df] rounded-l-2xl" />
+            <p className="font-heading font-bold text-[#010738] text-xl md:text-2xl leading-snug pl-3 text-center">
+              {diffClosingLine}
+            </p>
+          </div>
+        </FadeUp>
 
         <FadeUp>
           <div className="grid md:grid-cols-2 gap-6">
@@ -868,20 +870,53 @@ function Differentiation() {
 // Qualify / Disqualify (MARBLE)
 
 const isFor = [
-  'You have decent before-and-after proof - real documented results we can use in landing pages and ad creative (not professional studio level, just real)',
-  'You have a clear smile makeover offer - veneers, Invisalign, bonding, whitening, or full transformation - defined enough to build a focused campaign around',
-  'You have enough ad budget to generate real data each month - we will tell you the realistic minimum for your market on the call',
-  'Your team can respond to a hot lead within minutes to hours, not days - speed to lead is one of the biggest levers in this entire system',
-  'You have consultation slots available to actually fill - if your calendar is already maxed for the next two months, we solve that capacity question first',
-  'You want to grow cosmetic specifically - more veneers, more full smile makeovers - without diluting focus into general dental volume',
+  {
+    label: 'Documented Before-And-After Proof',
+    body: 'You have real patient transformation results - not professional studio level, just real - we can use in landing pages and ad creative.',
+  },
+  {
+    label: 'A Clear Smile Makeover Offer (Or Willingness To Build One With Us)',
+    body: 'Veneers, Invisalign, bonding, whitening, or full transformation - or you are open to designing the right offer with us. If the offer is not fully shaped yet, we help build it.',
+  },
+  {
+    label: 'Real Ad Budget To Fuel The System',
+    body: 'Enough monthly spend to generate meaningful data and learn fast. We will tell you the realistic minimum for your market on the call.',
+  },
+  {
+    label: 'Fast Lead Response',
+    body: 'Your team can respond to a hot enquiry within minutes to hours, not days. Speed-to-lead is one of the biggest levers in this entire system.',
+  },
+  {
+    label: 'Consultation Capacity To Fill',
+    body: 'You have consultation slots available right now. If your calendar is maxed for the next two months, we solve capacity first.',
+  },
+  {
+    label: 'Ambition To Scale Cosmetic Specifically',
+    body: 'You want to grow cosmetic case acquisition - more veneers, more smile makeovers - without diluting focus into general dental volume.',
+  },
 ]
 
 const isNotFor = [
-  'Your primary focus is general dentistry with cosmetic as an afterthought - this pipeline is built exclusively for cosmetic acquisition',
-  'There is no one available to follow up on leads promptly - even the best landing page cannot fix a follow-up problem on its own',
-  'You are looking for the cheapest possible option, not a system built to be measured and improved over time',
-  'You expect a guaranteed lead number with zero accountability for follow-up quality or consultation execution on your side',
-  'You are unwilling to change anything about your current intake, landing page, or follow-up cadence - the pipeline only works as a full implementation',
+  {
+    label: 'General Dentistry Is Your Primary Focus',
+    body: 'If cosmetic is an afterthought, this pipeline is not for you. It is built exclusively for cosmetic case acquisition.',
+  },
+  {
+    label: 'No One To Follow Up Quickly',
+    body: 'Even the best landing page cannot fix a follow-up problem on its own. Your team needs to be ready to act on hot enquiries.',
+  },
+  {
+    label: 'Looking For The Cheapest Option',
+    body: 'We are not the lowest-cost vendor. We are a system built to be measured and improved over time, not a quick lead-burst service.',
+  },
+  {
+    label: 'Zero Accountability On Your Side',
+    body: 'If you expect a guaranteed lead number with zero accountability for follow-up or consultation execution, we are not the right fit.',
+  },
+  {
+    label: 'Unwilling To Change Anything',
+    body: 'The pipeline only works as a full implementation. If you will not adjust intake, landing page, or follow-up cadence, the results will not show up.',
+  },
 ]
 
 const archetypes = [
@@ -907,6 +942,36 @@ const archetypes = [
   },
 ]
 
+function CheckCircleSolid({ className = 'w-6 h-6' }: { className?: string }) {
+  return (
+    <svg className={`${className} text-emerald-500`} fill="none" viewBox="0 0 24 24" aria-hidden>
+      <circle cx="12" cy="12" r="10" fill="currentColor" fillOpacity="0.14" />
+      <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth={1.5} />
+      <path
+        d="M8 12.2l2.8 2.8L16.2 9.4"
+        stroke="currentColor"
+        strokeWidth={2.2}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
+}
+
+function XCircleThin({ className = 'w-6 h-6' }: { className?: string }) {
+  return (
+    <svg className={`${className} text-slate-500`} fill="none" viewBox="0 0 24 24" aria-hidden>
+      <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth={1.5} />
+      <path
+        d="M9 9l6 6M15 9l-6 6"
+        stroke="currentColor"
+        strokeWidth={1.8}
+        strokeLinecap="round"
+      />
+    </svg>
+  )
+}
+
 function QualifySection() {
   return (
     <section className="bg-[#f8f9fc] py-28 px-6">
@@ -914,75 +979,77 @@ function QualifySection() {
         <FadeUp>
           <div className="text-center mb-16">
             <h2 className="font-heading font-bold text-3xl md:text-4xl text-[#0a0a14] mb-5 leading-tight">
-              Is the Case Study Smile Pipeline™ Right For Your Clinic?
+              Is the Case-Ready Smile Pipeline™ Right For Your Clinic?
             </h2>
             <p className="text-[#2d3250] text-lg max-w-2xl mx-auto leading-relaxed">
-              This system is built around five specific conditions. Read both columns honestly -
-              then decide if this is worth a 30-minute conversation.
+              Read both columns honestly - then decide if this is worth a 30-minute conversation.
             </p>
           </div>
         </FadeUp>
 
         <FadeUp delay={0.1}>
-          <div className="grid md:grid-cols-2 gap-5 mb-20">
-            <div className="rounded-2xl bg-white border border-emerald-100 p-8 shadow-sm">
-              <div className="flex items-center gap-2 mb-6">
-                <div className="w-6 h-6 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center">
-                  <svg
-                    className="w-3 h-3 text-emerald-600"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={3}
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                  </svg>
+          <div className="grid md:grid-cols-2 gap-6 mb-20 items-stretch">
+            {/* IS for you - premium white card with subtle green glow */}
+            <article className="group relative rounded-3xl bg-white p-8 md:p-10 border border-emerald-200/70 shadow-[0_8px_32px_rgba(16,185,129,0.10)] hover:shadow-[0_18px_48px_rgba(16,185,129,0.22)] hover:border-emerald-300 hover:-translate-y-1 transition-all duration-300 flex flex-col h-full overflow-hidden">
+              <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-emerald-400 via-emerald-500 to-emerald-400" />
+              <div className="absolute -top-24 -right-24 w-56 h-56 rounded-full bg-emerald-100/50 blur-3xl pointer-events-none" />
+
+              <header className="relative flex items-center gap-3 mb-8">
+                <div className="w-11 h-11 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center shadow-sm">
+                  <CheckCircleSolid className="w-6 h-6" />
                 </div>
-                <h3 className="font-heading font-bold text-[#0a0a14] text-lg">
+                <h3 className="font-body font-bold text-[#0a0a14] text-xl tracking-tight">
                   This IS for you if:
                 </h3>
-              </div>
-              <ul className="space-y-4">
+              </header>
+
+              <ul className="relative space-y-6 flex-1">
                 {isFor.map((item, i) => (
-                  <li
-                    key={i}
-                    className="flex items-start gap-3 text-[#2d3250] text-sm leading-relaxed"
-                  >
-                    <CheckIcon color="#10b981" />
-                    {item}
+                  <li key={i} className="flex items-start gap-4">
+                    <div className="shrink-0 mt-0.5">
+                      <CheckCircleSolid className="w-5 h-5" />
+                    </div>
+                    <div className="flex-1">
+                      <p className="font-body font-bold text-[#0a0a14] text-[15px] mb-1.5 leading-snug tracking-tight">
+                        {item.label}
+                      </p>
+                      <p className="text-[#5a6180] text-sm leading-relaxed">{item.body}</p>
+                    </div>
                   </li>
                 ))}
               </ul>
-            </div>
-            <div className="rounded-2xl bg-white border border-red-100 p-8 shadow-sm">
-              <div className="flex items-center gap-2 mb-6">
-                <div className="w-6 h-6 rounded-full bg-red-50 border border-red-200 flex items-center justify-center">
-                  <svg
-                    className="w-3 h-3 text-red-500"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={3}
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                  </svg>
+            </article>
+
+            {/* NOT for you - muted slate card */}
+            <article className="group relative rounded-3xl bg-slate-100/70 p-8 md:p-10 border border-slate-200/80 shadow-sm hover:shadow-md hover:border-slate-300 hover:-translate-y-1 transition-all duration-300 flex flex-col h-full overflow-hidden">
+              <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-slate-300 via-slate-400 to-slate-300" />
+              <div className="absolute -top-24 -right-24 w-56 h-56 rounded-full bg-slate-300/30 blur-3xl pointer-events-none" />
+
+              <header className="relative flex items-center gap-3 mb-8">
+                <div className="w-11 h-11 rounded-full bg-white border border-slate-300 flex items-center justify-center shadow-sm">
+                  <XCircleThin className="w-6 h-6" />
                 </div>
-                <h3 className="font-heading font-bold text-[#0a0a14] text-lg">
+                <h3 className="font-body font-bold text-[#0a0a14] text-xl tracking-tight">
                   This is NOT for you if:
                 </h3>
-              </div>
-              <ul className="space-y-4">
+              </header>
+
+              <ul className="relative space-y-6 flex-1">
                 {isNotFor.map((item, i) => (
-                  <li
-                    key={i}
-                    className="flex items-start gap-3 text-[#2d3250] text-sm leading-relaxed"
-                  >
-                    <XIcon />
-                    {item}
+                  <li key={i} className="flex items-start gap-4">
+                    <div className="shrink-0 mt-0.5">
+                      <XCircleThin className="w-5 h-5" />
+                    </div>
+                    <div className="flex-1">
+                      <p className="font-body font-bold text-[#0a0a14] text-[15px] mb-1.5 leading-snug tracking-tight">
+                        {item.label}
+                      </p>
+                      <p className="text-[#4f5670] text-sm leading-relaxed">{item.body}</p>
+                    </div>
                   </li>
                 ))}
               </ul>
-            </div>
+            </article>
           </div>
         </FadeUp>
 
@@ -992,17 +1059,17 @@ function QualifySection() {
           </h3>
         </FadeUp>
 
-        <div className="grid md:grid-cols-2 gap-5 mb-16">
+        <div className="grid md:grid-cols-2 gap-5 mb-16 items-stretch">
           {archetypes.map((a, i) => (
-            <FadeUp key={i} delay={i * 0.07}>
-              <div className="bg-white border border-[#e8eaf0] rounded-2xl p-8 relative overflow-hidden hover:border-[#15a1df]/30 hover:shadow-md transition-all duration-300 group">
+            <FadeUp key={i} delay={i * 0.07} className="h-full">
+              <div className="h-full bg-white border border-[#e8eaf0] rounded-2xl p-8 relative overflow-hidden hover:border-[#15a1df]/30 hover:shadow-md transition-all duration-300 flex flex-col">
                 <span className="absolute top-4 right-6 font-black text-6xl text-[#010738]/[0.05] select-none leading-none">
                   {a.num}
                 </span>
                 <h4 className="font-heading font-bold text-[#0a0a14] text-lg mb-3 pr-12">
                   {a.title}
                 </h4>
-                <p className="text-[#2d3250] text-sm leading-relaxed">{a.desc}</p>
+                <p className="text-[#2d3250] text-sm leading-relaxed flex-1">{a.desc}</p>
               </div>
             </FadeUp>
           ))}
@@ -1039,7 +1106,7 @@ const missionParas = [
     style: 'body',
   },
   {
-    text: 'That is what the Case Study Smile Pipeline is built to fix.',
+    text: 'That is what the Case-Ready Smile Pipeline is built to fix.',
     style: 'accent',
   },
   {
@@ -1119,15 +1186,15 @@ function BrandMission() {
 const faqItems = [
   {
     q: 'Do you work with any dental practice, or only cosmetic-focused clinics?',
-    a: 'Only cosmetic-focused clinics. Every part of the Case Study Smile Pipeline - the campaigns, the landing page, the qualification questions, the follow-up sequences - is built specifically for smile makeover patient acquisition. If your primary goal is generating hygiene bookings or emergency appointments, we are not the right fit and we will tell you that on the call.',
+    a: 'Only cosmetic-focused clinics. Every part of the Case-Ready Smile Pipeline - the campaigns, the landing page, the qualification questions, the follow-up sequences - is built specifically for smile makeover patient acquisition. If your primary goal is generating hygiene bookings or emergency appointments, we are not the right fit and we will tell you that on the call.',
   },
   {
     q: 'What makes this different from just running more ads?',
-    a: 'More ads with the same broken funnel just means more leads falling through the same gaps. The Case Study Smile Pipeline fixes the funnel first - landing page, qualification, nurture - so the leads you already generate convert at a much higher rate. Then we scale spend once the system is actually capturing the value of each click.',
+    a: 'More ads with the same broken funnel just means more leads falling through the same gaps. The Case-Ready Smile Pipeline fixes the funnel first - landing page, qualification, nurture - so the leads you already generate convert at a much higher rate. Then we scale spend once the system is actually capturing the value of each click.',
   },
   {
     q: 'We have worked with marketing agencies before. Why is this different?',
-    a: 'Most agencies stop at lead generation - you receive enquiries, but there is no system for qualifying them, educating them, following them up, or converting them at the consultation. We are accountable to downstream metrics: show rate, case acceptance, cost per booked consultation - not just cost per lead. We will only take you on if we genuinely believe we can move those numbers.',
+    a: 'Most agencies stop at lead generation - you receive enquiries, but there is no system for qualifying them, educating them, or following them up. We are accountable to the metric that actually matters: cost per booked consultation. Not just cost per lead. We will only take you on if we genuinely believe we can move that number.',
   },
   {
     q: 'What do we need to have in place before working with you?',
@@ -1140,10 +1207,6 @@ const faqItems = [
   {
     q: 'Can you handle compliance and ethical messaging around cosmetic dental marketing?',
     a: 'Yes - this is built into everything we write and design. We use aspirational, trust-building language that converts and stays within ethical and platform-policy boundaries. No "fix your ugly smile" angles, no guaranteed-outcome claims, no before-and-after content that violates ad platform rules. Compliant cosmetic marketing is not a constraint - it is what actually builds trust with the patients you want.',
-  },
-  {
-    q: 'Do you work with clinics in my area?',
-    a: 'We work with cosmetic dental clinics across multiple markets and take on one clinic per geographic market to avoid sending the same system to competing practices nearby. If your market is already taken, we will tell you on the call so we do not waste your time.',
   },
 ]
 
@@ -1214,9 +1277,9 @@ const closingBullets = [
 
 const closingParas = [
   'You do not need more traffic. You need a system that actually converts the traffic you already have - at every stage, from the first click to the patient sitting in your chair.',
-  'Book a free 30-minute strategy consultation. We will walk through your current funnel together, show you where it is leaking, and map out exactly what the Case Study Smile Pipeline would look like installed in your clinic - based on real numbers, not generic promises.',
+  'Book a free 30-minute strategy consultation. We will walk through your current funnel together, show you where it is leaking, and map out exactly what the Case-Ready Smile Pipeline would look like installed in your clinic - based on real numbers, not generic promises.',
   'No pitch deck. No inflated guarantees. Just a clear look at where your revenue is currently being lost, and what fixing it would actually look like.',
-  'We take on a limited number of clinics at a time and one per geographic market. If your area is available and this is the right fit, we will show you exactly what we would build.',
+  'We take on a limited number of clinics at a time. If your clinic is the right fit, we will show you exactly what we would build for you.',
 ]
 
 function FinalCTA() {
@@ -1287,7 +1350,7 @@ function LPFooter() {
           &copy; {new Date().getFullYear()} Abdullah Tayyab. All rights reserved.
         </p>
         <p className="text-white/[0.18] text-xs mb-4">
-          The Case Study Smile Pipeline™ is a done-for-you patient acquisition system for cosmetic
+          The Case-Ready Smile Pipeline™ is a done-for-you patient acquisition system for cosmetic
           dental clinics.
         </p>
         <p className="text-white/[0.14] text-xs max-w-2xl mx-auto leading-relaxed mb-6">
@@ -1310,7 +1373,15 @@ function LPFooter() {
 
 export default function SmileMakeoverLP3Content() {
   return (
-    <div className="font-body">
+    <div
+      className="font-body"
+      style={
+        {
+          '--font-space-grotesk': playfair.style.fontFamily,
+          '--font-inter': lato.style.fontFamily,
+        } as React.CSSProperties
+      }
+    >
       <StickyNav />
       <Hero />
       <ProofSection />

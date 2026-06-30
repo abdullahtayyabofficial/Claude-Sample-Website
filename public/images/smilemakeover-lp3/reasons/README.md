@@ -1,4 +1,4 @@
-# LP3 (Case Study Smile Pipeline) - Reasons Section Images
+# LP3 (Case-Ready Smile Pipeline) - Reasons Section Images
 
 Upload your 6 photos here, named exactly as listed below.
 
