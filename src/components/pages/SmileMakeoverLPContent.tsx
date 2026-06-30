@@ -601,24 +601,6 @@ const reasons = [
   },
 ]
 
-const REASON_GRADIENTS = [
-  'linear-gradient(135deg, #010738 0%, #0d2b6b 100%)',
-  'linear-gradient(135deg, #0d3d7a 0%, #15a1df 100%)',
-  'linear-gradient(135deg, #010738 0%, #1a3a8f 100%)',
-  'linear-gradient(135deg, #0d5f99 0%, #4ab9e8 100%)',
-  'linear-gradient(135deg, #030e5c 0%, #0d5f99 100%)',
-  'linear-gradient(135deg, #0d2b6b 0%, #15a1df 100%)',
-]
-
-function ReasonIcon({ index }: { index: number }) {
-  if (index === 0) return <><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></>
-  if (index === 1) return <><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></>
-  if (index === 2) return <><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></>
-  if (index === 3) return <><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></>
-  if (index === 4) return <><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></>
-  return <><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></>
-}
-
 function WhyChooseUs() {
   return (
     <section className="bg-[#f8f9fc] py-28 px-6 relative overflow-hidden">
@@ -651,20 +633,14 @@ function WhyChooseUs() {
           {reasons.map((r, i) => (
             <FadeUp key={i} delay={i * 0.06} className="h-full">
               <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 h-full flex flex-col">
-                <div
-                  className="relative flex items-center justify-center py-10"
-                  style={{ background: REASON_GRADIENTS[i] }}
-                >
-                  <svg
-                    className="w-14 h-14 text-white/70"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={1.5}
-                  >
-                    <ReasonIcon index={i} />
-                  </svg>
-                  <span className="absolute bottom-3 left-4 w-8 h-8 rounded-lg bg-white/15 flex items-center justify-center font-heading font-bold text-white text-sm">
+                <div className="relative aspect-[16/10] overflow-hidden shrink-0 bg-[#0a1740]">
+                  <Image
+                    src={`/images/smilemakeover-lp/reasons/${i + 1}.jpg`}
+                    alt={r.title}
+                    fill
+                    className="object-cover"
+                  />
+                  <span className="absolute bottom-3 left-3 w-9 h-9 rounded-lg bg-white/95 backdrop-blur-sm flex items-center justify-center font-heading font-bold text-[#010738] text-sm shadow-md">
                     {i + 1}
                   </span>
                 </div>
