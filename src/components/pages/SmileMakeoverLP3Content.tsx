@@ -10,13 +10,42 @@ const playfair = Playfair_Display({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700', '800'],
   display: 'swap',
+  variable: '--font-playfair',
 })
 
 const lato = Lato({
   subsets: ['latin'],
   weight: ['400', '700'],
   display: 'swap',
+  variable: '--font-lato',
 })
+
+const LP3_FONT_OVERRIDE_CSS = `
+.lp3-fonts,
+.lp3-fonts .font-body,
+.lp3-fonts p,
+.lp3-fonts li,
+.lp3-fonts a,
+.lp3-fonts button,
+.lp3-fonts input,
+.lp3-fonts textarea,
+.lp3-fonts label {
+  font-family: var(--font-lato), 'Lato', system-ui, -apple-system, 'Segoe UI', sans-serif !important;
+}
+.lp3-fonts .font-heading,
+.lp3-fonts h1,
+.lp3-fonts h2,
+.lp3-fonts h3,
+.lp3-fonts h4,
+.lp3-fonts h5,
+.lp3-fonts h6 {
+  font-family: var(--font-playfair), 'Playfair Display', Georgia, 'Times New Roman', serif !important;
+  letter-spacing: -0.01em;
+}
+.lp3-fonts h1, .lp3-fonts h2 {
+  letter-spacing: -0.02em;
+}
+`
 
 const BOOKING_URL = '#' // TODO: Replace with Calendly link before going live
 const EASE = [0.25, 0.4, 0.25, 1] as const
@@ -1373,27 +1402,22 @@ function LPFooter() {
 
 export default function SmileMakeoverLP3Content() {
   return (
-    <div
-      className="font-body"
-      style={
-        {
-          '--font-space-grotesk': playfair.style.fontFamily,
-          '--font-inter': lato.style.fontFamily,
-        } as React.CSSProperties
-      }
-    >
-      <StickyNav />
-      <Hero />
-      <ProofSection />
-      <PainAgitation />
-      <HowItWorks />
-      <WhyChooseUs />
-      <Differentiation />
-      <QualifySection />
-      <BrandMission />
-      <FAQSection />
-      <FinalCTA />
-      <LPFooter />
-    </div>
+    <>
+      <style dangerouslySetInnerHTML={{ __html: LP3_FONT_OVERRIDE_CSS }} />
+      <div className={`${playfair.variable} ${lato.variable} lp3-fonts font-body`}>
+        <StickyNav />
+        <Hero />
+        <ProofSection />
+        <PainAgitation />
+        <HowItWorks />
+        <WhyChooseUs />
+        <Differentiation />
+        <QualifySection />
+        <BrandMission />
+        <FAQSection />
+        <FinalCTA />
+        <LPFooter />
+      </div>
+    </>
   )
 }
