@@ -214,7 +214,7 @@ function StickyNav() {
 function Hero() {
   return (
     <section
-      className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 pt-36 pb-28 overflow-hidden"
+      className="relative flex flex-col items-center justify-center text-center px-6 pt-32 pb-20 md:pt-36 md:pb-24 overflow-hidden"
       style={{ background: DARK_GRADIENT }}
     >
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -784,9 +784,8 @@ function Differentiation() {
         </div>
 
         <FadeUp>
-          <div className="relative rounded-2xl bg-white border border-[#15a1df]/25 shadow-[0_8px_32px_rgba(21,161,223,0.18)] mb-16 px-8 py-7 md:px-10 md:py-8 overflow-hidden">
-            <div className="absolute inset-y-0 left-0 w-[5px] bg-gradient-to-b from-[#010738] via-[#0d5f99] to-[#15a1df] rounded-l-2xl" />
-            <p className="font-heading font-bold text-[#010738] text-xl md:text-2xl leading-snug pl-3 text-center">
+          <div className="rounded-2xl bg-white border border-[#e8eaf0] shadow-[0_8px_32px_rgba(1,7,56,0.10)] mb-16 px-8 py-7 md:px-10 md:py-8">
+            <p className="font-heading font-bold text-[#010738] text-xl md:text-2xl leading-snug text-center">
               {diffClosingLine}
             </p>
           </div>
@@ -1150,7 +1149,10 @@ const missionParas = [
 
 function BrandMission() {
   return (
-    <section className="bg-[#f8f9fc] py-28 px-6 relative overflow-hidden">
+    <section
+      className="py-28 px-6 relative overflow-hidden"
+      style={{ background: LIGHT_GRADIENT }}
+    >
       <div className="relative z-10 max-w-3xl mx-auto">
         <FadeUp>
           <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-[46px] text-[#0a0a14] leading-tight mb-16 text-center">
@@ -1243,7 +1245,7 @@ function FAQSection() {
   const [active, setActive] = useState<number | null>(null)
 
   return (
-    <section className="py-28 px-6" style={{ background: LIGHT_GRADIENT }}>
+    <section className="bg-[#f8f9fc] py-28 px-6">
       <div className="max-w-3xl mx-auto">
         <FadeUp>
           <div className="text-center mb-16">
@@ -1256,7 +1258,7 @@ function FAQSection() {
         <div className="space-y-2">
           {faqItems.map((item, i) => (
             <FadeUp key={i} delay={i * 0.03}>
-              <div className="border border-white/80 rounded-2xl overflow-hidden bg-white">
+              <div className="border border-[#e8eaf0] rounded-2xl overflow-hidden bg-white shadow-sm">
                 <button
                   onClick={() => setActive(active === i ? null : i)}
                   className="w-full flex items-center justify-between gap-6 px-7 py-6 text-left hover:bg-[#f8f9fc] transition-colors"
