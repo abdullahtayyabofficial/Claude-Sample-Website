@@ -187,12 +187,35 @@ CTA: "Book a Call" → `/#contact` (scrolls to ContactCTA section on home page)
 
 ## Constraints & Rules
 
-- Never invent data — use only what has been provided or ask.
-- No external icon libraries — inline SVG only.
+- Never invent data - use only what has been provided or ask.
+- No external icon libraries - inline SVG only.
 - No analytics or tracking scripts in the codebase.
 - No comments unless the WHY is genuinely non-obvious.
 - Framer Motion ease arrays need `as const` or a named typed constant.
 - `next/image` with `fill` requires a relatively-positioned, sized parent.
 - Services page must include a disclaimer that network services are delivered via trusted specialists (not Abdullah personally).
 - Case study pages only render sections that have actual content (conditional rendering).
-- `.env.local` is gitignored — never commit API keys.
+- `.env.local` is gitignored - never commit API keys.
+
+---
+
+## PERMANENT GLOBAL RULES (Apply to every file, every session, forever)
+
+1. **NEVER use em dashes (`—`) anywhere.** Use hyphens (`-`) instead. This is a forever rule across the whole codebase. If you see em dashes anywhere in files you touch, replace them.
+2. **All CTA / consultation copy uses 45 minutes, not 30.** "Free 45-minute strategy call." "Takes 45 minutes."
+3. **All development must happen on the active feature branch** the user specifies. Never push to `main` or any other branch without explicit permission.
+4. **Always commit and push your work** at the end of a meaningful change.
+5. **No emojis in committed code or comments** unless the user explicitly asks.
+
+---
+
+## Niche Landing Pages
+
+Standalone niche landing pages (route NOT inside `(site)/`, no shared Navbar/Footer, `robots: { index: false, follow: false }`) follow a separate playbook with prebaked design decisions.
+
+**See: `LP-PLAYBOOK.md`** at the project root.
+
+The playbook captures every design decision, copy rule, section template, and "what not to do" lesson from the Case-Ready Smile Pipeline™ LP at `/smilemakeover-lp`. When the user asks to build a new niche LP, follow `LP-PLAYBOOK.md` verbatim - it is calibrated to land at the right design on the first build instead of iterating from scratch.
+
+Reference implementation: `src/components/pages/SmileMakeoverLPContent.tsx`
+Reference route: `/smilemakeover-lp`

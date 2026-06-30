@@ -1,5 +1,9 @@
-# Project Handoff — Abdullah Tayyab Portfolio
-### Session 3 Complete — Updated June 2026
+# Project Handoff - Abdullah Tayyab Portfolio
+### Session 4 Complete - Updated June 2026
+
+> **Building a new niche landing page?** Read `LP-PLAYBOOK.md` first - it bakes
+> in every design decision from the Case-Ready Smile Pipeline™ LP so the next
+> LP lands at "finished" on the first build.
 
 > Feed this file + `CLAUDE.md` to a new Claude session to resume exactly where this session stopped.
 > Both files live in the project root.
@@ -60,6 +64,7 @@ A premium personal portfolio website for **Abdullah Tayyab**, a performance mark
 | `/api/contact` | ✅ Built — Resend integration not yet tested end-to-end |
 | `/sitemap.xml` | ✅ |
 | `/robots.txt` | ✅ |
+| `/smilemakeover-lp` | ✅ Standalone niche LP - Case-Ready Smile Pipeline™ (cosmetic dental clinics). Not in navbar. `robots: noindex,nofollow`. See `LP-PLAYBOOK.md` for the full pattern. |
 
 ---
 
@@ -119,7 +124,35 @@ public/images/case-studies/
 
 ---
 
-## 5. What Was Built This Session (Session 3)
+## 4b. What Was Built This Session (Session 4) - Niche Landing Page System
+
+### Route Group Refactor
+- Main site pages moved under `src/app/(site)/` route group with their own `layout.tsx` (Navbar + Footer).
+- Root `src/app/layout.tsx` reduced to fonts + html wrapper only, so standalone LPs can render without shared chrome.
+
+### Case-Ready Smile Pipeline™ Landing Page (`/smilemakeover-lp`)
+- New niche LP for cosmetic dental clinics.
+- Server wrapper: `src/app/smilemakeover-lp/page.tsx` (metadata + `robots: noindex,nofollow`).
+- Client component: `src/components/pages/SmileMakeoverLPContent.tsx` (~1200 lines).
+- Sections in order: StickyNav → Hero (dark) → ProofSection (real 3 case studies) → PainAgitation → HowItWorks → WhyChooseUs (6 reasons with image-strip headers) → Differentiation (What We Do / Need boxes) → QualifySection → BrandMission → FAQ → FinalCTA → LPFooter.
+- Background rotation: dark → light gradient → marble alternating through middle, dark at top/bottom.
+- Real case studies used: Hardee's, CBD Punjab, Cubicle Co-Working. No outbound links from LP.
+- Booking URL is a `BOOKING_URL = '#'` constant - replace with Calendly link before launch.
+
+### Permanent Rules Codified
+- **No em dashes anywhere**, ever. All `—` replaced with `-` across the file.
+- **45-minute call** (not 30) in all CTA / FAQ copy.
+- Both rules now live in `CLAUDE.md` under "PERMANENT GLOBAL RULES".
+
+### LP Playbook
+- New file at project root: `LP-PLAYBOOK.md`.
+- Contains every design decision, copy rule, section template, and "what not to do" lesson from the ~12 rounds of iteration on the smile makeover LP.
+- Used as the master prompt for building any future niche LP.
+- `CLAUDE.md` references it under "Niche Landing Pages".
+
+---
+
+## 5. What Was Built In Session 3
 
 ### Case Study Cards (Complete Redesign)
 - Layout: logo → hero image → title → description → metrics → tags + "Read case study" CTA
