@@ -2,48 +2,62 @@
 
 import { useState, useEffect, useRef } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
-import { Playfair_Display, Lato } from 'next/font/google'
+import { Radio_Canada, Lexend_Mega, Mrs_Saint_Delafield } from 'next/font/google'
 import Link from 'next/link'
 import Image from 'next/image'
 
-const playfair = Playfair_Display({
+const radioCanada = Radio_Canada({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800'],
+  weight: ['300', '400', '500', '600', '700'],
   display: 'swap',
-  variable: '--font-playfair',
+  variable: '--font-radio-canada',
 })
 
-const lato = Lato({
+const lexendMega = Lexend_Mega({
   subsets: ['latin'],
-  weight: ['400', '700'],
+  weight: ['400', '500', '600', '700'],
   display: 'swap',
-  variable: '--font-lato',
+  variable: '--font-lexend-mega',
+})
+
+const mrsDelafield = Mrs_Saint_Delafield({
+  subsets: ['latin'],
+  weight: ['400'],
+  display: 'swap',
+  variable: '--font-mrs-delafield',
 })
 
 const LP3_FONT_OVERRIDE_CSS = `
 .lp3-fonts,
 .lp3-fonts .font-body,
-.lp3-fonts p,
-.lp3-fonts li,
-.lp3-fonts a,
-.lp3-fonts button,
-.lp3-fonts input,
-.lp3-fonts textarea,
-.lp3-fonts label {
-  font-family: var(--font-lato), 'Lato', system-ui, -apple-system, 'Segoe UI', sans-serif !important;
-}
 .lp3-fonts .font-heading,
 .lp3-fonts h1,
 .lp3-fonts h2,
 .lp3-fonts h3,
 .lp3-fonts h4,
 .lp3-fonts h5,
-.lp3-fonts h6 {
-  font-family: var(--font-playfair), 'Playfair Display', Georgia, 'Times New Roman', serif !important;
-  letter-spacing: -0.01em;
+.lp3-fonts h6,
+.lp3-fonts p,
+.lp3-fonts li,
+.lp3-fonts a,
+.lp3-fonts button,
+.lp3-fonts input,
+.lp3-fonts textarea,
+.lp3-fonts label,
+.lp3-fonts span {
+  font-family: var(--font-radio-canada), 'Radio Canada', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif !important;
 }
 .lp3-fonts h1, .lp3-fonts h2 {
-  letter-spacing: -0.02em;
+  letter-spacing: -0.015em;
+}
+.lp3-fonts .lp3-display {
+  font-family: var(--font-lexend-mega), 'Lexend Mega', 'Arial Narrow', Arial, sans-serif !important;
+  letter-spacing: 0.02em;
+}
+.lp3-fonts .lp3-signature {
+  font-family: var(--font-mrs-delafield), 'Mrs Saint Delafield', 'Brush Script MT', cursive !important;
+  letter-spacing: 0.005em;
+  font-weight: 400;
 }
 `
 
@@ -100,8 +114,8 @@ function CTAButton({
   return (
     <a
       href={BOOKING_URL}
-      className={`inline-block font-heading font-bold text-white rounded-xl bg-[#15a1df] hover:bg-[#0d8bbf] transition-all duration-300 shadow-lg hover:shadow-[0_0_36px_rgba(21,161,223,0.5)] hover:-translate-y-0.5 ${
-        size === 'lg' ? 'text-lg px-14 py-5' : 'text-base px-9 py-4'
+      className={`lp3-display inline-block font-bold text-white rounded-xl bg-[#15a1df] hover:bg-[#0d8bbf] transition-all duration-300 shadow-lg hover:shadow-[0_0_36px_rgba(21,161,223,0.5)] hover:-translate-y-0.5 ${
+        size === 'lg' ? 'text-base md:text-[17px] px-14 py-5' : 'text-sm md:text-base px-9 py-4'
       }`}
     >
       {label}
@@ -119,8 +133,8 @@ function GradientCTAButton({
   return (
     <a
       href={BOOKING_URL}
-      className={`relative inline-block font-heading font-bold text-white rounded-xl overflow-hidden group shadow-lg hover:shadow-[0_8px_36px_rgba(21,161,223,0.45)] hover:-translate-y-0.5 transition-all duration-300 ${
-        size === 'lg' ? 'text-lg px-14 py-5' : 'text-base px-9 py-4'
+      className={`lp3-display relative inline-block font-bold text-white rounded-xl overflow-hidden group shadow-lg hover:shadow-[0_8px_36px_rgba(21,161,223,0.45)] hover:-translate-y-0.5 transition-all duration-300 ${
+        size === 'lg' ? 'text-base md:text-[17px] px-14 py-5' : 'text-sm md:text-base px-9 py-4'
       }`}
       style={{ background: 'linear-gradient(135deg, #010738 0%, #0d5f99 55%, #15a1df 100%)' }}
     >
@@ -194,13 +208,13 @@ function StickyNav() {
       <div className="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
         <Link
           href="/"
-          className="font-heading font-bold text-base text-white tracking-tight hover:text-[#15a1df] transition-colors"
+          className="lp3-display font-semibold text-sm text-white tracking-wider hover:text-[#15a1df] transition-colors"
         >
           Abdullah Tayyab
         </Link>
         <a
           href={BOOKING_URL}
-          className="font-heading font-semibold text-xs text-white bg-[#15a1df] hover:bg-[#0d8bbf] px-4 py-2 rounded-lg transition-all duration-200 hover:shadow-[0_0_20px_rgba(21,161,223,0.4)]"
+          className="lp3-display font-semibold text-[11px] text-white bg-[#15a1df] hover:bg-[#0d8bbf] px-4 py-2 rounded-lg transition-all duration-200 hover:shadow-[0_0_20px_rgba(21,161,223,0.4)]"
         >
           Book Your Free Strategy Consultation
         </a>
@@ -548,23 +562,28 @@ function PainAgitation() {
 
 const steps = [
   {
-    title: 'Step 1: Research - Finding the Right Patient',
+    label: 'Step 1',
+    title: 'Research - Finding the Right Patient',
     desc: 'Before a single ad runs, we map your ideal cosmetic patient - the exact language they use to describe their smile concerns, what they have already tried, what they actually want, and where they are in their decision. This is not guesswork. It is built from real patient language, not assumptions about what dental marketing "usually" sounds like.',
   },
   {
-    title: 'Step 2: Offer + Landing Page - Making Them Convert',
+    label: 'Step 2',
+    title: 'Offer + Landing Page - Making Them Convert',
     desc: 'We build a dedicated smile makeover landing page - your digital appointment setter. Its only job: educate, pre-qualify, and book the consultation. Lifting landing page conversion on the same ad spend is one of the highest-leverage moves in the entire system - same clicks, same cost, dramatically better output. Most clinics never touch this number because they never built a page designed to move it.',
   },
   {
-    title: 'Step 3: Qualification - Filtering Before They Reach You',
+    label: 'Step 3',
+    title: 'Qualification - Filtering Before They Reach You',
     desc: 'Patients answer a short set of questions about treatment interest, timeline, and readiness before they ever land in your inbox. This filters out the casual browsers and price shoppers before they take up your team time, so by the time a lead reaches your front desk, they have already self-selected.',
   },
   {
-    title: 'Step 4: Speed-to-Lead - Catching Them at Peak Intent',
+    label: 'Step 4',
+    title: 'Speed-to-Lead - Catching Them at Peak Intent',
     desc: 'The moment a qualified enquiry comes in, the system fires an SMS confirmation, an email confirmation, a calendar invite, and an internal notification to your team. Speed to lead is one of the single biggest levers in this entire system - and most clinics lose hot leads not because the patient changed their mind, but because the moment of highest intent passed in silence.',
   },
   {
-    title: 'Step 5: Nurture - Following Up Until They Are Ready',
+    label: 'Step 5',
+    title: 'Nurture - Following Up Until They Are Ready',
     desc: 'Email sequences that build trust and handle objections over time. SMS and call reminders that fix the no-show problem. Retargeting for visitors who did not convert yet - re-engaging someone who already knows you costs far less than acquiring someone new. A lead that says no today is not a dead lead. It is a relationship that has not matured yet.',
   },
 ]
@@ -597,10 +616,13 @@ function HowItWorks() {
                 <div className="flex gap-8 md:gap-14 relative">
                   <div className="relative shrink-0">
                     <div className="w-16 h-16 rounded-full border-2 border-[#15a1df]/40 bg-white shadow-[0_0_0_6px_rgba(21,161,223,0.07)] flex items-center justify-center">
-                      <span className="font-heading font-bold text-[#15a1df] text-xl">{i + 1}</span>
+                      <span className="lp3-display font-bold text-[#15a1df] text-xl">{i + 1}</span>
                     </div>
                   </div>
                   <div className="pt-3">
+                    <p className="lp3-display text-[#15a1df] text-xs font-semibold uppercase tracking-[0.18em] mb-2">
+                      {step.label}
+                    </p>
                     <h3 className="font-heading font-bold text-xl md:text-2xl text-[#0a0a14] mb-3 leading-snug">
                       {step.title}
                     </h3>
@@ -1202,6 +1224,17 @@ function BrandMission() {
               </span>
             </p>
           </FadeUp>
+
+          <FadeUp delay={0.4}>
+            <div className="text-center pt-10">
+              <p className="lp3-signature text-[#15a1df] text-5xl md:text-6xl leading-none">
+                Abdullah Tayyab
+              </p>
+              <p className="lp3-display text-[#5a6180] text-[11px] uppercase tracking-[0.25em] mt-3">
+                Performance Marketer + Founder
+              </p>
+            </div>
+          </FadeUp>
         </div>
 
         <FadeUp>
@@ -1406,7 +1439,9 @@ export default function SmileMakeoverLP3Content() {
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: LP3_FONT_OVERRIDE_CSS }} />
-      <div className={`${playfair.variable} ${lato.variable} lp3-fonts font-body`}>
+      <div
+        className={`${radioCanada.variable} ${lexendMega.variable} ${mrsDelafield.variable} lp3-fonts font-body`}
+      >
         <StickyNav />
         <Hero />
         <ProofSection />
