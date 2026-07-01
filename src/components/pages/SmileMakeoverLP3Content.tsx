@@ -346,10 +346,20 @@ function ProofSection() {
       <div className="max-w-6xl mx-auto">
         <FadeUp>
           <div className="text-center mb-16">
-            <h2 className="font-heading font-bold text-3xl md:text-4xl text-[#0a0a14] mb-5">
-              Documented Performance Across Industries
+            <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-[46px] text-[#0a0a14] leading-tight mb-5">
+              Documented Performance{' '}
+              <span
+                style={{
+                  background: 'linear-gradient(135deg, #010738 10%, #15a1df 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                }}
+              >
+                Across Industries
+              </span>
             </h2>
-            <p className="text-[#2d3250] text-lg max-w-2xl mx-auto leading-relaxed">
+            <p className="text-[#0a0a14] text-lg max-w-2xl mx-auto leading-relaxed">
               Outcome-specific results from real clients - tied to revenue driven, leads generated,
               and systems that compound month after month. Not vanity metrics.
             </p>
@@ -368,12 +378,12 @@ function ProofSection() {
                   <h3 className="font-heading font-bold text-[#0a0a14] text-lg leading-snug mb-4">
                     &quot;{cs.headline}&quot;
                   </h3>
-                  <p className="font-body text-[#2d3250] text-sm leading-relaxed mb-6 flex-1">
+                  <p className="font-body text-[#0a0a14] text-sm leading-relaxed mb-6 flex-1">
                     {cs.description}
                   </p>
                   <div className="border-t border-[#e8eaf0] pt-5">
                     <p className="font-heading font-bold text-[#0a0a14] text-sm">{cs.client}</p>
-                    <p className="text-[#5a6180] text-xs mt-0.5">{cs.industry}</p>
+                    <p className="text-[#2d3250] text-xs mt-0.5">{cs.industry}</p>
                   </div>
                 </div>
               </div>
@@ -436,12 +446,19 @@ function PainAgitation() {
     <section className="bg-[#f8f9fc] py-28 px-6 relative overflow-hidden">
       <div className="relative z-10 max-w-3xl mx-auto">
         <FadeUp>
-          <h2 className="font-heading font-bold text-2xl md:text-3xl text-[#0a0a14] leading-tight mb-5 text-center md:whitespace-nowrap">
-            You Are Not Short On Enquiries.
+          <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-[46px] text-[#0a0a14] leading-tight mb-14 text-center">
+            You Are Not Short On Enquiries.{' '}
+            <span
+              style={{
+                background: 'linear-gradient(135deg, #010738 10%, #15a1df 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}
+            >
+              You Are Short On A System That Converts Them.
+            </span>
           </h2>
-          <p className="font-heading font-bold text-2xl md:text-3xl text-[#15a1df] leading-tight mb-14 text-center">
-            You Are Short On A System That Converts Them.
-          </p>
         </FadeUp>
 
         {/* 80% / 63% stat callout */}
@@ -482,7 +499,7 @@ function PainAgitation() {
         </FadeUp>
 
         <FadeUp delay={0.08}>
-          <p className="text-[#2d3250] text-lg mb-10 leading-relaxed">
+          <p className="text-[#0a0a14] text-lg mb-10 leading-relaxed">
             If you are a cosmetic-focused clinic, here is what your current setup probably looks
             like:
           </p>
@@ -496,7 +513,7 @@ function PainAgitation() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.45, delay: i * 0.07, ease: EASE }}
-              className={`flex items-start gap-4 text-[#2d3250] text-base md:text-lg px-8 py-5 ${
+              className={`flex items-start gap-4 text-[#0a0a14] text-base md:text-lg px-8 py-5 ${
                 i < failedSolutions.length - 1 ? 'border-b border-[#e8eaf0]' : ''
               }`}
             >
@@ -507,7 +524,7 @@ function PainAgitation() {
         </ul>
 
         <FadeUp>
-          <p className="text-[#5a6180] text-xs font-semibold uppercase tracking-[0.2em] mb-8">
+          <p className="text-[#2d3250] text-xs font-semibold uppercase tracking-[0.2em] mb-8">
             And here is what that costs you
           </p>
         </FadeUp>
@@ -516,7 +533,7 @@ function PainAgitation() {
             <FadeUp key={i} delay={i * 0.04}>
               <p
                 className={`text-lg leading-relaxed ${
-                  para.emphasis ? 'text-[#0a0a14] font-semibold text-xl' : 'text-[#2d3250]'
+                  para.emphasis ? 'text-[#0a0a14] font-semibold text-xl' : 'text-[#0a0a14]'
                 }`}
               >
                 {para.text}
@@ -530,7 +547,7 @@ function PainAgitation() {
             <p className="text-[#0a0a14] text-xl font-heading font-semibold mb-4">
               That is exactly the gap the Case-Ready Smile Pipeline closes.
             </p>
-            <p className="text-[#2d3250] text-lg leading-relaxed">
+            <p className="text-[#0a0a14] text-lg leading-relaxed">
               Not more ad spend. Not more leads. A system that converts the leads you are already
               capable of generating - at every single stage, from click to booked, booked to show,
               show to qualified, qualified to closed.
@@ -582,10 +599,20 @@ function HowItWorks() {
       <div className="max-w-4xl mx-auto">
         <FadeUp>
           <div className="text-center mb-20">
-            <h2 className="font-heading font-bold text-3xl md:text-4xl text-[#0a0a14] mb-5">
-              How The Case-Ready Smile Pipeline Works
+            <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-[46px] text-[#0a0a14] leading-tight mb-5">
+              How The{' '}
+              <span
+                style={{
+                  background: 'linear-gradient(135deg, #010738 10%, #15a1df 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                }}
+              >
+                Case-Ready Smile Pipeline™ Works
+              </span>
             </h2>
-            <p className="text-[#2d3250] text-lg max-w-2xl mx-auto leading-relaxed">
+            <p className="text-[#0a0a14] text-lg max-w-2xl mx-auto leading-relaxed">
               Five connected stages. Each one feeds the next. Miss one and the whole system
               underperforms - which is exactly why most clinics current setups do not work.
             </p>
@@ -614,7 +641,7 @@ function HowItWorks() {
                     <h3 className="font-heading font-bold text-xl md:text-2xl text-[#0a0a14] mb-3 leading-snug">
                       {step.title}
                     </h3>
-                    <p className="text-[#2d3250] leading-relaxed text-base md:text-lg">
+                    <p className="text-[#0a0a14] leading-relaxed text-base md:text-lg">
                       {step.desc}
                     </p>
                   </div>
@@ -667,10 +694,8 @@ function WhyChooseUs() {
       <div className="relative z-10 max-w-6xl mx-auto">
         <FadeUp>
           <div className="text-center mb-16">
-            <h2 className="font-heading font-bold text-3xl md:text-4xl text-[#0a0a14] mb-5 leading-tight">
-              6 Reasons Cosmetic Clinics Choose{' '}
-              <br className="hidden md:inline" />
-              the{' '}
+            <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-[46px] text-[#0a0a14] mb-5 leading-tight">
+              6 Reasons Cosmetic Clinics Choose the{' '}
               <span
                 style={{
                   background: 'linear-gradient(135deg, #010738 10%, #15a1df 100%)',
@@ -682,7 +707,7 @@ function WhyChooseUs() {
                 Case-Ready Smile Pipeline™
               </span>
             </h2>
-            <p className="text-[#2d3250] text-lg max-w-2xl mx-auto leading-relaxed">
+            <p className="text-[#0a0a14] text-lg max-w-2xl mx-auto leading-relaxed">
               We do not chase volume. We attract patients who are financially serious, emotionally
               ready, and specifically interested in cosmetic treatment.
             </p>
@@ -710,7 +735,7 @@ function WhyChooseUs() {
                       {r.title}
                     </h3>
                   </div>
-                  <p className="font-body text-[#2d3250] text-sm leading-relaxed flex-1">{r.desc}</p>
+                  <p className="font-body text-[#0a0a14] text-sm leading-relaxed flex-1">{r.desc}</p>
                 </div>
               </div>
             </FadeUp>
@@ -764,18 +789,24 @@ const diffParas = [
   'The Case-Ready Smile Pipeline exists because we treat marketing as a loop, not a one-time campaign. Research informs strategy. Strategy drives execution. Execution gets analysed. What we learn gets used to adjust and go again.',
 ]
 
-const diffClosingLine =
-  'Get the right offer, to the right person, at the right time. That is the whole game.'
 
 function Differentiation() {
   return (
     <section className="py-28 px-6" style={{ background: LIGHT_GRADIENT }}>
       <div className="max-w-4xl mx-auto">
         <FadeUp>
-          <h2 className="font-heading font-bold text-3xl md:text-4xl text-[#0a0a14] mb-12 leading-tight text-center max-w-3xl mx-auto">
-            Why This Works When Generic
-            <br className="hidden md:inline" />{' '}
-            Dental Marketing Does Not
+          <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-[46px] text-[#0a0a14] mb-12 leading-tight text-center max-w-5xl mx-auto">
+            Why Generic Dental Marketing{' '}
+            <span
+              style={{
+                background: 'linear-gradient(135deg, #010738 10%, #15a1df 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}
+            >
+              Falls Short
+            </span>
           </h2>
         </FadeUp>
 
@@ -784,7 +815,7 @@ function Differentiation() {
             <FadeUp key={i} delay={i * 0.05}>
               <p
                 className={`leading-relaxed ${
-                  i === 0 ? 'text-[#0a0a14] text-lg font-medium' : 'text-[#2d3250] text-lg'
+                  i === 0 ? 'text-[#0a0a14] text-lg font-medium' : 'text-[#0a0a14] text-lg'
                 }`}
               >
                 {para}
@@ -794,11 +825,19 @@ function Differentiation() {
         </div>
 
         <FadeUp>
-          <div className="rounded-2xl bg-white border border-[#e8eaf0] shadow-[0_8px_32px_rgba(1,7,56,0.10)] mb-16 px-8 py-7 md:px-10 md:py-8">
-            <p className="font-heading font-bold text-[#010738] text-xl md:text-2xl leading-snug text-center">
-              {diffClosingLine}
-            </p>
-          </div>
+          <p className="font-heading font-bold text-2xl md:text-3xl lg:text-[38px] text-[#0a0a14] mb-16 pt-2 leading-tight text-center max-w-4xl mx-auto">
+            Get the right offer, to the right person, at the right time.{' '}
+            <span
+              style={{
+                background: 'linear-gradient(135deg, #010738 10%, #15a1df 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}
+            >
+              That is the whole game.
+            </span>
+          </p>
         </FadeUp>
 
         <FadeUp>
@@ -839,7 +878,7 @@ function Differentiation() {
                         <h4 className="font-heading font-bold text-[#0a0a14] text-[15px] mb-1.5 leading-snug">
                           {item.label}
                         </h4>
-                        <p className="font-body text-[#2d3250] text-[14px] leading-relaxed">
+                        <p className="font-body text-[#0a0a14] text-[14px] leading-relaxed">
                           {item.desc}
                         </p>
                       </div>
@@ -885,7 +924,7 @@ function Differentiation() {
                         <h4 className="font-heading font-bold text-[#0a0a14] text-[15px] mb-1.5 leading-snug">
                           {item.label}
                         </h4>
-                        <p className="font-body text-[#2d3250] text-[14px] leading-relaxed">
+                        <p className="font-body text-[#0a0a14] text-[14px] leading-relaxed">
                           {item.desc}
                         </p>
                       </div>
@@ -1016,11 +1055,22 @@ function QualifySection() {
       <div className="max-w-5xl mx-auto">
         <FadeUp>
           <div className="text-center mb-16">
-            <h2 className="font-heading font-bold text-3xl md:text-4xl text-[#0a0a14] mb-5 leading-tight">
-              Is the Case-Ready Smile Pipeline™ Right For Your Clinic?
+            <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-[46px] text-[#0a0a14] mb-5 leading-tight">
+              Is the{' '}
+              <span
+                style={{
+                  background: 'linear-gradient(135deg, #010738 10%, #15a1df 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                }}
+              >
+                Case-Ready Smile Pipeline™
+              </span>{' '}
+              Right For Your Clinic?
             </h2>
-            <p className="text-[#2d3250] text-lg max-w-2xl mx-auto leading-relaxed">
-              Read both columns honestly - then decide if this is worth a 30-minute conversation.
+            <p className="text-[#0a0a14] text-lg max-w-3xl mx-auto leading-relaxed">
+              Read both columns honestly. Decide if this is worth a 30-minute call.
             </p>
           </div>
         </FadeUp>
@@ -1051,7 +1101,7 @@ function QualifySection() {
                       <p className="font-body font-bold text-[#0a0a14] text-[15px] mb-1.5 leading-snug tracking-tight">
                         {item.label}
                       </p>
-                      <p className="text-[#5a6180] text-sm leading-relaxed">{item.body}</p>
+                      <p className="text-[#2d3250] text-sm leading-relaxed">{item.body}</p>
                     </div>
                   </li>
                 ))}
@@ -1107,7 +1157,7 @@ function QualifySection() {
                 <h4 className="font-heading font-bold text-[#0a0a14] text-lg mb-3 pr-12">
                   {a.title}
                 </h4>
-                <p className="text-[#2d3250] text-sm leading-relaxed flex-1">{a.desc}</p>
+                <p className="text-[#0a0a14] text-sm leading-relaxed flex-1">{a.desc}</p>
               </div>
             </FadeUp>
           ))}
@@ -1189,7 +1239,7 @@ function BrandMission() {
                     ? 'text-[#15a1df] font-heading font-semibold text-xl'
                     : para.style === 'bold'
                     ? 'text-[#0a0a14] text-xl font-semibold'
-                    : 'text-[#2d3250] text-lg'
+                    : 'text-[#0a0a14] text-lg'
                 }`}
               >
                 {para.text}
@@ -1259,8 +1309,18 @@ function FAQSection() {
       <div className="max-w-3xl mx-auto">
         <FadeUp>
           <div className="text-center mb-16">
-            <h2 className="font-heading font-bold text-3xl md:text-4xl text-[#0a0a14]">
-              Frequently Asked Questions
+            <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-[46px] text-[#0a0a14] leading-tight">
+              Frequently{' '}
+              <span
+                style={{
+                  background: 'linear-gradient(135deg, #010738 10%, #15a1df 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                }}
+              >
+                Asked Questions
+              </span>
             </h2>
           </div>
         </FadeUp>
@@ -1294,7 +1354,7 @@ function FAQSection() {
                       transition={{ duration: 0.3, ease: EASE }}
                       className="overflow-hidden"
                     >
-                      <p className="px-7 pb-7 text-[#2d3250] leading-relaxed text-base">{item.a}</p>
+                      <p className="px-7 pb-7 text-[#0a0a14] leading-relaxed text-base">{item.a}</p>
                     </motion.div>
                   )}
                 </AnimatePresence>
