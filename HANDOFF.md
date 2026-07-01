@@ -1,8 +1,5 @@
-# Project Handoff - Abdullah Tayyab Portfolio
-### Session 4 Complete - Updated June 2026
-
-> Feed this file + `CLAUDE.md` to a new Claude session to resume exactly where this session stopped.
-> Both files live in the project root.
+# Project Handoff - Abdullah Tayyab Portfolio & Landing Pages
+### Session 5 Complete - Updated July 2026
 
 > Feed this file + `CLAUDE.md` to a new Claude session to resume exactly where this session stopped.
 > Both files live in the project root.
@@ -11,13 +8,13 @@
 
 ## 1. What This Project Is
 
-A premium personal portfolio website for **Abdullah Tayyab**, a performance marketer and media buyer based in Pakistan. The site is a client acquisition and authority-building tool — not a generic portfolio.
+A premium personal portfolio website for **Abdullah Tayyab**, a performance marketer and media buyer based in Pakistan. The site is a client acquisition and authority-building tool - not a generic portfolio.
 
 **Repo:** `abdullahtayyabofficial/Claude-Sample-Website`
 **Active development branch:** `claude/portfolio-website-dev-4YbiL`
-**PR #5:** `claude/portfolio-website-dev-4YbiL` → `claude/build-portfolio-website-U3hLc` (open — Vercel auto-deploys previews from this PR)
+**PR #5:** `claude/portfolio-website-dev-4YbiL` -> `claude/build-portfolio-website-U3hLc` (open - Vercel auto-deploys previews from this PR)
 **Production branch:** `claude/build-portfolio-website-U3hLc` (no `main` branch exists)
-**Deployment:** Vercel
+**Deployment:** Vercel at https://abdullahtayyab.com
 
 **Core positioning:**
 > "I build and scale AI-powered marketing systems that drive predictable business growth."
@@ -33,252 +30,388 @@ A premium personal portfolio website for **Abdullah Tayyab**, a performance mark
 | Styling | Tailwind CSS v4 (`@tailwindcss/postcss`) |
 | Animation | Framer Motion v12 |
 | Email | Resend (`/api/contact` route) |
-| Fonts | Space Grotesk (headings) + Inter (body) via `next/font/google` |
+| Fonts (main site) | Space Grotesk (headings) + Inter (body) via `next/font/google` |
 | Deployment | Vercel |
 
 **Rules that must not change:**
-- `ease` arrays in Framer Motion must use `as const` — e.g. `[0.25, 0.4, 0.25, 1] as const`
-- No external icon libraries — inline SVG only
+- `ease` arrays in Framer Motion must use `as const` - e.g. `[0.25, 0.4, 0.25, 1] as const`
+- No external icon libraries - inline SVG only
 - No analytics or tracking scripts
 - `'use client'` only on components that use hooks or browser APIs
 - Server wrapper `page.tsx` (exports metadata) + client content component `*Content.tsx` pattern
-- `<main>` only in `layout.tsx` — content components use fragments
 - Never commit `.env.local`
 - Always develop on `claude/portfolio-website-dev-4YbiL`
 
 ---
 
-## 3. All Pages — Status
+## 3. PERMANENT GLOBAL RULES (apply to every file, every session)
+
+1. **No em dashes anywhere** (`-` only, never `--` or `---` or `--`). If you see any `---` in content, replace them.
+2. **45-minute calls** in all main site and LP1 CTA copy - EXCEPT LP3 which intentionally uses **30 minutes** (user override).
+3. **Never push to `main`** - the production branch is `claude/build-portfolio-website-U3hLc`.
+4. **No emojis in committed code or comments.**
+5. **Never commit `.env.local`.**
+6. **LPs must stay `noindex/nofollow`** - they are unlisted by design.
+
+---
+
+## 4. All Pages - Status
 
 | Route | Status |
 |---|---|
-| `/` | ✅ Complete |
-| `/about` | ✅ Complete + Speaking & Teaching + Certifications sections added this session |
-| `/expertise` | ✅ Complete |
-| `/services` | ✅ Complete (includes network specialist disclaimer) |
-| `/case-studies` | ✅ Complete |
-| `/case-studies/[slug]` × 6 | ✅ All complete with proof images |
-| `/privacy-policy` | ✅ Complete |
-| `/thank-you` | ✅ Complete |
-| `/api/contact` | ✅ Built — Resend integration not yet tested end-to-end |
-| `/sitemap.xml` | ✅ |
-| `/robots.txt` | ✅ |
-| `/smilemakeover-lp` | ✅ Standalone niche LP - Case-Ready Smile Pipeline™ (cosmetic dental clinics). Not in navbar. `robots: noindex,nofollow`. Server wrapper + `SmileMakeoverLPContent.tsx`. |
+| `/` | Complete |
+| `/about` | Complete + Speaking & Teaching + Certifications sections |
+| `/expertise` | Complete |
+| `/services` | Complete (includes network specialist disclaimer) |
+| `/case-studies` | Complete |
+| `/case-studies/[slug]` x 6 | All complete with proof images |
+| `/privacy-policy` | Complete |
+| `/thank-you` | Complete |
+| `/api/contact` | Built - Resend integration not yet tested end-to-end |
+| `/sitemap.xml` | Complete |
+| `/robots.txt` | Complete |
+| `/smilemakeover-lp` | Complete - LP1, standalone niche LP (see Section 6) |
+| `/smilemakeover-lp3` | Complete - LP3, standalone niche LP (see Section 7) |
 
 ---
 
-## 4. Case Studies — Full State (6 Active)
+## 5. Architecture: Route Groups + Standalone LPs
 
-All 6 case studies are fully populated with real content, proof images, and metrics.
-
-| Slug | Client | Key Metric | Proof Images |
-|---|---|---|---|
-| `hardees-qsr` | QSR Brand (Hardee's) | PKR 31M+ revenue, 4x–16x ROAS, 7 months | ✅ 18 images (10 campaigns + 8 GA4) |
-| `commercial-real-estate-lead-gen` | CBD Punjab | 2,042 leads, PKR ~205 avg CPL | ✅ 6 images |
-| `ffc-pakistan` | FFC (Fauji Fertilizers) | 140M+ impressions, 88.5M+ views | ❌ No proof images |
-| `cubicle-coworking` | Cubicle Co-Working | 3→25+ bookings in <60 days | ✅ 6 images |
-| `wavebyte-ecommerce` | Wave Byte | PKR 1.5M+ spend, 5–8x ROAS | ✅ 5 images |
-| `icr-it-centre` | ICR IT Centre | 300+ enrollments peak season | ✅ 10 images |
-
-### Case Study Image Paths
 ```
-public/images/case-studies/
-├── hardees-qsr/
-│   ├── hero.jpeg
-│   └── proof/  (18 files: 1-10 sc *.jpeg + 1-8 ga4 *.png)
-├── commercial-real-estate-lead-gen/
-│   ├── hero.jpg
-│   └── proof/  (6 files: "1. l.g overall campaigns.jpeg" through "6. l.g HP.jpeg")
-├── ffc/
-│   └── hero.jpg
-├── cubicle-coworking/
-│   ├── hero.jpg
-│   └── proof/  (6 files: "1. overall.jpeg", "2.jpeg" through "6.jpeg")
-├── wavebyte-ecommerce/
-│   ├── hero.jpg
-│   └── proof/  (5 files: 1.jpg through 5.jpg)
-└── icr-it-centre/
-    ├── hero.jpg
-    └── proof/  (10 files: 1.jpg through 10.jpg)
+src/app/
+  (site)/                      # Main site route group - shared Navbar + Footer layout
+    layout.tsx                 # Injects Navbar + Footer
+    page.tsx                   # Homepage
+    about/page.tsx
+    expertise/page.tsx
+    services/page.tsx
+    case-studies/
+    privacy-policy/page.tsx
+    thank-you/page.tsx
+  smilemakeover-lp/            # Outside (site) - no shared nav/footer
+    page.tsx                   # Server wrapper, noindex/nofollow
+  smilemakeover-lp3/           # Outside (site) - no shared nav/footer
+    page.tsx                   # Server wrapper, noindex/nofollow
+  layout.tsx                   # Root layout: fonts + html wrapper ONLY
+  globals.css
 ```
 
-### Case Study Data File
-`src/data/case-studies.ts` — single source of truth. All 6 case studies fully written.
-
-**Key fields used:**
-- `slug`, `title`, `subtitle`, `callout`, `client`, `industry`, `thumbnail`, `heroImage`, `logo`
-- `tags`, `overview` (supports `\n\n` for multi-paragraph), `problem`
-- `strategyIntro` (optional intro sentence before numbered strategy points)
-- `strategyPoints[]` — each with `title` + `description` (use `\n\n` to split into intro + bullet items)
-- `results[]`, `resultsTable` (CBD uses this instead of results[])
-- `outcome` (closing paragraph after proof section)
-- `metrics[]`, `proofImages[]`, `campaigns[]` (FFC only)
-
-**Strategy point bullet rendering logic** (in `CaseStudyLayout.tsx`):
-- Split `description` by `\n\n`
-- If only 1 chunk → plain paragraph
-- If 2+ chunks → first chunk = intro paragraph, rest = bullet list
-- Each bullet: if text before `:` is < 60 chars → render as bold brand-coloured label + body
-- If no `:` pattern → plain bullet with dot only
+LPs live outside `(site)/` so they get their own nav (`StickyNav`) and footer (`LPFooter`).
 
 ---
 
-## 4b. What Was Built This Session (Session 4) - Niche Landing Page System
+## 6. LP1 - Case-Ready Smile Pipeline (Cosmetic Focus)
 
-### Route Group Refactor
-- Main site pages moved under `src/app/(site)/` route group with their own `layout.tsx` (Navbar + Footer).
-- Root `src/app/layout.tsx` reduced to fonts + html wrapper only, so standalone LPs can render without shared chrome.
+**URL:** `/smilemakeover-lp`
+**Files:**
+- Server wrapper: `src/app/smilemakeover-lp/page.tsx`
+- Content component: `src/components/pages/SmileMakeoverLPContent.tsx`
 
-### Case-Ready Smile Pipeline™ Landing Page (`/smilemakeover-lp`)
-- New niche LP for cosmetic dental clinics.
-- Server wrapper: `src/app/smilemakeover-lp/page.tsx` (metadata + `robots: noindex,nofollow`).
-- Client component: `src/components/pages/SmileMakeoverLPContent.tsx` (~1200 lines).
-- Sections in order: StickyNav → Hero (dark) → ProofSection (real 3 case studies) → PainAgitation → HowItWorks → WhyChooseUs (6 reasons with image-strip headers) → Differentiation (What We Do / Need boxes) → QualifySection → BrandMission → FAQ → FinalCTA → LPFooter.
-- Background rotation: dark → light gradient → marble alternating through middle, dark at top/bottom.
-- Real case studies used: Hardee's, CBD Punjab, Cubicle Co-Working. No outbound links from LP.
-- Booking URL is a `BOOKING_URL = '#'` constant - replace with Calendly link before launch.
+Uses main site fonts (Space Grotesk + Inter) - no font override needed.
+Uses 45-minute calls (global rule applies here).
 
-### Permanent Rules Codified (in `CLAUDE.md` under "PERMANENT GLOBAL RULES")
-- **No em dashes anywhere**, ever. All `—` replaced with `-`.
-- **45-minute call** (not 30) in all CTA / FAQ copy.
-- All development on `claude/portfolio-website-dev-4YbiL`.
-- No emojis in committed code.
+**Booking URL constant:** `BOOKING_URL = '#'` at top of `SmileMakeoverLPContent.tsx` - replace before launch.
 
----
+### LP1 Reason Card Photos (PENDING - USER ACTION REQUIRED)
 
-## 5. What Was Built In Session 3
+Photos slot in from:
+```
+public/images/smilemakeover-lp/reasons/1.jpg  through  6.jpg
+```
+Only `README.md` exists there now. Cards show dark navy fallback until photos uploaded.
 
-### Case Study Cards (Complete Redesign)
-- Layout: logo → hero image → title → description → metrics → tags + "Read case study" CTA
-- CSS class `.cs-card-border` in `globals.css`: white background, `1.5px solid rgba(21,161,223,0.45)` border, 3px gradient top accent, hover blue glow
-- `CaseStudyCard.tsx` fully rewritten
+**Specs:** 1200 x 750 px, 16:10 ratio, JPG, 80% quality, under 150 KB each. Keep important content centered - numbered badge is bottom-left.
 
-### Custom Cursor + Lenis Smooth Scroll — Removed
-- Both removed from `layout.tsx` on user request (poor UX)
-- `cursor: none !important` rule also removed from `globals.css`
-
-### Proof of Work Section (All Case Studies)
-- Full-width section with "Proof of Work (Selective)" heading
-- Smart subheadings: "Campaigns Data" / "Google Analytics Data" only shown when both groups exist (Hardee's only)
-- Proof images split: `metaProofs = proofImages.slice(0, 10)`, `ga4Proofs = proofImages.slice(10)`
-- Each image: gradient border wrapper (`.proof-img-border`), `object-contain`, diagonal watermark overlay (`.proof-watermark`)
-- Lightbox: click to enlarge, close button `fixed top-4 right-4`, watermark persists in lightbox view
-- **Performance**: hover/touch preloads full-size image before click; spinner shown while loading
-
-### Watermark
-- CSS class `.proof-watermark` in `globals.css`
-- SVG data URI tiled pattern: "ABDULLAH TAYYAB" diagonal at -35°, `rgba(0,0,0,0.13)`, 420×280px tile
-- Applied to both grid thumbnails AND lightbox enlarged view
-
-### Case Study Content Rewrites
-All content rewritten to match user-provided reference documents:
-
-**Hardee's QSR:**
-- 7 months (not 4), PKR 31M+, 18K+ purchases, 4x–16x ROAS
-- 4 strategy points rewritten, callout updated
-
-**CBD Punjab:**
-- New title, callout, 3-paragraph overview, problem section
-- 3 strategy points with `\n\n` bullet format (Tier 1/2/3, project-specific, creative constraints)
-- `resultsTable` (not results[]) — 3 projects with leads + CPL
-- `outcome` section — 3 paragraphs
-- Leads: 2,042 high-profiled
-
-**Wave Byte:**
-- Overview rewritten to 3 paragraphs
-- `strategyIntro` added
-- 3 strategy points rewritten (Campaign Architecture & Scaling / Creative & Offer Strategy / Optimization & Retargeting)
-- Results rewritten to match 4 bullet points from reference
-
-**Cubicle Co-Working:**
-- Overview rewritten to 3 paragraphs
-- `strategyIntro` added
-- 4 strategy points (Launch & Awareness / Retargeting & High-Conversion / Creatives Strategy / Community PR & Event Marketing)
-- Results and outcome updated from reference screenshots
-
-### Em Dashes — Removed Globally
-All `—` replaced with `-` or restructured in: callouts, overviews, strategy descriptions, results, outcomes, and About page content.
-
-### Multi-Paragraph Rendering Fixes
-- `overview` field: split on `\n\n`, each chunk renders as separate `<p>` tag
-- `outcome` field: same `\n\n` split behaviour
-- `problem` field: uses `whitespace-pre-line`
-- `strategyIntro`: plain paragraph rendered before the `<ol>` of strategy points
-
-### New Type Fields Added (`src/types/index.ts`)
-- `strategyIntro?: string` — intro paragraph before strategy points list
-- `resultsTable?: CaseStudyResultsTable` — table format for results (CBD)
-- `outcome?: string` — closing section after proof images
-- `proofImages?: string[]` — array of proof image paths
-- `logo?: string` — brand logo for case study card
-
-### About Page — Speaking & Teaching + Certifications
-Added two new sections between Stats and CTA:
-
-**Speaking & Teaching (no section heading — removed on user request):**
-Three alternating image/text blocks:
-1. LUMS CES (image left, text right) — `public/images/about/achievements/lums.jpg`
-2. ICR IT Centre (text left, image right) — `public/images/about/achievements/icr.jpg`
-3. BIC Foundry (image left, text right) — `public/images/about/achievements/bic.jpg`
-
-All images uploaded ✅
-
-**Certifications (6 certs, 3-column grid):**
-Each card: certificate image → title → issuer → "Show Credential" external link
-
-| # | Title | Issuer | Image |
-|---|---|---|---|
-| 1 | Entrepreneurship | LUMS CES Program | `cert-1.jpg` ✅ |
-| 2 | Advertising: Print, Outdoor & Digital | LUMS CES Program | `cert-2.jpg` ✅ |
-| 3 | Fundamentals of Digital Marketing | Google Digital Garage | `cert-3.jpg` ✅ |
-| 4 | Claude 101 Completion | Anthropic | `cert-4.jpg` ✅ |
-| 5 | Professional Communication Skills | LUMS CES | `cert-5.jpg` ✅ |
-| 6 | Google Soft Skills Program | Google Skillshop / PAFLA | `cert-6.jpg` ✅ |
-
-All images uploaded ✅. "Certifications" heading uses `gradient-brand-text` class.
+| File | Card Title |
+|---|---|
+| 1.jpg | Cosmetic-Intent Only - No General Dental Crossover |
+| 2.jpg | Pre-Education Before the Enquiry |
+| 3.jpg | We Filter Out Price Shoppers Before They Reach Your Team |
+| 4.jpg | Everything Is Done For You |
+| 5.jpg | We Track What Actually Matters |
+| 6.jpg | Cosmetic Dental Is All We Do |
 
 ---
 
-## 6. What Was Ruled Out This Session
+## 7. LP3 - Case-Ready Smile Pipeline (Research/System Positioning)
+
+**URL:** `/smilemakeover-lp3`
+**Target:** Cosmetic dental clinics doing $50k-$500k+/month
+**Files:**
+- Server wrapper: `src/app/smilemakeover-lp3/page.tsx`
+- Content component: `src/components/pages/SmileMakeoverLP3Content.tsx` (~1500 lines)
+- Last committed: `017909c LP3: hero polish, heading line-break control, footer visibility`
+
+### Section Order (LP3)
+
+1. `StickyNav` - transparent, appears `bg-[#010738]/96` on scroll > 80px
+2. `Hero` - dark gradient, qualifying badge, 4-line headline, 4 bullet points, video placeholder, CTA
+3. `ProofSection` - light radial gradient, 3 real case study cards
+4. `PainAgitation` - marble `bg-[#f8f9fc]`, 80%/63% stat callout, failed-solutions list, consequences copy
+5. `HowItWorks` - light radial gradient, 5-step pipeline with numbered circles + vertical connector line
+6. `WhyChooseUs` - marble, 6 reason cards with photo slots + numbered badge (photos pending)
+7. `Differentiation` - light radial gradient, "What We Do For You" (dark blue) vs "What We Need From You" (green) cards
+8. `QualifySection` - marble, IS/NOT-for two-column cards + 4 archetype boxes
+9. `BrandMission` - light radial gradient, founder philosophy
+10. `FAQSection` - marble, 6 accordion questions
+11. `FinalCTA` - dark gradient, closing copy + CTA
+12. `LPFooter` - `py-8`, compact, `bg-[#050e2e]`, disclaimer + privacy link
+
+### LP3 Colors / Gradients
+
+```ts
+LIGHT_GRADIENT = 'radial-gradient(ellipse at center, #f5fafd 0%, #e4f1fa 35%, #c2e1f4 70%, #88cdef 100%)'
+DARK_GRADIENT  = 'linear-gradient(135deg, #000000 0%, #010738 30%, #0d2b6b 58%, #010b3a 80%, #000000 100%)'
+```
+
+Light sections alternate between `LIGHT_GRADIENT` (on `style=` prop) and `bg-[#f8f9fc]` (Tailwind class = marble). Dark sections use `DARK_GRADIENT`.
+
+Brand blue: `#15a1df` | Dark navy: `#010738` | Body text: `#0a0a14` (near-black) | Secondary: `#2d3250`
+
+### LP3 Fonts - CRITICAL PATTERN
+
+**Why not just CSS vars:** Tailwind v4 compiles `font-heading`/`font-body` at build time. Runtime CSS variable overrides on `<html>` are ignored on Vercel. Simple `style=` props don't work.
+
+**The solution:** Inject `<style dangerouslySetInnerHTML>` with `!important` rules scoped to `.lp3-fonts` class on the root div.
+
+```tsx
+// At top of SmileMakeoverLP3Content.tsx:
+const radioCanada = Radio_Canada({ subsets: ['latin'], weight: ['300','400','500','600','700'], display: 'swap', variable: '--font-radio-canada' })
+const lexendMega  = Lexend_Mega({  subsets: ['latin'], weight: ['400','500','600','700'],       display: 'swap', variable: '--font-lexend-mega'  })
+
+const LP3_FONT_OVERRIDE_CSS = `
+.lp3-fonts, .lp3-fonts h1, .lp3-fonts h2, .lp3-fonts p, .lp3-fonts button, ... {
+  font-family: var(--font-radio-canada), 'Radio Canada', system-ui, sans-serif !important;
+}
+.lp3-fonts .lp3-display {
+  font-family: var(--font-lexend-mega), 'Lexend Mega', sans-serif !important;
+}
+`
+
+// Root div:
+<div className={`${radioCanada.variable} ${lexendMega.variable} lp3-fonts font-body`}>
+  <style dangerouslySetInnerHTML={{ __html: LP3_FONT_OVERRIDE_CSS }} />
+  ...
+</div>
+```
+
+**`lp3-display` class (Lexend Mega)** is used ONLY on step numbers and step labels inside `HowItWorks`. It was intentionally removed from CTA buttons and sticky nav - user rejected it via screenshot review (looked off at those sizes).
+
+### LP3 Key Constants
+
+```ts
+const BOOKING_URL = '#'  // TODO: Replace with Calendly before launch
+const EASE = [0.25, 0.4, 0.25, 1] as const
+```
+
+CTA calls use **30 minutes** (user-specified override of global 45-min rule).
+
+### LP3 Heading Pattern (Two-Tone)
+
+All section headings: plain dark text + gradient inline span.
+
+```tsx
+<h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-[46px] text-[#0a0a14] leading-tight mb-5">
+  Plain text here{' '}
+  <span style={{
+    background: 'linear-gradient(135deg, #010738 10%, #15a1df 100%)',
+    WebkitBackgroundClip: 'text',
+    WebkitTextFillColor: 'transparent',
+    backgroundClip: 'text',
+  }}>
+    Gradient text here
+  </span>
+</h2>
+```
+
+Hero h1 uses `<span className="md:block">` per line for 4-line desktop balance:
+
+```tsx
+<h1 ...>
+  <span className="md:block">We Install Your</span>{' '}
+  <span className="md:block" style={{ ...gradient }}>Case-Ready Smile Pipeline</span>{' '}
+  <span className="md:block">To Generate Qualified Smile Makeover</span>{' '}
+  <span className="md:block">Consultations For Your Calendar</span>
+</h1>
+```
+
+### LP3 Hero Qualifying Badge (Alisha-Style)
+
+```tsx
+<div className="inline-flex justify-center bg-[#0a1740]/80 border border-white/[0.08] backdrop-blur-sm text-white text-xs sm:text-sm font-semibold tracking-[0.16em] uppercase px-6 py-3 md:px-7 md:py-3.5 rounded-full mb-10 shadow-[0_8px_28px_rgba(0,0,0,0.35)]">
+  For Cosmetic Dental Clinics Doing $50k-$500k+/Month
+</div>
+```
+
+### LP3 IS/NOT-For Section
+
+- IS card: white card, emerald color scheme, top accent bar `from-emerald-400 via-emerald-500`, emerald glow shadow, `CheckCircleSolid` inline SVG (filled circle + checkmark)
+- NOT card: `bg-slate-100/70`, slate color scheme, top accent bar slate, `XCircleThin` inline SVG (outline circle + X)
+- Both lift on hover: `hover:-translate-y-1`
+
+### LP3 Reason Card Photos (PENDING - USER ACTION REQUIRED)
+
+Photo slots auto-render from:
+```
+public/images/smilemakeover-lp3/reasons/1.jpg  through  6.jpg
+```
+Only `README.md` exists there now. Cards show `bg-[#0a1740]` fallback until photos uploaded.
+
+**Specs:** 1200 x 750 px, 16:10 ratio, JPG, 80% quality, under 150 KB each. Important content must be centered (numbered badge sits bottom-left corner).
+
+| File | Card Title | Theme |
+|---|---|---|
+| 1.jpg | Built On Research, Not Templates | Researcher / strategist / whiteboard |
+| 2.jpg | Conversion Math, Not Click Counts | Dashboard / ROAS / analytics chart |
+| 3.jpg | Leads Treated As Assets, Not Failures | CRM / follow-up inbox |
+| 4.jpg | Speed-to-Lead Built Into the System | SMS alert / phone notification |
+| 5.jpg | A Loop, Not a Launch | Flywheel / cycle / iterative process |
+| 6.jpg | One Connected System, Not Four Vendors | Integrated workspace / connected dashboards |
+
+---
+
+## 8. Decisions Made in Sessions 4-5 (LP work) and Why
+
+| Decision | Rationale |
+|---|---|
+| Font override via `dangerouslySetInnerHTML` + `!important` | Tailwind v4 compiles font utilities at build time; runtime CSS var overrides are ignored by Vercel. This is the only reliable approach. |
+| Radio Canada (LP3 body) + Lexend Mega (LP3 display accents only) | Playfair + Lato rejected by user as wrong look for niche. Radio Canada is clean + slightly clinical, right for dental. |
+| Radial gradient for LP3 light sections (light center, saturated blue edges) | Linear gradient placed saturated blue where body text lives. Radial keeps center pale for readability and pushes blue saturation to edges. |
+| `aspect-[16/10]` for reason card photos | Wider-than-widescreen ratio shows more horizontal content per card without cards being too tall. |
+| `BOOKING_URL = '#'` as named constant | Single place to swap when Calendly link is ready. `grep -r "BOOKING_URL" src/` finds both LPs. |
+| Numbered badge bottom-left on reason cards | Mirrors user's reference "Alisha-style" design. |
+| Body text `#0a0a14` on LP3 light sections | User explicitly darkened from muted secondary - wanted near-black on white/light-blue for maximum contrast. |
+| LP3: 30-minute calls | User overrode global 45-minute rule for LP3 specifically. |
+| `lp3-display` removed from CTAs and StickyNav | User screenshot showed Lexend Mega looked wrong on nav name and CTA buttons. Only kept on step numbers/labels. |
+| Two-tone heading pattern across all sections | User requested "unified premium heading style" - one line plain, second line gradient. Applied globally across LP3. |
+| Footer: `bg-[#050e2e]`, text at `/75`, `/55`, `/45`, `/70` opacity | Earlier footer was near-invisible. User screenshot revealed issue. Brightened background and raised text opacity. |
+| LP3 hero: removed `min-h-screen` | Created a massive empty dark section below fold. Replaced with `pt-32 pb-20 md:pt-36 md:pb-24`. |
+
+---
+
+## 9. What Was Ruled Out
 
 | Ruled Out | Why |
 |---|---|
-| LinkedIn post scraping for achievement descriptions | LinkedIn returns 403 — blocked. Used user-provided text instead |
-| Custom cursor | Removed — poor UX on user request |
-| Lenis smooth scroll | Removed — poor UX on user request |
-| FFC proof images | User has not provided them yet |
-| 7th certification "Marketing & Content Creation (ICR)" | Removed on user request |
-| "Achievements" as section heading | Replaced with no heading (removed entirely on user request) |
+| Playfair Display + Lato on LP3 | User rejected after seeing them rendered - wrong look for niche |
+| Mrs Saint Delafield script font | Used briefly for signature block in mission section; user immediately rejected it ("noo noo noo"). Removed including import. |
+| Lexend Mega on LP3 CTA buttons and nav | User screenshot showed it looked off. Only kept on step numbers/labels via `.lp3-display`. |
+| `min-h-screen` on LP3 hero | Created huge empty dark area. Replaced with explicit padding. |
+| Gradient sidebar bar on LP3 callout card | Was a blue left-border card for "Get the right offer..." quote. User wanted it as inline heading instead. |
+| % conversion guarantee in LP3 Step 2 | Removed - too specific, reads as a promise. |
+| "Revenue per case" from LP3 Reason 2 | Removed at user's direction. |
+| 1-clinic-per-geo exclusivity claim | Removed - too committal at this stage. |
+| 7th FAQ item ("what happens after 90 days") | Removed - user cut as unnecessary. |
+| LinkedIn post scraping | LinkedIn returns 403 - blocked entirely. |
+| Custom cursor | Removed in Session 3 - poor UX. |
+| Lenis smooth scroll | Removed in Session 3 - poor UX. |
 
 ---
 
-## 7. File Structure — Key Files to Know
+## 10. Current State
+
+- **LP3** (`/smilemakeover-lp3`) is **fully built and pushed**. All sections complete. No known code bugs.
+- **LP1** (`/smilemakeover-lp`) is **fully built and pushed**. All sections complete.
+- Branch `claude/portfolio-website-dev-4YbiL` is clean (last commit: `017909c`).
+- **Both LP reason card photo folders contain only `README.md`** - no actual images yet. Cards show fallback until uploaded.
+- `BOOKING_URL = '#'` in both LP1 and LP3 - not wired to Calendly yet.
+- LP3 hero video placeholder shows "2-3 minute founder intro - coming soon" - not wired up.
+- Main site case studies are all complete with proof images.
+- Contact form route built, not tested end-to-end.
+
+---
+
+## 11. Pending Tasks - Next Session
+
+### User Must Do (Not Code)
+
+1. **Upload 12 reason photos:**
+   - `public/images/smilemakeover-lp3/reasons/1.jpg` through `6.jpg` (LP3)
+   - `public/images/smilemakeover-lp/reasons/1.jpg` through `6.jpg` (LP1)
+   - Specs: 1200 x 750 px, JPG, 80% quality, under 150 KB
+   - After upload: commit and push to `claude/portfolio-website-dev-4YbiL`
+
+2. **Replace `BOOKING_URL` with real Calendly link:**
+   - LP3: `src/components/pages/SmileMakeoverLP3Content.tsx` line 52
+   - LP1: `src/components/pages/SmileMakeoverLPContent.tsx` line 8
+
+3. **Verify Resend API key and `CONTACT_EMAIL` are set in Vercel dashboard.**
+
+### Claude Can Do Next Session
+
+4. **Mobile review of LP3** - user has not yet reviewed LP3 on mobile. Share screenshots.
+5. **Contact form end-to-end test** - check Vercel function logs, verify env vars, test form submission.
+6. **FFC case study proof images** - no proof images exist for FFC. When user provides them, add to `public/images/case-studies/ffc/proof/` and update `case-studies.ts`.
+7. **LP3 hero video** - wire up real embed when founder video is ready (Vimeo/YouTube embed or hosted MP4).
+8. **Merge PR #5 to production** - when user is satisfied, merge to `claude/build-portfolio-website-U3hLc`.
+
+---
+
+## 12. Case Studies - Full State
+
+All 6 case studies fully populated in `src/data/case-studies.ts`.
+
+| Slug | Client | Key Metric | Proof Images |
+|---|---|---|---|
+| `hardees-qsr` | QSR Brand (Hardee's) | PKR 31M+, 4x-16x ROAS, 7 months | 18 images (10 campaigns + 8 GA4) |
+| `commercial-real-estate-lead-gen` | CBD Punjab | 2,042 leads, ~PKR 205 avg CPL | 6 images |
+| `ffc-pakistan` | FFC (Fauji Fertilizers) | 140M+ impressions, 88.5M+ views | No images yet |
+| `cubicle-coworking` | Cubicle Co-Working | 3-25+ bookings in <60 days | 6 images |
+| `wavebyte-ecommerce` | Wave Byte | PKR 1.5M+ spend, 5-8x ROAS | 5 images |
+| `icr-it-centre` | ICR IT Centre | 300+ enrollments peak season | 10 images |
+
+---
+
+## 13. Key CSS Classes (globals.css)
+
+| Class | What it does |
+|---|---|
+| `.gradient-brand` | Background gradient: dark-light blue |
+| `.gradient-brand-text` | Same gradient applied as text fill |
+| `.cs-card-border` | Case study card: white bg, blue border, 3px gradient top, hover glow |
+| `.proof-watermark` | Diagonal "ABDULLAH TAYYAB" SVG tile watermark |
+| `.proof-img-border` | Gradient border wrapper for proof images |
+| `.section-padding` | Responsive vertical padding (6rem-8rem-10rem) |
+| `.animate-scroll-left` | 30s infinite horizontal scroll |
+| `.animate-float` | 4s float up/down |
+
+---
+
+## 14. Git / Deployment Flow
 
 ```
-src/
-├── app/
-│   ├── globals.css              ← All CSS: @theme, @keyframes, .cs-card-border,
-│   │                               .proof-watermark, .proof-img-border, .gradient-border-card
-│   ├── layout.tsx               ← Root layout — Navbar + Footer only (no cursor, no Lenis)
-│   └── about/page.tsx           ← Server wrapper → AboutContent
-├── components/
-│   ├── case-studies/
-│   │   ├── CaseStudyCard.tsx    ← Logo → hero image → title → desc → metrics → tags
-│   │   └── CaseStudyLayout.tsx  ← Full case study page: hero, metrics strip, callout,
-│   │                               body sections, proof grid, lightbox, outcome, CTA
-│   └── pages/
-│       └── AboutContent.tsx     ← Bio, Approach/Vision/Mission, Stats,
-│                                   Speaking & Teaching (3 blocks), Certifications (6 cards), CTA
-├── data/
-│   └── case-studies.ts          ← All 6 case studies — single source of truth
-└── types/
-    └── index.ts                 ← CaseStudy, StrategyPoint, CaseStudyResultsTable,
-                                    CaseStudyMetric, CaseStudyResult, FfcCampaign, etc.
+Feature work -> claude/portfolio-website-dev-4YbiL
+                      (PR #5 open)
+             -> claude/build-portfolio-website-U3hLc  <- Vercel previews deploy here
+```
+
+- No `main` branch exists - never push there
+- Vercel auto-deploys preview on every push to `claude/portfolio-website-dev-4YbiL` via PR #5
+
+---
+
+## 15. Environment Variables
+
+```
+RESEND_API_KEY=...
+CONTACT_EMAIL=abdullahtayyab.805@gmail.com
+```
+
+`.env.local` is gitignored - never commit. Must also be set in Vercel dashboard.
+
+---
+
+## 16. Dev Commands
+
+```bash
+npm install
+npm run dev        # http://localhost:3000
+node_modules/.bin/next build   # type check + build verify
 ```
 
 ---
 
-## 8. Person / Data Reference
+## 17. Person Reference
 
 | Field | Value |
 |---|---|
@@ -288,85 +421,9 @@ src/
 | LinkedIn | https://www.linkedin.com/in/abdullahtayyabofficial/ |
 | Facebook | https://www.facebook.com/i.abdullahtayyabofficial |
 | Instagram | https://www.instagram.com/abdullahtayyab.official/ |
-| Hero metrics | ₨100M+ Revenue Driven · 10,000+ Leads Generated · 93% Client Retention |
-| Education | BBIT — Virtual University of Pakistan |
-
-**Work history:**
-- **Firebolt63** (Nov 2025–Apr 2026): PKR 24M+ ecommerce, 325% YoY, 200M+ impressions
-- **Wave Byte** (Dec 2024–Apr 2025): PKR 1.5M+ ad spend, 5–8x ROAS
-- **Hello World Technologies** (Jun–Dec 2024): Cubicle 3→25+ bookings, 600+ event participants
+| Hero metrics | Rs100M+ Revenue Driven, 10,000+ Leads Generated, 93% Client Retention |
+| Education | BBIT - Virtual University of Pakistan |
 
 ---
 
-## 9. Environment Variables
-
-```
-RESEND_API_KEY=re_ALn8oPh7_GWG1eJkdWE1KzYdX65bpHp2P
-CONTACT_EMAIL=abdullahtayyab.805@gmail.com
-```
-
-`.env.local` is gitignored — never commit. Must also be set in Vercel dashboard.
-
----
-
-## 10. Git / Deployment Flow
-
-```
-Feature work → claude/portfolio-website-dev-4YbiL
-                      ↓  (PR #5 open)
-             claude/build-portfolio-website-U3hLc  ← Vercel previews deploy here
-```
-
-- There is **no `main` branch** — do not push to main
-- Vercel auto-deploys a preview build whenever PR #5 gets new commits
-- To ship to production: merge PR #5 → `claude/build-portfolio-website-U3hLc`
-
----
-
-## 11. Pending / Next Session Tasks
-
-### High Priority
-1. **Contact form end-to-end test** — The `/api/contact` Resend route is built but never confirmed working. Check Vercel function logs, verify `RESEND_API_KEY` + `CONTACT_EMAIL` are set in Vercel dashboard, verify domain `abdullahtayyab.com` is verified in Resend. If blocked, fallback: change `from` to `onboarding@resend.dev`.
-
-2. **FFC case study proof images** — The FFC case study has no `proofImages` array. When user provides images, add a `proof/` folder under `public/images/case-studies/ffc/` and add paths to `case-studies.ts`.
-
-3. **FFC case study content update** — Content is written but based on available info. User may want to rewrite it with their own reference material (like the other case studies were done with PDF/screenshot references).
-
-### Lower Priority
-4. **Merge PR #5 to production** — When user is happy with the preview, merge PR #5 into `claude/build-portfolio-website-U3hLc` to push everything live.
-
-5. **Stats update on About page** — Currently shows `₨30M+` Revenue Driven but hero says `₨100M+`. Confirm correct number with user.
-
-6. **ICR case study content update** — Content exists but was not rewritten from user reference screenshots (unlike Hardee's, CBD, Wave Byte, Cubicle). User may want to align it.
-
----
-
-## 12. How to Start Dev Server
-
-```bash
-npm install        # if node_modules missing
-npm run dev        # → http://localhost:3000
-node_modules/.bin/next build   # use this for build checks (not npx next build)
-```
-
----
-
-## 13. Key CSS Classes (globals.css)
-
-| Class | What it does |
-|---|---|
-| `.gradient-brand` | Background gradient: dark→light blue |
-| `.gradient-brand-text` | Same gradient applied as text fill |
-| `.cs-card-border` | Case study card: white bg, blue border, 3px gradient top, hover glow |
-| `.proof-watermark` | Diagonal "ABDULLAH TAYYAB" SVG tile watermark — apply to proof image overlays |
-| `.proof-img-border` | Gradient border wrapper for proof images |
-| `.gradient-border-card` | Spinning conic gradient border (used in some UI cards) |
-| `.section-padding` | Responsive vertical padding (6rem → 8rem → 10rem) |
-| `.noise-overlay` | Adds subtle grain texture via `::after` pseudo-element |
-| `.animate-scroll-left` | 30s infinite horizontal scroll |
-| `.animate-float` | 4s float up/down |
-| `.pause-animation` | Pauses any CSS animation |
-
----
-
-*Updated end of Session 3 — June 2026*
+*Updated end of Session 5 - July 2026*
