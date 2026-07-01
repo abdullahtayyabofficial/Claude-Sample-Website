@@ -203,19 +203,20 @@ function StickyNav() {
           : 'bg-transparent'
       }`}
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-3">
+      <div className="max-w-6xl mx-auto px-3 sm:px-6 py-3 flex items-center justify-between gap-2 sm:gap-3">
         <Link
           href="/"
-          className="font-heading font-bold text-[15px] md:text-lg text-white tracking-tight hover:text-[#15a1df] transition-colors whitespace-nowrap"
+          className="font-heading font-bold text-[13px] md:text-lg text-white tracking-tight hover:text-[#15a1df] transition-colors whitespace-nowrap"
         >
           Abdullah Tayyab
         </Link>
         <a
           href={BOOKING_URL}
-          className="font-bold text-xs md:text-sm text-white bg-[#15a1df] hover:bg-[#0d8bbf] px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-lg transition-all duration-200 hover:shadow-[0_0_20px_rgba(21,161,223,0.4)] whitespace-nowrap"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-bold text-[10px] sm:text-xs md:text-sm text-white bg-[#15a1df] hover:bg-[#0d8bbf] px-2.5 py-2 sm:px-4 sm:py-2.5 rounded-lg transition-all duration-200 hover:shadow-[0_0_20px_rgba(21,161,223,0.4)] whitespace-nowrap"
         >
-          <span className="sm:hidden">Book a Call</span>
-          <span className="hidden sm:inline">Book Your Free Strategy Consultation</span>
+          Book Your Free Strategy Consultation
         </a>
       </div>
     </header>
