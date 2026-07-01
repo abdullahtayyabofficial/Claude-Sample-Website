@@ -5,7 +5,7 @@ import { motion, useInView, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
 
-const BOOKING_URL = '#' // TODO: Replace with Calendly link before going live
+const BOOKING_URL = 'https://calendly.com/abdullahtayyab-official/30min'
 const EASE = [0.25, 0.4, 0.25, 1] as const
 const SUB_COPY =
   'This is a no-pitch, but a 45-minute diagnostic call. If we are not a good fit, we will tell you.'

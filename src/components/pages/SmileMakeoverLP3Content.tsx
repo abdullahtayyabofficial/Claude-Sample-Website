@@ -49,11 +49,13 @@ const LP3_FONT_OVERRIDE_CSS = `
 }
 `
 
-const BOOKING_URL = '#' // TODO: Replace with Calendly link before going live
+const BOOKING_URL = 'https://calendly.com/abdullahtayyab-official/30min'
 const EASE = [0.25, 0.4, 0.25, 1] as const
 
 const SUB_COPY_HERO =
   'A free, no-pitch 30-minute call. We will map your current patient flow against where it is leaking revenue, and show you exactly what the Case-Ready Smile Pipeline would look like installed in your clinic.'
+const SUB_COPY_HERO_MOBILE =
+  'Free 30-minute call. No pitch. We show you exactly where your funnel is leaking.'
 const SUB_COPY_GENERIC =
   'Free. No pitch. 30 minutes. We will show you exactly where your funnel is leaking.'
 const SUB_COPY_FIT =
@@ -94,44 +96,43 @@ function FadeUp({
 
 function CTAButton({
   label = 'Book Your Free Strategy Consultation',
-  mobileLabel = 'Book Your Strategy Call',
   size = 'lg',
 }: {
   label?: string
-  mobileLabel?: string
   size?: 'sm' | 'lg'
 }) {
   return (
     <a
       href={BOOKING_URL}
+      target="_blank"
+      rel="noopener noreferrer"
       className={`inline-block font-bold text-white rounded-xl bg-[#15a1df] hover:bg-[#0d8bbf] transition-all duration-300 shadow-lg hover:shadow-[0_0_36px_rgba(21,161,223,0.5)] hover:-translate-y-0.5 whitespace-nowrap text-center ${
         size === 'lg'
-          ? 'text-[13px] sm:text-base md:text-lg px-6 py-3.5 sm:px-14 sm:py-5'
-          : 'text-[13px] sm:text-base px-5 py-3 sm:px-9 sm:py-4'
+          ? 'text-[12px] sm:text-base md:text-lg px-4 py-3 sm:px-14 sm:py-5'
+          : 'text-[12px] sm:text-base px-4 py-3 sm:px-9 sm:py-4'
       }`}
     >
-      <span className="sm:hidden">{mobileLabel}</span>
-      <span className="hidden sm:inline">{label}</span>
+      {label}
     </a>
   )
 }
 
 function GradientCTAButton({
   label = 'Book Your Free Strategy Consultation',
-  mobileLabel = 'Book Your Strategy Call',
   size = 'lg',
 }: {
   label?: string
-  mobileLabel?: string
   size?: 'sm' | 'lg'
 }) {
   return (
     <a
       href={BOOKING_URL}
+      target="_blank"
+      rel="noopener noreferrer"
       className={`relative inline-block font-bold text-white rounded-xl overflow-hidden group shadow-lg hover:shadow-[0_8px_36px_rgba(21,161,223,0.45)] hover:-translate-y-0.5 transition-all duration-300 whitespace-nowrap text-center ${
         size === 'lg'
-          ? 'text-[13px] sm:text-base md:text-lg px-6 py-3.5 sm:px-14 sm:py-5'
-          : 'text-[13px] sm:text-base px-5 py-3 sm:px-9 sm:py-4'
+          ? 'text-[12px] sm:text-base md:text-lg px-4 py-3 sm:px-14 sm:py-5'
+          : 'text-[12px] sm:text-base px-4 py-3 sm:px-9 sm:py-4'
       }`}
       style={{ background: 'linear-gradient(135deg, #010738 0%, #0d5f99 55%, #15a1df 100%)' }}
     >
@@ -140,30 +141,23 @@ function GradientCTAButton({
         style={{ background: 'linear-gradient(135deg, #051a6e 0%, #1272b0 55%, #1bb5f5 100%)' }}
       />
       <span className="absolute top-0 left-[-75%] w-[50%] h-full skew-x-[-20deg] bg-white/[0.18] group-hover:left-[125%] transition-all duration-700" />
-      <span className="relative sm:hidden">{mobileLabel}</span>
-      <span className="relative hidden sm:inline">{label}</span>
+      <span className="relative">{label}</span>
     </a>
   )
 }
 
 function SectionCTA({
   label,
-  mobileLabel,
   sub,
   dark = true,
 }: {
   label?: string
-  mobileLabel?: string
   sub?: string
   dark?: boolean
 }) {
   return (
     <div className="flex flex-col items-center gap-4 mt-12 sm:mt-16 pt-2">
-      {dark ? (
-        <CTAButton label={label} mobileLabel={mobileLabel} />
-      ) : (
-        <GradientCTAButton label={label} mobileLabel={mobileLabel} />
-      )}
+      {dark ? <CTAButton label={label} /> : <GradientCTAButton label={label} />}
       <p
         className={`text-sm sm:text-base max-w-md text-center leading-relaxed px-2 ${
           dark ? 'text-white/70' : 'text-[#0a0a14]'
@@ -233,7 +227,7 @@ function StickyNav() {
 function Hero() {
   return (
     <section
-      className="relative flex flex-col items-center justify-center text-center px-5 sm:px-6 pt-24 pb-14 md:pt-36 md:pb-24 overflow-hidden"
+      className="relative flex flex-col items-center justify-center text-center px-5 sm:px-6 pt-24 pb-14 md:pt-28 md:pb-16 overflow-hidden"
       style={{ background: DARK_GRADIENT }}
     >
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -322,8 +316,9 @@ function Hero() {
         <FadeUp delay={0.4}>
           <div className="flex flex-col items-center gap-5">
             <CTAButton />
-            <p className="text-white/85 text-sm sm:text-base max-w-2xl leading-relaxed px-2">
-              {SUB_COPY_HERO}
+            <p className="text-white/85 text-[13px] sm:text-base max-w-2xl leading-relaxed px-2">
+              <span className="sm:hidden">{SUB_COPY_HERO_MOBILE}</span>
+              <span className="hidden sm:inline">{SUB_COPY_HERO}</span>
             </p>
           </div>
         </FadeUp>
@@ -365,15 +360,12 @@ const proofCaseStudies = [
 
 function ProofSection() {
   return (
-    <section className="py-16 sm:py-24 md:py-28 px-5 sm:px-6" style={{ background: LIGHT_GRADIENT }}>
+    <section className="py-16 md:py-20 px-5 sm:px-6" style={{ background: LIGHT_GRADIENT }}>
       <div className="max-w-6xl mx-auto">
         <FadeUp>
           <div className="text-center mb-12 sm:mb-16">
-            <p className="inline-block text-[10px] sm:text-xs font-semibold uppercase tracking-[0.18em] text-[#15a1df] bg-white/70 border border-[#15a1df]/25 rounded-full px-4 py-1.5 mb-5">
-              Cross-Industry Proof - Cosmetic Dental Case Studies Coming Soon
-            </p>
             <h2 className="font-heading font-bold text-[26px] sm:text-3xl md:text-4xl lg:text-[46px] text-[#0a0a14] leading-tight mb-5">
-              The Same System,{' '}
+              Documented Performance{' '}
               <span
                 style={{
                   background: 'linear-gradient(135deg, #010738 10%, #15a1df 100%)',
@@ -382,14 +374,12 @@ function ProofSection() {
                   backgroundClip: 'text',
                 }}
               >
-                Documented Across Industries
+                Across Industries
               </span>
             </h2>
-            <p className="text-[#0a0a14] text-sm sm:text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
-              The Case-Ready Smile Pipeline™ is the cosmetic-dental application of the same
-              conversion system we have built across other high-consideration verticals. The results
-              below are cross-industry proof of the underlying method - not dental case studies. Real
-              revenue, real leads, real systems that compound.
+            <p className="text-[#0a0a14] text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+              Outcome-specific results from real clients - tied to revenue driven, leads generated,
+              and systems that compound month after month. Not vanity metrics.
             </p>
           </div>
         </FadeUp>
@@ -471,7 +461,7 @@ const consequences = [
 
 function PainAgitation() {
   return (
-    <section className="bg-[#f8f9fc] py-16 sm:py-24 md:py-28 px-5 sm:px-6 relative overflow-hidden">
+    <section className="bg-[#f8f9fc] py-16 md:py-20 px-5 sm:px-6 relative overflow-hidden">
       <div className="relative z-10 max-w-3xl mx-auto">
         <FadeUp>
           <h2 className="font-heading font-bold text-[26px] sm:text-3xl md:text-4xl lg:text-[46px] text-[#0a0a14] leading-tight mb-10 sm:mb-14 text-center">
@@ -559,38 +549,32 @@ function PainAgitation() {
         </FadeUp>
 
         <FadeUp delay={0.12}>
-          <div
-            className="relative rounded-[4px] overflow-hidden mb-14 sm:mb-16 p-6 sm:p-8 md:p-10 shadow-[0_10px_36px_rgba(1,7,56,0.35)]"
-            style={{
-              background: 'linear-gradient(160deg, #0a1740 0%, #050d2a 55%, #0a1740 100%)',
-            }}
-          >
-            <div className="absolute -top-16 -right-16 w-56 h-56 rounded-full bg-red-500/[0.09] blur-3xl pointer-events-none" />
-            <ul className="relative space-y-4 sm:space-y-5">
-              {failedSolutions.map((item, i) => (
-                <motion.li
-                  key={i}
-                  initial={{ opacity: 0, x: -16 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.45, delay: i * 0.07, ease: EASE }}
-                  className="flex items-start gap-4 text-white/95 text-[15px] sm:text-base md:text-lg leading-snug"
+          <ul className="space-y-3 sm:space-y-4 mb-14 sm:mb-16">
+            {failedSolutions.map((item, i) => (
+              <motion.li
+                key={i}
+                initial={{ opacity: 0, x: -16 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45, delay: i * 0.05, ease: EASE }}
+                className="flex items-center gap-4 sm:gap-5 bg-white rounded-[4px] border border-[#e8eaf0] shadow-[0_2px_8px_rgba(1,7,56,0.04)] hover:shadow-[0_4px_16px_rgba(1,7,56,0.08)] transition-shadow duration-300 px-5 py-4 sm:px-6 sm:py-5"
+              >
+                <span
+                  className="shrink-0 w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center text-white font-bold text-sm sm:text-base leading-none shadow-[0_0_20px_rgba(220,38,38,0.35)]"
+                  style={{
+                    background: 'radial-gradient(circle at 30% 30%, #ef4444 0%, #b91c1c 100%)',
+                  }}
                 >
-                  <span className="shrink-0 mt-0.5 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-red-500/15 border border-red-400/40 flex items-center justify-center text-red-300 font-bold text-sm sm:text-base leading-none">
-                    ✗
-                  </span>
-                  <span>{item}</span>
-                </motion.li>
-              ))}
-            </ul>
-          </div>
+                  ✕
+                </span>
+                <span className="text-[#0a0a14] text-[15px] sm:text-base md:text-lg leading-snug">
+                  {item}
+                </span>
+              </motion.li>
+            ))}
+          </ul>
         </FadeUp>
 
-        <FadeUp>
-          <p className="text-[#2d3250] text-[11px] sm:text-xs font-semibold uppercase tracking-[0.2em] mb-6 sm:mb-8">
-            And here is what that costs you
-          </p>
-        </FadeUp>
         <div className="space-y-5 sm:space-y-6 mb-12 sm:mb-14">
           {consequences.map((para, i) => (
             <FadeUp key={i} delay={i * 0.04}>
@@ -670,7 +654,7 @@ const steps = [
 
 function HowItWorks() {
   return (
-    <section className="py-16 sm:py-24 md:py-28 px-5 sm:px-6" style={{ background: LIGHT_GRADIENT }}>
+    <section className="py-16 md:py-20 px-5 sm:px-6" style={{ background: LIGHT_GRADIENT }}>
       <div className="max-w-4xl mx-auto">
         <FadeUp>
           <div className="text-center mb-14 sm:mb-20">
@@ -770,7 +754,7 @@ const reasons = [
 
 function WhyChooseUs() {
   return (
-    <section className="bg-[#f8f9fc] py-16 sm:py-24 md:py-28 px-5 sm:px-6 relative overflow-hidden">
+    <section className="bg-[#f8f9fc] py-16 md:py-20 px-5 sm:px-6 relative overflow-hidden">
       <div className="relative z-10 max-w-6xl mx-auto">
         <FadeUp>
           <div className="text-center mb-12 sm:mb-16">
@@ -873,7 +857,7 @@ const diffParas = [
 
 function Differentiation() {
   return (
-    <section className="py-16 sm:py-24 md:py-28 px-5 sm:px-6" style={{ background: LIGHT_GRADIENT }}>
+    <section className="py-16 md:py-20 px-5 sm:px-6" style={{ background: LIGHT_GRADIENT }}>
       <div className="max-w-4xl mx-auto">
         <FadeUp>
           <h2 className="font-heading font-bold text-[26px] sm:text-3xl md:text-4xl lg:text-[46px] text-[#0a0a14] mb-10 sm:mb-12 leading-tight text-center max-w-5xl mx-auto">
@@ -1133,7 +1117,7 @@ function XCircleThin({ className = 'w-6 h-6' }: { className?: string }) {
 
 function QualifySection() {
   return (
-    <section className="bg-[#f8f9fc] py-16 sm:py-24 md:py-28 px-5 sm:px-6">
+    <section className="bg-[#f8f9fc] py-16 md:py-20 px-5 sm:px-6">
       <div className="max-w-5xl mx-auto">
         <FadeUp>
           <div className="text-center mb-12 sm:mb-16">
@@ -1248,10 +1232,7 @@ function QualifySection() {
 
         <FadeUp>
           <div className="flex flex-col items-center gap-4">
-            <GradientCTAButton
-              label="Check If Your Clinic Is a Good Fit"
-              mobileLabel="See If You Qualify"
-            />
+            <GradientCTAButton />
             <p className="text-[#0a0a14] text-base max-w-md text-center leading-relaxed">
               {SUB_COPY_FIT}
             </p>
@@ -1296,7 +1277,7 @@ const missionParas = [
 function BrandMission() {
   return (
     <section
-      className="py-16 sm:py-24 md:py-28 px-5 sm:px-6 relative overflow-hidden"
+      className="py-16 md:py-20 px-5 sm:px-6 relative overflow-hidden"
       style={{ background: LIGHT_GRADIENT }}
     >
       <div className="relative z-10 max-w-3xl mx-auto">
@@ -1391,13 +1372,10 @@ function FAQSection() {
   const [active, setActive] = useState<number | null>(null)
 
   return (
-    <section className="bg-[#f8f9fc] py-16 sm:py-24 md:py-28 px-5 sm:px-6">
+    <section className="bg-[#f8f9fc] py-16 md:py-20 px-5 sm:px-6">
       <div className="max-w-3xl mx-auto">
         <FadeUp>
           <div className="text-center mb-12 sm:mb-16">
-            <p className="text-[#15a1df] text-[11px] sm:text-xs font-semibold uppercase tracking-[0.2em] mb-4">
-              Still Have Questions?
-            </p>
             <h2 className="font-heading font-bold text-[26px] sm:text-3xl md:text-4xl lg:text-[46px] text-[#0a0a14] leading-tight mb-5">
               Frequently{' '}
               <span
@@ -1500,7 +1478,7 @@ const closingParas = [
 
 function FinalCTA() {
   return (
-    <section className="py-16 sm:py-24 md:py-28 px-5 sm:px-6 relative overflow-hidden" style={{ background: DARK_GRADIENT }}>
+    <section className="py-16 md:py-20 px-5 sm:px-6 relative overflow-hidden" style={{ background: DARK_GRADIENT }}>
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute bottom-[-15%] left-1/2 -translate-x-1/2 w-[1100px] h-[600px] bg-[#15a1df] opacity-[0.18] blur-[140px] rounded-full" />
         <div className="absolute top-[10%] left-[15%] w-[500px] h-[400px] bg-[#0d4fa8] opacity-[0.30] blur-[100px] rounded-full" />
