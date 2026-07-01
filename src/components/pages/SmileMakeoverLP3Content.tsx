@@ -94,35 +94,44 @@ function FadeUp({
 
 function CTAButton({
   label = 'Book Your Free Strategy Consultation',
+  mobileLabel = 'Book Your Strategy Call',
   size = 'lg',
 }: {
   label?: string
+  mobileLabel?: string
   size?: 'sm' | 'lg'
 }) {
   return (
     <a
       href={BOOKING_URL}
-      className={`inline-block font-bold text-white rounded-xl bg-[#15a1df] hover:bg-[#0d8bbf] transition-all duration-300 shadow-lg hover:shadow-[0_0_36px_rgba(21,161,223,0.5)] hover:-translate-y-0.5 ${
-        size === 'lg' ? 'text-base md:text-lg px-14 py-5' : 'text-base px-9 py-4'
+      className={`inline-block font-bold text-white rounded-xl bg-[#15a1df] hover:bg-[#0d8bbf] transition-all duration-300 shadow-lg hover:shadow-[0_0_36px_rgba(21,161,223,0.5)] hover:-translate-y-0.5 whitespace-nowrap text-center ${
+        size === 'lg'
+          ? 'text-[13px] sm:text-base md:text-lg px-6 py-3.5 sm:px-14 sm:py-5'
+          : 'text-[13px] sm:text-base px-5 py-3 sm:px-9 sm:py-4'
       }`}
     >
-      {label}
+      <span className="sm:hidden">{mobileLabel}</span>
+      <span className="hidden sm:inline">{label}</span>
     </a>
   )
 }
 
 function GradientCTAButton({
   label = 'Book Your Free Strategy Consultation',
+  mobileLabel = 'Book Your Strategy Call',
   size = 'lg',
 }: {
   label?: string
+  mobileLabel?: string
   size?: 'sm' | 'lg'
 }) {
   return (
     <a
       href={BOOKING_URL}
-      className={`relative inline-block font-bold text-white rounded-xl overflow-hidden group shadow-lg hover:shadow-[0_8px_36px_rgba(21,161,223,0.45)] hover:-translate-y-0.5 transition-all duration-300 ${
-        size === 'lg' ? 'text-base md:text-lg px-14 py-5' : 'text-base px-9 py-4'
+      className={`relative inline-block font-bold text-white rounded-xl overflow-hidden group shadow-lg hover:shadow-[0_8px_36px_rgba(21,161,223,0.45)] hover:-translate-y-0.5 transition-all duration-300 whitespace-nowrap text-center ${
+        size === 'lg'
+          ? 'text-[13px] sm:text-base md:text-lg px-6 py-3.5 sm:px-14 sm:py-5'
+          : 'text-[13px] sm:text-base px-5 py-3 sm:px-9 sm:py-4'
       }`}
       style={{ background: 'linear-gradient(135deg, #010738 0%, #0d5f99 55%, #15a1df 100%)' }}
     >
@@ -131,25 +140,32 @@ function GradientCTAButton({
         style={{ background: 'linear-gradient(135deg, #051a6e 0%, #1272b0 55%, #1bb5f5 100%)' }}
       />
       <span className="absolute top-0 left-[-75%] w-[50%] h-full skew-x-[-20deg] bg-white/[0.18] group-hover:left-[125%] transition-all duration-700" />
-      <span className="relative">{label}</span>
+      <span className="relative sm:hidden">{mobileLabel}</span>
+      <span className="relative hidden sm:inline">{label}</span>
     </a>
   )
 }
 
 function SectionCTA({
   label,
+  mobileLabel,
   sub,
   dark = true,
 }: {
   label?: string
+  mobileLabel?: string
   sub?: string
   dark?: boolean
 }) {
   return (
-    <div className="flex flex-col items-center gap-4 mt-16 pt-2">
-      {dark ? <CTAButton label={label} /> : <GradientCTAButton label={label} />}
+    <div className="flex flex-col items-center gap-4 mt-12 sm:mt-16 pt-2">
+      {dark ? (
+        <CTAButton label={label} mobileLabel={mobileLabel} />
+      ) : (
+        <GradientCTAButton label={label} mobileLabel={mobileLabel} />
+      )}
       <p
-        className={`text-base max-w-md text-center leading-relaxed ${
+        className={`text-sm sm:text-base max-w-md text-center leading-relaxed px-2 ${
           dark ? 'text-white/70' : 'text-[#0a0a14]'
         }`}
       >
@@ -193,18 +209,19 @@ function StickyNav() {
           : 'bg-transparent'
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-3">
         <Link
           href="/"
-          className="font-heading font-bold text-base md:text-lg text-white tracking-tight hover:text-[#15a1df] transition-colors"
+          className="font-heading font-bold text-[15px] md:text-lg text-white tracking-tight hover:text-[#15a1df] transition-colors whitespace-nowrap"
         >
           Abdullah Tayyab
         </Link>
         <a
           href={BOOKING_URL}
-          className="font-bold text-xs md:text-sm text-white bg-[#15a1df] hover:bg-[#0d8bbf] px-4 py-2.5 rounded-lg transition-all duration-200 hover:shadow-[0_0_20px_rgba(21,161,223,0.4)]"
+          className="font-bold text-xs md:text-sm text-white bg-[#15a1df] hover:bg-[#0d8bbf] px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-lg transition-all duration-200 hover:shadow-[0_0_20px_rgba(21,161,223,0.4)] whitespace-nowrap"
         >
-          Book Your Free Strategy Consultation
+          <span className="sm:hidden">Book a Call</span>
+          <span className="hidden sm:inline">Book Your Free Strategy Consultation</span>
         </a>
       </div>
     </header>
@@ -216,7 +233,7 @@ function StickyNav() {
 function Hero() {
   return (
     <section
-      className="relative flex flex-col items-center justify-center text-center px-6 pt-32 pb-20 md:pt-36 md:pb-24 overflow-hidden"
+      className="relative flex flex-col items-center justify-center text-center px-5 sm:px-6 pt-24 pb-14 md:pt-36 md:pb-24 overflow-hidden"
       style={{ background: DARK_GRADIENT }}
     >
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -234,16 +251,16 @@ function Hero() {
 
       <div className="relative z-10 max-w-5xl w-full mx-auto">
         <FadeUp>
-          <div className="inline-flex justify-center bg-[#0a1740]/80 border border-white/[0.08] backdrop-blur-sm text-white text-xs sm:text-sm font-semibold tracking-[0.16em] uppercase px-6 py-3 md:px-7 md:py-3.5 rounded-full mb-10 shadow-[0_8px_28px_rgba(0,0,0,0.35)]">
+          <div className="inline-flex justify-center bg-[#0a1740]/80 border border-white/[0.08] backdrop-blur-sm text-white text-[10px] sm:text-sm font-semibold tracking-[0.14em] sm:tracking-[0.16em] uppercase px-4 py-2.5 sm:px-6 sm:py-3 md:px-7 md:py-3.5 rounded-full mb-7 sm:mb-10 shadow-[0_8px_28px_rgba(0,0,0,0.35)]">
             For Cosmetic Dental Clinics Doing $50k-$500k+/Month
           </div>
         </FadeUp>
 
         <FadeUp delay={0.1}>
-          <h1 className="font-heading font-bold text-3xl sm:text-4xl md:text-[42px] lg:text-[48px] text-white leading-[1.15] tracking-tight mb-10">
-            <span className="md:block">We Install Your</span>{' '}
+          <h1 className="font-heading font-bold text-[26px] sm:text-4xl md:text-[42px] lg:text-[48px] text-white leading-[1.18] tracking-tight mb-8 sm:mb-10">
+            <span className="block">We Install Your</span>
             <span
-              className="md:block"
+              className="block whitespace-nowrap"
               style={{
                 background: 'linear-gradient(90deg, #a8dcf5 0%, #15a1df 55%, #0c75a8 100%)',
                 WebkitBackgroundClip: 'text',
@@ -252,21 +269,23 @@ function Hero() {
               }}
             >
               Case-Ready Smile Pipeline
-            </span>{' '}
-            <span className="md:block">To Generate Qualified Smile Makeover</span>{' '}
-            <span className="md:block">Consultations For Your Calendar</span>
+            </span>
+            <span className="block">To Generate Qualified Smile</span>
+            <span className="block">Consultations For Your Calendar</span>
           </h1>
         </FadeUp>
 
         <FadeUp delay={0.2}>
-          <ul className="inline-flex flex-col gap-4 text-left mb-12 max-w-2xl">
+          <ul className="inline-flex flex-col gap-3 sm:gap-4 text-left mb-10 sm:mb-12 max-w-2xl">
             {[
-              'Ads built around real cosmetic patient intent - veneers, Invisalign, bonding, whitening, full transformations',
-              'A pre-sell landing page that educates and qualifies before the patient ever picks up the phone',
-              'A qualification flow that filters out tyre-kickers before they reach your front desk',
-              'Follow-up automations running in the background - because most leads are lost to bad nurture, not bad ads',
+              'Ads built around real cosmetic patient intent - veneers, Invisalign, whitening',
+              'A pre-sell landing page that qualifies before the patient picks up the phone',
+              'Follow-up automation that turns "not yet" into booked consultations',
             ].map((item) => (
-              <li key={item} className="flex items-start gap-3 text-white/95 text-base md:text-lg">
+              <li
+                key={item}
+                className="flex items-start gap-3 text-white/95 text-sm sm:text-base md:text-lg leading-snug"
+              >
                 <CheckIcon />
                 {item}
               </li>
@@ -274,8 +293,8 @@ function Hero() {
           </ul>
         </FadeUp>
 
-        <FadeUp delay={0.3} className="mb-12">
-          <div className="relative aspect-video max-w-2xl mx-auto rounded-2xl overflow-hidden border border-white/[0.08] bg-[#040d42] group cursor-pointer">
+        <FadeUp delay={0.3} className="mb-10 sm:mb-12">
+          <div className="relative aspect-video max-w-2xl mx-auto rounded-[4px] overflow-hidden border border-white/[0.08] bg-[#040d42] group cursor-pointer">
             <div className="absolute inset-0 bg-gradient-to-br from-[#15a1df]/[0.07] via-transparent to-[#15a1df]/[0.03]" />
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-5">
               <div className="relative">
@@ -303,7 +322,9 @@ function Hero() {
         <FadeUp delay={0.4}>
           <div className="flex flex-col items-center gap-5">
             <CTAButton />
-            <p className="text-white/85 text-base max-w-2xl leading-relaxed">{SUB_COPY_HERO}</p>
+            <p className="text-white/85 text-sm sm:text-base max-w-2xl leading-relaxed px-2">
+              {SUB_COPY_HERO}
+            </p>
           </div>
         </FadeUp>
       </div>
@@ -344,12 +365,15 @@ const proofCaseStudies = [
 
 function ProofSection() {
   return (
-    <section className="py-28 px-6" style={{ background: LIGHT_GRADIENT }}>
+    <section className="py-16 sm:py-24 md:py-28 px-5 sm:px-6" style={{ background: LIGHT_GRADIENT }}>
       <div className="max-w-6xl mx-auto">
         <FadeUp>
-          <div className="text-center mb-16">
-            <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-[46px] text-[#0a0a14] leading-tight mb-5">
-              Documented Performance{' '}
+          <div className="text-center mb-12 sm:mb-16">
+            <p className="inline-block text-[10px] sm:text-xs font-semibold uppercase tracking-[0.18em] text-[#15a1df] bg-white/70 border border-[#15a1df]/25 rounded-full px-4 py-1.5 mb-5">
+              Cross-Industry Proof - Cosmetic Dental Case Studies Coming Soon
+            </p>
+            <h2 className="font-heading font-bold text-[26px] sm:text-3xl md:text-4xl lg:text-[46px] text-[#0a0a14] leading-tight mb-5">
+              The Same System,{' '}
               <span
                 style={{
                   background: 'linear-gradient(135deg, #010738 10%, #15a1df 100%)',
@@ -358,12 +382,14 @@ function ProofSection() {
                   backgroundClip: 'text',
                 }}
               >
-                Across Industries
+                Documented Across Industries
               </span>
             </h2>
-            <p className="text-[#0a0a14] text-lg max-w-2xl mx-auto leading-relaxed">
-              Outcome-specific results from real clients - tied to revenue driven, leads generated,
-              and systems that compound month after month. Not vanity metrics.
+            <p className="text-[#0a0a14] text-sm sm:text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
+              The Case-Ready Smile Pipeline™ is the cosmetic-dental application of the same
+              conversion system we have built across other high-consideration verticals. The results
+              below are cross-industry proof of the underlying method - not dental case studies. Real
+              revenue, real leads, real systems that compound.
             </p>
           </div>
         </FadeUp>
@@ -371,19 +397,19 @@ function ProofSection() {
         <div className="grid md:grid-cols-3 gap-6 items-stretch">
           {proofCaseStudies.map((cs, i) => (
             <FadeUp key={i} delay={i * 0.1} className="h-full">
-              <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 flex flex-col h-full">
+              <div className="bg-white rounded-[4px] overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 flex flex-col h-full">
                 <div className="relative aspect-video overflow-hidden shrink-0">
                   <Image src={cs.image} alt={cs.client} fill className="object-cover" />
                 </div>
-                <div className="p-7 flex flex-col flex-1">
-                  <div className="text-[#f59e0b] text-xl tracking-wide mb-4">★★★★★</div>
-                  <h3 className="font-heading font-bold text-[#0a0a14] text-lg leading-snug mb-4">
+                <div className="p-6 sm:p-7 flex flex-col flex-1">
+                  <div className="text-[#f59e0b] text-lg sm:text-xl tracking-wide mb-3 sm:mb-4">★★★★★</div>
+                  <h3 className="font-heading font-bold text-[#0a0a14] text-base sm:text-lg leading-snug mb-3 sm:mb-4">
                     &quot;{cs.headline}&quot;
                   </h3>
-                  <p className="font-body text-[#0a0a14] text-sm leading-relaxed mb-6 flex-1">
+                  <p className="font-body text-[#0a0a14] text-sm leading-relaxed mb-5 sm:mb-6 flex-1">
                     {cs.description}
                   </p>
-                  <div className="border-t border-[#e8eaf0] pt-5">
+                  <div className="border-t border-[#e8eaf0] pt-4 sm:pt-5">
                     <p className="font-heading font-bold text-[#0a0a14] text-sm">{cs.client}</p>
                     <p className="text-[#2d3250] text-xs mt-0.5">{cs.industry}</p>
                   </div>
@@ -445,10 +471,10 @@ const consequences = [
 
 function PainAgitation() {
   return (
-    <section className="bg-[#f8f9fc] py-28 px-6 relative overflow-hidden">
+    <section className="bg-[#f8f9fc] py-16 sm:py-24 md:py-28 px-5 sm:px-6 relative overflow-hidden">
       <div className="relative z-10 max-w-3xl mx-auto">
         <FadeUp>
-          <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-[46px] text-[#0a0a14] leading-tight mb-14 text-center">
+          <h2 className="font-heading font-bold text-[26px] sm:text-3xl md:text-4xl lg:text-[46px] text-[#0a0a14] leading-tight mb-10 sm:mb-14 text-center">
             You Are Not Short On Enquiries.{' '}
             <span
               style={{
@@ -466,33 +492,53 @@ function PainAgitation() {
         {/* 80% / 63% stat callout */}
         <FadeUp delay={0.08}>
           <div
-            className="relative rounded-3xl overflow-hidden mb-16 px-8 py-12 md:px-12 md:py-14 text-center"
+            className="relative rounded-[4px] overflow-hidden mb-14 sm:mb-16 px-5 py-10 sm:px-8 sm:py-12 md:px-12 md:py-14 text-center"
             style={{ background: 'linear-gradient(135deg, #010738 0%, #0d3d7a 55%, #15a1df 100%)' }}
           >
             <div className="absolute -top-16 -right-16 w-56 h-56 rounded-full bg-white/[0.07] blur-3xl" />
             <div className="absolute -bottom-16 -left-16 w-56 h-56 rounded-full bg-[#15a1df]/30 blur-3xl" />
-            <p className="relative text-white/70 text-xs font-semibold uppercase tracking-[0.2em] mb-6">
+            <p className="relative text-white/70 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.18em] sm:tracking-[0.2em] mb-5 sm:mb-6">
               The Number Most Clinics Do Not Know
             </p>
-            <h3 className="relative font-heading font-bold text-white text-2xl md:text-3xl leading-tight mb-8">
+            <h3 className="relative font-heading font-bold text-white text-xl sm:text-2xl md:text-3xl leading-tight mb-8">
               80% of Your Leads Are Not Lost.
               <br className="hidden md:inline" /> They Are Unfollowed.
             </h3>
-            <div className="relative grid sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
-              <div className="rounded-2xl bg-white/[0.08] border border-white/15 px-6 py-7">
-                <p className="font-heading font-bold text-white text-4xl md:text-5xl mb-2">80%</p>
-                <p className="text-white/85 text-sm leading-snug">
+            <div className="relative grid grid-cols-2 gap-3 sm:gap-6 max-w-2xl mx-auto">
+              <div className="rounded-[4px] bg-white px-4 py-6 sm:px-6 sm:py-7 shadow-[0_8px_24px_rgba(0,0,0,0.25)]">
+                <p
+                  className="font-heading font-bold text-[44px] sm:text-5xl md:text-[56px] leading-none mb-2"
+                  style={{
+                    background: 'linear-gradient(135deg, #010738 0%, #15a1df 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                  }}
+                >
+                  80%
+                </p>
+                <p className="text-[#0a0a14] text-[12px] sm:text-sm leading-snug font-medium">
                   Of marketing leads never convert without proper follow-up
                 </p>
               </div>
-              <div className="rounded-2xl bg-white/[0.08] border border-white/15 px-6 py-7">
-                <p className="font-heading font-bold text-white text-4xl md:text-5xl mb-2">63%</p>
-                <p className="text-white/85 text-sm leading-snug">
+              <div className="rounded-[4px] bg-white px-4 py-6 sm:px-6 sm:py-7 shadow-[0_8px_24px_rgba(0,0,0,0.25)]">
+                <p
+                  className="font-heading font-bold text-[44px] sm:text-5xl md:text-[56px] leading-none mb-2"
+                  style={{
+                    background: 'linear-gradient(135deg, #010738 0%, #15a1df 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                  }}
+                >
+                  63%
+                </p>
+                <p className="text-[#0a0a14] text-[12px] sm:text-sm leading-snug font-medium">
                   Of those will convert with the right nurture system over time
                 </p>
               </div>
             </div>
-            <p className="relative text-white/85 text-base md:text-lg max-w-2xl mx-auto mt-8 leading-relaxed">
+            <p className="relative text-white/90 text-sm sm:text-base md:text-lg max-w-2xl mx-auto mt-7 sm:mt-8 leading-relaxed">
               If your clinic is only tracking leads in and consultations booked, you are looking at
               the smallest, least informative slice of the picture. The real money is sitting in the
               gap between those two numbers.
@@ -501,41 +547,58 @@ function PainAgitation() {
         </FadeUp>
 
         <FadeUp delay={0.08}>
-          <p className="text-[#0a0a14] text-lg mb-10 leading-relaxed">
-            If you are a cosmetic-focused clinic, here is what your current setup probably looks
-            like:
-          </p>
+          <div className="text-center mb-8 sm:mb-10">
+            <p className="text-[#15a1df] text-[11px] sm:text-xs font-semibold uppercase tracking-[0.2em] mb-3">
+              You Have Probably Already Tried
+            </p>
+            <h3 className="font-heading font-bold text-xl sm:text-2xl md:text-[28px] text-[#0a0a14] leading-snug">
+              If You Are A Cosmetic Dental Clinic, Here Is What Your Current Setup Probably Looks
+              Like:
+            </h3>
+          </div>
         </FadeUp>
 
-        <ul className="space-y-0 mb-16 border border-[#e8eaf0] rounded-2xl overflow-hidden bg-[#f8f9fc]">
-          {failedSolutions.map((item, i) => (
-            <motion.li
-              key={i}
-              initial={{ opacity: 0, x: -16 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.45, delay: i * 0.07, ease: EASE }}
-              className={`flex items-start gap-4 text-[#0a0a14] text-base md:text-lg px-8 py-5 ${
-                i < failedSolutions.length - 1 ? 'border-b border-[#e8eaf0]' : ''
-              }`}
-            >
-              <span className="text-red-400 font-bold shrink-0 mt-0.5 text-xl leading-none">✗</span>
-              {item}
-            </motion.li>
-          ))}
-        </ul>
+        <FadeUp delay={0.12}>
+          <div
+            className="relative rounded-[4px] overflow-hidden mb-14 sm:mb-16 p-6 sm:p-8 md:p-10 shadow-[0_10px_36px_rgba(1,7,56,0.35)]"
+            style={{
+              background: 'linear-gradient(160deg, #0a1740 0%, #050d2a 55%, #0a1740 100%)',
+            }}
+          >
+            <div className="absolute -top-16 -right-16 w-56 h-56 rounded-full bg-red-500/[0.09] blur-3xl pointer-events-none" />
+            <ul className="relative space-y-4 sm:space-y-5">
+              {failedSolutions.map((item, i) => (
+                <motion.li
+                  key={i}
+                  initial={{ opacity: 0, x: -16 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.45, delay: i * 0.07, ease: EASE }}
+                  className="flex items-start gap-4 text-white/95 text-[15px] sm:text-base md:text-lg leading-snug"
+                >
+                  <span className="shrink-0 mt-0.5 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-red-500/15 border border-red-400/40 flex items-center justify-center text-red-300 font-bold text-sm sm:text-base leading-none">
+                    ✗
+                  </span>
+                  <span>{item}</span>
+                </motion.li>
+              ))}
+            </ul>
+          </div>
+        </FadeUp>
 
         <FadeUp>
-          <p className="text-[#2d3250] text-xs font-semibold uppercase tracking-[0.2em] mb-8">
+          <p className="text-[#2d3250] text-[11px] sm:text-xs font-semibold uppercase tracking-[0.2em] mb-6 sm:mb-8">
             And here is what that costs you
           </p>
         </FadeUp>
-        <div className="space-y-6 mb-14">
+        <div className="space-y-5 sm:space-y-6 mb-12 sm:mb-14">
           {consequences.map((para, i) => (
             <FadeUp key={i} delay={i * 0.04}>
               <p
-                className={`text-lg leading-relaxed ${
-                  para.emphasis ? 'text-[#0a0a14] font-semibold text-xl' : 'text-[#0a0a14]'
+                className={`text-base sm:text-lg leading-relaxed ${
+                  para.emphasis
+                    ? 'text-[#0a0a14] font-semibold text-lg sm:text-xl'
+                    : 'text-[#0a0a14]'
                 }`}
               >
                 {para.text}
@@ -545,11 +608,11 @@ function PainAgitation() {
         </div>
 
         <FadeUp>
-          <div className="border-l-[3px] border-[#15a1df] pl-8 mb-16">
-            <p className="text-[#0a0a14] text-xl font-heading font-semibold mb-4">
+          <div className="border-l-[3px] border-[#15a1df] pl-5 sm:pl-8 mb-14 sm:mb-16">
+            <p className="text-[#0a0a14] text-lg sm:text-xl font-heading font-semibold mb-4">
               That is exactly the gap the Case-Ready Smile Pipeline closes.
             </p>
-            <p className="text-[#0a0a14] text-lg leading-relaxed">
+            <p className="text-[#0a0a14] text-base sm:text-lg leading-relaxed">
               Not more ad spend. Not more leads. A system that converts the leads you are already
               capable of generating - at every single stage, from click to booked, booked to show,
               show to qualified, qualified to closed.
@@ -571,37 +634,47 @@ const steps = [
   {
     label: 'Step 1',
     title: 'Research - Finding the Right Patient',
+    descMobile:
+      'We map your ideal cosmetic patient - the exact language they use, their objections, and where they are in the decision. Built from real patient conversations, not generic dental marketing assumptions.',
     desc: 'Before a single ad runs, we map your ideal cosmetic patient - the exact language they use to describe their smile concerns, what they have already tried, what they actually want, and where they are in their decision. This is not guesswork. It is built from real patient language, not assumptions about what dental marketing "usually" sounds like.',
   },
   {
     label: 'Step 2',
     title: 'Offer + Landing Page - Making Them Convert',
+    descMobile:
+      'A dedicated smile makeover landing page whose only job is to educate, pre-qualify, and book. Lifting page conversion on the same ad spend is one of the biggest levers in the entire system.',
     desc: 'We build a dedicated smile makeover landing page - your digital appointment setter. Its only job: educate, pre-qualify, and book the consultation. Lifting landing page conversion on the same ad spend is one of the highest-leverage moves in the entire system - same clicks, same cost, dramatically better output. Most clinics never touch this number because they never built a page designed to move it.',
   },
   {
     label: 'Step 3',
     title: 'Qualification - Filtering Before They Reach You',
+    descMobile:
+      'Patients answer short intent questions before landing in your inbox. Casual browsers and price shoppers self-select out - your team only ever touches serious enquiries.',
     desc: 'Patients answer a short set of questions about treatment interest, timeline, and readiness before they ever land in your inbox. This filters out the casual browsers and price shoppers before they take up your team time, so by the time a lead reaches your front desk, they have already self-selected.',
   },
   {
     label: 'Step 4',
     title: 'Speed-to-Lead - Catching Them at Peak Intent',
+    descMobile:
+      'The moment a qualified enquiry comes in, SMS, email, calendar invite, and internal alerts all fire. Most clinics lose hot leads because the moment of highest intent passes in silence.',
     desc: 'The moment a qualified enquiry comes in, the system fires an SMS confirmation, an email confirmation, a calendar invite, and an internal notification to your team. Speed to lead is one of the single biggest levers in this entire system - and most clinics lose hot leads not because the patient changed their mind, but because the moment of highest intent passed in silence.',
   },
   {
     label: 'Step 5',
     title: 'Nurture - Following Up Until They Are Ready',
+    descMobile:
+      'Email sequences that build trust. SMS reminders that fix no-shows. Retargeting for those who did not convert yet. A no today is not a dead lead - just a relationship that has not matured.',
     desc: 'Email sequences that build trust and handle objections over time. SMS and call reminders that fix the no-show problem. Retargeting for visitors who did not convert yet - re-engaging someone who already knows you costs far less than acquiring someone new. A lead that says no today is not a dead lead. It is a relationship that has not matured yet.',
   },
 ]
 
 function HowItWorks() {
   return (
-    <section className="py-28 px-6" style={{ background: LIGHT_GRADIENT }}>
+    <section className="py-16 sm:py-24 md:py-28 px-5 sm:px-6" style={{ background: LIGHT_GRADIENT }}>
       <div className="max-w-4xl mx-auto">
         <FadeUp>
-          <div className="text-center mb-20">
-            <h2 className="font-heading font-bold text-2xl sm:text-3xl md:text-[34px] lg:text-[38px] text-[#0a0a14] leading-tight mb-5 md:whitespace-nowrap">
+          <div className="text-center mb-14 sm:mb-20">
+            <h2 className="font-heading font-bold text-[24px] sm:text-3xl md:text-[34px] lg:text-[38px] text-[#0a0a14] leading-tight mb-5 md:whitespace-nowrap">
               How The{' '}
               <span
                 style={{
@@ -614,9 +687,9 @@ function HowItWorks() {
                 Case-Ready Smile Pipeline™ Works
               </span>
             </h2>
-            <p className="text-[#0a0a14] text-lg max-w-2xl mx-auto leading-relaxed">
+            <p className="text-[#0a0a14] text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
               Five connected stages. Each one feeds the next. Miss one and the whole system
-              underperforms - which is exactly why most clinics current setups do not work.
+              underperforms - which is exactly why most clinic setups do not work.
             </p>
           </div>
         </FadeUp>
@@ -627,23 +700,28 @@ function HowItWorks() {
             style={{ bottom: '120px' }}
           />
 
-          <div className="space-y-14">
+          <div className="space-y-10 sm:space-y-14">
             {steps.map((step, i) => (
               <FadeUp key={i} delay={i * 0.08}>
-                <div className="flex gap-8 md:gap-14 relative">
+                <div className="flex gap-5 sm:gap-8 md:gap-14 relative">
                   <div className="relative shrink-0">
-                    <div className="w-16 h-16 rounded-full border-2 border-[#15a1df]/40 bg-white shadow-[0_0_0_6px_rgba(21,161,223,0.07)] flex items-center justify-center">
-                      <span className="lp3-display font-bold text-[#15a1df] text-xl">{i + 1}</span>
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full border-2 border-[#15a1df]/40 bg-white shadow-[0_0_0_6px_rgba(21,161,223,0.07)] flex items-center justify-center">
+                      <span className="lp3-display font-bold text-[#15a1df] text-base sm:text-xl">
+                        {i + 1}
+                      </span>
                     </div>
                   </div>
-                  <div className="pt-3">
-                    <p className="lp3-display text-[#15a1df] text-xs font-semibold uppercase tracking-[0.18em] mb-2">
+                  <div className="pt-1.5 sm:pt-3 flex-1 min-w-0">
+                    <p className="lp3-display text-[#15a1df] text-[11px] sm:text-xs font-semibold uppercase tracking-[0.18em] mb-2">
                       {step.label}
                     </p>
-                    <h3 className="font-heading font-bold text-xl md:text-2xl text-[#0a0a14] mb-3 leading-snug">
+                    <h3 className="font-heading font-bold text-lg sm:text-xl md:text-2xl text-[#0a0a14] mb-3 leading-snug">
                       {step.title}
                     </h3>
-                    <p className="text-[#0a0a14] leading-relaxed text-base md:text-lg">
+                    <p className="text-[#0a0a14] leading-relaxed text-[15px] md:hidden">
+                      {step.descMobile}
+                    </p>
+                    <p className="hidden md:block text-[#0a0a14] leading-relaxed text-lg">
                       {step.desc}
                     </p>
                   </div>
@@ -692,11 +770,11 @@ const reasons = [
 
 function WhyChooseUs() {
   return (
-    <section className="bg-[#f8f9fc] py-28 px-6 relative overflow-hidden">
+    <section className="bg-[#f8f9fc] py-16 sm:py-24 md:py-28 px-5 sm:px-6 relative overflow-hidden">
       <div className="relative z-10 max-w-6xl mx-auto">
         <FadeUp>
-          <div className="text-center mb-16">
-            <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-[46px] text-[#0a0a14] mb-5 leading-tight">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="font-heading font-bold text-[26px] sm:text-3xl md:text-4xl lg:text-[46px] text-[#0a0a14] mb-5 leading-tight">
               6 Reasons Cosmetic Clinics Choose the
               <br />
               <span
@@ -720,7 +798,7 @@ function WhyChooseUs() {
         <div className="grid md:grid-cols-2 gap-6">
           {reasons.map((r, i) => (
             <FadeUp key={i} delay={i * 0.06} className="h-full">
-              <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 h-full flex flex-col">
+              <div className="bg-white rounded-[4px] overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 h-full flex flex-col">
                 <div className="relative aspect-[16/10] overflow-hidden shrink-0 bg-[#0a1740]">
                   <Image
                     src={`/images/smilemakeover-lp3/reasons/${i + 1}.jpg`}
@@ -728,13 +806,13 @@ function WhyChooseUs() {
                     fill
                     className="object-cover"
                   />
-                  <span className="absolute bottom-3 left-3 w-9 h-9 rounded-lg bg-white/95 backdrop-blur-sm flex items-center justify-center font-heading font-bold text-[#010738] text-sm shadow-md">
+                  <span className="absolute bottom-3 left-3 w-9 h-9 rounded-[3px] bg-white/95 backdrop-blur-sm flex items-center justify-center font-heading font-bold text-[#010738] text-sm shadow-md">
                     {i + 1}
                   </span>
                 </div>
-                <div className="p-7 flex-1 flex flex-col">
-                  <div className="border-l-[3px] border-[#15a1df] pl-4 mb-4">
-                    <h3 className="font-heading font-bold text-[#0a0a14] text-lg leading-snug">
+                <div className="p-6 sm:p-7 flex-1 flex flex-col">
+                  <div className="border-l-[3px] border-[#15a1df] pl-4 mb-3 sm:mb-4">
+                    <h3 className="font-heading font-bold text-[#0a0a14] text-base sm:text-lg leading-snug">
                       {r.title}
                     </h3>
                   </div>
@@ -795,10 +873,10 @@ const diffParas = [
 
 function Differentiation() {
   return (
-    <section className="py-28 px-6" style={{ background: LIGHT_GRADIENT }}>
+    <section className="py-16 sm:py-24 md:py-28 px-5 sm:px-6" style={{ background: LIGHT_GRADIENT }}>
       <div className="max-w-4xl mx-auto">
         <FadeUp>
-          <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-[46px] text-[#0a0a14] mb-12 leading-tight text-center max-w-5xl mx-auto">
+          <h2 className="font-heading font-bold text-[26px] sm:text-3xl md:text-4xl lg:text-[46px] text-[#0a0a14] mb-10 sm:mb-12 leading-tight text-center max-w-5xl mx-auto">
             Why This Works When{' '}
             <br className="hidden md:block" />
             <span
@@ -846,7 +924,7 @@ function Differentiation() {
 
         <FadeUp>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="group relative bg-white rounded-3xl overflow-hidden shadow-[0_4px_24px_rgba(1,7,56,0.08)] hover:shadow-[0_12px_40px_rgba(1,7,56,0.15)] transition-shadow duration-500 flex flex-col">
+            <div className="group relative bg-white rounded-[4px] overflow-hidden shadow-[0_4px_24px_rgba(1,7,56,0.08)] hover:shadow-[0_12px_40px_rgba(1,7,56,0.15)] transition-shadow duration-500 flex flex-col">
               <div
                 className="relative px-8 pt-8 pb-7 overflow-hidden"
                 style={{
@@ -871,7 +949,7 @@ function Differentiation() {
                       }`}
                     >
                       <div
-                        className="shrink-0 w-9 h-9 rounded-lg flex items-center justify-center font-heading font-bold text-white text-sm shadow-[0_4px_12px_rgba(21,161,223,0.35)]"
+                        className="shrink-0 w-9 h-9 rounded-[3px] flex items-center justify-center font-heading font-bold text-white text-sm shadow-[0_4px_12px_rgba(21,161,223,0.35)]"
                         style={{
                           background: 'linear-gradient(135deg, #010738 0%, #15a1df 100%)',
                         }}
@@ -892,7 +970,7 @@ function Differentiation() {
               </div>
             </div>
 
-            <div className="group relative bg-white rounded-3xl overflow-hidden shadow-[0_4px_24px_rgba(1,7,56,0.08)] hover:shadow-[0_12px_40px_rgba(1,7,56,0.15)] transition-shadow duration-500 flex flex-col">
+            <div className="group relative bg-white rounded-[4px] overflow-hidden shadow-[0_4px_24px_rgba(1,7,56,0.08)] hover:shadow-[0_12px_40px_rgba(1,7,56,0.15)] transition-shadow duration-500 flex flex-col">
               <div
                 className="relative px-8 pt-8 pb-7 overflow-hidden"
                 style={{
@@ -917,7 +995,7 @@ function Differentiation() {
                       }`}
                     >
                       <div
-                        className="shrink-0 w-9 h-9 rounded-lg flex items-center justify-center font-heading font-bold text-white text-sm shadow-[0_4px_12px_rgba(16,185,129,0.35)]"
+                        className="shrink-0 w-9 h-9 rounded-[3px] flex items-center justify-center font-heading font-bold text-white text-sm shadow-[0_4px_12px_rgba(16,185,129,0.35)]"
                         style={{
                           background: 'linear-gradient(135deg, #047857 0%, #10b981 100%)',
                         }}
@@ -1055,11 +1133,11 @@ function XCircleThin({ className = 'w-6 h-6' }: { className?: string }) {
 
 function QualifySection() {
   return (
-    <section className="bg-[#f8f9fc] py-28 px-6">
+    <section className="bg-[#f8f9fc] py-16 sm:py-24 md:py-28 px-5 sm:px-6">
       <div className="max-w-5xl mx-auto">
         <FadeUp>
-          <div className="text-center mb-16">
-            <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-[46px] text-[#0a0a14] mb-5 leading-tight">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="font-heading font-bold text-[26px] sm:text-3xl md:text-4xl lg:text-[46px] text-[#0a0a14] mb-5 leading-tight">
               Is the{' '}
               <span
                 style={{
@@ -1083,15 +1161,15 @@ function QualifySection() {
         <FadeUp delay={0.1}>
           <div className="grid md:grid-cols-2 gap-6 mb-20 items-stretch">
             {/* IS for you - premium white card with subtle green glow */}
-            <article className="group relative rounded-3xl bg-white p-8 md:p-10 border border-emerald-200/70 shadow-[0_8px_32px_rgba(16,185,129,0.10)] hover:shadow-[0_18px_48px_rgba(16,185,129,0.22)] hover:border-emerald-300 hover:-translate-y-1 transition-all duration-300 flex flex-col h-full overflow-hidden">
+            <article className="group relative rounded-[4px] bg-white p-6 sm:p-8 md:p-10 border border-emerald-200/70 shadow-[0_8px_32px_rgba(16,185,129,0.10)] hover:shadow-[0_18px_48px_rgba(16,185,129,0.22)] hover:border-emerald-300 hover:-translate-y-1 transition-all duration-300 flex flex-col h-full overflow-hidden">
               <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-emerald-400 via-emerald-500 to-emerald-400" />
               <div className="absolute -top-24 -right-24 w-56 h-56 rounded-full bg-emerald-100/50 blur-3xl pointer-events-none" />
 
-              <header className="relative flex items-center gap-3 mb-8">
-                <div className="w-11 h-11 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center shadow-sm">
-                  <CheckCircleSolid className="w-6 h-6" />
+              <header className="relative flex items-center gap-3 mb-6 sm:mb-8">
+                <div className="w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center shadow-sm shrink-0">
+                  <CheckCircleSolid className="w-4 h-4 sm:w-6 sm:h-6" />
                 </div>
-                <h3 className="font-body font-bold text-[#0a0a14] text-xl tracking-tight">
+                <h3 className="font-body font-bold text-[#0a0a14] text-lg sm:text-xl tracking-tight">
                   This IS for you if:
                 </h3>
               </header>
@@ -1114,15 +1192,15 @@ function QualifySection() {
             </article>
 
             {/* NOT for you - muted slate card */}
-            <article className="group relative rounded-3xl bg-slate-100/70 p-8 md:p-10 border border-slate-200/80 shadow-sm hover:shadow-md hover:border-slate-300 hover:-translate-y-1 transition-all duration-300 flex flex-col h-full overflow-hidden">
+            <article className="group relative rounded-[4px] bg-slate-100/70 p-6 sm:p-8 md:p-10 border border-slate-200/80 shadow-sm hover:shadow-md hover:border-slate-300 hover:-translate-y-1 transition-all duration-300 flex flex-col h-full overflow-hidden">
               <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-slate-300 via-slate-400 to-slate-300" />
               <div className="absolute -top-24 -right-24 w-56 h-56 rounded-full bg-slate-300/30 blur-3xl pointer-events-none" />
 
-              <header className="relative flex items-center gap-3 mb-8">
-                <div className="w-11 h-11 rounded-full bg-white border border-slate-300 flex items-center justify-center shadow-sm">
-                  <XCircleThin className="w-6 h-6" />
+              <header className="relative flex items-center gap-3 mb-6 sm:mb-8">
+                <div className="w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-white border border-slate-300 flex items-center justify-center shadow-sm shrink-0">
+                  <XCircleThin className="w-4 h-4 sm:w-6 sm:h-6" />
                 </div>
-                <h3 className="font-body font-bold text-[#0a0a14] text-xl tracking-tight">
+                <h3 className="font-body font-bold text-[#0a0a14] text-lg sm:text-xl tracking-tight">
                   This is NOT for you if:
                 </h3>
               </header>
@@ -1155,14 +1233,14 @@ function QualifySection() {
         <div className="grid md:grid-cols-2 gap-5 mb-16 items-stretch">
           {archetypes.map((a, i) => (
             <FadeUp key={i} delay={i * 0.07} className="h-full">
-              <div className="h-full bg-white border border-[#e8eaf0] rounded-2xl p-8 relative overflow-hidden hover:border-[#15a1df]/30 hover:shadow-md transition-all duration-300 flex flex-col">
-                <span className="absolute top-4 right-6 font-black text-6xl text-[#010738]/[0.05] select-none leading-none">
+              <div className="h-full bg-white border border-[#e8eaf0] rounded-[4px] p-6 sm:p-8 relative overflow-hidden hover:border-[#15a1df]/30 hover:shadow-md transition-all duration-300 flex flex-col">
+                <span className="absolute -top-2 right-4 sm:top-3 sm:right-6 font-black text-[64px] sm:text-7xl text-[#010738]/[0.035] select-none leading-none pointer-events-none">
                   {a.num}
                 </span>
-                <h4 className="font-heading font-bold text-[#0a0a14] text-lg mb-3 pr-12">
+                <h4 className="relative font-heading font-bold text-[#0a0a14] text-base sm:text-lg mb-3 pr-14 sm:pr-16 leading-snug">
                   {a.title}
                 </h4>
-                <p className="text-[#0a0a14] text-sm leading-relaxed flex-1">{a.desc}</p>
+                <p className="relative text-[#0a0a14] text-sm leading-relaxed flex-1">{a.desc}</p>
               </div>
             </FadeUp>
           ))}
@@ -1170,7 +1248,10 @@ function QualifySection() {
 
         <FadeUp>
           <div className="flex flex-col items-center gap-4">
-            <GradientCTAButton label="Check If Your Clinic Is a Good Fit" />
+            <GradientCTAButton
+              label="Check If Your Clinic Is a Good Fit"
+              mobileLabel="See If You Qualify"
+            />
             <p className="text-[#0a0a14] text-base max-w-md text-center leading-relaxed">
               {SUB_COPY_FIT}
             </p>
@@ -1215,12 +1296,12 @@ const missionParas = [
 function BrandMission() {
   return (
     <section
-      className="py-28 px-6 relative overflow-hidden"
+      className="py-16 sm:py-24 md:py-28 px-5 sm:px-6 relative overflow-hidden"
       style={{ background: LIGHT_GRADIENT }}
     >
       <div className="relative z-10 max-w-3xl mx-auto">
         <FadeUp>
-          <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-[46px] text-[#0a0a14] leading-tight mb-16 text-center">
+          <h2 className="font-heading font-bold text-[26px] sm:text-3xl md:text-4xl lg:text-[46px] text-[#0a0a14] leading-tight mb-12 sm:mb-16 text-center">
             We Exist For One Reason.{' '}
             <span
               style={{
@@ -1310,11 +1391,14 @@ function FAQSection() {
   const [active, setActive] = useState<number | null>(null)
 
   return (
-    <section className="bg-[#f8f9fc] py-28 px-6">
+    <section className="bg-[#f8f9fc] py-16 sm:py-24 md:py-28 px-5 sm:px-6">
       <div className="max-w-3xl mx-auto">
         <FadeUp>
-          <div className="text-center mb-16">
-            <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-[46px] text-[#0a0a14] leading-tight">
+          <div className="text-center mb-12 sm:mb-16">
+            <p className="text-[#15a1df] text-[11px] sm:text-xs font-semibold uppercase tracking-[0.2em] mb-4">
+              Still Have Questions?
+            </p>
+            <h2 className="font-heading font-bold text-[26px] sm:text-3xl md:text-4xl lg:text-[46px] text-[#0a0a14] leading-tight mb-5">
               Frequently{' '}
               <span
                 style={{
@@ -1327,13 +1411,17 @@ function FAQSection() {
                 Asked Questions
               </span>
             </h2>
+            <p className="text-[#0a0a14] text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+              Everything you might be wondering, answered directly. If your question is not here, we
+              will cover it on the call.
+            </p>
           </div>
         </FadeUp>
 
-        <div className="space-y-2">
+        <div className="space-y-2 mb-14 sm:mb-16">
           {faqItems.map((item, i) => (
             <FadeUp key={i} delay={i * 0.03}>
-              <div className="border border-[#e8eaf0] rounded-2xl overflow-hidden bg-white shadow-sm">
+              <div className="border border-[#e8eaf0] rounded-[4px] overflow-hidden bg-white shadow-sm">
                 <button
                   onClick={() => setActive(active === i ? null : i)}
                   className="w-full flex items-center justify-between gap-6 px-7 py-6 text-left hover:bg-[#f8f9fc] transition-colors"
@@ -1359,7 +1447,9 @@ function FAQSection() {
                       transition={{ duration: 0.3, ease: EASE }}
                       className="overflow-hidden"
                     >
-                      <p className="px-7 pb-7 text-[#0a0a14] leading-relaxed text-base">{item.a}</p>
+                      <p className="px-5 sm:px-7 pb-6 sm:pb-7 text-[#0a0a14] leading-relaxed text-sm sm:text-base">
+                        {item.a}
+                      </p>
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -1367,6 +1457,26 @@ function FAQSection() {
             </FadeUp>
           ))}
         </div>
+
+        <FadeUp>
+          <div
+            className="relative rounded-[4px] overflow-hidden px-6 py-10 sm:px-10 sm:py-12 text-center"
+            style={{ background: 'linear-gradient(135deg, #010738 0%, #0d3d7a 55%, #15a1df 100%)' }}
+          >
+            <div className="absolute -top-16 -right-16 w-56 h-56 rounded-full bg-white/[0.07] blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-16 -left-16 w-56 h-56 rounded-full bg-[#15a1df]/30 blur-3xl pointer-events-none" />
+            <h3 className="relative font-heading font-bold text-white text-xl sm:text-2xl md:text-[28px] leading-snug mb-4">
+              Still Have A Question We Did Not Cover?
+            </h3>
+            <p className="relative text-white/85 text-sm sm:text-base leading-relaxed max-w-xl mx-auto mb-8">
+              Bring it to the call. 30 minutes, free, no pitch - we will answer it directly and
+              show you exactly what installing the pipeline would look like in your clinic.
+            </p>
+            <div className="relative flex justify-center">
+              <CTAButton />
+            </div>
+          </div>
+        </FadeUp>
       </div>
     </section>
   )
@@ -1390,7 +1500,7 @@ const closingParas = [
 
 function FinalCTA() {
   return (
-    <section className="py-28 px-6 relative overflow-hidden" style={{ background: DARK_GRADIENT }}>
+    <section className="py-16 sm:py-24 md:py-28 px-5 sm:px-6 relative overflow-hidden" style={{ background: DARK_GRADIENT }}>
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute bottom-[-15%] left-1/2 -translate-x-1/2 w-[1100px] h-[600px] bg-[#15a1df] opacity-[0.18] blur-[140px] rounded-full" />
         <div className="absolute top-[10%] left-[15%] w-[500px] h-[400px] bg-[#0d4fa8] opacity-[0.30] blur-[100px] rounded-full" />
@@ -1405,17 +1515,19 @@ function FinalCTA() {
 
       <div className="relative z-10 max-w-3xl mx-auto text-center">
         <FadeUp>
-          <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-[50px] text-white leading-tight mb-12">
+          <h2 className="font-heading font-bold text-[28px] sm:text-3xl md:text-4xl lg:text-[50px] text-white leading-tight mb-10 sm:mb-12">
             Your Leads Are Not the Problem. Your Funnel Is.
           </h2>
         </FadeUp>
 
-        <div className="space-y-6 mb-14 text-left">
+        <div className="space-y-5 sm:space-y-6 mb-12 sm:mb-14 text-left">
           {closingParas.map((para, i) => (
             <FadeUp key={i} delay={i * 0.05}>
               <p
-                className={`text-lg leading-relaxed ${
-                  i === 2 ? 'text-[#15a1df] font-heading font-semibold text-xl' : 'text-white/90'
+                className={`text-base sm:text-lg leading-relaxed ${
+                  i === 2
+                    ? 'text-[#15a1df] font-heading font-semibold text-lg sm:text-xl'
+                    : 'text-white/90'
                 }`}
               >
                 {para}
@@ -1425,9 +1537,12 @@ function FinalCTA() {
         </div>
 
         <FadeUp>
-          <ul className="inline-flex flex-col gap-4 text-left mb-14">
+          <ul className="inline-flex flex-col gap-3 sm:gap-4 text-left mb-12 sm:mb-14">
             {closingBullets.map((b) => (
-              <li key={b} className="flex items-start gap-3 text-white/95 text-lg">
+              <li
+                key={b}
+                className="flex items-start gap-3 text-white/95 text-sm sm:text-base md:text-lg leading-snug"
+              >
                 <CheckIcon />
                 {b}
               </li>
@@ -1438,7 +1553,9 @@ function FinalCTA() {
         <FadeUp>
           <div className="flex flex-col items-center gap-5">
             <CTAButton />
-            <p className="text-white/70 text-base max-w-2xl leading-relaxed">{SUB_COPY_FINAL}</p>
+            <p className="text-white/70 text-sm sm:text-base max-w-2xl leading-relaxed px-2">
+              {SUB_COPY_FINAL}
+            </p>
           </div>
         </FadeUp>
       </div>
