@@ -102,8 +102,8 @@ function CTAButton({
   return (
     <a
       href={BOOKING_URL}
-      className={`lp3-display inline-block font-bold text-white rounded-xl bg-[#15a1df] hover:bg-[#0d8bbf] transition-all duration-300 shadow-lg hover:shadow-[0_0_36px_rgba(21,161,223,0.5)] hover:-translate-y-0.5 ${
-        size === 'lg' ? 'text-base md:text-[17px] px-14 py-5' : 'text-sm md:text-base px-9 py-4'
+      className={`inline-block font-bold text-white rounded-xl bg-[#15a1df] hover:bg-[#0d8bbf] transition-all duration-300 shadow-lg hover:shadow-[0_0_36px_rgba(21,161,223,0.5)] hover:-translate-y-0.5 ${
+        size === 'lg' ? 'text-base md:text-lg px-14 py-5' : 'text-base px-9 py-4'
       }`}
     >
       {label}
@@ -121,8 +121,8 @@ function GradientCTAButton({
   return (
     <a
       href={BOOKING_URL}
-      className={`lp3-display relative inline-block font-bold text-white rounded-xl overflow-hidden group shadow-lg hover:shadow-[0_8px_36px_rgba(21,161,223,0.45)] hover:-translate-y-0.5 transition-all duration-300 ${
-        size === 'lg' ? 'text-base md:text-[17px] px-14 py-5' : 'text-sm md:text-base px-9 py-4'
+      className={`relative inline-block font-bold text-white rounded-xl overflow-hidden group shadow-lg hover:shadow-[0_8px_36px_rgba(21,161,223,0.45)] hover:-translate-y-0.5 transition-all duration-300 ${
+        size === 'lg' ? 'text-base md:text-lg px-14 py-5' : 'text-base px-9 py-4'
       }`}
       style={{ background: 'linear-gradient(135deg, #010738 0%, #0d5f99 55%, #15a1df 100%)' }}
     >
@@ -196,13 +196,13 @@ function StickyNav() {
       <div className="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
         <Link
           href="/"
-          className="lp3-display font-semibold text-sm text-white tracking-wider hover:text-[#15a1df] transition-colors"
+          className="font-heading font-bold text-base md:text-lg text-white tracking-tight hover:text-[#15a1df] transition-colors"
         >
           Abdullah Tayyab
         </Link>
         <a
           href={BOOKING_URL}
-          className="lp3-display font-semibold text-[11px] text-white bg-[#15a1df] hover:bg-[#0d8bbf] px-4 py-2 rounded-lg transition-all duration-200 hover:shadow-[0_0_20px_rgba(21,161,223,0.4)]"
+          className="font-bold text-xs md:text-sm text-white bg-[#15a1df] hover:bg-[#0d8bbf] px-4 py-2.5 rounded-lg transition-all duration-200 hover:shadow-[0_0_20px_rgba(21,161,223,0.4)]"
         >
           Book Your Free Strategy Consultation
         </a>
@@ -232,17 +232,18 @@ function Hero() {
         />
       </div>
 
-      <div className="relative z-10 max-w-4xl w-full mx-auto">
+      <div className="relative z-10 max-w-5xl w-full mx-auto">
         <FadeUp>
-          <div className="inline-flex justify-center border border-[#15a1df]/30 bg-[#15a1df]/[0.08] text-[#15a1df] text-xs font-semibold tracking-[0.1em] uppercase px-5 py-2.5 rounded-full mb-9 max-w-xs sm:max-w-none text-center">
-            For Cosmetic Dental Clinics Doing $50k-$500k/Month
+          <div className="inline-flex justify-center bg-[#0a1740]/80 border border-white/[0.08] backdrop-blur-sm text-white text-xs sm:text-sm font-semibold tracking-[0.16em] uppercase px-6 py-3 md:px-7 md:py-3.5 rounded-full mb-10 shadow-[0_8px_28px_rgba(0,0,0,0.35)]">
+            For Cosmetic Dental Clinics Doing $50k-$500k+/Month
           </div>
         </FadeUp>
 
         <FadeUp delay={0.1}>
           <h1 className="font-heading font-bold text-3xl sm:text-4xl md:text-[42px] lg:text-[48px] text-white leading-[1.15] tracking-tight mb-10">
-            We Install Your{' '}
+            <span className="md:block">We Install Your</span>{' '}
             <span
+              className="md:block"
               style={{
                 background: 'linear-gradient(90deg, #a8dcf5 0%, #15a1df 55%, #0c75a8 100%)',
                 WebkitBackgroundClip: 'text',
@@ -252,7 +253,8 @@ function Hero() {
             >
               Case-Ready Smile Pipeline
             </span>{' '}
-            To Generate Qualified Smile Makeover Consultations For Your Calendar
+            <span className="md:block">To Generate Qualified Smile Makeover</span>{' '}
+            <span className="md:block">Consultations For Your Calendar</span>
           </h1>
         </FadeUp>
 
@@ -599,7 +601,7 @@ function HowItWorks() {
       <div className="max-w-4xl mx-auto">
         <FadeUp>
           <div className="text-center mb-20">
-            <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-[46px] text-[#0a0a14] leading-tight mb-5">
+            <h2 className="font-heading font-bold text-2xl sm:text-3xl md:text-[34px] lg:text-[38px] text-[#0a0a14] leading-tight mb-5 md:whitespace-nowrap">
               How The{' '}
               <span
                 style={{
@@ -695,7 +697,8 @@ function WhyChooseUs() {
         <FadeUp>
           <div className="text-center mb-16">
             <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-[46px] text-[#0a0a14] mb-5 leading-tight">
-              6 Reasons Cosmetic Clinics Choose the{' '}
+              6 Reasons Cosmetic Clinics Choose the
+              <br />
               <span
                 style={{
                   background: 'linear-gradient(135deg, #010738 10%, #15a1df 100%)',
@@ -796,7 +799,8 @@ function Differentiation() {
       <div className="max-w-4xl mx-auto">
         <FadeUp>
           <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-[46px] text-[#0a0a14] mb-12 leading-tight text-center max-w-5xl mx-auto">
-            Why Generic Dental Marketing{' '}
+            Why This Works When{' '}
+            <br className="hidden md:block" />
             <span
               style={{
                 background: 'linear-gradient(135deg, #010738 10%, #15a1df 100%)',
@@ -805,7 +809,7 @@ function Differentiation() {
                 backgroundClip: 'text',
               }}
             >
-              Falls Short
+              Generic Dental Marketing Does Not
             </span>
           </h2>
         </FadeUp>
@@ -1066,11 +1070,12 @@ function QualifySection() {
                 }}
               >
                 Case-Ready Smile Pipeline™
-              </span>{' '}
+              </span>
+              <br />
               Right For Your Clinic?
             </h2>
-            <p className="text-[#0a0a14] text-lg max-w-3xl mx-auto leading-relaxed">
-              Read both columns honestly. Decide if this is worth a 30-minute call.
+            <p className="text-[#0a0a14] text-lg max-w-4xl mx-auto leading-relaxed">
+              Read both columns honestly - then decide if this is worth a 30-minute conversation.
             </p>
           </div>
         </FadeUp>
@@ -1445,23 +1450,23 @@ function FinalCTA() {
 
 function LPFooter() {
   return (
-    <footer className="py-12 px-6" style={{ background: '#000820' }}>
+    <footer className="py-8 px-6" style={{ background: '#050e2e' }}>
       <div className="max-w-4xl mx-auto text-center">
-        <p className="text-white/30 text-sm mb-2">
+        <p className="text-white/75 text-sm mb-1.5">
           &copy; {new Date().getFullYear()} Abdullah Tayyab. All rights reserved.
         </p>
-        <p className="text-white/[0.18] text-xs mb-4">
+        <p className="text-white/55 text-xs mb-3">
           The Case-Ready Smile Pipeline™ is a done-for-you patient acquisition system for cosmetic
           dental clinics.
         </p>
-        <p className="text-white/[0.14] text-xs max-w-2xl mx-auto leading-relaxed mb-6">
+        <p className="text-white/45 text-xs max-w-2xl mx-auto leading-relaxed mb-4">
           Results vary by clinic, market, ad budget, and follow-up execution speed. Figures
           referenced are based on typical funnel performance improvements and are not guarantees of
           specific outcomes for any individual clinic.
         </p>
         <Link
           href="/privacy-policy"
-          className="text-white/25 text-xs hover:text-white/50 transition-colors"
+          className="text-white/70 text-xs underline underline-offset-4 hover:text-white transition-colors"
         >
           Privacy Policy
         </Link>
